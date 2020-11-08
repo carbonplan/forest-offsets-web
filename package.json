@@ -1,0 +1,45 @@
+{
+  "name": "retro-web",
+  "version": "1.0.0",
+  "description": "browser and visualizations for forest offsets retrospective",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next -p 5001",
+    "build": "next build",
+    "start": "next start",
+    "format": "npm run format-js",
+    "format-js": "prettier --write '*.js' '{components,pages,browser,article}/**/*.js'",
+    "format-md": "prettier --write README.md '{article}/**/*.md' --parser mdx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carbonplan/article-template.git"
+  },
+  "author": "carbonplan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carbonplan/article-template/issues"
+  },
+  "homepage": "https://github.com/carbonplan/article-template#readme",
+  "dependencies": {
+    "@carbonplan/components": "^1.0.0",
+    "@carbonplan/theme": "^1.1.0",
+    "@mdx-js/loader": "^1.6.1",
+    "@next/mdx": "^9.4.1",
+    "@theme-ui/color": "^0.3.1",
+    "d3": "^6.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mapbox-gl": "^1.12.0",
+    "next": "^10.0.1",
+    "polished": "^4.0.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "rehype-slug": "^3.0.0",
+    "safe-compare": "^1.1.4",
+    "swr": "^0.3.8",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
+  }
+}
