@@ -6,7 +6,6 @@ function useOptions(map, options) {
   const theme = context.theme
 
   useEffect(() => {
-
     const updateLayer = (name) => {
       if (options[name]) {
         map.setPaintProperty(name, 'line-opacity', 1)
