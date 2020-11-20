@@ -1,9 +1,7 @@
-import { Box } from 'theme-ui'
+import { Box } from "theme-ui";
 
 const List = () => {
-  return <Box>
-    List
-  </Box>
-}
+  return <Box>List</Box>;
+};
 
-export default List
+export default List;

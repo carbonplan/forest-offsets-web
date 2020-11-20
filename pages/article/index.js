@@ -1,4 +1,4 @@
-import Index from '../../article/index.md'
-import { withAuth } from '../../lib/auth'
+import Index from "../../article/index.md";
+import { withAuth } from "../../lib/auth";
 
-export default withAuth(Index, ['admin', 'collaborator'])
+export default withAuth(Index, ["admin", "collaborator"]);

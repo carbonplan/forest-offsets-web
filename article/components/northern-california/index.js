@@ -1,19 +1,21 @@
-import { Box, Divider } from 'theme-ui'
-import Region from './region'
+import { Box, Divider } from "theme-ui";
+import Region from "./region";
 
 const Index = () => {
-  return <Box
+  return (
+    <Box
       sx={{
         mt: [5],
         mb: [5],
-        position: 'relative',
-        width: ['90%', '90%', '650px'],
+        position: "relative",
+        width: ["90%", "90%", "650px"],
       }}
     >
       <Divider />
       <Region />
       <Divider />
     </Box>
-}
+  );
+};
 
-export default Index
+export default Index;

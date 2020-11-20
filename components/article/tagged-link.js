@@ -1,12 +1,12 @@
-import { Link } from 'theme-ui'
+import { Link } from "theme-ui";
 
 const event = ({ action, category, label, value }) => {
-  window.gtag('event', action, {
+  window.gtag("event", action, {
     event_category: category,
     event_label: label,
     value: value,
-  })
-}
+  });
+};
 
 const TaggedLink = ({ action, category, href, children }) => {
   const onClick = (e) => {
@@ -14,14 +14,14 @@ const TaggedLink = ({ action, category, href, children }) => {
       action: action,
       category: category,
       label: href,
-    })
-  }
+    });
+  };
 
   return (
     <Link onClick={onClick} href={href}>
-      {' '}
-      {children}{' '}
+      {" "}
+      {children}{" "}
     </Link>
-  )
-}
-export default TaggedLink
+  );
+};
+export default TaggedLink;
