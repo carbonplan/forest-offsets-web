@@ -1,5 +1,5 @@
-import base from "@carbonplan/theme";
+import base from '@carbonplan/theme'
 
 export default {
   ...base,
-};
+}

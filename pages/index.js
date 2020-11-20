@@ -1,7 +1,7 @@
-import { Box, Container, Heading, Link } from "theme-ui";
-import { withAuth } from "../lib/auth";
-import { default as NextLink } from "next/link";
-import Layout from "../components/layout";
+import { Box, Container, Heading, Link } from 'theme-ui'
+import { withAuth } from '../lib/auth'
+import { default as NextLink } from 'next/link'
+import Layout from '../components/layout'
 
 const Index = () => {
   return (
@@ -13,18 +13,18 @@ const Index = () => {
           retrospective
         </Heading>
         <NextLink href={`/browser`} passHref={true}>
-          <Link sx={{ fontSize: [4, 4, 5], display: "block", mt: [2, 2, 4] }}>
+          <Link sx={{ fontSize: [4, 4, 5], display: 'block', mt: [2, 2, 4] }}>
             Browser
           </Link>
         </NextLink>
         <NextLink href={`/article`} passHref={true}>
-          <Link sx={{ fontSize: [4, 4, 5], display: "block", mt: [2, 2, 4] }}>
+          <Link sx={{ fontSize: [4, 4, 5], display: 'block', mt: [2, 2, 4] }}>
             Article
           </Link>
         </NextLink>
       </Container>
     </Layout>
-  );
-};
+  )
+}
 
-export default withAuth(Index, ["admin", "collaborator"]);
+export default withAuth(Index, ['admin', 'collaborator'])

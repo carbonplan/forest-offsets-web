@@ -1,8 +1,8 @@
-import Seo from "./seo";
-import Header from "./header";
-import Footer from "./footer";
-import Switch from "./switch";
-import { Container, Flex, Box, Text } from "theme-ui";
+import Seo from './seo'
+import Header from './header'
+import Footer from './footer'
+import Switch from './switch'
+import { Container, Flex, Box, Text } from 'theme-ui'
 
 const Layout = ({
   hideFooter,
@@ -21,21 +21,21 @@ const Layout = ({
       />
       <Flex
         sx={{
-          flexDirection: "column",
-          minHeight: "100vh",
+          flexDirection: 'column',
+          minHeight: '100vh',
         }}
       >
         <Box
           sx={{
-            width: "100%",
-            borderStyle: "solid",
-            borderColor: "muted",
-            borderWidth: "0px",
-            borderBottomWidth: "1px",
-            position: "sticky",
+            width: '100%',
+            borderStyle: 'solid',
+            borderColor: 'muted',
+            borderWidth: '0px',
+            borderBottomWidth: '1px',
+            position: 'sticky',
             top: 0,
-            bg: "background",
-            height: "56px",
+            bg: 'background',
+            height: '56px',
             zIndex: 1000,
           }}
         >
@@ -49,8 +49,8 @@ const Layout = ({
         </Box>
         <Box
           sx={{
-            width: "100%",
-            flex: "1 1 auto",
+            width: '100%',
+            flex: '1 1 auto',
           }}
         >
           {children}
@@ -58,11 +58,11 @@ const Layout = ({
         {!hideFooter && (
           <Box
             sx={{
-              width: "100%",
-              borderStyle: "solid",
-              borderColor: "muted",
-              borderWidth: "0px",
-              borderTopWidth: "1px",
+              width: '100%',
+              borderStyle: 'solid',
+              borderColor: 'muted',
+              borderWidth: '0px',
+              borderTopWidth: '1px',
             }}
           >
             <Container
@@ -76,17 +76,17 @@ const Layout = ({
         )}
         <Box
           sx={{
-            position: "fixed",
-            bottom: "0px",
-            right: "32px",
-            display: ["none", "none", "inherit"],
+            position: 'fixed',
+            bottom: '0px',
+            right: '32px',
+            display: ['none', 'none', 'inherit'],
           }}
         >
           <Switch />
         </Box>
       </Flex>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

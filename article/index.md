@@ -21,7 +21,9 @@ This simple visualization illustrates how project boundaries can artificially in
 
 <PlanYourProject/>
 
-## Example in northern california
+## Projects and boundaries
+
+Here we show projects as circles overlaid on top of different regional boundaries. You can use the map to zoom to different regions, and turn different boundary layers on or off. The chart to the right shows project credits using either the CAR supersection boundaries or the Baileys ecoregions.
 
 <NorthernCalifornia/>
 

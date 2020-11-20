@@ -1,4 +1,4 @@
-import { Box, Text } from "theme-ui";
+import { Box, Text } from 'theme-ui'
 
 const About = () => {
   return (
@@ -6,8 +6,8 @@ const About = () => {
       <Text
         sx={{
           fontSize: [6],
-          fontFamily: "heading",
-          letterSpacing: "heading",
+          fontFamily: 'heading',
+          letterSpacing: 'heading',
           my: [2],
         }}
       >
@@ -27,7 +27,7 @@ const About = () => {
         oversight. Read our article for more info.
       </Text>
     </Box>
-  );
-};
+  )
+}
 
-export default About;
+export default About

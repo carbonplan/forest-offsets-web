@@ -1,25 +1,25 @@
-import { Box, Text } from "theme-ui";
-import { useThemeUI } from "theme-ui";
-import { default as NextLink } from "next/link";
+import { Box, Text } from 'theme-ui'
+import { useThemeUI } from 'theme-ui'
+import { default as NextLink } from 'next/link'
 
 const BackArrow = () => {
-  const context = useThemeUI();
-  const theme = context.theme;
+  const context = useThemeUI()
+  const theme = context.theme
 
   return (
-    <NextLink href="/">
+    <NextLink href='/'>
       <a>
         <Text
           sx={{
-            fontFamily: "faux",
-            color: "text",
-            display: "inline-block",
+            fontFamily: 'faux',
+            color: 'text',
+            display: 'inline-block',
             mr: [3],
             fontSize: [7],
             mt: [2],
-            cursor: "pointer",
-            "&:hover": {
-              color: "secondary",
+            cursor: 'pointer',
+            '&:hover': {
+              color: 'secondary',
             },
           }}
         >
@@ -27,7 +27,7 @@ const BackArrow = () => {
         </Text>
       </a>
     </NextLink>
-  );
+  )
   {
     /*
   <NextLink href='/'><Box sx={{ 
@@ -51,6 +51,6 @@ const BackArrow = () => {
   </Box></NextLink>
   */
   }
-};
+}
 
-export default BackArrow;
+export default BackArrow

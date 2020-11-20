@@ -1,10 +1,10 @@
-import { Box, Text, Grid, Container, Styled } from "theme-ui";
-import Layout from "./layout";
-import BackArrow from "./article/back-arrow";
-import contents from "../contents";
+import { Box, Text, Grid, Container, Styled } from 'theme-ui'
+import Layout from './layout'
+import BackArrow from './article/back-arrow'
+import contents from '../contents'
 
 const Tool = ({ title, description, meta, children }) => {
-  const info = contents[meta.id];
+  const info = contents[meta.id]
 
   return (
     <Layout
@@ -14,15 +14,15 @@ const Tool = ({ title, description, meta, children }) => {
     >
       <Container sx={{ px: [3, 3, 4], mb: [5] }}>
         <BackArrow />
-        <Grid columns={[1, 1, "700px 1fr"]} gap={["100px"]}>
-          <Box sx={{ mt: "-65px" }}>
+        <Grid columns={[1, 1, '700px 1fr']} gap={['100px']}>
+          <Box sx={{ mt: '-65px' }}>
             {title}
             {description}
           </Box>
-          <Box sx={{ display: ["none", "none", "initial"] }}>
-            <Box sx={{ mt: "55px", maxWidth: "250px" }}>
+          <Box sx={{ display: ['none', 'none', 'initial'] }}>
+            <Box sx={{ mt: '55px', maxWidth: '250px' }}>
               <Text
-                sx={{ fontFamily: "heading", letterSpacing: "wide", mb: [3] }}
+                sx={{ fontFamily: 'heading', letterSpacing: 'wide', mb: [3] }}
               >
                 / QUICK LOOK
               </Text>
@@ -33,7 +33,7 @@ const Tool = ({ title, description, meta, children }) => {
         {children}
       </Container>
     </Layout>
-  );
-};
+  )
+}
 
-export default Tool;
+export default Tool
