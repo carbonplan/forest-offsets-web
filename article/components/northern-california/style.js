@@ -1,4 +1,4 @@
-const projects = require('./data/projects.js')
+import projects from './data/projects'
 
 const style = {
   version: 8,
