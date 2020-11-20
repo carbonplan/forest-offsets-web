@@ -38,7 +38,7 @@
     "rehype-slug": "^3.0.0",
     "safe-compare": "^1.1.4",
     "swr": "^0.3.8",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.4"
   },
   "devDependencies": {
     "prettier": "2.1.2"
