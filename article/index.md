@@ -1,4 +1,6 @@
 import Article from '../components/article'
+import PlanYourProject from './components/plan-your-project'
+import NorthernCalifornia from './components/northern-california'
 
 export const meta = {
   id: 'forest-offsets-retrospective',
@@ -12,6 +14,16 @@ export const meta = {
 export const sidenotes = {}
 
 # Forest offsets retrospective
+
+## How boundaries can inflate credits
+
+This simple visualization illustrates how project boundaries can artificially inflate credits. In the first scenario, the boundary through the middle exactly matches the forest productivity (green is high, orange is low). In the second scenario, the boundary is altered. Placing a project in the region jutting out artificially inflates the credits.
+
+<PlanYourProject/>
+
+## Example in northern california
+
+<NorthernCalifornia/>
 
 ## Terms of engagement
 

@@ -3,6 +3,8 @@ import { Box, Badge, Text, Flex } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 import Header from './header'
 import Menu from './menu'
+import About from './about'
+import List from './list'
 
 function Projects({
   options,
@@ -10,6 +12,19 @@ function Projects({
   children,
 }) {
   const [showMenu, setShowMenu] = useState(false)
+
+  const Group = ({ children }) => {
+    return <Box sx={{
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      borderBottomWidth: '1px',
+      borderColor: 'muted',
+      px: [3],
+      py: [3]
+    }}>
+      { children }
+    </Box>
+  }
 
   return (
     <Box
@@ -37,6 +52,15 @@ function Projects({
         }}
       >
         <Menu visible={showMenu} />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <Group><About /></Group>
+          <Group><List /></Group>
+        </Box>
       </Box>
     </Box>
   )
