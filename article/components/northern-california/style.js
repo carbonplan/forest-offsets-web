@@ -1,4 +1,4 @@
-const projects = require('./data/projects')
+const projects = require('./data/projects.js')
 
 const style = {
   version: 8,
