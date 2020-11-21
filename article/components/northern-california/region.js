@@ -11,10 +11,6 @@ const regions = {
     zoom: 6.810018251901804
   },
   1: {
-    center: [-122.79741505562862,40.79053017280995],
-    zoom: 6.165219758588819
-  },
-  2: {
     center: [-83.24757469289432, 36.95479710173086],
     zoom: 5.770191808362024
   }
@@ -219,7 +215,6 @@ const Region = () => {
             </Text>
             <Radio name='region' value={0}/>
             <Radio name='region' value={1}/>
-            <Radio name='region' value={2}/>
           </Box>
           <Box sx={{
             float: 'right'

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, useThemeUI, Box, Text, Divider, Grid } from 'theme-ui'
+import { jsx, useThemeUI, Box, Flex, Text, Divider, Grid } from 'theme-ui'
 import { useState, useEffect } from 'react'
 import Radio from './radio'
 
@@ -94,6 +94,7 @@ const Index = () => {
   const [scenario, setScenario] = useState(1)
   const [increments, setIncrements] = useState(scenarios[scenario].increments)
   const [boundary, setBoundary] = useState(scenarios[scenario].boundary)
+  const [baseline, setBaseline] = useState([])
 
   const onClick = (e) => {
     setActive(active.map((x, i) => (i == e.target.id ? !active[i] : active[i])))
@@ -150,6 +151,7 @@ const Index = () => {
         )
       }
     }
+    setBaseline(baseline)
     setTotal(currentTotal)
   }, [active, boundary, increments])
 
@@ -189,6 +191,7 @@ const Index = () => {
           float: 'right',
           mr: ['50px'],
           mt: [3],
+          textAlign: 'right'
         }}
       >
         <Text
@@ -208,6 +211,7 @@ const Index = () => {
             fontFamily: 'monospace',
             letterSpacing: 'monospace',
             fontSize: [4],
+            mt: [1]
           }}
         >
           {total}
@@ -216,7 +220,7 @@ const Index = () => {
       <svg
         sx={{ width: '100%', maxWidth: '100%', height: 'auto' }}
         version='1.1'
-        viewBox='0 0 32 17'
+        viewBox='0 0 32 16.5'
         preserveAspectRatio='xMinYMin meet'
       >
         {index.map((i) => {
@@ -251,6 +255,31 @@ const Index = () => {
           points={path.join(' ')}
         />
       </svg>
+      <Flex sx={{
+        justifyContent: 'space-between',
+        mb: [3]
+      }}>
+      <Box sx={{ml: [2]}}>
+        <Text sx={{
+          fontFamily: 'monospace',
+          letterSpacing: 'monospace',
+          fontSize: [4],
+          color: 'green'
+        }}>
+          {baseline[0]}
+        </Text>
+      </Box>
+      <Box sx={{mr: [5]}}>
+        <Text sx={{
+          fontFamily: 'monospace',
+          letterSpacing: 'monospace',
+          fontSize: [4],
+          color: 'orange'
+        }}>
+          {baseline[1]}
+        </Text>
+      </Box>
+      </Flex>
       <Divider />
     </Box>
   )

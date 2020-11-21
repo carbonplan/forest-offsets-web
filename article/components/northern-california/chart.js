@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { useThemeUI, Box, Flex, Button } from 'theme-ui'
-const projects = require('./data/projects')
+import projects from './data/projects'
 
 import * as d3 from 'd3'
 
@@ -107,6 +107,33 @@ const Chart = ({ selected, focused }) => {
     //   .style('font-size', 14)
     //   .style('font-family', theme.fonts.faux)
     //   .text(range[1])
+
+    const intervals = data
+      .map((d) => {
+        return [
+          { x: x(d.x1), y: y(d.y), defined: true },
+          { x: x(d.x2), y: y(d.y), defined: true },
+          { x: x(d.x1), y: y(d.y), defined: false },
+        ]
+      })
+      .flat()
+
+    svg
+      .append('path')
+      .datum(intervals)
+      .attr(
+        'd',
+        d3
+          .line()
+          .x((d) => d.x)
+          .y((d) => d.y)
+          .defined((d) => d.defined)
+      )
+      .attr('fill', 'none')
+      .attr('stroke', theme.colors.primary)
+      .attr('stroke-width', 1)
+      .attr('stroke-opacity', 1)
+
 
     svg
       .selectAll('.group1')
