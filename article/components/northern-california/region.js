@@ -222,7 +222,6 @@ const Region = () => {
               </Text>
               <Radio name='region' value={0} />
               <Radio name='region' value={1} />
-              <Radio name='region' value={2} />
             </Box>
             <Box
               sx={{
