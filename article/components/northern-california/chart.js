@@ -143,7 +143,7 @@ const Chart = ({ selected, focused }) => {
       .attr('cx', (d) => x(d.x1))
       .attr('cy', (d) => y(d.y))
       .attr('r', 5.5)
-      .attr('r', (d) => (d.id == selected) ? 10 : 5.5)
+      .attr('r', (d) => (d.id == selected ? 10 : 5.5))
       .attr('fill', theme.colors['green'])
       .attr('fill-opacity', 0.5)
 
@@ -154,7 +154,7 @@ const Chart = ({ selected, focused }) => {
       .append('circle')
       .attr('cx', (d) => x(d.x2))
       .attr('cy', (d) => y(d.y))
-      .attr('r', (d) => (d.id == selected) ? 10 : 5.5)
+      .attr('r', (d) => (d.id == selected ? 10 : 5.5))
       .attr('fill', theme.colors['green'])
       .attr('fill-opacity', 1)
 

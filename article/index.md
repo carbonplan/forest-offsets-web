@@ -19,13 +19,13 @@ export const sidenotes = {}
 
 This simple visualization illustrates how project boundaries can artificially inflate credits. In the first scenario, the boundary through the middle exactly matches the forest productivity (green is high, orange is low). In the second scenario, the boundary is altered. Placing a project in the region jutting out artificially inflates the credits.
 
-<PlanYourProject/>
+<PlanYourProject />
 
 ## Projects and boundaries
 
 Here we show projects as circles overlaid on top of different regional boundaries. You can use the map to zoom to different regions, and turn different boundary layers on or off. The chart to the right shows project credits using either the CAR supersection boundaries or the Baileys ecoregions.
 
-<NorthernCalifornia/>
+<NorthernCalifornia />
 
 ## Terms of engagement
 

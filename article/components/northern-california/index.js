@@ -3,9 +3,7 @@ import Region from './region'
 import Chart from './chart'
 
 const Index = () => {
-  return (
-    <Region />
-  )
+  return <Region />
 }
 
 export default Index

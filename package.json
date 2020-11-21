@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 5001",
-    "build": "next build",
+    "build": "next build && next export",
+    "export": "next build && next export",
     "start": "next start",
     "format": "npm run format-js",
     "format-js": "prettier --write '*.js' '{components,pages,browser,article}/**/*.js'",
-    "format-md": "prettier --write README.md '{article}/**/*.md' --parser mdx"
+    "format-md": "prettier --write README.md '**/*.md' --parser mdx"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,7 @@
     "@carbonplan/components": "^1.0.0",
     "@carbonplan/theme": "^1.1.0",
     "@mdx-js/loader": "^1.6.1",
-    "@next/mdx": "^9.4.1",
+    "@next/mdx": "^10.0.2",
     "@theme-ui/color": "^0.3.1",
     "d3": "^6.2.0",
     "jsonwebtoken": "^8.5.1",
@@ -40,6 +41,6 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
-    "prettier": "2.1.2"
+    "prettier": "^2.2.0"
   }
 }
