@@ -134,7 +134,6 @@ const Chart = ({ selected, focused }) => {
       .attr('stroke-width', 1)
       .attr('stroke-opacity', 1)
 
-
     svg
       .selectAll('.group1')
       .data(data)
