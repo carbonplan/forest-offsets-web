@@ -62,6 +62,9 @@ function Projects({ options, setOptions, children }) {
             <About />
           </Group>
           <Group>
+            Filters
+          </Group>
+          <Group>
             <List />
           </Group>
         </Box>
