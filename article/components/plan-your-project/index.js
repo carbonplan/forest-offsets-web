@@ -191,7 +191,7 @@ const Index = () => {
           float: 'right',
           mr: ['50px'],
           mt: [3],
-          textAlign: 'right'
+          textAlign: 'right',
         }}
       >
         <Text
@@ -211,7 +211,7 @@ const Index = () => {
             fontFamily: 'monospace',
             letterSpacing: 'monospace',
             fontSize: [4],
-            mt: [1]
+            mt: [1],
           }}
         >
           {total}
@@ -255,30 +255,36 @@ const Index = () => {
           points={path.join(' ')}
         />
       </svg>
-      <Flex sx={{
-        justifyContent: 'space-between',
-        mb: [3]
-      }}>
-      <Box sx={{ml: [2]}}>
-        <Text sx={{
-          fontFamily: 'monospace',
-          letterSpacing: 'monospace',
-          fontSize: [4],
-          color: 'green'
-        }}>
-          {baseline[0]}
-        </Text>
-      </Box>
-      <Box sx={{mr: [5]}}>
-        <Text sx={{
-          fontFamily: 'monospace',
-          letterSpacing: 'monospace',
-          fontSize: [4],
-          color: 'orange'
-        }}>
-          {baseline[1]}
-        </Text>
-      </Box>
+      <Flex
+        sx={{
+          justifyContent: 'space-between',
+          mb: [3],
+        }}
+      >
+        <Box sx={{ ml: [2] }}>
+          <Text
+            sx={{
+              fontFamily: 'monospace',
+              letterSpacing: 'monospace',
+              fontSize: [4],
+              color: 'green',
+            }}
+          >
+            {baseline[0]}
+          </Text>
+        </Box>
+        <Box sx={{ mr: [5] }}>
+          <Text
+            sx={{
+              fontFamily: 'monospace',
+              letterSpacing: 'monospace',
+              fontSize: [4],
+              color: 'orange',
+            }}
+          >
+            {baseline[1]}
+          </Text>
+        </Box>
       </Flex>
       <Divider />
     </Box>
