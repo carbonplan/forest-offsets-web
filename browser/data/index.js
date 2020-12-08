@@ -6,6 +6,7 @@ module.exports = [
     developer: 'Toly Developer',
     bufferContribution: 55,
     arbocsReceived: 5555555,
+    location: [-120,30],
     carbon: {
       initialCarbonStock: {
         value: 75,
