@@ -30,11 +30,11 @@ const BackArrow = () => {
   )
   {
     /*
-  <NextLink href='/'><Box sx={{ 
-    mt: [5], 
-    width: '200px', 
-    height: '10px', 
-    fill: 'none', 
+  <NextLink href='/'><Box sx={{
+    mt: [5],
+    width: '200px',
+    height: '10px',
+    fill: 'none',
     strokeWidth: '2px',
     stroke: theme.colors.primary,
     cursor: 'pointer',
