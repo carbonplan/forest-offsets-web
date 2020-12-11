@@ -23,13 +23,14 @@ function Menu({ visible }) {
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'all' : 'none',
         position: 'fixed',
-        width: visible ? '549px' : '250px',
+        width: visible ? '649px' : '250px',
         height: '100%',
         backgroundColor: 'background',
         textAlign: '-webkit-right',
         zIndex: 1000,
         pr: ['20px'],
         pt: [3],
+        top: 67,
         transition: '0.25s',
       }}
     >

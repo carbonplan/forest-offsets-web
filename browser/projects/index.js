@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { Box, Badge, Text, Flex } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 import Header from './header'
-import Menu from './menu'
 import About from './about'
 import List from './list'
 
-function Projects({ options, setOptions, children }) {
-  const [showMenu, setShowMenu] = useState(false)
+function Projects({ options, setOptions, setSelected }) {
+  
+  console.log('rendering projects')
 
   const Group = ({ children }) => {
     return (
@@ -17,8 +17,6 @@ function Projects({ options, setOptions, children }) {
           borderWidth: '0px',
           borderBottomWidth: '1px',
           borderColor: 'muted',
-          px: [3],
-          py: [3],
         }}
       >
         {children}
@@ -29,8 +27,8 @@ function Projects({ options, setOptions, children }) {
   return (
     <Box
       sx={{
-        minWidth: '550px',
-        maxWidth: '550px',
+        minWidth: '650px',
+        maxWidth: '650px',
         height: '100%',
         flexBasis: '100%',
         flexDirection: 'column',
@@ -43,7 +41,7 @@ function Projects({ options, setOptions, children }) {
         display: ['none', 'none', 'flex'],
       }}
     >
-      <Header showMenu={showMenu} toggleMenu={() => setShowMenu(!showMenu)} />
+      <Header />
       <Box
         sx={{
           position: 'relative',
@@ -51,7 +49,7 @@ function Projects({ options, setOptions, children }) {
           overflowY: 'scroll',
         }}
       >
-        <Menu visible={showMenu} />
+        
         <Box
           sx={{
             display: 'flex',
@@ -62,10 +60,12 @@ function Projects({ options, setOptions, children }) {
             <About />
           </Group>
           <Group>
-            Filters
+            <Box sx={{px: [4], py: [3]}}>
+              Filters
+            </Box>
           </Group>
           <Group>
-            <List />
+            <List setSelected={setSelected}/>
           </Group>
         </Box>
       </Box>

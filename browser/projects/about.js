@@ -2,7 +2,7 @@ import { Box, Text } from 'theme-ui'
 
 const About = () => {
   return (
-    <Box>
+    <Box sx={{px: [4], py: [3]}}>
       <Text
         sx={{
           fontSize: [6],
@@ -21,10 +21,9 @@ const About = () => {
           pr: [3],
         }}
       >
-        This is a public database of compliance forest carbon offset projects.
-        It is based on primary project documents and some of our own analysis.
+        This is a public database of compliance forest carbon offset projects. 
         We assembled it for purposes of research, analysis, transparency, and
-        oversight. Read our article for more info.
+        oversight. Download the data as CSV or JSON. Read our article for more info.
       </Text>
     </Box>
   )

@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import Layout from './layout'
 import Map from './map'
+import Minimap from './minimap'
 import Projects from './projects'
 import { Container, Flex, Box, Text } from 'theme-ui'
+import data from './data'
 
 const Index = () => {
   const initialOptions = {
-    selected: 1,
+    selected: null,
   }
 
   const [options, setOptions] = useState(initialOptions)
+  const [selected, setSelected] = useState(null)
 
   return (
     <Layout>
@@ -24,24 +27,9 @@ const Index = () => {
           overflow: 'hidden',
         }}
       >
-        <Box
-          sx={{
-            position: 'absolute',
-            right: 0,
-            bottom: 0,
-            height: '200px',
-            width: '300px',
-            backgroundColor: 'background',
-            borderStyle: 'solid',
-            borderColor: 'muted',
-            borderWidth: '0px',
-            borderLeftWidth: '1px',
-            borderTopWidth: '1px',
-            zIndex: 2000,
-          }}
-        ></Box>
-        <Projects options={options} setOptions={setOptions} />
-        <Map options={options} setOptions={setOptions} />
+        <Minimap />
+        <Projects setSelected={setSelected} />
+        <Map />
       </Flex>
     </Layout>
   )

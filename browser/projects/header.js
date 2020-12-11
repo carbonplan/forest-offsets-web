@@ -1,8 +1,13 @@
 /** @jsx jsx */
+import { useState } from 'react'
 import { jsx, Box, Flex, IconButton } from 'theme-ui'
+import Menu from './menu'
 import Logo from './logo'
 
-const Header = ({ showMenu, toggleMenu }) => {
+const Header = () => {
+  const [showMenu, setShowMenu] = useState(false)
+  const toggleMenu = () => setShowMenu(!showMenu)
+
   return (
     <Flex
       sx={{
@@ -11,15 +16,17 @@ const Header = ({ showMenu, toggleMenu }) => {
         justifyContent: 'space-between',
         pt: [3],
         pb: [3],
-        pl: [3],
-        pr: [3],
+        pl: [0],
+        pr: [4],
         borderStyle: 'solid',
         borderWidth: '0px',
         borderBottomWidth: '1px',
         borderColor: 'muted',
       }}
     >
-      <Box>
+      <Box sx={{
+        pl: [4]
+      }}>
         <Logo></Logo>
       </Box>
       <Box>
@@ -92,6 +99,7 @@ const Header = ({ showMenu, toggleMenu }) => {
           )}
         </IconButton>
       </Box>
+      <Menu visible={showMenu}/>
     </Flex>
   )
 }
