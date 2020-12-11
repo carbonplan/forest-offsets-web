@@ -1,6 +1,5 @@
 node_modules/
 .next/
 .DS_Store
-.env
 tiles/
 __pycache__
