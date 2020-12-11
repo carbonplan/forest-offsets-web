@@ -2,9 +2,8 @@ import json
 import pathlib
 
 import gspread
-import numpy as np
+import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
-from pandas import DataFrame, MultiIndex, to_numeric
 
 SECRET_FILE = pathlib.Path(__file__).parents[1] / 'secrets/google-sheets-key.json'
 
@@ -25,14 +24,16 @@ def ffill(data):
 
 
 def get_df(sheet):
-    data = sheet.get_all_values()
-    data = np.asarray(data)
-    df = DataFrame(data[1:], columns=data[0])
+    data = sheet.get('A1:D64')
+    left = pd.DataFrame(data[1:], columns=data[0])
+    data = sheet.get('BA1:CT64')
+    right = pd.DataFrame(data[1:], columns=data[0])
+    df = pd.concat([left, right], axis=1)
 
     levels = ['level0', 'level1', 'level2']
     left = df[levels].copy()
     left[levels[:2]] = left[levels[:2]].mask(left == '', None).ffill()
-    index = MultiIndex.from_frame(left)
+    index = pd.MultiIndex.from_frame(left)
 
     types = df['type']
 
@@ -81,9 +82,9 @@ def cast_col(col, type_str):
     elif type_str == 'bool':
         return col.astype(bool)
     elif type_str == 'int':
-        return to_numeric(col, errors='coerce', downcast='integer')
+        return pd.to_numeric(col, errors='coerce', downcast='integer')
     elif type_str == 'float':
-        return to_numeric(col.str.replace(',', ''), errors='coerce', downcast='float')
+        return pd.to_numeric(col.str.replace(',', ''), errors='coerce', downcast='float')
     elif type_str == '[lon:float, lat:float]' or type_str == '[int]':
         return [json_loads(v) if v else [] for v in col]
     elif type_str == '[(is_intentional, size)]':
@@ -92,7 +93,6 @@ def cast_col(col, type_str):
         try:
             return [json_loads(v) if v else "" for v in col]
         except Exception:
-            print(col)
             raise
 
 
