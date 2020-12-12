@@ -4,7 +4,7 @@ import data from '../data'
 
 const List = () => {
   return <Box>
-    {data.map((d) => <Project data={d}></Project>)}
+    {data.map((d, i) => <Project key={i} data={d}></Project>)}
   </Box>
 }
 

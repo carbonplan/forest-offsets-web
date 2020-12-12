@@ -12,7 +12,6 @@ const Index = () => {
   }
 
   const [options, setOptions] = useState(initialOptions)
-  const [selected, setSelected] = useState(null)
 
   return (
     <Layout>
@@ -28,7 +27,7 @@ const Index = () => {
         }}
       >
         <Minimap />
-        <Projects setSelected={setSelected} />
+        <Projects />
         <Map />
       </Flex>
     </Layout>

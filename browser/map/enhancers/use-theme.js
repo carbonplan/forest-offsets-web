@@ -23,8 +23,6 @@ function useTheme(map) {
     map.setPaintProperty('states', 'line-opacity', 1)
     map.setPaintProperty('roads', 'line-color', theme.colors.primary)
     map.setPaintProperty('roads', 'line-opacity', 0.25)
-    map.setPaintProperty('rivers', 'line-color', theme.colors.muted)
-    map.setPaintProperty('rivers', 'line-opacity', 0)
   }, [context])
 }
 
