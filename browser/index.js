@@ -1,17 +1,13 @@
 import { useState } from 'react'
 import Layout from './layout'
 import Map from './map'
-import Minimap from './minimap'
 import Projects from './projects'
+import Filter from './projects/filter'
 import { Container, Flex, Box, Text } from 'theme-ui'
-import data from './data'
 
 const Index = () => {
-  const initialOptions = {
-    selected: null,
-  }
 
-  const [options, setOptions] = useState(initialOptions)
+  const [selected, setSelected] = useState(null)
 
   return (
     <Layout>
@@ -26,9 +22,8 @@ const Index = () => {
           overflow: 'hidden',
         }}
       >
-        <Minimap />
-        <Projects />
-        <Map />
+        <Projects setSelected={setSelected}/>
+        <Map selected={selected}/>
       </Flex>
     </Layout>
   )

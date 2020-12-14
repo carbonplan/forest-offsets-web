@@ -10,7 +10,7 @@ module.exports = [
       36.9748
     ],
     "bufferContribution": 14700.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 76414.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 49.400001525878906,
@@ -38,7 +38,7 @@ module.exports = [
       39.32296
     ],
     "bufferContribution": 17546.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 91213.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 147.86000061035156,
@@ -63,7 +63,7 @@ module.exports = [
     "developer": "",
     "coordinates": [],
     "bufferContribution": 103614.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 654310.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 206.61000061035156,
@@ -91,7 +91,7 @@ module.exports = [
       40.70555
     ],
     "bufferContribution": 55119.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 287077.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 183.38999938964844,
@@ -119,7 +119,7 @@ module.exports = [
       39.8675
     ],
     "bufferContribution": 76257.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 540828.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 176.0,
@@ -138,7 +138,7 @@ module.exports = [
   },
   {
     "id": "CAR1191",
-    "arbId": "CARF5291",
+    "arbId": "CAFR5291",
     "name": "Hollow Tree",
     "owner": "Mendocino Redwood Company",
     "developer": "",
@@ -147,7 +147,7 @@ module.exports = [
       39.7666
     ],
     "bufferContribution": 157349.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 817984.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 219.6999969482422,
@@ -175,7 +175,7 @@ module.exports = [
       45.234
     ],
     "bufferContribution": 115050.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 599217.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 71.58999633789062,
@@ -200,7 +200,7 @@ module.exports = [
     "developer": "",
     "coordinates": [],
     "bufferContribution": 243063.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 1342730.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 126.0199966430664,
@@ -225,7 +225,7 @@ module.exports = [
     "developer": "Blue Source",
     "coordinates": [],
     "bufferContribution": 407650.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 2119179.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 126.9000015258789,
@@ -253,7 +253,7 @@ module.exports = [
       40.937
     ],
     "bufferContribution": 52060.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 271144.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 220.22999572753906,
@@ -278,7 +278,7 @@ module.exports = [
     "developer": "Finite Carbon",
     "coordinates": [],
     "bufferContribution": 1872.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 9745.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 107.66999816894531,
@@ -303,7 +303,7 @@ module.exports = [
     "developer": "",
     "coordinates": [],
     "bufferContribution": 845614.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 6004826.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 87.80000305175781,
@@ -331,7 +331,7 @@ module.exports = [
       37.54172889
     ],
     "bufferContribution": 72170.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 375885.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 127.86000061035156,
@@ -353,10 +353,10 @@ module.exports = [
     "arbId": "CAFR5089",
     "name": "Finite Carbon - The Forestland Group Champion Property IFM",
     "owner": "Heartwood Forestland Fund, III",
-    "developer": "Finite Carbon",
+    "developer": "",
     "coordinates": [],
     "bufferContribution": 165724.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 861342.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 63.11000061035156,
@@ -384,7 +384,7 @@ module.exports = [
       40.55805556
     ],
     "bufferContribution": 162796.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 847895.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 155.30999755859375,
@@ -412,7 +412,7 @@ module.exports = [
       45.23
     ],
     "bufferContribution": 109798.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 588728.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 103.5999984741211,
@@ -440,7 +440,7 @@ module.exports = [
       37.883
     ],
     "bufferContribution": 341229.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 1940297.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 132.1300048828125,
@@ -468,7 +468,7 @@ module.exports = [
       42.532
     ],
     "bufferContribution": 152472.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 792474.5625,
     "carbon": {
       "initialCarbonStock": {
         "value": 148.9199981689453,
@@ -496,7 +496,7 @@ module.exports = [
       46.981
     ],
     "bufferContribution": 47661.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 300300.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 49.93000030517578,
@@ -524,7 +524,7 @@ module.exports = [
       62.141
     ],
     "bufferContribution": 2358456.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 14861093.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 56.90999984741211,
@@ -552,7 +552,7 @@ module.exports = [
       36.537
     ],
     "bufferContribution": 620423.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 3224649.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 101.4800033569336,
@@ -580,7 +580,7 @@ module.exports = [
       45.85
     ],
     "bufferContribution": 69951.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 375073.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 73.18000030517578,
@@ -608,7 +608,7 @@ module.exports = [
       40.9623
     ],
     "bufferContribution": 2007.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 10433.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 174.1999969482422,
@@ -636,7 +636,7 @@ module.exports = [
       39.9108
     ],
     "bufferContribution": 59051.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 307560.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 164.3800048828125,
@@ -664,7 +664,7 @@ module.exports = [
       45.272
     ],
     "bufferContribution": 605758.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 3824227.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 79.02999877929688,
@@ -692,7 +692,7 @@ module.exports = [
       37.13
     ],
     "bufferContribution": 38999.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 215440.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 188.5,
@@ -720,7 +720,7 @@ module.exports = [
       41.32612667
     ],
     "bufferContribution": 132187.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 836619.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 192.60000610351562,
@@ -745,7 +745,7 @@ module.exports = [
     "developer": "",
     "coordinates": [],
     "bufferContribution": 62137.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 353052.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 310.29998779296875,
@@ -773,7 +773,7 @@ module.exports = [
       41.30323333
     ],
     "bufferContribution": 64669.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 367438.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 273.9700012207031,
@@ -801,7 +801,7 @@ module.exports = [
       44.7603
     ],
     "bufferContribution": 341159.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 2154371.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 134.14999389648438,
@@ -829,7 +829,7 @@ module.exports = [
       41.9166666
     ],
     "bufferContribution": 62738.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 356710.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 148.8000030517578,
@@ -857,7 +857,7 @@ module.exports = [
       39.03333
     ],
     "bufferContribution": 52794.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 274971.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 182.5,
@@ -913,7 +913,7 @@ module.exports = [
       41.91667
     ],
     "bufferContribution": 148530.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 844499.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 60.900001525878906,
@@ -941,7 +941,7 @@ module.exports = [
       45.75
     ],
     "bufferContribution": 69449.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 394864.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 70.55999755859375,
@@ -969,7 +969,7 @@ module.exports = [
       41.42074
     ],
     "bufferContribution": 103991.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 540599.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 171.8800048828125,
@@ -997,7 +997,7 @@ module.exports = [
       39.6297
     ],
     "bufferContribution": 262582.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 1367614.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 149.25999450683594,
@@ -1025,7 +1025,7 @@ module.exports = [
       48.279
     ],
     "bufferContribution": 1993287.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 14156865.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 78.62999725341797,
@@ -1078,7 +1078,7 @@ module.exports = [
     "developer": "Forest Carbon Partners, L.P.",
     "coordinates": [],
     "bufferContribution": 52623.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 274079.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 208.0,
@@ -1106,7 +1106,7 @@ module.exports = [
       37.024117
     ],
     "bufferContribution": 5991.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 31137.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 67.5999984741211,
@@ -1134,7 +1134,7 @@ module.exports = [
       38.9942
     ],
     "bufferContribution": 22505.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 117216.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 187.1999969482422,
@@ -1162,7 +1162,7 @@ module.exports = [
       33.95
     ],
     "bufferContribution": 626973.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 4451645.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 98.80000305175781,
@@ -1190,7 +1190,7 @@ module.exports = [
       36.995
     ],
     "bufferContribution": 37110.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 193277.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 105.98999786376953,
@@ -1218,7 +1218,7 @@ module.exports = [
       56.695
     ],
     "bufferContribution": 1755591.0,
-    "arbocsReceived": NaN,
+    "arbocsReceived": 11062323.0,
     "carbon": {
       "initialCarbonStock": {
         "value": 167.80999755859375,

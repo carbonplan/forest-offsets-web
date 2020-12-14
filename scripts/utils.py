@@ -82,7 +82,7 @@ def cast_col(col, type_str):
     elif type_str == 'bool':
         return col.astype(bool)
     elif type_str == 'int':
-        return pd.to_numeric(col, errors='coerce', downcast='integer')
+        return pd.to_numeric(col.str.replace(',', ''), errors='coerce', downcast='integer')
     elif type_str == 'float':
         return pd.to_numeric(col.str.replace(',', ''), errors='coerce', downcast='float')
     elif type_str == '[lon:float, lat:float]' or type_str == '[int]':

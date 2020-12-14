@@ -1,17 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useThemeUI, Box } from 'theme-ui'
 import { json } from 'd3-fetch'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { feature } from 'topojson-client'
-import data from '../data'
 
-const Minimap = () => {
+import data from '../../data'
+
+const Minimap = ({ setCenter }) => {
   const context = useThemeUI()
   const theme = context.theme
 
   const [path, setPath] = useState(null)
   const [locations, setLocations] = useState([])
   const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
+
+  const setPosition = (e) => {
+    var bounds = e.target.getBoundingClientRect()
+    var x = e.clientX - bounds.left
+    var y = e.clientY - bounds.top
+    setCenter([x, y])
+  }
 
   useEffect(() => {
     const prefix =
@@ -41,12 +49,12 @@ const Minimap = () => {
     <Box sx={{
       position: 'relative',
       top: 80,
-      left: 25,
+      left: 27,
       width: '300px',
       height: '300px'
     }}>
       <Box sx={{ fill: 'none', stroke: 'primary' }}>
-        <svg viewBox='0 0 975 610'>
+        <svg viewBox='-5 0 980 610' onClick={(e) => setPosition(e)}>
           <g strokeLinejoin='round' strokeLinecap='round' strokeWidth='1'>
             <path d={path}></path>
           </g>

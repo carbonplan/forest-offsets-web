@@ -1,14 +1,17 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import { Box } from 'theme-ui'
 import mapboxgl from 'mapbox-gl'
 import style from './style'
 import Enhancers from './enhancers'
+import Projects from '../projects'
+import Minimap from './minimap'
 
 mapboxgl.accessToken = ''
 
-function Map({ options }) {
+function Map({ options, selected }) {
   const container = useRef(null)
   const [map, setMap] = useState(null)
+  const [center, setCenter] = useState([])
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -34,18 +37,29 @@ function Map({ options }) {
     }
   }, [])
 
+  useEffect(() => {
+    console.log(center)
+  }, [center])
+
+  useEffect(() => {
+    console.log(selected)
+  }, [selected])
+
   return (
-    <Box
-      ref={container}
-      sx={{
-        flexBasis: '100%',
-        'canvas.mapboxgl-canvas:focus': {
-          outline: 'none',
-        },
-      }}
-    >
-      {map && <Enhancers map={map} options={options} />}
-    </Box>
+    <>
+      <Box
+        ref={container}
+        sx={{
+          flexBasis: '100%',
+          'canvas.mapboxgl-canvas:focus': {
+            outline: 'none',
+          },
+        }}
+      >
+        {map && <Enhancers map={map} options={options} />}
+      </Box>
+      <Minimap center={center} setCenter={setCenter}/>
+    </>
   )
 }
 

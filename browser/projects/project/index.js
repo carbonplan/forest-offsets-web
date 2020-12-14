@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import { memo, useState, useContext } from 'react'
 import { Box, Text, Grid, Badge } from 'theme-ui'
 import AnimateHeight from 'react-animate-height'
 import Expander from './expander'
 import Metrics from './metrics'
 
-const Project = ({ data }) => {
+const Project = ({ data, setSelected }) => {
   const [expanded, setExpanded] = useState(false)
   const { id, name, arbocsReceived, bufferContribution  } = data
 
-  const toggle = (e) => setExpanded(!expanded)
+  console.log('rendering')
+
+  const toggle = (e) => {
+    setExpanded(!expanded)
+    setSelected(data.id)
+  }
 
   const Slash = () => <Text sx={{
       display: 'inline-block',
@@ -22,7 +27,8 @@ const Project = ({ data }) => {
     color: color,
     display: 'inline-block',
     fontFamily: 'monospace',
-    letterSpacing: 'wide'
+    letterSpacing: 'wide',
+    fontSize: [2]
   }}>
     {value}
   </Text>
@@ -40,15 +46,14 @@ const Project = ({ data }) => {
       stroke: 'primary',
     },
   }}>
-    <Grid columns={['1fr 150px']}>
+    <Grid columns={['1fr 140px']}>
       <Text sx={{fontSize: [4], lineHeight: 1.2, mb: [3]}}>
         {name}
       </Text>
-      <Box sx={{textAlign: 'right'}}>
+      <Box sx={{textAlign: 'right', pr: [1]}}>
         <Badge variant='primary' sx={{
           color: 'green', 
           borderColor: 'green',
-          fontSize: [2],
         }}>
           IFM
         </Badge>
@@ -86,4 +91,4 @@ const Project = ({ data }) => {
   </Box>
 }
 
-export default Project
+export default memo(Project)

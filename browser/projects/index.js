@@ -1,27 +1,34 @@
-import { useState } from 'react'
-import { Box, Badge, Text, Flex } from 'theme-ui'
+import { useState, useEffect } from 'react'
+import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 import Header from './header'
 import About from './about'
 import List from './list'
+import Filter from './filter'
 
-function Projects({ options, setOptions, setSelected }) {
+const Projects = ({ setSelected }) => {
+
+  const initialFilters = {
+    acr: true,
+    car: true,
+  }
+
+  const [filters, setFilters] = useState(initialFilters)
   
-  console.log('rendering projects')
-
-  const Group = ({ children }) => {
-    return (
-      <Box
-        sx={{
-          borderStyle: 'solid',
-          borderWidth: '0px',
-          borderBottomWidth: '1px',
-          borderColor: 'muted',
-        }}
-      >
-        {children}
-      </Box>
-    )
+  const sx = {
+    group: {
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      borderBottomWidth: '1px',
+      borderColor: 'muted',
+    },
+    groupTop: {
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      borderBottomWidth: '1px',
+      borderTopWidth: '1px',
+      borderColor: 'muted',
+    }
   }
 
   return (
@@ -41,6 +48,7 @@ function Projects({ options, setOptions, setSelected }) {
         display: ['none', 'none', 'flex'],
       }}
     >
+
       <Header />
       <Box
         sx={{
@@ -56,17 +64,15 @@ function Projects({ options, setOptions, setSelected }) {
             flexDirection: 'column',
           }}
         >
-          <Group>
+          <Box sx={sx.groups}>
             <About />
-          </Group>
-          <Group>
-            <Box sx={{px: [4], py: [3]}}>
-              Filters
-            </Box>
-          </Group>
-          <Group>
-            <List setSelected={setSelected}/>
-          </Group>
+          </Box>
+          <Box sx={sx.groupTop}>
+            <Filter filters={filters} setFilters={setFilters}/>
+          </Box>
+          <Box sx={sx.group}>
+            <List filters={filters} setSelected={setSelected}/>
+          </Box>
         </Box>
       </Box>
     </Box>
