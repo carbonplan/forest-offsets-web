@@ -8,7 +8,6 @@ import Rect from './rect'
 import data from '../../data'
 
 const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
-  console.log('rendering')
   const context = useThemeUI()
   const theme = context.theme
 
@@ -20,7 +19,7 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
     var bounds = e.target.getBoundingClientRect()
     var x = e.clientX - bounds.left
     var y = e.clientY - bounds.top
-    setFocus(projection.invert([x * 980/300, y * 980/300]))
+    setFocus(projection.invert([x * 980/250, y * 980/250]))
   }
 
   useEffect(() => {
@@ -38,8 +37,8 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
       position: 'absolute',
       right: [3],
       bottom: [3],
-      height: '350px',
-      width: '350px',
+      height: '300px',
+      width: '300px',
       borderRadius: '200px',
       backgroundColor: 'background',
       borderStyle: 'solid',
@@ -52,8 +51,8 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
       position: 'relative',
       top: 80,
       left: 27,
-      width: '300px',
-      height: '300px',
+      width: '250px',
+      height: '250px',
     }}>
       <Box sx={{ fill: 'none', stroke: 'primary' }}>
         <svg viewBox='-5 0 980 610' onClick={(e) => setPosition(e)}>

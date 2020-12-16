@@ -17,8 +17,10 @@ const Metrics = ({ data }) => {
     borderBottomWidth: '0px',
     borderTopWidth: '0px',
     borderColor: alpha('muted', 0.5),
-    py: [3],
-    my: [2]
+    pt: [2],
+    pb: [1],
+    mt: [2],
+    mb: [1]
   }}>
     <Grid columns={['150px 1fr']}>
       <Box>

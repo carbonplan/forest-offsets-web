@@ -2,7 +2,7 @@ import { Box, Text } from 'theme-ui'
 
 const About = () => {
   return (
-    <Box sx={{px: [4], py: [3]}}>
+    <Box sx={{px: [3], py: [2]}}>
       <Text
         sx={{
           fontSize: [6],

@@ -23,7 +23,7 @@ function Menu({ visible }) {
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'all' : 'none',
         position: 'fixed',
-        width: visible ? '599px' : '250px',
+        width: visible ? '559px' : '250px',
         height: '100%',
         backgroundColor: 'background',
         textAlign: '-webkit-right',

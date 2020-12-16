@@ -17,7 +17,7 @@ const Header = () => {
         pt: [3],
         pb: [3],
         pl: [0],
-        pr: [4],
+        pr: [3],
         borderStyle: 'solid',
         borderWidth: '0px',
         borderBottomWidth: '1px',
@@ -25,7 +25,7 @@ const Header = () => {
       }}
     >
       <Box sx={{
-        pl: [4]
+        pl: [3]
       }}>
         <Logo></Logo>
       </Box>

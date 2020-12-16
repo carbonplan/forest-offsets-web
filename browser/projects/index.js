@@ -35,8 +35,8 @@ const Projects = ({ bounds, setSelected }) => {
   return (
     <Box
       sx={{
-        minWidth: '600px',
-        maxWidth: '600px',
+        minWidth: '560px',
+        maxWidth: '560px',
         height: '100%',
         flexBasis: '100%',
         flexDirection: 'column',

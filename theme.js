@@ -14,7 +14,6 @@ export default {
       bg: 'background',
       borderRadius: '0px',
       textTransform: 'uppercase',
-      mb: [2],
       pt: ['1px'],
       pb: ['2px'],
       pl: [0],

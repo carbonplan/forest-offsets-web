@@ -59,18 +59,18 @@ const Project = ({ data, setSelected }) => {
     borderColor: 'muted',
     borderWidth: '0px',
     borderBottomWidth: '1px',
-    px: [4],
-    py: [4],
+    px: [3],
+    py: [3],
     '&:hover > #grid > #box > #expander': {
       fill: 'primary',
       stroke: 'primary',
     },
   }}>
     <Grid columns={['1fr 140px']}>
-      <Text sx={{fontSize: [4], lineHeight: 1.2, mb: [3]}}>
+      <Text sx={{fontSize: [3], lineHeight: 1.2, pb: [1]}}>
         {name}
       </Text>
-      <Box sx={{textAlign: 'right', pr: [1]}}>
+      <Box sx={{textAlign: 'right', pr: [1], mt: ['-6px']}}>
         <Badge variant='primary' sx={{
           color: 'green', 
           borderColor: 'green',
@@ -87,7 +87,7 @@ const Project = ({ data, setSelected }) => {
         <Slash/>
         <Inline value={bufferContribution} color='orange'/>
       </Box>
-      <Box id='box' sx={{textAlign: 'right', mt: ['-6px']}}>
+      <Box id='box' sx={{textAlign: 'right', mt: ['-5px']}}>
         <Expander id='expander' expanded={expanded}/>
       </Box>
     </Grid>
@@ -106,7 +106,6 @@ const Project = ({ data, setSelected }) => {
           <Box>
             <Metrics data={data}/>
           </Box>
-          <Arrow/>
         </Box>
       }
     </Box>
