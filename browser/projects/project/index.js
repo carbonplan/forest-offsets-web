@@ -8,11 +8,13 @@ const Project = ({ data, setSelected }) => {
   const [expanded, setExpanded] = useState(false)
   const { id, name, arbocsReceived, bufferContribution  } = data
 
-  console.log('rendering')
-
   const toggle = (e) => {
     setExpanded(!expanded)
-    setSelected(data.id)
+  }
+
+  const select = (e) => {
+    e.stopPropagation()
+    setSelected(data)
   }
 
   const Slash = () => <Text sx={{
@@ -31,6 +33,19 @@ const Project = ({ data, setSelected }) => {
     fontSize: [2]
   }}>
     {value}
+  </Text>
+
+  const Arrow = () => <Text 
+    onClick={select}
+    sx={{
+      color: 'secondary',
+      display: 'inline-block',
+      fontFamily: 'monospace',
+      fontSize: [5],
+      '&:hover' : {
+        color: 'primary'
+      }
+    }}>↗
   </Text>
 
   return <Box onClick={toggle} sx={{
@@ -67,7 +82,7 @@ const Project = ({ data, setSelected }) => {
         <Slash/>
         <Inline value={bufferContribution} color='orange'/>
       </Box>
-      <Box id='box' sx={{textAlign: 'right'}}>
+      <Box id='box' sx={{textAlign: 'right', mt: ['-6px']}}>
         <Expander id='expander' expanded={expanded}/>
       </Box>
     </Grid>
@@ -83,7 +98,10 @@ const Project = ({ data, setSelected }) => {
     >
       {expanded && 
         <Box>
-          <Metrics data={data}/>
+          <Box>
+            <Metrics data={data}/>
+          </Box>
+          <Arrow/>
         </Box>
       }
     </Box>

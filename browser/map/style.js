@@ -9,6 +9,20 @@ const style = {
       ],
       maxzoom: 5,
     },
+    ecoregions: {
+      type: 'vector',
+      tiles: [
+        `http://localhost:8080/ecoregions/{z}/{x}/{y}.pbf`,
+      ],
+      maxzoom: 5,
+    },
+    projects: {
+      type: 'vector',
+      tiles: [
+        `http://localhost:8080/projects/{z}/{x}/{y}.pbf`,
+      ],
+      maxzoom: 9,
+    },
   },
   layers: [
     {
@@ -119,6 +133,40 @@ const style = {
         'text-ignore-placement': true,
         'text-font': ['relative-faux-book'],
         'text-field': ['format', ['get', 'name_en'], { 'font-scale': 1.2 }],
+      },
+    },
+    {
+      id: 'projects',
+      type: 'fill',
+      source: 'projects',
+      'source-layer': 'projects',
+      layout: {
+        visibility: 'visible',
+      },
+      paint: {
+        'fill-antialias': false,
+        'fill-opacity': 0,
+        'fill-color': 'black',
+      },
+    },
+    {
+      id: 'supersections',
+      type: 'line',
+      source: 'ecoregions',
+      'source-layer': 'supersections',
+      layout: {
+        visibility: 'visible',
+      },
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+        visibility: 'visible',
+      },
+      paint: {
+        'line-blur': 0.4,
+        'line-color': 'black',
+        'line-opacity': 0,
+        'line-width': 0.8,
       },
     },
   ],

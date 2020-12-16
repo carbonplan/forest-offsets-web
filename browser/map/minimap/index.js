@@ -1,12 +1,14 @@
-import { useState, useEffect, useContext } from 'react'
-import { useThemeUI, Box } from 'theme-ui'
+/** @jsx jsx */
+import { memo, useState, useEffect, useContext } from 'react'
+import { jsx, useThemeUI, Box } from 'theme-ui'
 import { json } from 'd3-fetch'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { feature } from 'topojson-client'
-
+import Rect from './rect'
 import data from '../../data'
 
-const Minimap = ({ setCenter }) => {
+const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
+  console.log('rendering')
   const context = useThemeUI()
   const theme = context.theme
 
@@ -18,7 +20,7 @@ const Minimap = ({ setCenter }) => {
     var bounds = e.target.getBoundingClientRect()
     var x = e.clientX - bounds.left
     var y = e.clientY - bounds.top
-    setCenter([x, y])
+    setFocus(projection.invert([x * 980/300, y * 980/300]))
   }
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const Minimap = ({ setCenter }) => {
     json(url).then((us) => {
       setPath(geoPath()(feature(us, us.objects.nation)))
     })
-    setLocations(data.map((d) => d.coordinates))
+    setLocations(data.map((d) => {return {id: d.id, coordinates: d.coordinates}}))
   }, [])
 
   return <Box
@@ -51,7 +53,7 @@ const Minimap = ({ setCenter }) => {
       top: 80,
       left: 27,
       width: '300px',
-      height: '300px'
+      height: '300px',
     }}>
       <Box sx={{ fill: 'none', stroke: 'primary' }}>
         <svg viewBox='-5 0 980 610' onClick={(e) => setPosition(e)}>
@@ -59,20 +61,47 @@ const Minimap = ({ setCenter }) => {
             <path d={path}></path>
           </g>
           {locations.map((d, i) => {
-            if (d.length > 0) return (
-              <g key={i} transform={`translate(${projection(d).join(',')})`}>
+            if (d.coordinates.length > 0) return (
+              <g 
+                key={i} 
+                transform={`translate(${projection(d.coordinates).join(',')})`}
+                sx={{pointerEvents: 'none'}}
+              >
                 <circle
                   r='25'
                   fill={theme.colors.green}
                   strokeWidth='0'
+                  sx={{transition: '0.25s'}}
                 ></circle>
               </g>
             )
           })}
+          {locations.filter((d) => selected && (d.id == selected.id)).map((d, i) => {
+            if (d.coordinates.length > 0) return (
+              <g 
+                key={i} 
+                transform={`translate(${projection(d.coordinates).join(',')})`}
+                sx={{pointerEvents: 'none'}}
+              >
+                <circle
+                  r='25'
+                  fill={theme.colors.primary}
+                  strokeWidth='0'
+                  sx={{transition: '0.25s'}}
+                ></circle>
+              </g>
+            )
+          })}
+          <Rect 
+            map={map} 
+            projection={projection} 
+            initCenter={initCenter} 
+            initZoom={initZoom}
+          />
         </svg>
       </Box>
     </Box>
   </Box>
 }
 
-export default Minimap
+export default memo(Minimap)

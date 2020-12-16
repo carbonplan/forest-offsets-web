@@ -14,6 +14,7 @@ const Filter = ({ filters, setFilters }) => {
   return <Box sx={{px: [4], py: [3]}}>
     <Option value={filters['acr']} display='ACR' toggle={() => {toggle('acr')}} color='primary' />
     <Option value={filters['car']} display='CAR' toggle={() => {toggle('car')}} color='primary' />
+    <Option value={filters['vcs']} display='VCS' toggle={() => {toggle('vcs')}} color='primary' />
   </Box>
 }
 

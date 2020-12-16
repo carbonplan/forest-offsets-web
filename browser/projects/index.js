@@ -6,11 +6,12 @@ import About from './about'
 import List from './list'
 import Filter from './filter'
 
-const Projects = ({ setSelected }) => {
+const Projects = ({ bounds, setSelected }) => {
 
   const initialFilters = {
     acr: true,
     car: true,
+    vcs: true
   }
 
   const [filters, setFilters] = useState(initialFilters)
@@ -34,8 +35,8 @@ const Projects = ({ setSelected }) => {
   return (
     <Box
       sx={{
-        minWidth: '650px',
-        maxWidth: '650px',
+        minWidth: '600px',
+        maxWidth: '600px',
         height: '100%',
         flexBasis: '100%',
         flexDirection: 'column',
@@ -71,7 +72,7 @@ const Projects = ({ setSelected }) => {
             <Filter filters={filters} setFilters={setFilters}/>
           </Box>
           <Box sx={sx.group}>
-            <List filters={filters} setSelected={setSelected}/>
+            <List bounds={bounds} filters={filters} setSelected={setSelected}/>
           </Box>
         </Box>
       </Box>
