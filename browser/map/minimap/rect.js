@@ -31,6 +31,8 @@ const Rect = ({ map, projection, initCenter, initZoom }) => {
       width={zoomToSize(zoom)}
       height={zoomToSize(zoom)}
     />
+  } else {
+    return null
   }
   
 }

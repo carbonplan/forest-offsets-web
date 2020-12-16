@@ -12,14 +12,14 @@ const style = {
     ecoregions: {
       type: 'vector',
       tiles: [
-        `http://localhost:8080/ecoregions/{z}/{x}/{y}.pbf`,
+        `https://storage.googleapis.com/carbonplan-data/tiles/processed/ecoregions/{z}/{x}/{y}.pbf`,
       ],
       maxzoom: 5,
     },
     projects: {
       type: 'vector',
       tiles: [
-        `http://localhost:8080/projects/{z}/{x}/{y}.pbf`,
+        `https://storage.googleapis.com/carbonplan-data/tiles/processed/projects/{z}/{x}/{y}.pbf`,
       ],
       maxzoom: 9,
     },
