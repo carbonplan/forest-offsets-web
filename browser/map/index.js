@@ -15,6 +15,7 @@ const Map = ({ selected, setSelected, setBounds }) => {
   const [focus, setFocus] = useState([])
 
   useEffect(() => {
+    console.log('rerunning')
     const map = new mapboxgl.Map({
       container: container.current,
       style: style,

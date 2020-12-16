@@ -136,7 +136,7 @@ const style = {
       },
     },
     {
-      id: 'projects',
+      id: 'projects-fill',
       type: 'fill',
       source: 'projects',
       'source-layer': 'projects',
@@ -147,6 +147,23 @@ const style = {
         'fill-antialias': false,
         'fill-opacity': 0,
         'fill-color': 'black',
+      },
+    },
+    {
+      id: 'projects-line',
+      type: 'line',
+      source: 'projects',
+      'source-layer': 'projects',
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+        visibility: 'visible',
+      },
+      paint: {
+        'line-blur': 0.4,
+        'line-color': 'black',
+        'line-opacity': 0,
+        'line-width': 1,
       },
     },
     {

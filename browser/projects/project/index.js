@@ -13,8 +13,13 @@ const Project = ({ data, setSelected }) => {
   }
 
   const select = (e) => {
-    e.stopPropagation()
+    console.log('enter')
     setSelected(data)
+  }
+
+  const unselect = (e) => {
+    console.log('exit')
+    setSelected(null)
   }
 
   const Slash = () => <Text sx={{
@@ -48,7 +53,7 @@ const Project = ({ data, setSelected }) => {
     }}>↗
   </Text>
 
-  return <Box onClick={toggle} sx={{
+  return <Box onClick={toggle} onMouseEnter={select} onMouseLeave={unselect} sx={{
     cursor: 'pointer',
     borderStyle: 'solid',
     borderColor: 'muted',
