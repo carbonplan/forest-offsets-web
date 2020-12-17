@@ -22,7 +22,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -48,7 +48,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.18649999797344208,
       arbFireRisk: 0.03303999826312065,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4167027899975029,
     },
   },
   {
@@ -75,7 +75,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 4.0395181368110595,
     },
   },
   {
@@ -101,7 +101,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -127,7 +127,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -153,7 +153,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -179,7 +179,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17550000548362732,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 1.7852655448932997,
     },
   },
   {
@@ -205,7 +205,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -231,7 +231,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.12370000034570694,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 1.7852655448932997,
     },
   },
   {
@@ -257,7 +257,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -283,7 +283,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -309,7 +309,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17599999904632568,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: -9999.0,
     },
   },
   {
@@ -335,7 +335,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17587999999523163,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.1562395158788532,
     },
   },
   {
@@ -361,7 +361,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17599999904632568,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 27.990666480739566,
     },
   },
   {
@@ -387,7 +387,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.08709999918937683,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 18.249463558216117,
     },
   },
   {
@@ -413,7 +413,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.10599999874830246,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: -9999.0,
     },
   },
   {
@@ -422,7 +422,7 @@ module.exports = [
     name: 'The Nature Conservancy - Upper St John Forest IFM Project',
     owner: 'The Nature Conservancy',
     developer: 'Climate Trust Capital Fund I LP',
-    coordinates: [-9999, -9999],
+    coordinates: [],
     shape_centroid: [],
     bufferContribution: 228033.0,
     arbocsReceived: 1248717.0,
@@ -439,7 +439,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17589999735355377,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: -9999.0,
     },
   },
   {
@@ -465,7 +465,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.10599999874830246,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: -9999.0,
     },
   },
   {
@@ -491,7 +491,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17599999904632568,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -517,7 +517,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -543,7 +543,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -570,7 +570,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -596,7 +596,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.6855775090474636,
     },
   },
   {
@@ -605,7 +605,7 @@ module.exports = [
     name: 'Buckeye Forest Project',
     owner: 'Sustainable Conservation Inc.',
     developer: 'Lauren Fety',
-    coordinates: [-9999, -9999],
+    coordinates: [],
     shape_centroid: [-123.31046337146505, 38.73351183319396],
     bufferContribution: 63525.0,
     arbocsReceived: 330236.0,
@@ -622,7 +622,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19235999882221222,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -648,7 +648,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -657,7 +657,7 @@ module.exports = [
     name: 'Ashford III',
     owner: 'Nisqually Land Trust',
     developer: 'None',
-    coordinates: [],
+    coordinates: [-122.03805556, 46.77180556],
     shape_centroid: [-122.03429751872031, 46.770940883866494],
     bufferContribution: 9000.0,
     arbocsReceived: 46875.0,
@@ -674,7 +674,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 27.990666480739566,
     },
   },
   {
@@ -700,7 +700,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -709,7 +709,7 @@ module.exports = [
     name: 'Hanes Ranch Forest Carbon Project',
     owner: 'Hanes Ranch Incorporated',
     developer: 'Forest Carbon Partners, LP',
-    coordinates: [],
+    coordinates: [-123.44138889, 38.95638889],
     shape_centroid: [-123.44633719369898, 38.9596859339018],
     bufferContribution: 20586.0,
     arbocsReceived: 107214.0,
@@ -726,7 +726,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -735,7 +735,7 @@ module.exports = [
     name: 'Blue Source - Lonesome Pine Improved Forest Management Project',
     owner: 'Heartwood Forestland Fund V, LP',
     developer: 'Blue Source LLC',
-    coordinates: [],
+    coordinates: [-82.41, 36.96],
     shape_centroid: [-82.4216028921148, 36.975317092086385],
     bufferContribution: 106247.0,
     arbocsReceived: 553371.0,
@@ -752,7 +752,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -778,7 +778,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -788,7 +788,7 @@ module.exports = [
       'Forest Carbon Partners - Mescalero Apache Tribe Improved Forest Management Project',
     owner: 'Mescalero Apache Tribe',
     developer: 'Forest Carbon Partners, LP',
-    coordinates: [],
+    coordinates: [-105.65, 33.17],
     shape_centroid: [-105.64284382478142, 33.18191817616303],
     bufferContribution: 697897.0,
     arbocsReceived: 4417068.0,
@@ -805,7 +805,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.15800000727176666,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 4.598901396772304,
     },
   },
   {
@@ -831,7 +831,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.18649999797344208,
       arbFireRisk: 0.033399999141693115,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.012280385498220081,
     },
   },
   {
@@ -858,7 +858,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17599999904632568,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: -9999.0,
     },
   },
   {
@@ -884,7 +884,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -910,7 +910,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.8816714495311073,
     },
   },
   {
@@ -936,7 +936,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -962,7 +962,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -989,7 +989,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1015,7 +1015,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.14100000262260437,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1041,7 +1041,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -1067,7 +1067,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -1076,7 +1076,7 @@ module.exports = [
     name: 'Huron Mountain Club Forest Carbon Project',
     owner: 'Huron Mountain Club',
     developer: 'None',
-    coordinates: [],
+    coordinates: [-87.88916667, 46.86956944],
     shape_centroid: [-87.8834201109253, 46.863001534292245],
     bufferContribution: 243063.0,
     arbocsReceived: 1342730.0,
@@ -1093,7 +1093,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1809999942779541,
       arbFireRisk: 0.026520000770688057,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.1562395158788532,
     },
   },
   {
@@ -1102,7 +1102,7 @@ module.exports = [
     name: 'Blue Source - Allegheny Improved Forest Management Project',
     owner: 'Allegheny Rural NMTC Forestlands, LLC',
     developer: 'Blue Source LLC',
-    coordinates: [],
+    coordinates: [-80.97, 38.45],
     shape_centroid: [-80.96761082063203, 38.45397438375829],
     bufferContribution: 407650.0,
     arbocsReceived: 2119179.0,
@@ -1119,7 +1119,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -1146,7 +1146,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1172,7 +1172,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.14079999923706055,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 29.669542815835026,
     },
   },
   {
@@ -1199,7 +1199,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.6855775090474636,
     },
   },
   {
@@ -1226,7 +1226,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1252,7 +1252,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.18649999797344208,
       arbFireRisk: 0.03303999826312065,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.012280385498220081,
     },
   },
   {
@@ -1278,7 +1278,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17589999735355377,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -1304,7 +1304,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.050449555721443495,
     },
   },
   {
@@ -1330,7 +1330,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.15870000422000885,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 10.918475283643048,
     },
   },
   {
@@ -1356,7 +1356,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.15870000422000885,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: -9999.0,
     },
   },
   {
@@ -1382,7 +1382,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1923999935388565,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -1409,7 +1409,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.18649999797344208,
       arbFireRisk: 0.032999999821186066,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.012280385498220081,
     },
   },
   {
@@ -1435,7 +1435,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.15839999914169312,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -1462,7 +1462,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.1809999942779541,
       arbFireRisk: 0.026520000770688057,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -1489,7 +1489,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.15800000727176666,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1498,7 +1498,7 @@ module.exports = [
     name: 'Lord Ellis Improved Forest Management Project',
     owner: 'California Timberlands 2, LLC',
     developer: 'None',
-    coordinates: [],
+    coordinates: [-123.85388889, 40.97189167],
     shape_centroid: [-123.860415685914, 40.97424503598421],
     bufferContribution: 62137.0,
     arbocsReceived: 353052.0,
@@ -1515,7 +1515,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17599999904632568,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1541,7 +1541,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17599999904632568,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1567,7 +1567,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.15835000574588776,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 27.990666480739566,
     },
   },
   {
@@ -1594,7 +1594,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17589999735355377,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.050449555721443495,
     },
   },
   {
@@ -1621,7 +1621,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1647,7 +1647,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17587999999523163,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.0,
     },
   },
   {
@@ -1673,7 +1673,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.17587999999523163,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.012280385498220081,
     },
   },
   {
@@ -1699,7 +1699,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -1725,7 +1725,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1751,7 +1751,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.14079999923706055,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 18.249463558216117,
     },
   },
   {
@@ -1761,7 +1761,7 @@ module.exports = [
       'Forest Carbon Partners \u2013 Glass Ranch Improved Forest Management Project',
     owner: 'Ronald Glass',
     developer: 'Forest Carbon Partners, LP',
-    coordinates: [],
+    coordinates: [-123.64388889, 40.34027778],
     shape_centroid: [-123.64418135425102, 40.32859528871382],
     bufferContribution: 52623.0,
     arbocsReceived: 274079.0,
@@ -1778,7 +1778,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 49.81436885598689,
     },
   },
   {
@@ -1804,7 +1804,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 7.52822332559091,
     },
   },
   {
@@ -1830,7 +1830,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.14079999923706055,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 29.669542815835026,
     },
   },
   {
@@ -1856,7 +1856,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.19200000166893005,
       arbFireRisk: 0.03999999910593033,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: 0.4889268516215295,
     },
   },
   {
@@ -1882,7 +1882,7 @@ module.exports = [
     permanence: {
       arbTotalRisk: 0.15870000422000885,
       arbFireRisk: 0.019999999552965164,
-      mtbsFireRisk: -9999,
+      mtbsFireRisk: -9999.0,
     },
   },
 ]

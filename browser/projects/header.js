@@ -24,9 +24,11 @@ const Header = () => {
         borderColor: 'muted',
       }}
     >
-      <Box sx={{
-        pl: [3]
-      }}>
+      <Box
+        sx={{
+          pl: [3],
+        }}
+      >
         <Logo></Logo>
       </Box>
       <Box>
@@ -99,7 +101,7 @@ const Header = () => {
           )}
         </IconButton>
       </Box>
-      <Menu visible={showMenu}/>
+      <Menu visible={showMenu} />
     </Flex>
   )
 }

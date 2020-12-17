@@ -23,18 +23,19 @@ const Rect = ({ map, projection, initCenter, initZoom }) => {
   }, [map])
 
   if (projection(center)) {
-    return <rect 
-      strokeWidth='3' 
-      stroke={theme.colors.primary}
-      x={projection(center)[0] - zoomToSize(zoom)/2}
-      y={projection(center)[1] - zoomToSize(zoom)/2}
-      width={zoomToSize(zoom)}
-      height={zoomToSize(zoom)}
-    />
+    return (
+      <rect
+        strokeWidth='3'
+        stroke={theme.colors.primary}
+        x={projection(center)[0] - zoomToSize(zoom) / 2}
+        y={projection(center)[1] - zoomToSize(zoom) / 2}
+        width={zoomToSize(zoom)}
+        height={zoomToSize(zoom)}
+      />
+    )
   } else {
     return null
   }
-  
 }
 
 export default Rect

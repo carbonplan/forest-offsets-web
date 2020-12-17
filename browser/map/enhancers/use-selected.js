@@ -14,7 +14,7 @@ function useSelected(map, selected, setSelected) {
         ['get', 'arb_id'],
         selected.arbId,
         theme.colors.primary,
-        theme.colors.green
+        theme.colors.green,
       ])
     } else {
       map.setPaintProperty('projects-fill', 'fill-color', theme.colors.green)

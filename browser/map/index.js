@@ -41,7 +41,7 @@ const Map = ({ selected, setSelected, setBounds }) => {
 
   useEffect(() => {
     if (map && focus.length > 0) {
-      map.easeTo({center: focus})
+      map.easeTo({ center: focus })
     }
   }, [focus])
 
@@ -56,12 +56,14 @@ const Map = ({ selected, setSelected, setBounds }) => {
           },
         }}
       >
-        {map && <Enhancers map={map} selected={selected} setSelected={setSelected} />}
+        {map && (
+          <Enhancers map={map} selected={selected} setSelected={setSelected} />
+        )}
       </Box>
-      <Minimap 
+      <Minimap
         map={map}
-        selected={selected} 
-        initCenter={[-121.9, 43.11]} 
+        selected={selected}
+        initCenter={[-121.9, 43.11]}
         initZoom={6.79}
         setFocus={setFocus}
       />

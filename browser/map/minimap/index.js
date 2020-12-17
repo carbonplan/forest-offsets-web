@@ -19,7 +19,7 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
     var bounds = e.target.getBoundingClientRect()
     var x = e.clientX - bounds.left
     var y = e.clientY - bounds.top
-    setFocus(projection.invert([x * 980/250, y * 980/250]))
+    setFocus(projection.invert([(x * 980) / 250, (y * 980) / 250]))
   }
 
   useEffect(() => {
@@ -29,78 +29,94 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
     json(url).then((us) => {
       setPath(geoPath()(feature(us, us.objects.nation)))
     })
-    setLocations(data.map((d) => {return {id: d.id, coordinates: d.coordinates}}))
+    setLocations(
+      data.map((d) => {
+        return { id: d.id, coordinates: d.coordinates }
+      })
+    )
   }, [])
 
-  return <Box
-    sx={{
-      position: 'absolute',
-      right: [3],
-      bottom: [3],
-      height: '300px',
-      width: '300px',
-      borderRadius: '200px',
-      backgroundColor: 'background',
-      borderStyle: 'solid',
-      borderColor: 'muted',
-      borderWidth: '1px',
-      zIndex: 2000,
-    }}
-  >
-    <Box sx={{
-      position: 'relative',
-      top: 80,
-      left: 27,
-      width: '250px',
-      height: '250px',
-    }}>
-      <Box sx={{ fill: 'none', stroke: 'primary' }}>
-        <svg viewBox='-5 0 980 610' onClick={(e) => setPosition(e)}>
-          <g strokeLinejoin='round' strokeLinecap='round' strokeWidth='1'>
-            <path d={path}></path>
-          </g>
-          {locations.map((d, i) => {
-            if (d.coordinates.length > 0) return (
-              <g 
-                key={i} 
-                transform={`translate(${projection(d.coordinates).join(',')})`}
-                sx={{pointerEvents: 'none'}}
-              >
-                <circle
-                  r='25'
-                  fill={theme.colors.green}
-                  strokeWidth='0'
-                  sx={{transition: '0.25s'}}
-                ></circle>
-              </g>
-            )
-          })}
-          {locations.filter((d) => selected && (d.id == selected.id)).map((d, i) => {
-            if (d.coordinates.length > 0) return (
-              <g 
-                key={i} 
-                transform={`translate(${projection(d.coordinates).join(',')})`}
-                sx={{pointerEvents: 'none'}}
-              >
-                <circle
-                  r='25'
-                  fill={theme.colors.primary}
-                  strokeWidth='0'
-                  sx={{transition: '0.25s'}}
-                ></circle>
-              </g>
-            )
-          })}
-          <Rect 
-            map={map} 
-            projection={projection} 
-            initCenter={initCenter} 
-            initZoom={initZoom}
-          />
-        </svg>
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        right: [3],
+        bottom: [3],
+        height: '300px',
+        width: '300px',
+        borderRadius: '200px',
+        backgroundColor: 'background',
+        borderStyle: 'solid',
+        borderColor: 'muted',
+        borderWidth: '1px',
+        zIndex: 2000,
+      }}
+    >
+      <Box
+        sx={{
+          position: 'relative',
+          top: 80,
+          left: 27,
+          width: '250px',
+          height: '250px',
+        }}
+      >
+        <Box sx={{ fill: 'none', stroke: 'primary' }}>
+          <svg viewBox='-5 0 980 610' onClick={(e) => setPosition(e)}>
+            <g strokeLinejoin='round' strokeLinecap='round' strokeWidth='1'>
+              <path d={path}></path>
+            </g>
+            {locations.map((d, i) => {
+              if (d.coordinates.length > 0)
+                return (
+                  <g
+                    key={i}
+                    transform={`translate(${projection(d.coordinates).join(
+                      ','
+                    )})`}
+                    sx={{ pointerEvents: 'none' }}
+                  >
+                    <circle
+                      r='25'
+                      fill={theme.colors.green}
+                      strokeWidth='0'
+                      sx={{ transition: '0.25s' }}
+                    ></circle>
+                  </g>
+                )
+            })}
+            {locations
+              .filter((d) => selected && d.id == selected.id)
+              .map((d, i) => {
+                if (d.coordinates.length > 0)
+                  return (
+                    <g
+                      key={i}
+                      transform={`translate(${projection(d.coordinates).join(
+                        ','
+                      )})`}
+                      sx={{ pointerEvents: 'none' }}
+                    >
+                      <circle
+                        r='25'
+                        fill={theme.colors.primary}
+                        strokeWidth='0'
+                        sx={{ transition: '0.25s' }}
+                      ></circle>
+                    </g>
+                  )
+              })}
+            <Rect
+              map={map}
+              projection={projection}
+              initCenter={initCenter}
+              initZoom={initZoom}
+            />
+          </svg>
+        </Box>
       </Box>
     </Box>
-  </Box>
+  )
 }
 
 export default memo(Minimap)

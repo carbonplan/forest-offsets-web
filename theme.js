@@ -21,7 +21,7 @@ export default {
       fontSize: [1],
       fontFamily: 'monospace',
       width: 'fit-content',
-      height: 'fit-content'
+      height: 'fit-content',
     },
   },
 }

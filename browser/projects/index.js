@@ -7,15 +7,14 @@ import List from './list'
 import Filter from './filter'
 
 const Projects = ({ bounds, setSelected }) => {
-
   const initialFilters = {
     acr: true,
     car: true,
-    vcs: true
+    vcs: true,
   }
 
   const [filters, setFilters] = useState(initialFilters)
-  
+
   const sx = {
     group: {
       borderStyle: 'solid',
@@ -29,7 +28,7 @@ const Projects = ({ bounds, setSelected }) => {
       borderBottomWidth: '1px',
       borderTopWidth: '1px',
       borderColor: 'muted',
-    }
+    },
   }
 
   return (
@@ -49,7 +48,6 @@ const Projects = ({ bounds, setSelected }) => {
         display: ['none', 'none', 'flex'],
       }}
     >
-
       <Header />
       <Box
         sx={{
@@ -58,7 +56,6 @@ const Projects = ({ bounds, setSelected }) => {
           overflowY: 'scroll',
         }}
       >
-        
         <Box
           sx={{
             display: 'flex',
@@ -69,10 +66,10 @@ const Projects = ({ bounds, setSelected }) => {
             <About />
           </Box>
           <Box sx={sx.groupTop}>
-            <Filter filters={filters} setFilters={setFilters}/>
+            <Filter filters={filters} setFilters={setFilters} />
           </Box>
           <Box sx={sx.group}>
-            <List bounds={bounds} filters={filters} setSelected={setSelected}/>
+            <List bounds={bounds} filters={filters} setSelected={setSelected} />
           </Box>
         </Box>
       </Box>

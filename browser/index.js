@@ -6,7 +6,6 @@ import Filter from './projects/filter'
 import { Container, Flex, Box, Text } from 'theme-ui'
 
 const Index = () => {
-
   const [selected, setSelected] = useState(null)
   const [bounds, setBounds] = useState(null)
 
@@ -23,8 +22,12 @@ const Index = () => {
           overflow: 'hidden',
         }}
       >
-        <Projects bounds={bounds} setSelected={setSelected}/>
-        <Map selected={selected} setSelected={setSelected} setBounds={setBounds}/>
+        <Projects bounds={bounds} setSelected={setSelected} />
+        <Map
+          selected={selected}
+          setSelected={setSelected}
+          setBounds={setBounds}
+        />
       </Flex>
     </Layout>
   )
