@@ -164,8 +164,8 @@ const Metrics = ({ data }) => {
         label='MTBS fire risk:'
         color='orange' 
         scale={{min: 0, max: 50}}
-        value={permanence.mtbs_fire_risk * 100}
-        display={`${(permanence.mtbs_fire_risk * 100).toFixed(0)}%`}
+        value={permanence.mtbs_fire_risk_baileys * 100}
+        display={`${(permanence.mtbs_fire_risk_baileys * 100).toFixed(0)}%`}
       />
 
     </Box>
