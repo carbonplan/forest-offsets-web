@@ -10,7 +10,7 @@ const Switch = (props) => {
   }, [colorMode])
 
   return (
-    <IconButton aria-label='Toggle dark mode' onClick={toggle}>
+    <IconButton aria-label='Toggle dark mode' onClick={toggle} sx={{cursor: 'pointer'}}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 24 24'
@@ -18,6 +18,13 @@ const Switch = (props) => {
         height='24'
         strokeWidth='2'
         fill='none'
+        sx={{
+          stroke: 'secondary',
+          transition: '0.15s',
+          '&:hover': {
+            stroke: 'primary'
+          }
+        }}
       >
         <circle cx='12' cy='12' r='4.77' />
         <line x1='12' x2='12' y2='4.06' />

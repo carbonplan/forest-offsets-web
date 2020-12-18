@@ -1,4 +1,5 @@
 import Seo from './seo'
+import Switch from './switch'
 import { Container, Flex, Box, Text } from 'theme-ui'
 
 const Layout = ({ children }) => {
@@ -18,6 +19,15 @@ const Layout = ({ children }) => {
           }}
         >
           {children}
+        </Box>
+        <Box sx={{
+          position: 'absolute',
+          right: 10,
+          bottom: 10,
+          zIndex: 2000,
+          backgroundColor: 'background'
+        }}>
+        <Switch />
         </Box>
       </Flex>
     </>

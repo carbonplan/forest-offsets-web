@@ -22,7 +22,7 @@ const Expander = ({ toggle, expanded, id }) => {
           d='M8,0 V16 M0,8 H16'
           sx={{
             strokeWidth: 2,
-            transition: '0.25s all',
+            transition: '0.15s all',
             transformOrigin: '8px 8px',
             transform: expanded ? 'rotate(45deg)' : '',
           }}
