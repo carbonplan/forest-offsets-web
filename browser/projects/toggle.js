@@ -9,7 +9,7 @@ const Toggle = ({ value, toggle, labels }) => {
           width: '50px',
           height: '20px',
           borderRadius: '20px',
-          backgroundColor: value ? mix('primary', 'background', 0.5) : 'muted',
+          backgroundColor: value ? mix('primary', 'background', 0.4) : 'muted',
           position: 'relative',
           transition: '0.15s',
           display: 'inline-block',

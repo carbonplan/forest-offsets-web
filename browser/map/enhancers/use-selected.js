@@ -16,8 +16,8 @@ function useSelected(map, selected, setSelected) {
       ])
       map.setPaintProperty('projects-fill', 'fill-color', [
         'match',
-        ['get', 'arb_id'],
-        selected.arb_id,
+        ['get', 'id'],
+        selected.id,
         theme.colors.primary,
         theme.colors.green,
       ])

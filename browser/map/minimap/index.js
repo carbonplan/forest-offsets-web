@@ -51,6 +51,7 @@ const Minimap = ({
         borderColor: 'muted',
         borderWidth: '1px',
         zIndex: 2000,
+        display: ['none', 'none', 'inherit'],
       }}
     >
       <Box
