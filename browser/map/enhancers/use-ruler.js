@@ -9,7 +9,6 @@ import { jsx, IconButton, useThemeUI } from 'theme-ui'
 // ruler modes
 const OFF = 0 // show nothing
 const AXES = 1 // show axes only
-const GRID = 2 // show axes and grid
 
 const TICK_SEPARATION = 150 // target distance between ticks
 const TICK_SIZE = 6 // tick length
@@ -79,64 +78,6 @@ function useRuler(map, mode = AXES) {
           )
           .call((g) => g.select('.domain').remove())
 
-      // grid
-      const { gGrid, grid } =
-        mode === GRID
-          ? {
-              gGrid: rulerContainer
-                .append('g')
-                .classed('ruler-grid', true)
-                .style('stroke', theme.colors.secondary)
-                .style('stroke-dasharray', '3,2')
-                .style('stroke-opacity', 0.8),
-
-              grid: (g, x, y) => {
-                const xTickHeight = gx.node().getBoundingClientRect().height
-                const yTickNodes = gy.selectAll('.tick').nodes()
-                return g
-                  .call((g) =>
-                    g
-                      .selectAll('.x')
-                      .data(x.domain())
-                      .join(
-                        (enter) =>
-                          enter
-                            .append('line')
-                            .classed('x', true)
-                            .attr('y1', xTickHeight + TICK_MARGIN)
-                            .attr('y2', height),
-                        (update) => update,
-                        (exit) => exit.remove()
-                      )
-                      .attr('x1', (d) => 0.5 + x(d))
-                      .attr('x2', (d) => 0.5 + x(d))
-                  )
-                  .call((g) =>
-                    g
-                      .selectAll('.y')
-                      .data(y.domain())
-                      .join(
-                        (enter) => enter.append('line').classed('y', true),
-                        (update) => update,
-                        (exit) => exit.remove()
-                      )
-                      .attr('y1', (d) => 0.5 + y(d))
-                      .attr('y2', (d) => 0.5 + y(d))
-                      .attr('x2', (d, i) => {
-                        const yTickWidth = yTickNodes[i]
-                          ? yTickNodes[i].getBoundingClientRect().width
-                          : 0
-                        return width - yTickWidth - TICK_MARGIN
-                      })
-                  )
-              },
-            }
-          : {
-              gGrid: null,
-              grid: null,
-            }
-
-      // the important bit
       setRulerTicks = () => {
         const b = map.getBounds()
 
@@ -150,9 +91,6 @@ function useRuler(map, mode = AXES) {
 
         gx.call(xAxis, x)
         gy.call(yAxis, y)
-        if (mode === GRID) {
-          gGrid.call(grid, x, y)
-        }
       }
 
       setRulerTicks()
