@@ -12,18 +12,24 @@ const Filter = ({ filters, setFilters }) => {
 
   return (
     <Box sx={{ px: [3], py: [2], pt: [3], pb: [3] }}>
-      <Toggle value={filters.updateWithMap} toggle={() => toggle('updateWithMap')}/>
-      <Text onClick={() => toggle('updateWithMap')} sx={{
-        display: 'inline-block',
-        fontFamily: 'monospace',
-        letterSpacing: 'wide',
-        top: ['-5px'],
-        position: 'relative',
-        color: filters.updateWithMap ? 'primary' : 'secondary',
-        pl: [3],
-        cursor: 'pointer',
-        transition: '0.15s',
-      }}>
+      <Toggle
+        value={filters.updateWithMap}
+        toggle={() => toggle('updateWithMap')}
+      />
+      <Text
+        onClick={() => toggle('updateWithMap')}
+        sx={{
+          display: 'inline-block',
+          fontFamily: 'monospace',
+          letterSpacing: 'wide',
+          top: ['-5px'],
+          position: 'relative',
+          color: filters.updateWithMap ? 'primary' : 'secondary',
+          pl: [3],
+          cursor: 'pointer',
+          transition: '0.15s',
+        }}
+      >
         UPDATE WITH MAP
       </Text>
     </Box>
