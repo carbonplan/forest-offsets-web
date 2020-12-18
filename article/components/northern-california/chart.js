@@ -1,8 +1,9 @@
 import { useRef, useEffect } from 'react'
 import { useThemeUI, Box, Flex, Button } from 'theme-ui'
+import { scaleLinear } from 'd3-scale'
+import { select } from 'd3-selection'
+import { line } from 'd3-shape'
 import projects from './data/projects'
-
-import * as d3 from 'd3'
 
 const Chart = ({ selected, focused }) => {
   const boxRef = useRef(null)
@@ -35,16 +36,15 @@ const Chart = ({ selected, focused }) => {
     const width = boxRef.current.offsetWidth - margin.left - margin.right
     const height = boxRef.current.offsetHeight - margin.top - margin.bottom
 
-    const svg = d3
-      .select(boxRef.current)
+    const svg = select(boxRef.current)
       .append('svg')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`)
 
-    const x = d3.scaleLinear().domain([0, 300]).range([0, width])
-    const y = d3.scaleLinear().domain([0, data.length]).range([height, 0])
+    const x = scaleLinear().domain([0, 300]).range([0, width])
+    const y = scaleLinear().domain([0, data.length]).range([height, 0])
 
     // svg
     //   .append('path')
@@ -123,8 +123,7 @@ const Chart = ({ selected, focused }) => {
       .datum(intervals)
       .attr(
         'd',
-        d3
-          .line()
+        line()
           .x((d) => d.x)
           .y((d) => d.y)
           .defined((d) => d.defined)
