@@ -69,7 +69,14 @@ const Projects = ({ bounds, setSelected }) => {
           <Box sx={sx.groups}>
             <About />
           </Box>
-          <Box sx={sx.groupTop}>
+          <Box
+            sx={{
+              ...sx.groupTop,
+              backgroundColor: 'background',
+              position: 'sticky',
+              top: '-1px',
+            }}
+          >
             <Filter filters={filters} setFilters={setFilters} count={count} />
           </Box>
           <Box sx={sx.group}>
