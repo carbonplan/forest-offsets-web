@@ -27,4 +27,4 @@ const Index = () => {
   )
 }
 
-export default withAuth(Index, ['admin', 'collaborator'])
+export default withAuth(Index, ['admin', 'retro', 'collaborator'])

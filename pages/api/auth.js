@@ -9,6 +9,10 @@ const users = [
     password: process.env.COLLABORATOR_PASSWORD,
   },
   {
+    username: 'retro',
+    password: process.env.RETRO_PASSWORD,
+  },
+  {
     username: 'admin',
     password: process.env.ADMIN_PASSWORD,
   },
