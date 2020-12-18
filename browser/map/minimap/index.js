@@ -7,12 +7,11 @@ import { feature } from 'topojson-client'
 import Rect from './rect'
 import data from '../../data'
 
-const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
+const Minimap = ({ map, selected, locations, initCenter, initZoom, setFocus }) => {
   const context = useThemeUI()
   const theme = context.theme
 
   const [path, setPath] = useState(null)
-  const [locations, setLocations] = useState([])
   const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
 
   const setPosition = (e) => {
@@ -29,11 +28,6 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
     json(url).then((us) => {
       setPath(geoPath()(feature(us, us.objects.nation)))
     })
-    setLocations(
-      data.map((d) => {
-        return { id: d.id, coordinates: d.coordinates }
-      })
-    )
   }, [])
 
   return (
@@ -67,11 +61,11 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
               <path d={path}></path>
             </g>
             {locations.map((d, i) => {
-              if (d.coordinates.length > 0)
+              if (d.geometry.coordinates.length > 0)
                 return (
                   <g
                     key={i}
-                    transform={`translate(${projection(d.coordinates).join(
+                    transform={`translate(${projection(d.geometry.coordinates).join(
                       ','
                     )})`}
                     sx={{ pointerEvents: 'none' }}
@@ -86,13 +80,13 @@ const Minimap = ({ map, selected, initCenter, initZoom, setFocus }) => {
                 )
             })}
             {locations
-              .filter((d) => selected && d.id == selected.id)
+              .filter((d) => selected && d.properties.id == selected.id)
               .map((d, i) => {
-                if (d.coordinates.length > 0)
+                if (d.geometry.coordinates.length > 0)
                   return (
                     <g
                       key={i}
-                      transform={`translate(${projection(d.coordinates).join(
+                      transform={`translate(${projection(d.geometry.coordinates).join(
                         ','
                       )})`}
                       sx={{ pointerEvents: 'none' }}

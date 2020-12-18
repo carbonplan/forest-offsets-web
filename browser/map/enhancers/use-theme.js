@@ -29,6 +29,10 @@ function useTheme(map) {
     map.setPaintProperty('projects-line', 'line-opacity', 1)
     map.setPaintProperty('supersections', 'line-color', theme.colors.primary)
     map.setPaintProperty('supersections', 'line-opacity', 0.25)
+    map.setPaintProperty('projects-label', 'text-color', theme.colors.green)
+    map.setPaintProperty('projects-label', 'text-opacity', 1)
+    map.setPaintProperty('projects-center', 'circle-color', theme.colors.green)
+    map.setPaintProperty('projects-center', 'circle-opacity', 0)
   }, [context])
 }
 

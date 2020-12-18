@@ -6,17 +6,23 @@ function useSelected(map, selected, setSelected) {
   const theme = context.theme
 
   useEffect(() => {
-    if (selected && selected.coordinates.length > 0) {
-      console.log(selected.arbId)
-      //map.easeTo({center: selected.coordinates, zoom: 9})
+    if (selected) {
+      map.setPaintProperty('projects-label', 'text-color', [
+        'match',
+        ['get', 'id'],
+        selected.id,
+        theme.colors.primary,
+        theme.colors.green,
+      ])
       map.setPaintProperty('projects-fill', 'fill-color', [
         'match',
         ['get', 'arb_id'],
-        selected.arbId,
+        selected.arb_id,
         theme.colors.primary,
         theme.colors.green,
       ])
     } else {
+      map.setPaintProperty('projects-label', 'text-color', theme.colors.green)
       map.setPaintProperty('projects-fill', 'fill-color', theme.colors.green)
     }
   }, [context, selected])

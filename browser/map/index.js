@@ -8,17 +8,16 @@ import Minimap from './minimap'
 
 mapboxgl.accessToken = ''
 
-const Map = ({ selected, setSelected, setBounds }) => {
+const Map = ({ locations, selected, setSelected, setBounds }) => {
   console.log('rendering map')
   const container = useRef(null)
   const [map, setMap] = useState(null)
   const [focus, setFocus] = useState([])
 
   useEffect(() => {
-    console.log('rerunning')
     const map = new mapboxgl.Map({
       container: container.current,
-      style: style,
+      style: style(locations),
       center: [-121.9, 43.11],
       zoom: 6.79,
       minZoom: 3,
@@ -62,6 +61,7 @@ const Map = ({ selected, setSelected, setBounds }) => {
       </Box>
       <Minimap
         map={map}
+        locations={locations.features}
         selected={selected}
         initCenter={[-121.9, 43.11]}
         initZoom={6.79}
@@ -71,4 +71,4 @@ const Map = ({ selected, setSelected, setBounds }) => {
   )
 }
 
-export default memo(Map)
+export default Map

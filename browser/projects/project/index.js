@@ -6,19 +6,17 @@ import Metrics from './metrics'
 
 const Project = ({ data, setSelected }) => {
   const [expanded, setExpanded] = useState(false)
-  const { id, name, arbocsReceived, bufferContribution } = data
+  const { id, name, arbocs, permanence } = data
 
   const toggle = (e) => {
     setExpanded(!expanded)
   }
 
   const select = (e) => {
-    console.log('enter')
     setSelected(data)
   }
 
   const unselect = (e) => {
-    console.log('exit')
     setSelected(null)
   }
 
@@ -102,9 +100,9 @@ const Project = ({ data, setSelected }) => {
         <Box>
           <Inline value={id} color='secondary' />
           <Slash />
-          <Inline value={arbocsReceived} color='green' />
+          <Inline value={arbocs.issuance} color='green' />
           <Slash />
-          <Inline value={bufferContribution} color='orange' />
+          <Inline value={permanence.mtbs_fire_risk} color='orange' />
         </Box>
         <Box id='box' sx={{ textAlign: 'right', mt: ['-5px'] }}>
           <Expander id='expander' expanded={expanded} />

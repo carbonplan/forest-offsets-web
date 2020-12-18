@@ -4,10 +4,27 @@ import Map from './map'
 import Projects from './projects'
 import Filter from './projects/filter'
 import { Container, Flex, Box, Text } from 'theme-ui'
+import data from './data'
 
 const Index = () => {
   const [selected, setSelected] = useState(null)
   const [bounds, setBounds] = useState(null)
+
+  const locations = {
+    type: 'FeatureCollection',
+    'features': data.map((d) => {
+      return {
+        type: 'Feature',
+        properties: {
+          id: d.id
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: d.shape_centroid
+        }
+      }
+    })
+  }
 
   return (
     <Layout>
@@ -24,6 +41,7 @@ const Index = () => {
       >
         <Projects bounds={bounds} setSelected={setSelected} />
         <Map
+          locations={locations}
           selected={selected}
           setSelected={setSelected}
           setBounds={setBounds}

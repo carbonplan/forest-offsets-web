@@ -18,7 +18,7 @@ const List = ({ bounds, filters, setSelected }) => {
     if (
       (!filters.acr && d.id.includes('ACR')) ||
       (!filters.car && d.id.includes('CAR')) ||
-      (bounds && !inBounds(bounds, d.coordinates))
+      (bounds && !inBounds(bounds, d.shape_centroid))
     ) {
       return false
     } else {
