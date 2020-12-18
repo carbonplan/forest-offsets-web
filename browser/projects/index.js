@@ -11,6 +11,7 @@ const Projects = ({ bounds, setSelected }) => {
     acr: true,
     car: true,
     vcs: true,
+    updateWithMap: true
   }
 
   const [filters, setFilters] = useState(initialFilters)
