@@ -18,8 +18,9 @@ const List = ({ bounds, filters, setSelected, setCount }) => {
     target = target.toLowerCase()
     return (
       d.id.toLowerCase().includes(target) ||
-      ((d.developers.length > 0) && d.developers[0].toLowerCase().includes(target)) ||
-      ((d.owners.length > 0) && d.owners[0].toLowerCase().includes(target)) ||
+      (d.developers.length > 0 &&
+        d.developers[0].toLowerCase().includes(target)) ||
+      (d.owners.length > 0 && d.owners[0].toLowerCase().includes(target)) ||
       d.attestor.toLowerCase().includes(target)
     )
   }
@@ -28,7 +29,9 @@ const List = ({ bounds, filters, setSelected, setCount }) => {
     if (
       (!filters.acr && d.id.includes('ACR')) ||
       (!filters.car && d.id.includes('CAR')) ||
-      (filters.updateWithMap && bounds && !inBounds(bounds, d.shape_centroid)) ||
+      (filters.updateWithMap &&
+        bounds &&
+        !inBounds(bounds, d.shape_centroid)) ||
       (filters.search && !inFields(d, filters.search))
     ) {
       return false

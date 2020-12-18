@@ -12,7 +12,7 @@ const Filter = ({ filters, setFilters, count }) => {
 
   const search = (value) => {
     setFilters((filters) => {
-      return { ...filters, 'search': value }
+      return { ...filters, search: value }
     })
   }
 
@@ -35,7 +35,7 @@ const Filter = ({ filters, setFilters, count }) => {
             fontFamily: 'monospace',
             mt: ['0px'],
             px: [1],
-            color: 'secondary'
+            color: 'secondary',
           }}
         >
           {value}
@@ -48,19 +48,25 @@ const Filter = ({ filters, setFilters, count }) => {
     <Box sx={{ px: [3], py: [2], pt: [3], pb: [3] }}>
       <Grid gap={['16px 32px']} columns={['250px 1fr 38px']}>
         <Box>
-          <Toggle value={filters.updateWithMap} toggle={() => toggle('updateWithMap')}/>
-          <Text onClick={() => toggle('updateWithMap')} sx={{
-            display: 'inline-block',
-            fontFamily: 'monospace',
-            letterSpacing: 'wide',
-            top: ['-5px'],
-            position: 'relative',
-            color: filters.updateWithMap ? 'primary' : 'secondary',
-            pl: [3],
-            cursor: 'pointer',
-            transition: '0.15s',
-            fontSize: [2]
-          }}>
+          <Toggle
+            value={filters.updateWithMap}
+            toggle={() => toggle('updateWithMap')}
+          />
+          <Text
+            onClick={() => toggle('updateWithMap')}
+            sx={{
+              display: 'inline-block',
+              fontFamily: 'monospace',
+              letterSpacing: 'wide',
+              top: ['-5px'],
+              position: 'relative',
+              color: filters.updateWithMap ? 'primary' : 'secondary',
+              pl: [3],
+              cursor: 'pointer',
+              transition: '0.15s',
+              fontSize: [2],
+            }}
+          >
             UPDATE WITH MAP
           </Text>
         </Box>
@@ -69,7 +75,7 @@ const Filter = ({ filters, setFilters, count }) => {
           autoFocus='true'
           placeholder='search'
           onChange={(e) => search(e.currentTarget.value)}
-          sx={{ 
+          sx={{
             fontSize: [2],
             height: '24px',
             pt: [2],
@@ -82,14 +88,13 @@ const Filter = ({ filters, setFilters, count }) => {
             borderColor: 'muted',
             borderWidth: '0px',
             borderBottomWidth: '1px',
-            textAlign: 'right', 
-            display: 'inline-block'
+            textAlign: 'right',
+            display: 'inline-block',
           }}
           value={filters.search}
         />
         <Count value={String(count).padStart(2, '0')} />
       </Grid>
-      
     </Box>
   )
 }

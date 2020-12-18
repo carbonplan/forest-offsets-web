@@ -12,7 +12,7 @@ const Projects = ({ bounds, setSelected }) => {
     car: true,
     vcs: true,
     updateWithMap: true,
-    search: ''
+    search: '',
   }
 
   const [filters, setFilters] = useState(initialFilters)
@@ -70,10 +70,15 @@ const Projects = ({ bounds, setSelected }) => {
             <About />
           </Box>
           <Box sx={sx.groupTop}>
-            <Filter filters={filters} setFilters={setFilters} count={count}/>
+            <Filter filters={filters} setFilters={setFilters} count={count} />
           </Box>
           <Box sx={sx.group}>
-            <List bounds={bounds} filters={filters} setCount={setCount} setSelected={setSelected} />
+            <List
+              bounds={bounds}
+              filters={filters}
+              setCount={setCount}
+              setSelected={setSelected}
+            />
           </Box>
         </Box>
       </Box>
