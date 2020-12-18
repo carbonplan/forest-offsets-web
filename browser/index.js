@@ -43,7 +43,6 @@ const Index = () => {
         <Map
           locations={locations}
           selected={selected}
-          setSelected={setSelected}
           setBounds={setBounds}
         />
       </Flex>

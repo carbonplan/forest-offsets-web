@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
 
-function useSelected(map, selected, setSelected) {
+function useSelected(map, selected) {
   const context = useThemeUI()
   const theme = context.theme
 

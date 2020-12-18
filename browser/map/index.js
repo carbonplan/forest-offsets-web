@@ -8,7 +8,7 @@ import Minimap from './minimap'
 
 mapboxgl.accessToken = ''
 
-const Map = ({ locations, selected, setSelected, setBounds }) => {
+const Map = ({ locations, selected, setBounds }) => {
   console.log('rendering map')
   const container = useRef(null)
   const [map, setMap] = useState(null)
@@ -56,7 +56,7 @@ const Map = ({ locations, selected, setSelected, setBounds }) => {
         }}
       >
         {map && (
-          <Enhancers map={map} selected={selected} setSelected={setSelected} />
+          <Enhancers map={map} selected={selected} />
         )}
       </Box>
       <Minimap
