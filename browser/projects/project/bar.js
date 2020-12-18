@@ -4,8 +4,9 @@ import { scaleLinear } from 'd3-scale'
 import { useThemeUI } from 'theme-ui'
 
 const Bar = ({ value, color, scale }) => {
-
-  const width = scaleLinear().domain([scale.min, scale.max]).range([0, 120])(value)
+  const width = scaleLinear().domain([scale.min, scale.max]).range([0, 120])(
+    value
+  )
 
   return (
     <Box

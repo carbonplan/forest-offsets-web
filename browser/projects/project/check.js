@@ -25,7 +25,7 @@ const Check = ({ closed, color }) => {
           strokeWidth: closed ? '1.5px' : '1.5px',
           stroke: color ? color : theme.colors.text,
           transform: closed ? 'translate(0px, 5px)' : 'translate(0px, 3px)',
-          verticalAlign: 'bottom'
+          verticalAlign: 'bottom',
         }}
       >
         {!closed && <polyline points='1.21 7.17 5.51 11.46 14.79 2.18' />}

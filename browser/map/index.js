@@ -55,9 +55,7 @@ const Map = ({ locations, selected, setBounds }) => {
           },
         }}
       >
-        {map && (
-          <Enhancers map={map} selected={selected} />
-        )}
+        {map && <Enhancers map={map} selected={selected} />}
       </Box>
       <Minimap
         map={map}

@@ -40,11 +40,7 @@ const Index = () => {
         }}
       >
         <Projects bounds={bounds} setSelected={setSelected} />
-        <Map
-          locations={locations}
-          selected={selected}
-          setBounds={setBounds}
-        />
+        <Map locations={locations} selected={selected} setBounds={setBounds} />
       </Flex>
     </Layout>
   )

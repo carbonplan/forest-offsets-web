@@ -20,8 +20,8 @@ const Metrics = ({ data }) => {
 
   const checkIssuance = (d) => {
     return (
-      (Math.round(d.issuance) == Math.round(d.reported)) &&
-      (Math.round(d.calculated) == Math.round(d.reported))
+      Math.round(d.issuance) == Math.round(d.reported) &&
+      Math.round(d.calculated) == Math.round(d.reported)
     )
   }
 
@@ -29,7 +29,7 @@ const Metrics = ({ data }) => {
     return (
       <Grid columns={['150px 1fr']} sx={{ pr: [4] }}>
         <Box>
-          <Text sx={{fontFamily: 'faux'}}>{label}</Text>
+          <Text sx={{ fontFamily: 'faux' }}>{label}</Text>
         </Box>
         <Text
           sx={{
@@ -46,53 +46,63 @@ const Metrics = ({ data }) => {
 
   const RowBar = ({ label, value, scale, color, display, units }) => {
     return (
-      <Grid columns={['150px 120px 1fr']} sx={{ }}>
+      <Grid columns={['150px 120px 1fr']} sx={{}}>
         <Box>
-          <Text sx={{fontFamily: 'faux'}}>{label}</Text>
+          <Text sx={{ fontFamily: 'faux' }}>{label}</Text>
         </Box>
-        <Bar scale={scale} color={color} value={value}/>
+        <Bar scale={scale} color={color} value={value} />
         <Text
           sx={{
             fontFamily: 'monospace',
             letterSpacing: 'wide',
             textTransform: 'uppercase',
-            color: color
+            color: color,
           }}
         >
           {display}
-          {units &&
-            <Text sx={{
-              display: 'inline-block', 
-              color: 'secondary',
-              textTransform: 'none',
-              fontSize: [1],
-              ml: [2]
-            }}>
+          {units && (
+            <Text
+              sx={{
+                display: 'inline-block',
+                color: 'secondary',
+                textTransform: 'none',
+                fontSize: [1],
+                ml: [2],
+              }}
+            >
               {units}
             </Text>
-          }
+          )}
         </Text>
       </Grid>
     )
   }
 
-  const RowBarIcon = ({ label, value, scale, color, display, check, units }) => {
+  const RowBarIcon = ({
+    label,
+    value,
+    scale,
+    color,
+    display,
+    check,
+    units,
+  }) => {
     return (
-      <Grid columns={['150px 120px 1fr']} sx={{ }}>
+      <Grid columns={['150px 120px 1fr']} sx={{}}>
         <Box>
-          <Text sx={{fontFamily: 'faux'}}>{label}</Text>
+          <Text sx={{ fontFamily: 'faux' }}>{label}</Text>
         </Box>
-        <Bar scale={scale} color={color} value={value}/>
+        <Bar scale={scale} color={color} value={value} />
         <Text
           sx={{
             fontFamily: 'monospace',
             letterSpacing: 'wide',
             textTransform: 'uppercase',
-            color: color
+            color: color,
           }}
         >
           {display}
-          {check && <Check color={color}/>}
+          {check && <Check color={color} />}
         </Text>
       </Grid>
     )
@@ -112,62 +122,68 @@ const Metrics = ({ data }) => {
         mb: [1],
       }}
     >
-      <Box sx={{mb: [3]}}>
+      <Box sx={{ mb: [3] }}>
         <Row label='ARB ID:' display={arb_id} />
         <Row label='Owner:' display={owners[0]} />
-        <Row label='Developer:' display={developers.length > 0 ? developers[0] : 'N/A'}/>
-        <Row 
+        <Row
+          label='Developer:'
+          display={developers.length > 0 ? developers[0] : 'N/A'}
+        />
+        <Row
           label='Attestor:'
-          display={`${(attestor == 'SEENOTE') | (attestor == 'SEE NOTE') ? 'N/A' : attestor}`}
+          display={`${
+            (attestor == 'SEENOTE') | (attestor == 'SEE NOTE')
+              ? 'N/A'
+              : attestor
+          }`}
         />
       </Box>
 
       <RowBarIcon
         label='ARBOCs issued:'
-        color='green' 
-        scale={{min: 0, max: 3000000}}
+        color='green'
+        scale={{ min: 0, max: 3000000 }}
         value={arbocs.issuance}
         display={arbocs.issuance.toLocaleString()}
         check={checkIssuance(arbocs)}
       />
       <RowBar
         label='Initial stock:'
-        color='green' 
-        scale={{min: 0, max: 200}}
+        color='green'
+        scale={{ min: 0, max: 200 }}
         value={carbon.initial_carbon_stock.value}
         display={carbon.initial_carbon_stock.value.toFixed(0)}
         units={'tCO₂/ac'}
       />
       <RowBar
         label='Common practice:'
-        color='green' 
-        scale={{min: 0, max: 200}}
+        color='green'
+        scale={{ min: 0, max: 200 }}
         value={carbon.common_practice.value}
         display={carbon.common_practice.value.toFixed(0)}
         units={'tCO₂/ac'}
       />
       <RowBar
         label='ARB total risk:'
-        color='orange' 
-        scale={{min: 0, max: 50}}
+        color='orange'
+        scale={{ min: 0, max: 50 }}
         value={permanence.arb_total_risk * 100}
         display={`${(permanence.arb_total_risk * 100).toFixed(0)}%`}
       />
       <RowBar
         label='ARB fire risk:'
-        color='orange' 
-        scale={{min: 0, max: 50}}
+        color='orange'
+        scale={{ min: 0, max: 50 }}
         value={permanence.arb_fire_risk * 100}
         display={`${(permanence.arb_fire_risk * 100).toFixed(0)}%`}
       />
       <RowBar
         label='MTBS fire risk:'
-        color='orange' 
-        scale={{min: 0, max: 50}}
+        color='orange'
+        scale={{ min: 0, max: 50 }}
         value={permanence.mtbs_fire_risk_baileys * 100}
         display={`${(permanence.mtbs_fire_risk_baileys * 100).toFixed(0)}%`}
       />
-
     </Box>
   )
 }
