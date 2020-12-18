@@ -20,14 +20,16 @@ const Layout = ({ children }) => {
         >
           {children}
         </Box>
-        <Box sx={{
-          position: 'absolute',
-          right: 10,
-          bottom: 10,
-          zIndex: 2000,
-          backgroundColor: 'background'
-        }}>
-        <Switch />
+        <Box
+          sx={{
+            position: 'absolute',
+            right: 10,
+            bottom: 10,
+            zIndex: 2000,
+            backgroundColor: 'background',
+          }}
+        >
+          <Switch />
         </Box>
       </Flex>
     </>
