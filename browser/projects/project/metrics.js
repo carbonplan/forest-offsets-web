@@ -15,6 +15,25 @@ const Metrics = ({ data }) => {
     is_opo,
   } = data
 
+  const Row = ({ label, children }) => {
+    return (
+      <Grid columns={['150px 1fr']} sx={{ pr: [4] }}>
+        <Box>
+          <Text>{label}</Text>
+        </Box>
+        <Box
+          sx={{
+            fontFamily: 'monospace',
+            letterSpacing: 'wide',
+            textTransform: 'uppercase',
+          }}
+        >
+          {children}
+        </Box>
+      </Grid>
+    )
+  }
+
   return (
     <Box
       sx={{
@@ -29,30 +48,21 @@ const Metrics = ({ data }) => {
         mb: [1],
       }}
     >
-      <Grid columns={['150px 1fr']}>
-        <Box>
-          <Text>ARB ID:</Text>
-          <Text>Owner:</Text>
-          <Text>Developer:</Text>
-          <Text>Attestor:</Text>
-        </Box>
-        <Box
-          sx={{
-            fontFamily: 'monospace',
-            letterSpacing: 'wide',
-            textTransform: 'uppercase',
-          }}
-        >
-          <Text>{arb_id}</Text>
-          <Text>{owners[0]}</Text>
-          <Text>{developers[0]}</Text>
-          <Text>{`${
-            (attestor == 'SEENOTE') | (attestor == 'SEE NOTE')
-              ? 'N/A'
-              : attestor
-          }`}</Text>
-        </Box>
-      </Grid>
+      <Row label='ARB ID:'>
+        <Text>{arb_id}</Text>
+      </Row>
+      <Row label='Owner:'>
+        <Text>{owners[0]}</Text>
+      </Row>
+      <Row label='Developer:'>
+        <Text>{developers.length > 0 ? developers[0] : 'N/A'}</Text>
+      </Row>
+      <Row label='Attestor:'>
+        <Text>{`${
+          (attestor == 'SEENOTE') | (attestor == 'SEE NOTE') ? 'N/A' : attestor
+        }`}</Text>
+      </Row>
+
       <Grid columns={['150px 1fr']}>
         <Box>
           <Text>ARBOCs issued:</Text>
@@ -64,7 +74,7 @@ const Metrics = ({ data }) => {
             textTransform: 'uppercase',
           }}
         >
-          <Text>{arbocs.issuance}</Text>
+          <Text>{arbocs.issuance.toLocaleString()}</Text>
         </Box>
       </Grid>
       <Grid columns={['150px 1fr']}>
@@ -79,8 +89,8 @@ const Metrics = ({ data }) => {
             textTransform: 'uppercase',
           }}
         >
-          <Text>{carbon.initial_carbon_stock.value}</Text>
-          <Text>{carbon.common_practice.value}</Text>
+          <Text>{carbon.initial_carbon_stock.value.toFixed(0)}</Text>
+          <Text>{carbon.common_practice.value.toFixed(0)}</Text>
         </Box>
       </Grid>
       <Grid columns={['150px 1fr']}>
@@ -96,9 +106,9 @@ const Metrics = ({ data }) => {
             textTransform: 'uppercase',
           }}
         >
-          <Text>{permanence.arb_total_risk}</Text>
-          <Text>{permanence.arb_fire_risk}</Text>
-          <Text>{permanence.mtbs_fire_risk}</Text>
+          <Text>{`${(permanence.arb_total_risk * 100).toFixed(0)}%`}</Text>
+          <Text>{`${(permanence.arb_fire_risk * 100).toFixed(0)}%`}</Text>
+          <Text>{`${(permanence.mtbs_fire_risk * 100).toFixed(0)}%`}</Text>
         </Box>
       </Grid>
     </Box>

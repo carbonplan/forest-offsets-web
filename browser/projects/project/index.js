@@ -100,9 +100,15 @@ const Project = ({ data, setSelected }) => {
         <Box>
           <Inline value={id} color='secondary' />
           <Slash />
-          <Inline value={arbocs.issuance} color='green' />
+          <Inline
+            value={`${(arbocs.issuance / 1000000).toFixed(2)}M`}
+            color='green'
+          />
           <Slash />
-          <Inline value={permanence.mtbs_fire_risk} color='orange' />
+          <Inline
+            value={`${(permanence.mtbs_fire_risk * 100).toFixed(0)}%`}
+            color='orange'
+          />
         </Box>
         <Box id='box' sx={{ textAlign: 'right', mt: ['-5px'] }}>
           <Expander id='expander' expanded={expanded} />

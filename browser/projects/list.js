@@ -21,7 +21,8 @@ const List = ({ bounds, filters, setSelected, setCount }) => {
       (d.developers.length > 0 &&
         d.developers[0].toLowerCase().includes(target)) ||
       (d.owners.length > 0 && d.owners[0].toLowerCase().includes(target)) ||
-      d.attestor.toLowerCase().includes(target)
+      d.attestor.toLowerCase().includes(target) ||
+      d.name.toLowerCase().includes(target)
     )
   }
 
