@@ -30,7 +30,15 @@ const About = () => {
         >
           CSV
         </Link>{' '}
-        or JSON. Read our article for more info.
+        or{' '}
+        <Link
+          target='_blank'
+          href='https://www.dropbox.com/s/mpyryjkosszpo7p/retro-db-light.json?dl=0'
+        >
+          JSON
+        </Link>
+        {'. '}
+        Read our article for more info.
       </Text>
     </Box>
   )
