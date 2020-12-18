@@ -1,18 +1,18 @@
 import { Box, Text, Grid } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 const Metrics = ({ data }) => {
-  const { 
-    arb_id, 
+  const {
+    arb_id,
     arbocs,
-    owners, 
-    developers, 
-    carbon, 
-    permanence, 
+    owners,
+    developers,
+    carbon,
+    permanence,
     coordinates,
     attestor,
     apd,
     opo,
-    is_opo
+    is_opo,
   } = data
 
   return (
@@ -46,7 +46,11 @@ const Metrics = ({ data }) => {
           <Text>{arb_id}</Text>
           <Text>{owners[0]}</Text>
           <Text>{developers[0]}</Text>
-          <Text>{`${(attestor == 'SEENOTE') | (attestor == 'SEE NOTE') ? 'N/A' : attestor}`}</Text>
+          <Text>{`${
+            (attestor == 'SEENOTE') | (attestor == 'SEE NOTE')
+              ? 'N/A'
+              : attestor
+          }`}</Text>
         </Box>
       </Grid>
       <Grid columns={['150px 1fr']}>

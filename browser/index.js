@@ -12,18 +12,18 @@ const Index = () => {
 
   const locations = {
     type: 'FeatureCollection',
-    'features': data.map((d) => {
+    features: data.map((d) => {
       return {
         type: 'Feature',
         properties: {
-          id: d.id
+          id: d.id,
         },
         geometry: {
           type: 'Point',
-          coordinates: d.shape_centroid
-        }
+          coordinates: d.shape_centroid,
+        },
       }
-    })
+    }),
   }
 
   return (

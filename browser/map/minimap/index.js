@@ -7,7 +7,14 @@ import { feature } from 'topojson-client'
 import Rect from './rect'
 import data from '../../data'
 
-const Minimap = ({ map, selected, locations, initCenter, initZoom, setFocus }) => {
+const Minimap = ({
+  map,
+  selected,
+  locations,
+  initCenter,
+  initZoom,
+  setFocus,
+}) => {
   const context = useThemeUI()
   const theme = context.theme
 
@@ -65,9 +72,9 @@ const Minimap = ({ map, selected, locations, initCenter, initZoom, setFocus }) =
                 return (
                   <g
                     key={i}
-                    transform={`translate(${projection(d.geometry.coordinates).join(
-                      ','
-                    )})`}
+                    transform={`translate(${projection(
+                      d.geometry.coordinates
+                    ).join(',')})`}
                     sx={{ pointerEvents: 'none' }}
                   >
                     <circle
@@ -86,9 +93,9 @@ const Minimap = ({ map, selected, locations, initCenter, initZoom, setFocus }) =
                   return (
                     <g
                       key={i}
-                      transform={`translate(${projection(d.geometry.coordinates).join(
-                        ','
-                      )})`}
+                      transform={`translate(${projection(
+                        d.geometry.coordinates
+                      ).join(',')})`}
                       sx={{ pointerEvents: 'none' }}
                     >
                       <circle

@@ -27,7 +27,7 @@ const style = (locations) => {
       locations: {
         type: 'geojson',
         data: locations,
-      }
+      },
     },
     layers: [
       {
@@ -198,7 +198,7 @@ const style = (locations) => {
         paint: {
           'circle-color': 'white',
           'circle-opacity': 0,
-          'circle-radius': 20
+          'circle-radius': 20,
         },
       },
       {
@@ -213,11 +213,8 @@ const style = (locations) => {
           'text-font': ['relative-faux-book'],
           'text-size': 20,
           'text-justify': 'left',
-          'text-field': [
-            'format',
-            ['get', 'id'],
-          ]
-        }
+          'text-field': ['format', ['get', 'id']],
+        },
       },
     ],
   }
