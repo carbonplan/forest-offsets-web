@@ -66,7 +66,7 @@ const Metrics = ({ data }) => {
         >
           <Text>{permanence.arbTotalRisk}</Text>
           <Text>{permanence.arbFireRisk}</Text>
-          <Text>{permanence.mtbsFireRisk / 100}</Text>
+          <Text>{permanence.mtbsFireRisk}</Text>
         </Box>
       </Grid>
     </Box>
