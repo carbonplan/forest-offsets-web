@@ -1,4 +1,4 @@
-import { Box, Text } from 'theme-ui'
+import { Box, Text, Link } from 'theme-ui'
 
 const About = () => {
   return (
@@ -23,7 +23,7 @@ const About = () => {
       >
         This is a public database of compliance forest carbon offset projects.
         We assembled it for purposes of research, analysis, transparency, and
-        oversight. Download the data as CSV or JSON. Read our article for more
+        oversight. Download the data as <Link target='_blank' href='https://www.dropbox.com/s/7pzokjhvce14b02/retro-db-light.csv?dl=0'>CSV</Link> or JSON. Read our article for more
         info.
       </Text>
     </Box>
