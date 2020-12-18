@@ -182,7 +182,11 @@ const Metrics = ({ data }) => {
         color='orange'
         scale={{ min: 0, max: 50 }}
         value={permanence.mtbs_fire_risk_baileys * 100}
-        display={`${(permanence.mtbs_fire_risk_baileys * 100).toFixed(0)}%`}
+        display={
+          permanence.mtbs_fire_risk_baileys > -9999 ?
+          `${(permanence.mtbs_fire_risk_baileys * 100).toFixed(0)}%` :
+          'N/A'
+        }
       />
     </Box>
   )

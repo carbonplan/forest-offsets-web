@@ -106,7 +106,11 @@ const Project = ({ data, setSelected }) => {
           />
           <Slash />
           <Inline
-            value={`${(permanence.mtbs_fire_risk_baileys * 100).toFixed(0)}%`}
+            value={
+              permanence.mtbs_fire_risk_baileys > -9999 ? 
+              `${(permanence.mtbs_fire_risk_baileys * 100).toFixed(0)}%` :
+              'N/A'
+            }
             color='orange'
           />
         </Box>
