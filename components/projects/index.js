@@ -6,7 +6,7 @@ import About from './about'
 import List from './list'
 import Filter from './filter'
 
-const Projects = ({ bounds, setSelected }) => {
+const Projects = ({ data, bounds, setSelected }) => {
   const initialFilters = {
     acr: true,
     car: true,
@@ -81,6 +81,7 @@ const Projects = ({ bounds, setSelected }) => {
           </Box>
           <Box sx={sx.group}>
             <List
+              data={data}
               bounds={bounds}
               filters={filters}
               setCount={setCount}

@@ -1,30 +1,14 @@
 import { useState } from 'react'
+import { Flex } from 'theme-ui'
 import Layout from './layout'
 import Map from './map'
 import Projects from './projects'
 import Filter from './projects/filter'
-import { Container, Flex, Box, Text } from 'theme-ui'
-import data from './data'
 
-const Index = () => {
+const Main = ({ data, locations }) => {
+
   const [selected, setSelected] = useState(null)
   const [bounds, setBounds] = useState(null)
-
-  const locations = {
-    type: 'FeatureCollection',
-    features: data.map((d) => {
-      return {
-        type: 'Feature',
-        properties: {
-          id: d.id,
-        },
-        geometry: {
-          type: 'Point',
-          coordinates: d.shape_centroid,
-        },
-      }
-    }),
-  }
 
   return (
     <Layout>
@@ -39,11 +23,11 @@ const Index = () => {
           overflow: 'hidden',
         }}
       >
-        <Projects bounds={bounds} setSelected={setSelected} />
+        <Projects data={data} bounds={bounds} setSelected={setSelected} />
         <Map locations={locations} selected={selected} setBounds={setBounds} />
       </Flex>
     </Layout>
   )
 }
 
-export default Index
+export default Main

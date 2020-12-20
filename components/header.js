@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx, Box, Flex, Container, IconButton, Link, Image } from 'theme-ui'
-import Logo from './logo'
 import { useState } from 'react'
+import { jsx, Box, Flex, Container, IconButton, Link, Image } from 'theme-ui'
 import { default as NextLink } from 'next/link'
 import { alpha } from '@theme-ui/color'
+import Logo from './logo'
 
 const link = {
   width: 'fit-content',

@@ -5,7 +5,6 @@ import { json } from 'd3-fetch'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { feature } from 'topojson-client'
 import Rect from './rect'
-import data from '../../data'
 
 const Minimap = ({
   map,

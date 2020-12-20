@@ -9,7 +9,6 @@ import Minimap from './minimap'
 mapboxgl.accessToken = ''
 
 const Map = ({ locations, selected, setBounds }) => {
-  console.log('rendering map')
   const container = useRef(null)
   const [map, setMap] = useState(null)
   const [focus, setFocus] = useState([])

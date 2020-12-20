@@ -72,7 +72,7 @@ const Filter = ({ filters, setFilters, count }) => {
         </Box>
         <Input
           type='text'
-          autoFocus='true'
+          autoFocus={true}
           placeholder='search'
           onChange={(e) => search(e.currentTarget.value)}
           sx={{

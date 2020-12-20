@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 import { Box } from 'theme-ui'
 import Project from './project'
-import data from '../data'
 
-const List = ({ bounds, filters, setSelected, setCount }) => {
+const List = ({ data, bounds, filters, setSelected, setCount }) => {
   const inBounds = (bounds, point) => {
     if (point.length == 0) return false
     return (

@@ -51,7 +51,7 @@ function Login({ origin }) {
   }
 
   return (
-    <Layout hideFooter={true} status={status}>
+    <Layout status={status} showHeader={true}>
       <Container
         sx={{
           px: [3, 3, 4],
