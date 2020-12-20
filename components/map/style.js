@@ -6,7 +6,7 @@ const style = (locations) => {
       basemap: {
         type: 'vector',
         tiles: [
-          `https://storage.googleapis.com/carbonplan-research/articles/offset-project-fire/basemap/{z}/{x}/{y}.pbf`,
+          `https://carbonplan.blob.core.windows.net/carbonplan-data/tiles/processed/basemap/{z}/{x}/{y}.pbf`,
         ],
         maxzoom: 5,
       },
