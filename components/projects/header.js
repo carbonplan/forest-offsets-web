@@ -15,7 +15,7 @@ const Header = () => {
         width: '100%',
         justifyContent: 'space-between',
         pt: [3],
-        pb: [3],
+        pb: ['14px'],
         pl: [0],
         pr: [3],
         borderStyle: 'solid',

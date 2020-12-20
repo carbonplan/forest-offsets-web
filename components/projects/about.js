@@ -8,7 +8,7 @@ const About = () => {
           fontSize: [6],
           fontFamily: 'heading',
           letterSpacing: 'heading',
-          my: [2],
+          my: [0],
         }}
       >
         Forest offset projects
@@ -17,7 +17,7 @@ const About = () => {
         sx={{
           fontSize: [3],
           my: [2],
-          mb: [3],
+          mb: ['12px'],
           pr: [3],
         }}
       >
