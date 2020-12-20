@@ -21,8 +21,8 @@ const About = () => {
           pr: [3],
         }}
       >
-        This is a public database of improved forest management carbon offset projects 
-        in California’s cap-and-trade program. We assembled it for 
+        This is a public database of improved forest management carbon offset
+        projects in California’s cap-and-trade program. We assembled it for
         research, transparency, and oversight. Download the data as{' '}
         <Link
           target='_blank'

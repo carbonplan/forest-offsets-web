@@ -3,7 +3,6 @@ import Main from '../components/main'
 import data from '../data'
 
 const Index = () => {
-
   const locations = {
     type: 'FeatureCollection',
     features: data.map((d) => {

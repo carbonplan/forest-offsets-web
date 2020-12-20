@@ -59,9 +59,12 @@ const List = ({ data, bounds, filters, setSelected, setCount }) => {
 
   return (
     <Box>
-      {data.filter((d) => filtered.includes(d.id)).sort(compare).map((d, i) => (
-        <Project key={d.id} data={d} setSelected={setSelected}></Project>
-      ))}
+      {data
+        .filter((d) => filtered.includes(d.id))
+        .sort(compare)
+        .map((d, i) => (
+          <Project key={d.id} data={d} setSelected={setSelected}></Project>
+        ))}
     </Box>
   )
 }

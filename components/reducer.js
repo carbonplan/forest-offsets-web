@@ -2,8 +2,8 @@ const Reducer = (state, action) => {
   switch (action.type) {
     case 'SET_SELECTED':
       return {
-          ...state,
-          selected: action.value
+        ...state,
+        selected: action.value,
       }
     default:
       return state

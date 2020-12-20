@@ -108,7 +108,9 @@ const Project = ({ data, setSelected }) => {
           <Inline
             value={
               permanence.mtbs_fire_risk_supersection > -9999
-                ? `${(permanence.mtbs_fire_risk_supersection * 100).toFixed(0)}%`
+                ? `${(permanence.mtbs_fire_risk_supersection * 100).toFixed(
+                    0
+                  )}%`
                 : 'N/A'
             }
             color='orange'

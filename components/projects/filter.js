@@ -46,7 +46,11 @@ const Filter = ({ filters, setFilters, count }) => {
 
   return (
     <Box sx={{ px: [3], py: [2], pt: [3], pb: [3] }}>
-      <Grid gap={['16px 32px']} columns={['250px 1fr 38px']} sx={{height: 20}}>
+      <Grid
+        gap={['16px 32px']}
+        columns={['250px 1fr 38px']}
+        sx={{ height: 20 }}
+      >
         <Box>
           <Text
             onClick={() => toggle('updateWithMap')}

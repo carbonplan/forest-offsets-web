@@ -13,7 +13,8 @@ const Layout = ({ children, status, showHeader }) => {
           minHeight: '100vh',
         }}
       >
-        {showHeader && <Box
+        {showHeader && (
+          <Box
             sx={{
               width: '100%',
               borderStyle: 'solid',
@@ -35,7 +36,7 @@ const Layout = ({ children, status, showHeader }) => {
               <Header status={status} />
             </Container>
           </Box>
-        }
+        )}
         <Box
           sx={{
             width: '100%',
