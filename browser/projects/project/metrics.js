@@ -181,10 +181,10 @@ const Metrics = ({ data }) => {
         label='MTBS fire risk:'
         color='orange'
         scale={{ min: 0, max: 50 }}
-        value={permanence.mtbs_fire_risk_baileys * 100}
+        value={permanence.mtbs_fire_risk_supersection * 100}
         display={
-          permanence.mtbs_fire_risk_baileys > -9999
-            ? `${(permanence.mtbs_fire_risk_baileys * 100).toFixed(0)}%`
+          permanence.mtbs_fire_risk_supersection > -9999
+            ? `${(permanence.mtbs_fire_risk_supersection * 100).toFixed(0)}%`
             : 'N/A'
         }
       />
