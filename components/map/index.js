@@ -25,6 +25,7 @@ const Map = ({ locations, selected, setBounds }) => {
 
     map.on('load', () => {
       setMap(map)
+      setBounds(map.getBounds())
     })
 
     map.on('moveend', () => {
