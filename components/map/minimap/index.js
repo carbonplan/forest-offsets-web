@@ -49,7 +49,7 @@ const Minimap = ({
         borderStyle: 'solid',
         borderColor: 'muted',
         borderWidth: '1px',
-        zIndex: 2000,
+        zIndex: 500,
         display: ['none', 'none', 'inherit'],
       }}
     >

@@ -5,6 +5,7 @@ import Header from './header'
 import About from './about'
 import List from './list'
 import Filter from './filter'
+import Methods from './methods'
 
 const Projects = ({ data, bounds, setSelected }) => {
   const initialFilters = {
@@ -16,8 +17,10 @@ const Projects = ({ data, bounds, setSelected }) => {
   }
 
   const [filters, setFilters] = useState(initialFilters)
-
+  const [showMethods, setShowMethods] = useState(false)
   const [count, setCount] = useState(0)
+
+  const toggleMethods = () => setShowMethods(!showMethods)
 
   const sx = {
     group: {
@@ -33,9 +36,20 @@ const Projects = ({ data, bounds, setSelected }) => {
       borderTopWidth: '1px',
       borderColor: 'muted',
     },
+    arrow: {
+      display: 'inline-block',
+      fontSize: [4],
+      ml: [2],
+      top: '3px',
+      position: 'relative',
+      transition: 'transform 0.2s',
+      transform: showMethods ? 'scaleX(-1)' : 'scaleX(1)',
+    },
   }
 
   return (
+    <>
+    <Methods showMethods={showMethods} toggleMethods={toggleMethods}/>
     <Box
       sx={{
         minWidth: '560px',
@@ -66,12 +80,34 @@ const Projects = ({ data, bounds, setSelected }) => {
             flexDirection: 'column',
           }}
         >
-          <Box sx={sx.groups}>
+          <Box>
             <About />
+          </Box>
+          <Box sx={sx.groupTop}>
+            <Box
+            onClick={toggleMethods}
+            sx={{
+              px: [3],
+              py: [2],
+              pb: [3],
+              width: 'fit-content',
+              fontFamily: 'monospace',
+              letterSpacing: 'wide',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+              '&:hover': {
+                color: 'secondary',
+              },
+            }}
+            >
+              <Text>
+                READ METHODS<Text sx={sx.arrow}>→</Text>
+              </Text>
+            </Box>
           </Box>
           <Box
             sx={{
-              ...sx.groupTop,
+              ...sx.group,
               backgroundColor: 'background',
               position: 'sticky',
               top: '-1px',
@@ -91,6 +127,7 @@ const Projects = ({ data, bounds, setSelected }) => {
         </Box>
       </Box>
     </Box>
+    </>
   )
 }
 

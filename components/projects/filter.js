@@ -46,12 +46,8 @@ const Filter = ({ filters, setFilters, count }) => {
 
   return (
     <Box sx={{ px: [3], py: [2], pt: [3], pb: [3] }}>
-      <Grid gap={['16px 32px']} columns={['250px 1fr 38px']}>
+      <Grid gap={['16px 32px']} columns={['250px 1fr 38px']} sx={{height: 20}}>
         <Box>
-          <Toggle
-            value={filters.updateWithMap}
-            toggle={() => toggle('updateWithMap')}
-          />
           <Text
             onClick={() => toggle('updateWithMap')}
             sx={{
@@ -61,7 +57,8 @@ const Filter = ({ filters, setFilters, count }) => {
               top: ['-5px'],
               position: 'relative',
               color: filters.updateWithMap ? 'primary' : 'secondary',
-              pl: [3],
+              pl: [0],
+              pr: [3],
               cursor: 'pointer',
               transition: '0.15s',
               fontSize: [2],
@@ -69,6 +66,10 @@ const Filter = ({ filters, setFilters, count }) => {
           >
             UPDATE WITH MAP
           </Text>
+          <Toggle
+            value={filters.updateWithMap}
+            toggle={() => toggle('updateWithMap')}
+          />
         </Box>
         <Input
           type='text'
