@@ -21,9 +21,9 @@ const About = () => {
           pr: [3],
         }}
       >
-        This is a public database of compliance forest carbon offset projects.
-        We assembled it for purposes of research, analysis, transparency, and
-        oversight. Download the data as{' '}
+        This is a public database of improved forest management carbon offset projects 
+        in California’s cap-and-trade program. We assembled it for 
+        research, transparency, and oversight. Download the data as{' '}
         <Link
           target='_blank'
           href='https://www.dropbox.com/s/7pzokjhvce14b02/retro-db-light.csv?dl=0'
@@ -38,7 +38,6 @@ const About = () => {
           JSON
         </Link>
         {'. '}
-        Read our article for more info.
       </Text>
     </Box>
   )
