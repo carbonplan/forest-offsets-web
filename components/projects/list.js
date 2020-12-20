@@ -1,8 +1,10 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Box } from 'theme-ui'
 import Project from './project'
 
 const List = ({ data, bounds, filters, setSelected, setCount }) => {
+  const [filtered, setFiltered] = useState([])
+
   const inBounds = (bounds, point) => {
     if (point.length == 0) return false
     return (
@@ -40,13 +42,24 @@ const List = ({ data, bounds, filters, setSelected, setCount }) => {
     }
   }
 
+  const compare = (a, b) => {
+    if (a.shape_centroid[1] > b.shape_centroid[1]) {
+      return -1
+    }
+    if (a.shape_centroid[1] < b.shape_centroid[1]) {
+      return 1
+    }
+    return 0
+  }
+
   useEffect(() => {
-    setCount(data.filter(filter).length)
+    setFiltered(data.filter(filter).map((d) => d.id))
+    setCount(data.filter((d) => filtered.includes(d.id)).length)
   }, [bounds, filters])
 
   return (
     <Box>
-      {data.filter(filter).map((d, i) => (
+      {data.filter((d) => filtered.includes(d.id)).sort(compare).map((d, i) => (
         <Project key={d.id} data={d} setSelected={setSelected}></Project>
       ))}
     </Box>
