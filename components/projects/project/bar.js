@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box } from 'theme-ui'
 import { scaleLinear } from 'd3-scale'
-import { useThemeUI } from 'theme-ui'
 
 const Bar = ({ value, color, scale }) => {
   const width = scaleLinear().domain([scale.min, scale.max]).range([0, 120])(
@@ -26,7 +25,7 @@ const Bar = ({ value, color, scale }) => {
           sx={{ fill: color, opacity: 1 }}
           x='0'
           y='0'
-          width={width}
+          width={width ? width : 0}
           height='12'
         />
       </svg>

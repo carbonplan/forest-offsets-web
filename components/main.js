@@ -6,7 +6,6 @@ import Projects from './projects'
 import Filter from './projects/filter'
 
 const Main = ({ data, locations }) => {
-
   const [selected, setSelected] = useState(null)
   const [bounds, setBounds] = useState(null)
 

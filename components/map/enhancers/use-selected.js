@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
 
 function useSelected(map, selected) {
-  const context = useThemeUI()
-  const theme = context.theme
+  const { theme } = useThemeUI()
+  const { primary, green } = theme.colors
 
   useEffect(() => {
     if (selected) {
@@ -11,21 +11,21 @@ function useSelected(map, selected) {
         'match',
         ['get', 'id'],
         selected.id,
-        theme.colors.primary,
-        theme.colors.green,
+        primary,
+        green,
       ])
       map.setPaintProperty('projects-fill', 'fill-color', [
         'match',
         ['get', 'id'],
         selected.id,
-        theme.colors.primary,
-        theme.colors.green,
+        primary,
+        green,
       ])
     } else {
-      map.setPaintProperty('projects-label', 'text-color', theme.colors.green)
-      map.setPaintProperty('projects-fill', 'fill-color', theme.colors.green)
+      map.setPaintProperty('projects-label', 'text-color', green)
+      map.setPaintProperty('projects-fill', 'fill-color', green)
     }
-  }, [context, selected])
+  }, [theme, selected])
 }
 
 export default useSelected

@@ -1,11 +1,7 @@
 /** @jsx jsx */
 import { jsx, Box } from 'theme-ui'
-import { useThemeUI } from 'theme-ui'
 
 const Check = ({ closed, color }) => {
-  const context = useThemeUI()
-  const theme = context.theme
-
   return (
     <span
       sx={{
@@ -23,7 +19,7 @@ const Check = ({ closed, color }) => {
         viewBox={closed ? '0 0 30 30' : '0 0 20 20'}
         sx={{
           strokeWidth: closed ? '1.5px' : '1.5px',
-          stroke: color ? color : theme.colors.text,
+          stroke: color ? color : 'text',
           transform: closed ? 'translate(0px, 5px)' : 'translate(0px, 3px)',
           verticalAlign: 'bottom',
         }}
