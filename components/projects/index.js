@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { memo, useState, useEffect } from 'react'
 import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 import Header from './header'
@@ -7,15 +7,15 @@ import List from './list'
 import Filter from './filter'
 import Methods from './methods'
 
-const Projects = ({ data, bounds, setSelected }) => {
-  const initialFilters = {
-    acr: true,
-    car: true,
-    vcs: true,
-    updateWithMap: true,
-    search: '',
-  }
+const initialFilters = {
+  acr: true,
+  car: true,
+  vcs: true,
+  updateWithMap: true,
+  search: '',
+}
 
+const Projects = ({ data, bounds, setSelected }) => {
   const [filters, setFilters] = useState(initialFilters)
   const [showMethods, setShowMethods] = useState(false)
   const [count, setCount] = useState(0)
@@ -131,4 +131,4 @@ const Projects = ({ data, bounds, setSelected }) => {
   )
 }
 
-export default Projects
+export default memo(Projects)

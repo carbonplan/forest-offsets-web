@@ -1,24 +1,21 @@
-/** @jsx jsx */
-import { memo, useState, useEffect, useContext } from 'react'
-import { jsx, useThemeUI, Box } from 'theme-ui'
+import { memo, useState, useEffect } from 'react'
+import { useThemeUI, Box } from 'theme-ui'
 import { json } from 'd3-fetch'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { feature } from 'topojson-client'
 import Rect from './rect'
+import Chart from './chart'
 
-const Minimap = ({
-  map,
-  selected,
-  locations,
-  initCenter,
-  initZoom,
-  setFocus,
-}) => {
-  const context = useThemeUI()
-  const theme = context.theme
+const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
+const initCenter = [-121.9, 43.11]
+const initZoom = 6.79
+
+const Minimap = ({ map, selected, locations }) => {
+  const { theme } = useThemeUI()
+
+  const [focus, setFocus] = useState([])
 
   const [path, setPath] = useState(null)
-  const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
 
   const setPosition = (e) => {
     var bounds = e.target.getBoundingClientRect()
@@ -26,6 +23,12 @@ const Minimap = ({
     var y = e.clientY - bounds.top
     setFocus(projection.invert([(x * 980) / 250, (y * 980) / 250]))
   }
+
+  useEffect(() => {
+    if (map && focus.length > 0) {
+      map.easeTo({ center: focus })
+    }
+  }, [focus])
 
   useEffect(() => {
     const prefix =
@@ -64,49 +67,13 @@ const Minimap = ({
       >
         <Box sx={{ fill: 'none', stroke: 'primary' }}>
           <svg viewBox='-5 0 980 610' onClick={(e) => setPosition(e)}>
-            <g strokeLinejoin='round' strokeLinecap='round' strokeWidth='1'>
-              <path d={path}></path>
-            </g>
-            {locations.map((d, i) => {
-              if (d.geometry.coordinates.length > 0)
-                return (
-                  <g
-                    key={i}
-                    transform={`translate(${projection(
-                      d.geometry.coordinates
-                    ).join(',')})`}
-                    sx={{ pointerEvents: 'none' }}
-                  >
-                    <circle
-                      r='25'
-                      fill={theme.colors.green}
-                      strokeWidth='0'
-                      sx={{ transition: '0.25s' }}
-                    ></circle>
-                  </g>
-                )
-            })}
-            {locations
-              .filter((d) => selected && d.properties.id == selected.id)
-              .map((d, i) => {
-                if (d.geometry.coordinates.length > 0)
-                  return (
-                    <g
-                      key={i}
-                      transform={`translate(${projection(
-                        d.geometry.coordinates
-                      ).join(',')})`}
-                      sx={{ pointerEvents: 'none' }}
-                    >
-                      <circle
-                        r='25'
-                        fill={theme.colors.primary}
-                        strokeWidth='0'
-                        sx={{ transition: '0.25s' }}
-                      ></circle>
-                    </g>
-                  )
-              })}
+            <Chart
+              locations={locations}
+              selected={selected}
+              path={path}
+              theme={theme}
+              projection={projection}
+            />
             <Rect
               map={map}
               projection={projection}

@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Flex } from 'theme-ui'
 import Layout from './layout'
-import Map from './map'
-import Projects from './projects'
-import Filter from './projects/filter'
+import Mapbox from './map/mapbox'
+import Viewer from './viewer'
 
 const Main = ({ data, locations }) => {
-  const [selected, setSelected] = useState(null)
+  const [map, setMap] = useState(null)
   const [bounds, setBounds] = useState(null)
 
   return (
@@ -22,8 +21,13 @@ const Main = ({ data, locations }) => {
           overflow: 'hidden',
         }}
       >
-        <Projects data={data} bounds={bounds} setSelected={setSelected} />
-        <Map locations={locations} selected={selected} setBounds={setBounds} />
+        <Viewer locations={locations} data={data} map={map} bounds={bounds} />
+        <Mapbox
+          locations={locations}
+          map={map}
+          setMap={setMap}
+          setBounds={setBounds}
+        />
       </Flex>
     </Layout>
   )

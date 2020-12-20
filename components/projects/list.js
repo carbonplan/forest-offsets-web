@@ -54,8 +54,11 @@ const List = ({ data, bounds, filters, setSelected, setCount }) => {
 
   useEffect(() => {
     setFiltered(data.filter(filter).map((d) => d.id))
-    setCount(data.filter((d) => filtered.includes(d.id)).length)
   }, [bounds, filters])
+
+  useEffect(() => {
+    setCount(data.filter((d) => filtered.includes(d.id)).length)
+  }, [filtered])
 
   return (
     <Box>
