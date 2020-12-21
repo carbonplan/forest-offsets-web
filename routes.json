@@ -9,5 +9,8 @@
       "route": "/*",
       "allowedRoles": ["contributor"]
     },
-  ]
+  ],
+  "defaultHeaders": {
+    "Referrer-Policy": ""
+  }
 }
