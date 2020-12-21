@@ -26,14 +26,14 @@ const About = () => {
         research, transparency, and oversight. Download the data as{' '}
         <Link
           target='_blank'
-          href='https://www.dropbox.com/s/7pzokjhvce14b02/retro-db-light.csv?dl=0'
+          href='https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light.csv'
         >
           CSV
         </Link>{' '}
         or{' '}
         <Link
           target='_blank'
-          href='https://www.dropbox.com/s/mpyryjkosszpo7p/retro-db-light.json?dl=0'
+          href='https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light.json'
         >
           JSON
         </Link>
