@@ -1,4 +1,3 @@
-import { withAuth } from '../lib/auth'
 import Main from '../components/main'
 import data from '../data'
 
@@ -22,4 +21,4 @@ const Index = () => {
   return <Main data={data} locations={locations} />
 }
 
-export default withAuth(Index, ['admin', 'retro', 'collaborator'])
+export default Index
