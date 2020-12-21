@@ -7,8 +7,15 @@
     },
     {
       "route": "/*",
-      "allowedRoles": ["contributor"]
-    },
+      "allowedRoles": ["authenticated"]
+    }
+  ],
+  "platformErrorOverrides": [
+    {
+      "errorType": "Unauthenticated",
+      "statusCode": "302",
+      "serve": "/login"
+    }
   ],
   "defaultHeaders": {
     "Referrer-Policy": ""
