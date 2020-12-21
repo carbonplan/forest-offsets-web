@@ -12,7 +12,7 @@
     },
     {
       "route": "/*",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": ["contributor"]
     }
   ],
   "platformErrorOverrides": [
