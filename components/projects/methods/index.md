@@ -36,7 +36,7 @@ With this important caveat in mind, we believe the comparison is nevertheless a 
 
 ## Data access
 
-We provide the data rendered on this website in [CSV] and [JSON] formats. The shapefiles used to render the projects can be accessed at https://.../{id}.json where {id} is the ID of the project.
+We provide the data rendered on this website in [CSV](https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light-v1.0.csv) and [JSON](https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light-v1.0.json) formats. The shapefiles rendered in the map can be accessed at https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/{id}/shape.json where `{id}` is the ID of the project.
 
 ## Acknowledgements
 
