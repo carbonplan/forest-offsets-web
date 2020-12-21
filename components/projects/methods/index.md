@@ -42,6 +42,8 @@ We provide the data rendered on this website in [CSV] and [JSON] formats. The sh
 
 These data products and the website were developed jointly by the following contributors (in alphabetical order): Grayson Badgley (Black Rock Forest / Columbia University), Danny Cullenward (CarbonPlan), Jeremy Freeman (CarbonPlan), Joe Hamman (CarbonPlan), Barbara Haya (UC Berkeley).
 
+We thank Bill Anderegg and Anna Trugman for helpful discussions.
+
 The development of this project was funded, in part, through a grant to CarbonPlan from the Microsoft AI for Earth program.
 
 ## Version
