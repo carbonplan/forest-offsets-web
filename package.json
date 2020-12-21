@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next -p 5001",
     "build": "next build",
-    "build:azure": "next build && next export",
     "export": "next build && next export",
     "start": "next start",
     "format": "npm run format-js",
