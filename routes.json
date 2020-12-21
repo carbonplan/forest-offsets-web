@@ -1,12 +1,7 @@
 {
   "routes": [
     {
-      "route": "/login/aad",
-      "serve": "/.auth/login/aad",
-      "allowedRoles": ["anonymous"]
-    },
-    {
-      "route": "/login/github",
+      "route": "/login",
       "serve": "/.auth/login/github",
       "allowedRoles": ["anonymous"]
     },
@@ -19,7 +14,7 @@
     {
       "errorType": "Unauthenticated",
       "statusCode": "302",
-      "serve": "/login/aad"
+      "serve": "/login"
     }
   ],
   "defaultHeaders": {
