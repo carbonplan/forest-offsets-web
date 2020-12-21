@@ -1,0 +1,14 @@
+
+
+{
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["contributor"]
+    },
+    {
+      "route": "/login",
+      "serve": "/.auth/login/github"
+    }
+  ]
+}
