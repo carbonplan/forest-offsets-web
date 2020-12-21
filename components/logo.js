@@ -3,8 +3,7 @@ import { useThemeUI } from 'theme-ui'
 import { default as NextLink } from 'next/link'
 
 const Logo = () => {
-  const context = useThemeUI()
-  const theme = context.theme
+  const { theme } = useThemeUI()
 
   return (
     <NextLink href='/' passHref={true}>
