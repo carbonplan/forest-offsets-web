@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "$BRANCH" == "azure-deployment" ]] ; then
+if [[ "$VERCEL_GIT_COMMIT_REF" == "azure-deployment" ]] ; then
   # Don't build
   exit 0;
 
