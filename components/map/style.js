@@ -13,14 +13,14 @@ const style = (locations) => {
       ecoregions: {
         type: 'vector',
         tiles: [
-          `https://storage.googleapis.com/carbonplan-data/tiles/processed/ecoregions/{z}/{x}/{y}.pbf`,
+          `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles//processed/ecoregions/{z}/{x}/{y}.pbf`,
         ],
         maxzoom: 5,
       },
       projects: {
         type: 'vector',
         tiles: [
-          `https://storage.googleapis.com/carbonplan-data/tiles/processed/projects_v2/{z}/{x}/{y}.pbf`,
+          `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/processed/projects_v2/{z}/{x}/{y}.pbf`,
         ],
         maxzoom: 9,
       },
