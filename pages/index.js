@@ -1,25 +1,12 @@
-import { withAuth } from '../lib/auth'
-import Main from '../components/main'
-import data from '../data'
+import { Box } from 'theme-ui'
+import Layout from '../components/layout'
 
-const Index = () => {
-  const locations = {
-    type: 'FeatureCollection',
-    features: data.map((d) => {
-      return {
-        type: 'Feature',
-        properties: {
-          id: d.id,
-        },
-        geometry: {
-          type: 'Point',
-          coordinates: d.shape_centroid,
-        },
-      }
-    }),
-  }
-
-  return <Main data={data} locations={locations} />
+function Index() {
+  return (
+    <Layout>
+      <Box>Hello! Please go to /research/forest-offsets</Box>
+    </Layout>
+  )
 }
 
-export default withAuth(Index, ['admin', 'retro', 'collaborator'])
+export default Index
