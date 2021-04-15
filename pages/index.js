@@ -1,5 +1,5 @@
 import { Box } from 'theme-ui'
-import Layout from '../components/layout'
+import { Layout } from '@carbonplan/components'
 
 function Index() {
   return (
