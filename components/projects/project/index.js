@@ -3,10 +3,11 @@ import { Box, Text, Grid } from 'theme-ui'
 import { Expander, Tag } from '@carbonplan/components'
 import AnimateHeight from 'react-animate-height'
 import Metrics from './metrics'
+import displayNames from '../../../data/display-names'
 
 const Project = ({ data, setSelected }) => {
   const [expanded, setExpanded] = useState(false)
-  const { id, name, arbocs, developers, owners, supersection_ids } = data
+  const { id, arbocs, developers, owners, supersection_ids } = data
 
   const toggle = (e) => {
     setExpanded(!expanded)
@@ -20,48 +21,10 @@ const Project = ({ data, setSelected }) => {
     setSelected(null)
   }
 
-  const Slash = () => (
-    <Text
-      sx={{
-        display: 'inline-block',
-        color: 'text',
-        mx: [2],
-      }}
-    >
-      /
-    </Text>
-  )
-
-  const Inline = ({ value, color }) => (
-    <Text
-      sx={{
-        color: color,
-        display: 'inline-block',
-        fontFamily: 'monospace',
-        letterSpacing: 'wide',
-        fontSize: [2],
-      }}
-    >
-      {value}
-    </Text>
-  )
-
-  const Arrow = () => (
-    <Text
-      onClick={select}
-      sx={{
-        color: 'secondary',
-        display: 'inline-block',
-        fontFamily: 'monospace',
-        fontSize: [5],
-        '&:hover': {
-          color: 'primary',
-        },
-      }}
-    >
-      ↗
-    </Text>
-  )
+  const displayName = displayNames.filter((d) => d.id === id)[0].name
+  const parts = displayName.split(' ')
+  const nameStart = parts.slice(0, parts.length - 1).join(' ')
+  const nameEnd = parts.slice(parts.length - 1, parts.length)
 
   return (
     <Box
@@ -76,7 +39,7 @@ const Project = ({ data, setSelected }) => {
         borderBottomWidth: '1px',
         px: [3, 4, 5, 6],
         py: [4],
-        '&:hover > #grid > #box > #expander': {
+        '&:hover > #grid > #box > #box-2 > #expander': {
           fill: 'primary',
           stroke: 'primary',
         },
@@ -85,18 +48,22 @@ const Project = ({ data, setSelected }) => {
       <Grid id='grid' columns={['1fr 60px']}>
         <Box
           id='box'
-          sx={{ fontSize: [3, 3, 4, 5], lineHeight: 1.15, pb: [1] }}
+          sx={{ fontSize: [3, 4, 4, 5], lineHeight: 1.15, pb: [1] }}
         >
-          {name}&nbsp;
-          <Expander
-            id='expander'
-            value={expanded}
-            sx={{
-              zIndex: -1,
-              position: 'relative',
-              top: ['2px', '2px', '1px', '0px'],
-            }}
-          />
+          {nameStart}{' '}
+          <Box id='box-2' as='span' sx={{ whiteSpace: 'nowrap' }}>
+            {nameEnd}
+            <Expander
+              id='expander'
+              value={expanded}
+              sx={{
+                zIndex: -1,
+                ml: [2],
+                position: 'relative',
+                top: ['2px', '2px', '1px', '0px'],
+              }}
+            />
+          </Box>
         </Box>
         <Box sx={{ textAlign: 'right', pr: [1], mt: ['0px'] }}>
           <Tag
@@ -109,7 +76,7 @@ const Project = ({ data, setSelected }) => {
           </Tag>
         </Box>
       </Grid>
-      <Box sx={{ color: 'secondary', mt: [2], fontSize: [1, 1, 1, 2] }}>
+      <Box sx={{ color: 'secondary', mt: [2], fontSize: [1, 1, 1, 3] }}>
         {developers[0] || owners[0]} / {supersection_ids[0]}
       </Box>
       <AnimateHeight

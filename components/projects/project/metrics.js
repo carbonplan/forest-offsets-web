@@ -38,6 +38,7 @@ const Metrics = ({ data }) => {
             sx={{
               fontFamily: 'faux',
               letterSpacing: 'faux',
+              fontSize: [2, 2, 2, 3],
             }}
           >
             {label}
@@ -89,7 +90,7 @@ const Metrics = ({ data }) => {
           />
         )}
       </Box>
-      <Box sx={{ mt: [3], color: 'secondary', fontSize: [1, 1, 1, 2] }}>
+      <Box sx={{ mt: [3], color: 'secondary', fontSize: [1, 1, 1, 3] }}>
         Show project on map
       </Box>
     </Box>

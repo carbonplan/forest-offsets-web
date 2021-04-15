@@ -4,22 +4,16 @@ import fsspec
 import numpy as np
 
 with fsspec.open(
-    "https://carbonplan.blob.core.windows.net/carbonplan-forests/forest-offsets-database/forest-offsets-database-v1.0.json",
+    "https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json",
     "r",
 ) as f:
     data = json.load(f)
 
 with fsspec.open(
-    "https://carbonplan.blob.core.windows.net/carbonplan-retro/results/reclassification-crediting-error.json",
+    "https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/archive/results/reclassification-crediting-error.json",
     "r",
 ) as f:
     overcrediting = json.load(f)
-
-with fsspec.open(
-    "https://carbonplan.blob.core.windows.net/carbonplan-retro/results/issuance-stats.json",
-    "r",
-) as f:
-    issuance = json.load(f)
 
 def get_overcrediting(condition=None, percentage=True, display=False):
     if condition is not None:
