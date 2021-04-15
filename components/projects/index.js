@@ -122,8 +122,7 @@ const Projects = ({ data, bounds, setSelected }) => {
                 onClick={toggleMethods}
                 sx={{
                   px: [3, 4, 5, 6],
-                  py: [2],
-                  pb: [3],
+                  py: [3],
                   width: 'fit-content',
                   fontFamily: 'heading',
                   letterSpacing: 'smallcaps',
