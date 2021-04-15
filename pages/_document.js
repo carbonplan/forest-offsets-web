@@ -1,17 +1,14 @@
-import React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Main, NextScript, Head } from 'next/document'
+import { Tracking } from '@carbonplan/components'
 import { InitializeColorMode } from 'theme-ui'
 
-class MyDocument extends Document {
-  static async getStaticProps(ctx) {
-    const staticProps = await Document.getStaticProps(ctx)
-    return { ...staticProps }
-  }
-
+export default class MyDocument extends Document {
   render() {
     return (
       <Html lang='en' className='no-focus-outline'>
-        <Head></Head>
+        <Head>
+          <Tracking />
+        </Head>
         <body>
           <InitializeColorMode />
           <Main />
@@ -21,5 +18,3 @@ class MyDocument extends Document {
     )
   }
 }
-
-export default MyDocument
