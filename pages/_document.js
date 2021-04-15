@@ -10,7 +10,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html className='no-focus-outline'>
+      <Html lang='en' className='no-focus-outline'>
         <Head></Head>
         <body>
           <InitializeColorMode />
