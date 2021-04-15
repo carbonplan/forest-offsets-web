@@ -3,7 +3,7 @@ import { useThemeUI } from 'theme-ui'
 
 function useTheme(map) {
   const { theme } = useThemeUI()
-  const { background, muted, primary, green } = theme.colors
+  const { background, muted, primary, green } = theme.rawColors
 
   useEffect(() => {
     map.setPaintProperty('background', 'background-color', background)

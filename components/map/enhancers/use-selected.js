@@ -3,7 +3,7 @@ import { useThemeUI } from 'theme-ui'
 
 function useSelected(map, selected) {
   const { theme } = useThemeUI()
-  const { primary, green } = theme.colors
+  const { primary, green } = theme.rawColors
 
   useEffect(() => {
     if (selected) {

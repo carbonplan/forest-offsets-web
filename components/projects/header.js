@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import { useState } from 'react'
-import { jsx, Box, Flex, IconButton } from 'theme-ui'
+import { Link, Box, Flex, IconButton } from 'theme-ui'
+import { Logo } from '@carbonplan/components'
 import Menu from './menu'
-import Logo from './logo'
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
@@ -14,22 +13,24 @@ const Header = () => {
         margin: '0 auto',
         width: '100%',
         justifyContent: 'space-between',
-        pt: [3],
-        pb: ['14px'],
-        pl: [0],
-        pr: [3],
+        pt: ['12px'],
+        pb: ['9px'],
+        height: '56px',
+        px: [3, 4, 5, 6],
         borderStyle: 'solid',
         borderWidth: '0px',
         borderBottomWidth: '1px',
         borderColor: 'muted',
       }}
     >
-      <Box
-        sx={{
-          pl: [3],
-        }}
-      >
-        <Logo></Logo>
+      <Box sx={{ display: 'block', width: 'fit-content' }}>
+        <Link
+          href='https://carbonplan.org'
+          aria-label='CarbonPlan Homepage'
+          sx={{ display: 'block' }}
+        >
+          <Logo sx={{ cursor: 'pointer' }} />
+        </Link>
       </Box>
       <Box>
         <IconButton
@@ -49,7 +50,8 @@ const Header = () => {
           aria-label='Toggle Menu'
         >
           {!showMenu && (
-            <svg
+            <Box
+              as='svg'
               sx={{
                 width: '50px',
                 height: '30px',
@@ -72,10 +74,11 @@ const Header = () => {
                 className='paren'
                 d='M61.6,34.8c6.3-10.3,6.3-23.3,0-33.6'
               />
-            </svg>
+            </Box>
           )}
           {showMenu && (
-            <svg
+            <Box
+              as='svg'
               sx={{
                 width: '50px',
                 height: '30px',
@@ -97,7 +100,7 @@ const Header = () => {
                 className='paren'
                 d='M61.6,34.8c6.3-10.3,6.3-23.3,0-33.6'
               />
-            </svg>
+            </Box>
           )}
         </IconButton>
       </Box>

@@ -17,6 +17,8 @@ const Main = ({ data, locations }) => {
         bottom: 0,
         flexDirection: ['column', 'row', 'row'],
         overflow: 'hidden',
+        maxWidth: '1920px',
+        margin: 'auto',
       }}
     >
       <Viewer locations={locations} data={data} map={map} bounds={bounds} />

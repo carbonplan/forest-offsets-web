@@ -33,7 +33,7 @@ const List = ({ data, bounds, filters, setSelected, setCount }) => {
       (!filters.car && d.id.includes('CAR')) ||
       (filters.updateWithMap &&
         bounds &&
-        !inBounds(bounds, d.shape_centroid)) ||
+        !inBounds(bounds, d.shape_centroid[0])) ||
       (filters.search && !inFields(d, filters.search))
     ) {
       return false
@@ -43,10 +43,10 @@ const List = ({ data, bounds, filters, setSelected, setCount }) => {
   }
 
   const compare = (a, b) => {
-    if (a.shape_centroid[1] > b.shape_centroid[1]) {
+    if (a.shape_centroid[0][1] > b.shape_centroid[0][1]) {
       return -1
     }
-    if (a.shape_centroid[1] < b.shape_centroid[1]) {
+    if (a.shape_centroid[0][1] < b.shape_centroid[0][1]) {
       return 1
     }
     return 0

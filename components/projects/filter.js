@@ -1,9 +1,8 @@
 import { useState, useContext } from 'react'
-import { Box, Badge, Text, Flex, Grid, Input } from 'theme-ui'
-import Option from './option'
-import Toggle from './toggle'
+import { Box, Text, Flex, Grid, Input } from 'theme-ui'
+import { Row, Column, Badge, Toggle } from '@carbonplan/components'
 
-const Filter = ({ filters, setFilters, count }) => {
+const Filter = ({ filters, setFilters, count, total }) => {
   const toggle = (value) => {
     setFilters((filters) => {
       return { ...filters, [value]: !filters[value] }
@@ -16,90 +15,100 @@ const Filter = ({ filters, setFilters, count }) => {
     })
   }
 
-  const Count = ({ value }) => {
-    return (
-      <Box
-        sx={{
-          display: 'inline-block',
-          width: 'fit-content',
-          height: '24px',
-          borderRadius: '5px',
-          backgroundColor: 'muted',
-          ml: [2],
-          mr: [2],
-          textAlign: 'center',
-        }}
-      >
-        <Text
+  return (
+    <Box sx={{ px: [3, 4, 5, 6], py: [4], mb: [1] }}>
+      <Box>
+        <Box
           sx={{
-            fontFamily: 'monospace',
-            mt: ['0px'],
-            px: [1],
+            display: 'inline-block',
+            fontFamily: 'mono',
+            fontSize: [1, 1, 1, 2],
+            letterSpacing: 'mono',
+            textTransform: 'uppercase',
             color: 'secondary',
           }}
         >
-          {value}
-        </Text>
-      </Box>
-    )
-  }
-
-  return (
-    <Box sx={{ px: [3], py: [2], pt: [3], pb: [3] }}>
-      <Grid
-        gap={['16px 32px']}
-        columns={['250px 1fr 38px']}
-        sx={{ height: 20 }}
-      >
-        <Box>
-          <Text
-            onClick={() => toggle('updateWithMap')}
-            sx={{
-              display: 'inline-block',
-              fontFamily: 'monospace',
-              letterSpacing: 'wide',
-              top: ['-5px'],
-              position: 'relative',
-              color: filters.updateWithMap ? 'primary' : 'secondary',
-              pl: [0],
-              pr: [3],
-              cursor: 'pointer',
-              transition: '0.15s',
-              fontSize: [2],
-            }}
-          >
-            UPDATE WITH MAP
-          </Text>
-          <Toggle
-            value={filters.updateWithMap}
-            toggle={() => toggle('updateWithMap')}
-          />
+          Search
         </Box>
         <Input
           type='text'
           autoFocus={true}
-          placeholder='search'
+          placeholder='enter ID or name'
           onChange={(e) => search(e.currentTarget.value)}
           sx={{
-            fontSize: [2],
+            fontSize: [1, 1, 1, 2],
             height: '24px',
-            pt: [2],
-            pb: [3],
+            pt: [0],
+            pb: [2],
             pl: [0],
             pr: [0],
-            fontFamily: 'monospace',
+            ml: [3],
+            width: '150px',
+            fontFamily: 'mono',
             borderRadius: '0px',
-            borderStyle: 'solid',
-            borderColor: 'muted',
             borderWidth: '0px',
-            borderBottomWidth: '1px',
-            textAlign: 'right',
+            textAlign: 'left',
             display: 'inline-block',
+            ':focus-visible': {
+              outline: 'none !important',
+              background: 'none !important',
+            },
           }}
           value={filters.search}
         />
-        <Count value={String(count).padStart(2, '0')} />
-      </Grid>
+      </Box>
+      <Row columns={[3, 4, 4, 4]} sx={{ mt: [1] }}>
+        <Column start={[1]} width={[2]} dr={1}>
+          <Box
+            onClick={() => toggle('updateWithMap')}
+            sx={{
+              display: 'inline-block',
+              fontFamily: 'mono',
+              letterSpacing: 'mono',
+              position: 'relative',
+              fontSize: [1, 1, 1, 2],
+              color: 'secondary',
+              pl: [0],
+              pr: [3],
+              cursor: 'pointer',
+              transition: '0.15s',
+            }}
+          >
+            UPDATE W/ MAP
+          </Box>
+          <Toggle
+            onClick={() => toggle('updateWithMap')}
+            value={filters.updateWithMap}
+            toggle={() => toggle('updateWithMap')}
+            sx={{ position: 'relative', top: '5px' }}
+          />
+        </Column>
+        <Column start={[3]} width={[2]}>
+          <Box sx={{ textAlign: 'right' }}>
+            <Box
+              sx={{
+                display: 'inline-block',
+                fontFamily: 'mono',
+                fontSize: [1, 1, 1, 2],
+                letterSpacing: 'mono',
+                textTransform: 'uppercase',
+                color: 'secondary',
+                mr: [3],
+                mt: ['6px'],
+              }}
+            >
+              COUNT
+            </Box>
+            <Badge sx={{ color: 'secondary' }}>
+              {String(count).padStart(2, '0')}
+            </Badge>
+            <Box sx={{ display: 'inline-block', mx: [2], color: 'secondary' }}>
+              /
+            </Box>
+            <Badge sx={{ color: 'secondary' }}>{total}</Badge>
+          </Box>
+        </Column>
+      </Row>
     </Box>
   )
 }

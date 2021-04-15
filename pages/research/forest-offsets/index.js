@@ -1,6 +1,6 @@
 import { Layout, Guide } from '@carbonplan/components'
 import Main from '../../../components/main'
-import data from '../../../data'
+import data from '../../../data/projects'
 
 const Index = () => {
   const locations = {
@@ -13,7 +13,7 @@ const Index = () => {
         },
         geometry: {
           type: 'Point',
-          coordinates: d.shape_centroid,
+          coordinates: d.shape_centroid[0],
         },
       }
     }),
@@ -31,6 +31,7 @@ const Index = () => {
       footer={false}
       metadata={false}
     >
+      <Guide />
       <Main data={data} locations={locations} />
     </Layout>
   )

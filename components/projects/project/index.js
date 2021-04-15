@@ -1,12 +1,12 @@
 import { memo, useState, useContext } from 'react'
-import { Box, Text, Grid, Badge } from 'theme-ui'
+import { Box, Text, Grid } from 'theme-ui'
+import { Expander, Tag } from '@carbonplan/components'
 import AnimateHeight from 'react-animate-height'
-import Expander from './expander'
 import Metrics from './metrics'
 
 const Project = ({ data, setSelected }) => {
   const [expanded, setExpanded] = useState(false)
-  const { id, name, arbocs, permanence } = data
+  const { id, name, arbocs, developers, owners, supersection_ids } = data
 
   const toggle = (e) => {
     setExpanded(!expanded)
@@ -74,52 +74,44 @@ const Project = ({ data, setSelected }) => {
         borderColor: 'muted',
         borderWidth: '0px',
         borderBottomWidth: '1px',
-        px: [3],
-        py: [3],
+        px: [3, 4, 5, 6],
+        py: [4],
         '&:hover > #grid > #box > #expander': {
           fill: 'primary',
           stroke: 'primary',
         },
       }}
     >
-      <Grid columns={['1fr 140px']}>
-        <Text sx={{ fontSize: [3], lineHeight: 1.2, pb: [1] }}>{name}</Text>
-        <Box sx={{ textAlign: 'right', pr: [1], mt: ['-6px'] }}>
-          <Badge
+      <Grid id='grid' columns={['1fr 60px']}>
+        <Box
+          id='box'
+          sx={{ fontSize: [3, 3, 4, 5], lineHeight: 1.15, pb: [1] }}
+        >
+          {name}&nbsp;
+          <Expander
+            id='expander'
+            value={expanded}
+            sx={{
+              zIndex: -1,
+              position: 'relative',
+              top: ['2px', '2px', '1px', '0px'],
+            }}
+          />
+        </Box>
+        <Box sx={{ textAlign: 'right', pr: [1], mt: ['0px'] }}>
+          <Tag
             variant='primary'
             sx={{
               color: 'green',
-              borderColor: 'green',
             }}
           >
-            IFM
-          </Badge>
+            {id}
+          </Tag>
         </Box>
       </Grid>
-      <Grid id='grid' columns={['1fr 150px']}>
-        <Box>
-          <Inline value={id} color='secondary' />
-          <Slash />
-          <Inline
-            value={`${(arbocs.issuance / 1000000).toFixed(2)}M`}
-            color='green'
-          />
-          <Slash />
-          <Inline
-            value={
-              permanence.mtbs_fire_risk_supersection > -9999
-                ? `${(permanence.mtbs_fire_risk_supersection * 100).toFixed(
-                    0
-                  )}%`
-                : 'N/A'
-            }
-            color='orange'
-          />
-        </Box>
-        <Box id='box' sx={{ textAlign: 'right', mt: ['-5px'] }}>
-          <Expander id='expander' expanded={expanded} />
-        </Box>
-      </Grid>
+      <Box sx={{ color: 'secondary', mt: [2], fontSize: [1, 1, 1, 2] }}>
+        {developers[0] || owners[0]} / {supersection_ids[0]}
+      </Box>
       <AnimateHeight
         duration={200}
         height={expanded ? 'auto' : 0}
@@ -132,9 +124,7 @@ const Project = ({ data, setSelected }) => {
         >
           {expanded && (
             <Box>
-              <Box>
-                <Metrics data={data} />
-              </Box>
+              <Metrics data={data} />
             </Box>
           )}
         </Box>

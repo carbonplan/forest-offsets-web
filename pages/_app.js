@@ -4,7 +4,7 @@ import { Style } from '@carbonplan/components'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import '@carbonplan/components/globals.css'
 import '@carbonplan/components/fonts.css'
-import theme from '../theme'
+import theme from '@carbonplan/theme'
 
 const App = ({ Component, pageProps }) => {
   return (

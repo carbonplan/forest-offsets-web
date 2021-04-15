@@ -32,8 +32,8 @@ const Projects = ({ data, bounds, setSelected }) => {
     groupTop: {
       borderStyle: 'solid',
       borderWidth: '0px',
-      borderBottomWidth: '1px',
-      borderTopWidth: '1px',
+      borderBottomWidth: '0px',
+      borderTopWidth: '0px',
       borderColor: 'muted',
     },
     arrow: {
@@ -52,8 +52,18 @@ const Projects = ({ data, bounds, setSelected }) => {
       <Methods showMethods={showMethods} toggleMethods={toggleMethods} />
       <Box
         sx={{
-          minWidth: '560px',
-          maxWidth: '560px',
+          minWidth: [
+            '100px',
+            'calc(3 * 100vw / 6 + 16px)',
+            'calc(4 * 100vw / 12 + 22px)',
+            'min(calc(4 * 100vw / 12 + 32px), 672px)',
+          ],
+          maxWidth: [
+            '100px',
+            'calc(3 * 100vw / 6 + 16px)',
+            'calc(4 * 100vw / 12 + 22px)',
+            'min(calc(4 * 100vw / 12 + 32px), 672px)',
+          ],
           height: '100%',
           flexBasis: '100%',
           flexDirection: 'column',
@@ -61,9 +71,9 @@ const Projects = ({ data, bounds, setSelected }) => {
           borderWidth: '0px',
           borderRightWidth: '1px',
           borderColor: 'muted',
-          zIndex: 2000,
+          zIndex: 1,
           backgroundColor: 'background',
-          display: ['none', 'none', 'flex'],
+          display: ['none', 'flex', 'flex'],
         }}
       >
         <Header />
@@ -83,28 +93,6 @@ const Projects = ({ data, bounds, setSelected }) => {
             <Box>
               <About />
             </Box>
-            <Box sx={sx.groupTop}>
-              <Box
-                onClick={toggleMethods}
-                sx={{
-                  px: [3],
-                  py: [2],
-                  pb: [3],
-                  width: 'fit-content',
-                  fontFamily: 'monospace',
-                  letterSpacing: 'wide',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    color: 'secondary',
-                  },
-                }}
-              >
-                <Text>
-                  READ METHODS<Text sx={sx.arrow}>→</Text>
-                </Text>
-              </Box>
-            </Box>
             <Box
               sx={{
                 ...sx.group,
@@ -113,9 +101,14 @@ const Projects = ({ data, bounds, setSelected }) => {
                 top: '-1px',
               }}
             >
-              <Filter filters={filters} setFilters={setFilters} count={count} />
+              <Filter
+                filters={filters}
+                setFilters={setFilters}
+                count={count}
+                total={data.length}
+              />
             </Box>
-            <Box sx={sx.group}>
+            <Box sx={{ ...sx.group, borderBottomWidth: '0px' }}>
               <List
                 data={data}
                 bounds={bounds}
@@ -123,6 +116,28 @@ const Projects = ({ data, bounds, setSelected }) => {
                 setCount={setCount}
                 setSelected={setSelected}
               />
+            </Box>
+            <Box sx={sx.groupTop}>
+              <Box
+                onClick={toggleMethods}
+                sx={{
+                  px: [3, 4, 5, 6],
+                  py: [2],
+                  pb: [3],
+                  width: 'fit-content',
+                  fontFamily: 'heading',
+                  letterSpacing: 'smallcaps',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    color: 'secondary',
+                  },
+                }}
+              >
+                <Box>
+                  READ METHODS<Text sx={sx.arrow}>→</Text>
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Box>

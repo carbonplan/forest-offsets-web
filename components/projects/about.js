@@ -1,44 +1,64 @@
-import { Box, Text, Link } from 'theme-ui'
+import { Box, Link } from 'theme-ui'
 
 const About = () => {
   return (
-    <Box sx={{ px: [3], py: [2] }}>
-      <Text
+    <Box
+      sx={{
+        borderStyle: 'solid',
+        borderColor: 'muted',
+        borderWidth: '0px',
+        borderBottomWidth: '1px',
+      }}
+    >
+      <Box
         sx={{
-          fontSize: [6],
+          px: [3, 4, 5, 6],
+          pt: [3],
+          pb: [3],
+          fontSize: [6, 6, 6, 7],
+          width: 'fit-content',
           fontFamily: 'heading',
-          letterSpacing: 'heading',
-          my: [0],
+          lineHeight: 'heading',
         }}
       >
-        Forest offset projects
-      </Text>
-      <Text
+        Forest offsets
+      </Box>
+      <Box
         sx={{
-          fontSize: [3],
-          my: [2],
-          mb: ['12px'],
-          pr: [3],
+          px: [3, 4, 5, 6],
+          pt: [0],
+          pb: [4],
+          mb: [1],
+          fontSize: [2, 2, 2, 3],
+          fontFamily: 'body',
+          lineHeight: 'body',
         }}
       >
-        This is a public database of improved forest management carbon offset
-        projects in California’s cap-and-trade program. We assembled it for
-        research, transparency, and oversight. Download the data as{' '}
+        This is a database of project data and results from an analysis of
+        improved forest management carbon offset projects in California’s
+        cap-and-trade program. Read our{' '}
         <Link
           target='_blank'
-          href='https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light-v1.0.csv'
+          href='https://carbonplan.org/research/forest-offsets-explainer'
+        >
+          article
+        </Link>{' '}
+        for more about our analysis. Download the data as{' '}
+        <Link
+          target='_blank'
+          href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv'
         >
           CSV
         </Link>{' '}
         or{' '}
         <Link
           target='_blank'
-          href='https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light-v1.0.json'
+          href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json'
         >
           JSON
         </Link>
         {'. '}
-      </Text>
+      </Box>
     </Box>
   )
 }

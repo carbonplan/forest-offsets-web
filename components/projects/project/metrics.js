@@ -1,22 +1,11 @@
 import { Box, Text, Grid } from 'theme-ui'
-import { alpha } from '@theme-ui/color'
+import { Row, Column } from '@carbonplan/components'
+import { format } from 'd3-format'
 import Bar from './bar'
 import Check from './check'
 
 const Metrics = ({ data }) => {
-  const {
-    arb_id,
-    arbocs,
-    owners,
-    developers,
-    carbon,
-    permanence,
-    coordinates,
-    attestor,
-    apd,
-    opo,
-    is_opo,
-  } = data
+  const { arbocs, carbon, over_crediting } = data
 
   const checkIssuance = (d) => {
     return (
@@ -25,169 +14,84 @@ const Metrics = ({ data }) => {
     )
   }
 
-  const Row = ({ label, display }) => {
+  const RowBar = ({ label, value, scale, color = 'green', display }) => {
     return (
-      <Grid columns={['150px 1fr']} sx={{ pr: [4] }}>
-        <Box>
-          <Text sx={{ fontFamily: 'faux' }}>{label}</Text>
-        </Box>
-        <Text
-          sx={{
-            fontFamily: 'monospace',
-            letterSpacing: 'wide',
-            textTransform: 'uppercase',
-          }}
-        >
-          {display}
-        </Text>
-      </Grid>
-    )
-  }
-
-  const RowBar = ({ label, value, scale, color, display, units }) => {
-    return (
-      <Grid columns={['150px 120px 1fr']} sx={{}}>
-        <Box>
-          <Text sx={{ fontFamily: 'faux' }}>{label}</Text>
-        </Box>
-        <Bar scale={scale} color={color} value={value} />
-        <Text
-          sx={{
-            fontFamily: 'monospace',
-            letterSpacing: 'wide',
-            textTransform: 'uppercase',
-            color: color,
-          }}
-        >
-          {display}
-          {units && (
-            <Text
-              sx={{
-                display: 'inline-block',
-                color: 'secondary',
-                textTransform: 'none',
-                fontSize: [1],
-                ml: [2],
-              }}
-            >
-              {units}
-            </Text>
-          )}
-        </Text>
-      </Grid>
-    )
-  }
-
-  const RowBarIcon = ({
-    label,
-    value,
-    scale,
-    color,
-    display,
-    check,
-    units,
-  }) => {
-    return (
-      <Grid columns={['150px 120px 1fr']} sx={{}}>
-        <Box>
-          <Text sx={{ fontFamily: 'faux' }}>{label}</Text>
-        </Box>
-        <Bar scale={scale} color={color} value={value} />
-        <Text
-          sx={{
-            fontFamily: 'monospace',
-            letterSpacing: 'wide',
-            textTransform: 'uppercase',
-            color: color,
-          }}
-        >
-          {display}
-          {check && <Check color={color} />}
-        </Text>
-      </Grid>
+      <Row columns={[4]} sx={{ mb: [1] }}>
+        <Column start={[1]} width={[1]}>
+          <Box
+            sx={{
+              fontSize: [2, 2, 2, 3],
+              color: 'green',
+              fontFamily: 'mono',
+              letterSpacing: 'mono',
+              display: 'inline-block',
+            }}
+          >
+            {display}
+          </Box>
+        </Column>
+        <Column start={[2]} width={[1]} dl={1}>
+          <Bar scale={scale} color={color} value={value} />
+        </Column>
+        <Column start={[3]} width={[2]}>
+          <Box
+            sx={{
+              fontFamily: 'faux',
+              letterSpacing: 'faux',
+            }}
+          >
+            {label}
+          </Box>
+        </Column>
+      </Row>
     )
   }
 
   return (
-    <Box
-      sx={{
-        borderStyle: 'solid',
-        borderWidth: '0px',
-        borderBottomWidth: '0px',
-        borderTopWidth: '0px',
-        borderColor: alpha('muted', 0.5),
-        pt: [2],
-        pb: [1],
-        mt: [2],
-        mb: [1],
-      }}
-    >
-      <Box sx={{ mb: [3] }}>
-        <Row label='ARB ID:' display={arb_id} />
-        <Row label='Owner:' display={owners[0]} />
-        <Row
-          label='Developer:'
-          display={developers.length > 0 ? developers[0] : 'N/A'}
+    <Box>
+      <Box
+        sx={{
+          borderStyle: 'solid',
+          borderWidth: '0px',
+          borderBottomWidth: '1px',
+          borderTopWidth: '1px',
+          borderColor: 'muted',
+          pt: [4],
+          pb: [4],
+          mt: [4],
+          mb: [1],
+        }}
+      >
+        <RowBar
+          label='Project size'
+          scale={{ min: 0, max: 2000000 }}
+          value={arbocs.issuance}
+          display={format('.2s')(arbocs.issuance)}
         />
-        <Row
-          label='Attestor:'
-          display={`${
-            (attestor == 'SEENOTE') | (attestor == 'SEE NOTE')
-              ? 'N/A'
-              : attestor
-          }`}
+        <RowBar
+          label='Initial carbon'
+          scale={{ min: 0, max: 200 }}
+          value={carbon.initial_carbon_stock.value}
+          display={format('.0f')(carbon.initial_carbon_stock.value)}
         />
+        <RowBar
+          label='Common practice'
+          scale={{ min: 0, max: 200 }}
+          value={carbon.common_practice.value}
+          display={format('.0f')(carbon.common_practice.value)}
+        />
+        {over_crediting && (
+          <RowBar
+            label='Over-crediting (%)'
+            scale={{ min: 0, max: 1 }}
+            value={over_crediting.percent[1]}
+            display={format('.0%')(over_crediting.percent[1])}
+          />
+        )}
       </Box>
-
-      <RowBarIcon
-        label='ARBOCs issued:'
-        color='green'
-        scale={{ min: 0, max: 3000000 }}
-        value={arbocs.issuance}
-        display={arbocs.issuance.toLocaleString()}
-        check={checkIssuance(arbocs)}
-      />
-      <RowBar
-        label='Initial stock:'
-        color='green'
-        scale={{ min: 0, max: 200 }}
-        value={carbon.initial_carbon_stock.value}
-        display={carbon.initial_carbon_stock.value.toFixed(0)}
-        units={'tCO₂/ac'}
-      />
-      <RowBar
-        label='Common practice:'
-        color='green'
-        scale={{ min: 0, max: 200 }}
-        value={carbon.common_practice.value}
-        display={carbon.common_practice.value.toFixed(0)}
-        units={'tCO₂/ac'}
-      />
-      <RowBar
-        label='ARB total risk:'
-        color='orange'
-        scale={{ min: 0, max: 50 }}
-        value={permanence.arb_total_risk * 100}
-        display={`${(permanence.arb_total_risk * 100).toFixed(0)}%`}
-      />
-      <RowBar
-        label='ARB fire risk:'
-        color='orange'
-        scale={{ min: 0, max: 50 }}
-        value={permanence.arb_fire_risk * 100}
-        display={`${(permanence.arb_fire_risk * 100).toFixed(0)}%`}
-      />
-      <RowBar
-        label='MTBS fire risk:'
-        color='orange'
-        scale={{ min: 0, max: 50 }}
-        value={permanence.mtbs_fire_risk_supersection * 100}
-        display={
-          permanence.mtbs_fire_risk_supersection > -9999
-            ? `${(permanence.mtbs_fire_risk_supersection * 100).toFixed(0)}%`
-            : 'N/A'
-        }
-      />
+      <Box sx={{ mt: [3], color: 'secondary', fontSize: [1, 1, 1, 2] }}>
+        Show project on map
+      </Box>
     </Box>
   )
 }
