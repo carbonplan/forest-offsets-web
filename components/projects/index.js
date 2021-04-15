@@ -123,6 +123,7 @@ const Projects = ({ data, bounds, setSelected }) => {
                 sx={{
                   px: [3, 4, 5, 6],
                   py: [3],
+                  pb: [4],
                   width: 'fit-content',
                   fontFamily: 'heading',
                   letterSpacing: 'smallcaps',
