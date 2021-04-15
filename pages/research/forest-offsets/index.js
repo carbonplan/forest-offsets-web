@@ -22,7 +22,7 @@ const Index = () => {
   return (
     <Layout
       description={
-        'Project data and analysis results on improved forest management carbon offset projects.'
+        'Data and results from analyzing improved forest management carbon offset projects.'
       }
       title='forest offsets / research / carbonplan'
       card='https://images.carbonplan.org/social/forest-offsets.png'
