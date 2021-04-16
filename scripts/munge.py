@@ -3,6 +3,10 @@ import json
 import fsspec
 import numpy as np
 
+short_names = {
+    
+}
+
 with fsspec.open(
     "https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json",
     "r",

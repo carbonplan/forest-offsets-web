@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 'CAR1205',
-    name: 'Lyme Logan',
+    name: 'Logan',
   },
   {
     id: 'VCSOPR10',
@@ -217,7 +217,7 @@ module.exports = [
   },
   {
     id: 'CAR1215',
-    name: 'Molpus Ataya',
+    name: 'Ataya',
   },
   {
     id: 'ACR281',

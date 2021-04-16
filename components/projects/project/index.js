@@ -1,6 +1,7 @@
 import { memo, useState, useContext } from 'react'
 import { Box, Text, Grid } from 'theme-ui'
 import { Expander, Tag } from '@carbonplan/components'
+import { alpha } from '@theme-ui/color'
 import AnimateHeight from 'react-animate-height'
 import Metrics from './metrics'
 import displayNames from '../../../data/display-names'
@@ -39,10 +40,14 @@ const Project = ({ data, setSelected }) => {
         borderBottomWidth: '1px',
         px: [3, 4, 5, 6],
         py: [4],
+        transition: 'background-color 0.15s',
         '&:hover > #grid > #box > #box-2 > #expander': {
           fill: 'primary',
           stroke: 'primary',
         },
+        '&:hover' : {
+          bg: alpha('muted', 0.1)
+        }
       }}
     >
       <Grid id='grid' columns={['1fr 60px']}>
@@ -65,7 +70,7 @@ const Project = ({ data, setSelected }) => {
             />
           </Box>
         </Box>
-        <Box sx={{ textAlign: 'right', pr: [1], mt: ['0px'] }}>
+        <Box sx={{ textAlign: 'right', mt: ['0px'] }}>
           <Tag
             variant='primary'
             sx={{
