@@ -42,6 +42,4 @@ Eidenshink et al. (2007) A project for monitoring trends in burn severity, _Fire
 
 TK
 
-export default ({ children }) => <Box>{children}</Box
-
->
+export default ({ children }) => <Box>{children}</Box>
