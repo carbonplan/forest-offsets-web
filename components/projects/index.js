@@ -11,7 +11,7 @@ const initialFilters = {
   acr: true,
   car: true,
   vcs: true,
-  updateWithMap: true,
+  updateWithMap: false,
   search: '',
 }
 
@@ -54,13 +54,13 @@ const Projects = ({ data, bounds, setSelected }) => {
         sx={{
           minWidth: [
             '100px',
-            'calc(3 * 100vw / 6 + 16px)',
+            'calc(4 * 100vw / 8 + 16px)',
             'calc(4 * 100vw / 12 + 22px)',
             'min(calc(4 * 100vw / 12 + 32px), 672px)',
           ],
           maxWidth: [
             '100px',
-            'calc(3 * 100vw / 6 + 16px)',
+            'calc(4 * 100vw / 8 + 16px)',
             'calc(4 * 100vw / 12 + 22px)',
             'min(calc(4 * 100vw / 12 + 32px), 672px)',
           ],
@@ -121,9 +121,11 @@ const Projects = ({ data, bounds, setSelected }) => {
               <Box
                 onClick={toggleMethods}
                 sx={{
-                  px: [3, 4, 5, 6],
+                  pl: [3, 4, 5, 6],
+                  pr: [3, 5, 5, 6],
                   py: [3],
                   pb: [4],
+                  fontSize: [3],
                   width: 'fit-content',
                   fontFamily: 'heading',
                   letterSpacing: 'smallcaps',

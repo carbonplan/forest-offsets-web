@@ -16,7 +16,8 @@ const Header = () => {
         pt: ['12px'],
         pb: ['9px'],
         height: '56px',
-        px: [3, 4, 5, 6],
+        pl: [3, 4, 5, 6],
+        pr: [3, 5, 5, 6],
         borderStyle: 'solid',
         borderWidth: '0px',
         borderBottomWidth: '1px',
@@ -40,6 +41,7 @@ const Header = () => {
             fill: 'none',
             strokeWidth: '2px',
             stroke: 'text',
+            mr: [0, '-4px', '-3px', '-3px'],
             '.paren': {
               opacity: '0',
             },
@@ -64,12 +66,14 @@ const Header = () => {
               <line x1='52' y1='29.9' x2='16' y2='29.9' />
               <line x1='52' y1='6.1' x2='16' y2='6.1' />
               <line x1='52' y1='18' x2='16' y2='18' />
-              <path
+              <Box
+                as='path'
                 sx={{ transition: 'all 0.25s' }}
                 className='paren'
                 d='M6.4,1.2c-6.3,10.3-6.3,23.3,0,33.6'
               />
-              <path
+              <Box
+                as='path'
                 sx={{ transition: 'all 0.25s' }}
                 className='paren'
                 d='M61.6,34.8c6.3-10.3,6.3-23.3,0-33.6'
@@ -90,12 +94,14 @@ const Header = () => {
             >
               <line x1='50.85' y1='29.79' x2='17.15' y2='6.21' />
               <line x1='17.15' y1='29.79' x2='50.85' y2='6.21' />
-              <path
+              <Box
+                as='path'
                 sx={{ transition: 'all 0.25s' }}
                 className='paren'
                 d='M6.4,1.2c-6.3,10.3-6.3,23.3,0,33.6'
               />
-              <path
+              <Box
+                as='path'
                 sx={{ transition: 'all 0.25s' }}
                 className='paren'
                 d='M61.6,34.8c6.3-10.3,6.3-23.3,0-33.6'

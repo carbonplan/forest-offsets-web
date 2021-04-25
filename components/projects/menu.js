@@ -1,12 +1,11 @@
-/** @jsx jsx */
-import { jsx, Box, Container, Link, Text } from 'theme-ui'
+import { Box, Container, Link, Text } from 'theme-ui'
 import { default as NextLink } from 'next/link'
 
 function Menu({ visible }) {
   const link = {
     width: 'fit-content',
     color: 'text',
-    fontSize: [5, 5, 6],
+    fontSize: [5, 6, 6, 7],
     pb: [0],
     textDecoration: 'none',
     display: 'block',
@@ -23,61 +22,63 @@ function Menu({ visible }) {
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'all' : 'none',
         position: 'fixed',
-        width: visible ? '559px' : '250px',
+        width: visible
+          ? [
+              0,
+              'calc(4 * 100vw / 8 + 28px - 1px)',
+              'calc(4 * 100vw / 12 + 26px - 1px)',
+              'min(calc(4 * 100vw / 12 + 18px), 658px)',
+            ]
+          : [
+              0,
+              'calc(2 * 100vw / 8 + 18px)',
+              'calc(2 * 100vw / 12 + 24px)',
+              'min(calc(2 * 100vw / 12 + 36px), 516px)',
+            ],
         height: '100%',
         backgroundColor: 'background',
         textAlign: '-webkit-right',
         zIndex: 1000,
-        pr: ['20px'],
+        pr: [3, 5, 5, 6],
+        pl: [3, 4, 5, 6],
         pt: [3],
-        top: 67,
+        mt: '44px',
+        ml: '-36px',
         transition: '0.25s',
       }}
     >
-      <Container>
-        <Box
-          sx={{
-            textAlign: '-webkit-right',
-            width: 'fit-content',
-            mr: [0],
-          }}
-        >
-          <Link
-            sx={{ textDecoration: 'none' }}
-            href='https://carbonplan.org/about'
-          >
-            <Text sx={link}>About</Text>
-          </Link>
-          <Link
-            sx={{ textDecoration: 'none' }}
-            href='https://carbonplan.org/reports'
-            sx={link}
-          >
-            <Text sx={link}>Reports</Text>
+      <Box
+        sx={{
+          position: 'relative',
+        }}
+      >
+        <Box sx={{ position: 'absolute', right: 0 }}>
+          <Link sx={link} href='https://carbonplan.org/about'>
+            About
           </Link>
           <Link
             sx={{ textDecoration: 'none' }}
             href='https://carbonplan.org/research'
             sx={link}
           >
-            <Text sx={link}>Research</Text>
+            Research
           </Link>
           <Link
             sx={{ textDecoration: 'none' }}
             href='https://carbonplan.org/team'
             sx={link}
           >
-            <Text sx={link}>Team</Text>
+            Team
           </Link>
           <Link
             sx={{ textDecoration: 'none' }}
             href='https://carbonplan.org/faq'
             sx={link}
           >
-            <Text sx={link}>FAQ</Text>
+            FAQ
           </Link>
         </Box>
-      </Container>
+      </Box>
     </Box>
   )
 }

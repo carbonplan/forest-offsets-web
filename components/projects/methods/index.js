@@ -6,52 +6,81 @@ function Methods({ showMethods, toggleMethods }) {
     <Box
       sx={{
         position: 'absolute',
-        zIndex: 1000,
+        zIndex: 1,
         borderStyle: 'solid',
         borderWidth: 0,
         borderRightWidth: showMethods ? 1 : 0,
         borderColor: 'muted',
         height: '100%',
-        left: 560,
+        left: [
+          0,
+          'calc(4 * 100vw / 8 + 18px)',
+          'calc(4 * 100vw / 12 + 22px)',
+          'min(calc(4 * 100vw / 12 + 32px), 672px)',
+        ],
         backgroundColor: 'background',
-        width: 600,
+        width: [
+          0,
+          'calc(4 * 100vw / 8 - 8px)',
+          'calc(4 * 100vw / 12 - 12px)',
+          'min(calc(5 * 100vw / 12 - 20px), 780px)',
+        ],
         transition: 'transform 0.3s',
         transform: showMethods ? 'translateX(0px)' : 'translateX(-1200px)',
         overflowY: 'scroll',
-        display: ['none', 'none', 'initial'],
+        display: ['none', 'initial', 'initial'],
       }}
     >
       <Box
         sx={{
-          px: [4],
+          px: [3, 5, 5, 6],
           opacity: 1,
+          pt: ['12px'],
+          mb: [4],
         }}
       >
         <Box
           onClick={toggleMethods}
           sx={{
             cursor: 'pointer',
-            width: '75px',
-            '&:hover': {
-              color: 'secondary',
+            '&:hover > #arrow': {
+              color: 'primary',
+            },
+            '&:hover > #label': {
+              color: 'primary',
             },
           }}
         >
           <Text
+            id='arrow'
             sx={{
               display: 'inline-block',
-              fontSize: [6],
-              top: '-3px',
+              fontSize: ['20px'],
+              color: 'secondary',
+              top: '1px',
+              mr: [2],
               position: 'relative',
+              transition: 'color 0.15s',
             }}
           >
             ←
           </Text>
+          <Box
+            as='span'
+            id='label'
+            sx={{
+              transition: 'color 0.15s',
+              fontSize: [2, 2, 2, 3],
+              color: 'secondary',
+            }}
+          >
+            Back
+          </Box>
         </Box>
         <Box
           sx={{
             position: 'relative',
-            top: '-40px',
+            top: '-3px',
           }}
         >
           <MethodsContent />

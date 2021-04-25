@@ -27,11 +27,11 @@ const Index = () => {
       title='forest offsets / research / carbonplan'
       card='https://images.carbonplan.org/social/forest-offsets.png'
       header={false}
-      dimmer={false}
+      dimmer={true}
       footer={false}
       metadata={false}
     >
-      <Guide />
+      <Guide color='teal' />
       <Main data={data} locations={locations} />
     </Layout>
   )

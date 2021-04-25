@@ -1,8 +1,25 @@
-import { useState, useContext } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import { Box, Text, Flex, Grid, Input } from 'theme-ui'
 import { Row, Column, Badge, Toggle } from '@carbonplan/components'
 
 const Filter = ({ filters, setFilters, count, total }) => {
+  const [value, setValue] = useState('')
+  const [hasFocus, setFocus] = useState(false)
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    function handler(event) {
+      const { key, keyCode, metaKey } = event
+      if (key === '/' && metaKey) {
+        if (!hasFocus) inputRef.current.focus()
+      }
+    }
+    document.addEventListener('keydown', handler)
+    return () => {
+      document.removeEventListener('keydown', handler)
+    }
+  }, [])
+
   const toggle = (value) => {
     setFilters((filters) => {
       return { ...filters, [value]: !filters[value] }
@@ -16,7 +33,7 @@ const Filter = ({ filters, setFilters, count, total }) => {
   }
 
   return (
-    <Box sx={{ px: [3, 4, 5, 6], py: [4], mb: [1] }}>
+    <Box sx={{ pl: [3, 4, 5, 6], pr: [3, 5, 5, 6], py: [4], mb: [1] }}>
       <Box>
         <Box
           sx={{
@@ -32,9 +49,14 @@ const Filter = ({ filters, setFilters, count, total }) => {
         </Box>
         <Input
           type='text'
-          autoFocus={true}
+          ref={inputRef}
           placeholder='enter ID or name'
-          onChange={(e) => search(e.currentTarget.value)}
+          onChange={(e) => {
+            setValue(e.currentTarget.value)
+            search(e.currentTarget.value)
+          }}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
           sx={{
             fontSize: [1, 1, 1, 2],
             height: '24px',
@@ -54,7 +76,7 @@ const Filter = ({ filters, setFilters, count, total }) => {
               background: 'none !important',
             },
           }}
-          value={filters.search}
+          value={value}
         />
       </Box>
       <Row columns={[3, 4, 4, 4]} sx={{ mt: [1] }}>

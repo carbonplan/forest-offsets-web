@@ -1,10 +1,9 @@
-/** @jsx jsx */
 import { useState, useEffect } from 'react'
 import { select } from 'd3-selection'
 import { axisLeft, axisBottom } from 'd3-axis'
 import { scaleOrdinal } from 'd3-scale'
 import { ticks } from 'd3-array'
-import { jsx, IconButton, useThemeUI } from 'theme-ui'
+import { IconButton, useThemeUI } from 'theme-ui'
 
 // ruler modes
 const OFF = 0 // show nothing

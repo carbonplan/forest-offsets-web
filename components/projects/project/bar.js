@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx, Box } from 'theme-ui'
+import { Box } from 'theme-ui'
 import { scaleLinear } from 'd3-scale'
 
 const Bar = ({ value, color, scale }) => {
@@ -14,14 +13,16 @@ const Bar = ({ value, color, scale }) => {
       }}
     >
       <svg height='12px' width='100%' stroke='none' fill='none'>
-        <rect
+        <Box
+          as='rect'
           sx={{ fill: color, opacity: 0.2 }}
           x='0'
           y='0'
           width='100%'
           height='12'
         />
-        <rect
+        <Box
+          as='rect'
           sx={{ fill: color, opacity: 1 }}
           x='0'
           y='0'

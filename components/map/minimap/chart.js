@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import { memo } from 'react'
-import { jsx } from 'theme-ui'
+import { Box } from 'theme-ui'
 
 const Chart = ({ locations, path, theme, selected, projection }) => {
   return (
@@ -11,20 +10,22 @@ const Chart = ({ locations, path, theme, selected, projection }) => {
       {locations.map((d, i) => {
         if (d.geometry.coordinates.length > 0)
           return (
-            <g
+            <Box
+              as='g'
               key={i}
               transform={`translate(${projection(d.geometry.coordinates).join(
                 ','
               )})`}
               sx={{ pointerEvents: 'none' }}
             >
-              <circle
+              <Box
+                as='circle'
                 r='25'
                 fill={theme.colors.green}
                 strokeWidth='0'
                 sx={{ transition: '0.25s' }}
-              ></circle>
-            </g>
+              ></Box>
+            </Box>
           )
       })}
       {locations
@@ -32,20 +33,22 @@ const Chart = ({ locations, path, theme, selected, projection }) => {
         .map((d, i) => {
           if (d.geometry.coordinates.length > 0)
             return (
-              <g
+              <Box
+                as='g'
                 key={i}
                 transform={`translate(${projection(d.geometry.coordinates).join(
                   ','
                 )})`}
                 sx={{ pointerEvents: 'none' }}
               >
-                <circle
+                <Box
+                  as='circle'
                   r='25'
                   fill={theme.colors.primary}
                   strokeWidth='0'
                   sx={{ transition: '0.25s' }}
-                ></circle>
-              </g>
+                ></Box>
+              </Box>
             )
         })}
     </>

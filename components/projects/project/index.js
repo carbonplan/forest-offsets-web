@@ -38,22 +38,23 @@ const Project = ({ data, setSelected }) => {
         borderColor: 'muted',
         borderWidth: '0px',
         borderBottomWidth: '1px',
-        px: [3, 4, 5, 6],
+        pl: [3, 4, 5, 6],
+        pr: [3, 5, 5, 6],
         py: [4],
         transition: 'background-color 0.15s',
         '&:hover > #grid > #box > #box-2 > #expander': {
           fill: 'primary',
           stroke: 'primary',
         },
-        '&:hover' : {
-          bg: alpha('muted', 0.1)
-        }
+        '&:hover': {
+          bg: alpha('muted', 0.1),
+        },
       }}
     >
       <Grid id='grid' columns={['1fr 60px']}>
         <Box
           id='box'
-          sx={{ fontSize: [3, 4, 4, 5], lineHeight: 1.15, pb: [1] }}
+          sx={{ fontSize: [3, 4, 4, 4], lineHeight: 1.15, pb: [1] }}
         >
           {nameStart}{' '}
           <Box id='box-2' as='span' sx={{ whiteSpace: 'nowrap' }}>
