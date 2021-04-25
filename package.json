@@ -8,9 +8,9 @@
     "build": "next build && next export",
     "export": "next build && next export",
     "start": "next start",
-    "format": "npm run format-js",
+    "format": "npm run format-js && npm run format-md",
     "format-js": "prettier --write '*.js' '{data,components,pages,browser,article}/**/*.js'",
-    "format-md": "prettier --write README.md '**/*.md' --parser mdx"
+    "format-md": "prettier --write README.md '{components,}/**/*.md' --parser mdx"
   },
   "repository": {
     "type": "git",
