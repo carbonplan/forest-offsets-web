@@ -6,7 +6,7 @@ import AnimateHeight from 'react-animate-height'
 import Metrics from './metrics'
 import displayNames from '../../../data/display-names'
 
-const Project = ({ data, scrollTo, setSelected, setZoomTo }) => {
+const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
   const ref = useRef(null)
   const [expanded, setExpanded] = useState(false)
   const { id, arbocs, developers, owners, supersection_ids } = data
@@ -42,7 +42,7 @@ const Project = ({ data, scrollTo, setSelected, setZoomTo }) => {
         borderStyle: 'solid',
         borderColor: 'muted',
         borderWidth: '0px',
-        borderBottomWidth: '1px',
+        borderBottomWidth: final ? '0px' : '1px',
         pl: [3, 4, 5, 6],
         pr: [3, 5, 5, 6],
         py: [4],
@@ -64,7 +64,7 @@ const Project = ({ data, scrollTo, setSelected, setZoomTo }) => {
       <Grid id='grid' columns={['1fr 60px']}>
         <Box
           id='box'
-          sx={{ fontSize: [3, 4, 4, 4], lineHeight: 1.15, pb: [1] }}
+          sx={{ fontSize: [3, 4, 4, 4], lineHeight: 1.15 }}
         >
           {nameStart}{' '}
           <Box id='box-2' as='span' sx={{ whiteSpace: 'nowrap' }}>
