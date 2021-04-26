@@ -11,7 +11,8 @@ const Viewer = ({ data, locations, map, bounds }) => {
 
   useEffect(() => {
     if (map && zoomTo) {
-      map.easeTo({ center: zoomTo.center })
+      map.easeTo({ center: zoomTo.center, zoom: 9, duration: 0, essential: true })
+      console.log('hi')
     }
   }, [zoomTo])
 

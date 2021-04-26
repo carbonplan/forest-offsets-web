@@ -102,7 +102,7 @@ const Filter = ({ filters, setFilters, count, total }) => {
             onClick={() => toggle('updateWithMap')}
             value={filters.updateWithMap}
             toggle={() => toggle('updateWithMap')}
-            sx={{ position: 'relative', top: '5px' }}
+            sx={{ color: 'green', position: 'relative', top: '5px' }}
           />
         </Column>
         <Column start={[3]} width={[2]}>
@@ -121,7 +121,7 @@ const Filter = ({ filters, setFilters, count, total }) => {
             >
               COUNT
             </Box>
-            <Badge sx={{ color: 'secondary' }}>
+            <Badge sx={{ color: count < total ? 'green' : 'secondary' }}>
               {String(count).padStart(2, '0')}
             </Badge>
             <Box sx={{ display: 'inline-block', mx: [2], color: 'secondary' }}>
