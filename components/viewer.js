@@ -15,16 +15,6 @@ const Viewer = ({ data, locations, map, bounds }) => {
     }
   }, [zoomTo])
 
-  // useEffect(() => {
-  //   if (scrollTo) {
-  //     console.log('creating timeout')
-  //     setTimeout(() => {
-  //       console.log('clearing')
-  //       setScrollTo(null)
-  //     }, 1500)
-  //   }
-  // }, [scrollTo])
-
   useEffect(() => {
     if (scrollTo) {
       if (tick) clearTimeout(tick)
