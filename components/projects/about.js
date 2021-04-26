@@ -36,9 +36,8 @@ const About = () => {
           lineHeight: 'body',
         }}
       >
-        This is a database of project data and results from an analysis of
-        improved forest management carbon offset projects in California’s
-        cap-and-trade program. Read our{' '}
+        This is a public database of improved forest management carbon offset
+        projects in California’s cap-and-trade program. Read our{' '}
         <Link
           target='_blank'
           href='https://carbonplan.org/research/forest-offsets-explainer'

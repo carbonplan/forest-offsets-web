@@ -14,6 +14,7 @@ const Minimap = ({ map, selected, locations }) => {
   const { theme } = useThemeUI()
 
   const [focus, setFocus] = useState([])
+  const [dragging, setDragging] = useState(false)
 
   const [path, setPath] = useState(null)
 
@@ -38,6 +39,23 @@ const Minimap = ({ map, selected, locations }) => {
       setPath(geoPath()(feature(us, us.objects.nation)))
     })
   }, [])
+
+  const onMouseDown = () => {
+    setDragging(true)
+  }
+
+  const onMouseMove = (e) => {
+    if (dragging) {
+      var bounds = e.target.getBoundingClientRect()
+      var x = e.clientX - bounds.left
+      var y = e.clientY - bounds.top
+      setFocus(projection.invert([(x * 980) / 250, (y * 980) / 250]))
+    }
+  }
+
+  const onMouseUp = () => {
+    setDragging(false)
+  }
 
   return (
     <Box
@@ -66,7 +84,16 @@ const Minimap = ({ map, selected, locations }) => {
         }}
       >
         <Box sx={{ fill: 'none', stroke: 'primary' }}>
-          <svg viewBox='-5 0 980 610' onClick={(e) => setPosition(e)}>
+          <Box
+            as='svg'
+            viewBox='-5 0 980 610'
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseUp}
+            onClick={setPosition}
+            sx={{ cursor: 'move' }}
+          >
             <Chart
               locations={locations}
               selected={selected}
@@ -80,7 +107,7 @@ const Minimap = ({ map, selected, locations }) => {
               initCenter={initCenter}
               initZoom={initZoom}
             />
-          </svg>
+          </Box>
         </Box>
       </Box>
     </Box>

@@ -10,14 +10,14 @@ function useSelected(map, selected) {
       map.setPaintProperty('projects-label', 'text-color', [
         'match',
         ['get', 'id'],
-        selected.id,
+        selected,
         primary,
         green,
       ])
       map.setPaintProperty('projects-fill', 'fill-color', [
         'match',
         ['get', 'id'],
-        selected.id,
+        selected,
         primary,
         green,
       ])

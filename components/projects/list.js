@@ -2,7 +2,15 @@ import { useState, useEffect } from 'react'
 import { Box } from 'theme-ui'
 import Project from './project'
 
-const List = ({ data, bounds, filters, setSelected, setCount }) => {
+const List = ({
+  data,
+  bounds,
+  filters,
+  scrollTo,
+  setSelected,
+  setCount,
+  setZoomTo,
+}) => {
   const [filtered, setFiltered] = useState([])
 
   const inBounds = (bounds, point) => {
@@ -66,7 +74,13 @@ const List = ({ data, bounds, filters, setSelected, setCount }) => {
         .filter((d) => filtered.includes(d.id))
         .sort(compare)
         .map((d, i) => (
-          <Project key={d.id} data={d} setSelected={setSelected}></Project>
+          <Project
+            key={d.id}
+            data={d}
+            scrollTo={scrollTo}
+            setSelected={setSelected}
+            setZoomTo={setZoomTo}
+          ></Project>
         ))}
     </Box>
   )

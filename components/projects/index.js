@@ -15,7 +15,7 @@ const initialFilters = {
   search: '',
 }
 
-const Projects = ({ data, bounds, setSelected }) => {
+const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
   const [filters, setFilters] = useState(initialFilters)
   const [showMethods, setShowMethods] = useState(false)
   const [count, setCount] = useState(0)
@@ -32,7 +32,7 @@ const Projects = ({ data, bounds, setSelected }) => {
     groupTop: {
       borderStyle: 'solid',
       borderWidth: '0px',
-      borderBottomWidth: '0px',
+      borderBottomWidth: '1px',
       borderTopWidth: '0px',
       borderColor: 'muted',
     },
@@ -78,6 +78,7 @@ const Projects = ({ data, bounds, setSelected }) => {
       >
         <Header />
         <Box
+          id='projects'
           sx={{
             position: 'relative',
             flex: 1,
@@ -92,6 +93,31 @@ const Projects = ({ data, bounds, setSelected }) => {
           >
             <Box>
               <About />
+            </Box>
+            <Box sx={sx.groupTop}>
+              <Box
+                onClick={toggleMethods}
+                sx={{
+                  pl: [3, 4, 5, 6],
+                  pr: [3, 5, 5, 6],
+                  py: [3],
+                  pb: [4],
+                  fontSize: [2, 2, 2, 3],
+                  width: 'fit-content',
+                  fontFamily: 'heading',
+                  letterSpacing: 'smallcaps',
+                  textTransform: 'uppercase',
+                  transition: 'color 0.15s',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    color: 'secondary',
+                  },
+                }}
+              >
+                <Box>
+                  READ METHODS<Text sx={sx.arrow}>→</Text>
+                </Box>
+              </Box>
             </Box>
             <Box
               sx={{
@@ -114,32 +140,10 @@ const Projects = ({ data, bounds, setSelected }) => {
                 bounds={bounds}
                 filters={filters}
                 setCount={setCount}
+                scrollTo={scrollTo}
                 setSelected={setSelected}
+                setZoomTo={setZoomTo}
               />
-            </Box>
-            <Box sx={sx.groupTop}>
-              <Box
-                onClick={toggleMethods}
-                sx={{
-                  pl: [3, 4, 5, 6],
-                  pr: [3, 5, 5, 6],
-                  py: [3],
-                  pb: [4],
-                  fontSize: [3],
-                  width: 'fit-content',
-                  fontFamily: 'heading',
-                  letterSpacing: 'smallcaps',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    color: 'secondary',
-                  },
-                }}
-              >
-                <Box>
-                  READ METHODS<Text sx={sx.arrow}>→</Text>
-                </Box>
-              </Box>
             </Box>
           </Box>
         </Box>

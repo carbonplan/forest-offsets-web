@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useThemeUI } from 'theme-ui'
+import { useThemeUI, Box } from 'theme-ui'
 
 const Rect = ({ map, projection, initCenter, initZoom }) => {
   const context = useThemeUI()
@@ -24,13 +24,15 @@ const Rect = ({ map, projection, initCenter, initZoom }) => {
 
   if (projection(center)) {
     return (
-      <rect
+      <Box
+        as='rect'
         strokeWidth='3'
         stroke={theme.colors.primary}
         x={projection(center)[0] - zoomToSize(zoom) / 2}
         y={projection(center)[1] - zoomToSize(zoom) / 2}
         width={zoomToSize(zoom)}
         height={zoomToSize(zoom)}
+        sx={{ pointerEvents: 'none' }}
       />
     )
   } else {

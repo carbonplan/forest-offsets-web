@@ -29,7 +29,7 @@ const Chart = ({ locations, path, theme, selected, projection }) => {
           )
       })}
       {locations
-        .filter((d) => selected && d.properties.id == selected.id)
+        .filter((d) => selected && d.properties.id == selected)
         .map((d, i) => {
           if (d.geometry.coordinates.length > 0)
             return (
@@ -55,4 +55,4 @@ const Chart = ({ locations, path, theme, selected, projection }) => {
   )
 }
 
-export default Chart
+export default memo(Chart)

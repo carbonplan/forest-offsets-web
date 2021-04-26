@@ -1,4 +1,4 @@
-import { memo, useState, useContext } from 'react'
+import { memo, useRef, useState, useEffect, useContext } from 'react'
 import { Box, Text, Grid } from 'theme-ui'
 import { Expander, Tag } from '@carbonplan/components'
 import { alpha } from '@theme-ui/color'
@@ -6,16 +6,19 @@ import AnimateHeight from 'react-animate-height'
 import Metrics from './metrics'
 import displayNames from '../../../data/display-names'
 
-const Project = ({ data, setSelected }) => {
+const Project = ({ data, scrollTo, setSelected, setZoomTo }) => {
+  const ref = useRef(null)
   const [expanded, setExpanded] = useState(false)
   const { id, arbocs, developers, owners, supersection_ids } = data
+
+  const scrolled = scrollTo && scrollTo === id
 
   const toggle = (e) => {
     setExpanded(!expanded)
   }
 
   const select = (e) => {
-    setSelected(data)
+    setSelected(id)
   }
 
   const unselect = (e) => {
@@ -29,9 +32,11 @@ const Project = ({ data, setSelected }) => {
 
   return (
     <Box
+      ref={ref}
       onClick={toggle}
       onMouseEnter={select}
       onMouseLeave={unselect}
+      id={'project-' + id}
       sx={{
         cursor: 'pointer',
         borderStyle: 'solid',
@@ -41,10 +46,15 @@ const Project = ({ data, setSelected }) => {
         pl: [3, 4, 5, 6],
         pr: [3, 5, 5, 6],
         py: [4],
+        bg: scrolled ? alpha('muted', 0.1) : 'transparent',
         transition: 'background-color 0.15s',
         '&:hover > #grid > #box > #box-2 > #expander': {
           fill: 'primary',
           stroke: 'primary',
+        },
+        '&:hover > #grid > #tag-container > #tag': {
+          color: 'primary',
+          borderColor: 'primary',
         },
         '&:hover': {
           bg: alpha('muted', 0.1),
@@ -71,18 +81,20 @@ const Project = ({ data, setSelected }) => {
             />
           </Box>
         </Box>
-        <Box sx={{ textAlign: 'right', mt: ['0px'] }}>
+        <Box id='tag-container' sx={{ textAlign: 'right', mt: ['0px'] }}>
           <Tag
+            id='tag'
             variant='primary'
             sx={{
-              color: 'green',
+              transition: 'color 0.15s, border 0.15s',
+              color: scrolled ? 'primary' : 'green',
             }}
           >
             {id}
           </Tag>
         </Box>
       </Grid>
-      <Box sx={{ color: 'secondary', mt: [2], fontSize: [1, 1, 1, 3] }}>
+      <Box sx={{ color: 'secondary', mt: [2], fontSize: [2, 2, 2, 3] }}>
         {developers[0] || owners[0]} / {supersection_ids[0]}
       </Box>
       <AnimateHeight
@@ -97,7 +109,7 @@ const Project = ({ data, setSelected }) => {
         >
           {expanded && (
             <Box>
-              <Metrics data={data} />
+              <Metrics data={data} setZoomTo={setZoomTo} />
             </Box>
           )}
         </Box>

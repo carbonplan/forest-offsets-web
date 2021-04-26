@@ -1,11 +1,13 @@
 import { Box, Text, Grid } from 'theme-ui'
-import { Row, Column } from '@carbonplan/components'
+import { Row, Column, Buttons } from '@carbonplan/components'
 import { format } from 'd3-format'
 import Bar from './bar'
 import Check from './check'
 
-const Metrics = ({ data }) => {
-  const { arbocs, carbon, over_crediting } = data
+const { ArrowButton } = Buttons
+
+const Metrics = ({ data, setZoomTo }) => {
+  const { id, arbocs, carbon, over_crediting, shape_centroid } = data
 
   const checkIssuance = (d) => {
     return (
@@ -14,7 +16,12 @@ const Metrics = ({ data }) => {
     )
   }
 
-  const RowBar = ({ label, value, scale, color = 'green', display }) => {
+  const onClick = (e) => {
+    e.stopPropagation()
+    setZoomTo({ id: id, center: shape_centroid[0] })
+  }
+
+  const RowBar = ({ label, value, scale, color = 'green', display, units }) => {
     return (
       <Row columns={[4]} sx={{ mb: [1] }}>
         <Column start={[1]} width={[1]}>
@@ -42,6 +49,18 @@ const Metrics = ({ data }) => {
             }}
           >
             {label}
+            <Box
+              as='span'
+              sx={{
+                fontFamily: 'faux',
+                letterSpacing: 'faux',
+                fontSize: [1, 1, 1, 2],
+                color: 'secondary',
+                ml: [2],
+              }}
+            >
+              {units}
+            </Box>
           </Box>
         </Column>
       </Row>
@@ -64,34 +83,53 @@ const Metrics = ({ data }) => {
         }}
       >
         <RowBar
-          label='Project size'
-          scale={{ min: 0, max: 2000000 }}
+          label='Total credits'
+          scale={{ min: 0, max: 20000000 }}
           value={arbocs.issuance}
           display={format('.2s')(arbocs.issuance)}
+          units={'tCO₂'}
         />
         <RowBar
           label='Initial carbon'
-          scale={{ min: 0, max: 200 }}
+          scale={{ min: 0, max: 300 }}
           value={carbon.initial_carbon_stock.value}
           display={format('.0f')(carbon.initial_carbon_stock.value)}
+          units={'tCO₂/ac'}
         />
         <RowBar
           label='Common practice'
-          scale={{ min: 0, max: 200 }}
+          scale={{ min: 0, max: 300 }}
           value={carbon.common_practice.value}
           display={format('.0f')(carbon.common_practice.value)}
+          units={'tCO₂/ac'}
         />
         {over_crediting && (
           <RowBar
-            label='Over-crediting (%)'
+            label='Over-crediting'
             scale={{ min: 0, max: 1 }}
             value={over_crediting.percent[1]}
             display={format('.0%')(over_crediting.percent[1])}
+            units={'%'}
+          />
+        )}
+        {over_crediting && (
+          <RowBar
+            label='Over-crediting'
+            scale={{ min: 0, max: 1000000 }}
+            value={over_crediting.arbocs[1]}
+            display={format('.2s')(over_crediting.arbocs[1])}
+            units={'tCO₂'}
           />
         )}
       </Box>
-      <Box sx={{ mt: [3], color: 'secondary', fontSize: [1, 1, 1, 3] }}>
-        Show project on map
+      <Box sx={{ mt: [3], color: 'secondary', fontSize: [2, 2, 2, 3] }}>
+        <ArrowButton
+          onClick={onClick}
+          size='xs'
+          color='secondary'
+          fill='secondary'
+          label='Show project on a map'
+        />
       </Box>
     </Box>
   )
