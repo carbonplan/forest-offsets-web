@@ -8,7 +8,9 @@ mapboxgl.accessToken = ''
 const Mapbox = ({ locations, map, setMap, setBounds }) => {
   const container = useRef(null)
 
-  const { theme: {rawColors: colors }} = useThemeUI()
+  const {
+    theme: { rawColors: colors },
+  } = useThemeUI()
 
   useEffect(() => {
     const map = new mapboxgl.Map({
