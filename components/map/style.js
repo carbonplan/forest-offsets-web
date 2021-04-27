@@ -1,4 +1,6 @@
-const style = (locations) => {
+const style = (locations, colors) => {
+  const { green, muted, background, primary } = colors
+
   return {
     version: 8,
     glyphs: `https://storage.googleapis.com/carbonplan-data/tiles/glyphs/{fontstack}/{range}.pbf`,
@@ -59,7 +61,7 @@ const style = (locations) => {
         paint: {
           'fill-antialias': false,
           'fill-opacity': 0,
-          'fill-color': 'black',
+          'fill-color': muted,
         },
       },
       {
@@ -74,7 +76,7 @@ const style = (locations) => {
         },
         paint: {
           'line-blur': 0.4,
-          'line-color': 'black',
+          'line-color': primary,
           'line-opacity': 0,
           'line-width': 0.8,
         },
@@ -91,7 +93,7 @@ const style = (locations) => {
         },
         paint: {
           'line-blur': 0.4,
-          'line-color': 'black',
+          'line-color': primary,
           'line-opacity': 0,
           'line-width': 0.8,
         },
@@ -108,36 +110,9 @@ const style = (locations) => {
         },
         paint: {
           'line-blur': 0.4,
-          'line-color': 'black',
+          'line-color': primary,
           'line-opacity': 0,
           'line-width': 0.8,
-        },
-      },
-      {
-        id: 'places-points',
-        type: 'circle',
-        source: 'basemap',
-        'source-layer': 'ne_10m_populated_places',
-        paint: {
-          'circle-color': 'white',
-          'circle-opacity': 0,
-          'circle-radius': 4,
-        },
-      },
-      {
-        id: 'places-text',
-        type: 'symbol',
-        source: 'basemap',
-        'source-layer': 'ne_10m_populated_places',
-        paint: {
-          'text-color': 'white',
-          'text-opacity': 0,
-          'text-translate': [0, -18],
-        },
-        layout: {
-          'text-ignore-placement': true,
-          'text-font': ['relative-faux-book'],
-          'text-field': ['format', ['get', 'name_en'], { 'font-scale': 1.2 }],
         },
       },
       {
@@ -151,7 +126,7 @@ const style = (locations) => {
         paint: {
           'fill-antialias': false,
           'fill-opacity': 0,
-          'fill-color': 'black',
+          'fill-color': green,
         },
       },
       {
@@ -166,7 +141,7 @@ const style = (locations) => {
         },
         paint: {
           'line-blur': 0.4,
-          'line-color': 'black',
+          'line-color': background,
           'line-opacity': 0,
           'line-width': 1,
         },
@@ -186,7 +161,7 @@ const style = (locations) => {
         },
         paint: {
           'line-blur': 0.4,
-          'line-color': 'black',
+          'line-color': primary,
           'line-opacity': 0,
           'line-width': 0.8,
         },
@@ -206,7 +181,7 @@ const style = (locations) => {
         type: 'symbol',
         source: 'locations',
         paint: {
-          'text-color': 'white',
+          'text-color': green,
           'text-opacity': 0,
         },
         layout: {

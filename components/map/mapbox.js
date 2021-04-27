@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef } from 'react'
-import { Box } from 'theme-ui'
+import { useThemeUI, Box } from 'theme-ui'
 import mapboxgl from 'mapbox-gl'
 import style from './style'
 
@@ -8,10 +8,12 @@ mapboxgl.accessToken = ''
 const Mapbox = ({ locations, map, setMap, setBounds }) => {
   const container = useRef(null)
 
+  const { theme: {rawColors: colors }} = useThemeUI()
+
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: container.current,
-      style: style(locations),
+      style: style(locations, colors),
       center: [-121.9, 43.11],
       zoom: 6.79,
       minZoom: 3,
