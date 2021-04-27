@@ -1,11 +1,12 @@
-import { Layout, Guide } from '@carbonplan/components'
+import { Box } from 'theme-ui'
+import { Layout, Guide, Dimmer } from '@carbonplan/components'
 import Main from '../../../components/main'
-import data from '../../../data/projects'
+import { projects } from '../../../data/projects'
 
 const Index = () => {
   const locations = {
     type: 'FeatureCollection',
-    features: data.map((d) => {
+    features: projects.map((d) => {
       return {
         type: 'Feature',
         properties: {
@@ -27,12 +28,22 @@ const Index = () => {
       title='forest offsets / research / carbonplan'
       card='https://images.carbonplan.org/social/forest-offsets.png'
       header={false}
-      dimmer={true}
+      dimmer={false}
       footer={false}
       metadata={false}
     >
       <Guide color='teal' />
-      <Main data={data} locations={locations} />
+      <Main data={projects} locations={locations} />
+      <Box
+        sx={{
+          display: ['none', 'initial', 'initial', 'initial'],
+          position: ['fixed'],
+          right: [13],
+          bottom: [17, 17, 15, 15],
+        }}
+      >
+        <Dimmer />
+      </Box>
     </Layout>
   )
 }

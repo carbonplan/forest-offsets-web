@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Flex } from 'theme-ui'
 import Mapbox from './map/mapbox'
 import Viewer from './viewer'
+import Loading from './loading'
 
 const Main = ({ data, locations }) => {
   const [map, setMap] = useState(null)
@@ -28,6 +29,7 @@ const Main = ({ data, locations }) => {
         setMap={setMap}
         setBounds={setBounds}
       />
+      <Loading map={map} />
     </Flex>
   )
 }

@@ -121,7 +121,12 @@ const Filter = ({ filters, setFilters, count, total }) => {
             >
               COUNT
             </Box>
-            <Badge sx={{ color: count < total ? 'green' : 'secondary', transition: '0.1s'}}>
+            <Badge
+              sx={{
+                color: count < total ? 'green' : 'secondary',
+                transition: '0.1s',
+              }}
+            >
               {String(count).padStart(2, '0')}
             </Badge>
             <Box sx={{ display: 'inline-block', mx: [2], color: 'secondary' }}>

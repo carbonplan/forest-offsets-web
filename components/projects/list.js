@@ -77,7 +77,7 @@ const List = ({
           <Project
             key={d.id}
             data={d}
-            final={i === filtered.length - 1}
+            final={i === filtered.length - 1 && filtered.length > 3}
             scrollTo={scrollTo}
             setSelected={setSelected}
             setZoomTo={setZoomTo}

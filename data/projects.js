@@ -1,6 +1,7 @@
-module.exports = [
+export const projects = [
   {
     id: 'CAR1205',
+    acreage: 47505.75,
     name: 'Finite Carbon - Lyme Logan IFM',
     owners: ['Lyme Timber'],
     developers: ['Finite Carbon'],
@@ -16,10 +17,12 @@ module.exports = [
     over_crediting: {
       percent: [0.27184366031004414, 0.28883222254554497, 0.3073324499204763],
       arbocs: [804393.54616723, 854663.2114789439, 909405.9392881871],
+      alt_slag: [92.1582875638346, 93.02315800146155, 93.96498577500438],
     },
   },
   {
     id: 'VCSOPR10',
+    acreage: 3240.0,
     name: 'Blue Source - Alford Improved Forest Management Project',
     owners: ['Ozark Regional Land Trust'],
     developers: ['Blue Source'],
@@ -35,16 +38,18 @@ module.exports = [
     over_crediting: {
       percent: [0.41822221987418257, 0.4455783866786953, 0.4713796754986066],
       arbocs: [40648.272216231424, 43307.10013646243, 45814.80480073607],
+      alt_slag: [63.90545525603331, 64.55375463377692, 65.16520577773515],
     },
   },
   {
     id: 'ACR192',
+    acreage: 4444.48,
     name:
       'Green Assets - Brookgreen Gardens Improved Forest Management Project',
     owners: ['Brookgreen Gardens'],
     developers: ['Green Assets'],
     attestor: 'Hunter Parks',
-    shape_centroid: [[-79.08781325694571, 33.52387667797383]],
+    shape_centroid: [[-79.08781331585644, 33.52387672338621]],
     supersection_ids: [4],
     carbon: {
       initial_carbon_stock: { value: 91.34, units: 'tCO2e acre-1' },
@@ -55,10 +60,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.3581071479222027, -0.30963675992667805, -0.2610453744296978],
       arbocs: [-72078.7324123372, -62322.758127761976, -52542.42982908628],
+      alt_slag: [37.33451845346978, 39.143812924100146, 40.95762396906376],
     },
   },
   {
     id: 'ACR248',
+    acreage: 97208.12,
     name: 'Finite Carbon -- The Forestland Group Highlands IFM',
     owners: ['The Nature Conservancy', 'The Forestland Group'],
     developers: ['Finite Carbon'],
@@ -75,6 +82,7 @@ module.exports = [
   },
   {
     id: 'ACR247',
+    acreage: 62137.35,
     name: 'Finite Carbon - The Forestland Group Chateaugay Woodlands IFM',
     owners: ['The Forestland Group'],
     developers: ['Finite Carbon'],
@@ -90,10 +98,12 @@ module.exports = [
     over_crediting: {
       percent: [0.10343708969825141, 0.21262531848305188, 0.31993514040756016],
       arbocs: [80698.2039586157, 165883.25684496714, 249602.83868634497],
+      alt_slag: [82.31755672088043, 83.42489440492031, 84.51318213526542],
     },
   },
   {
     id: 'ACR262',
+    acreage: 13165.06,
     name: 'Bewley Ranches',
     owners: ['Ross Bewley'],
     developers: ['NCRM'],
@@ -101,7 +111,7 @@ module.exports = [
     shape_centroid: [
       [-123.53608781269457, 39.92387994598397],
       [-123.54168800761484, 39.7023423648695],
-      [-123.4989684128884, 38.94296466810625],
+      [-123.49896833370106, 38.942964813902925],
     ],
     supersection_ids: [55, 79],
     carbon: {
@@ -113,15 +123,17 @@ module.exports = [
     over_crediting: {
       percent: [0.16532976250993597, 0.3631376127728593, 0.5472159414741151],
       arbocs: [111774.3272103299, 245506.0827297342, 369955.7343364635],
+      alt_slag: [155.50065777938002, 163.51890540464296, 170.98061948732146],
     },
   },
   {
     id: 'ACR257',
+    acreage: 5033.13,
     name: "Finite Carbon - Cook's Branch Conservancy IFM",
     owners: ["Cook's Branch Conservancy"],
     developers: ['Finite Carbon'],
     attestor: 'Kathy Hutson',
-    shape_centroid: [[-95.6682614831876, 30.282786434626964]],
+    shape_centroid: [[-95.668869159545, 30.282544348120535]],
     supersection_ids: [32],
     carbon: {
       initial_carbon_stock: { value: 82.97, units: 'tCO2e acre-1' },
@@ -132,17 +144,19 @@ module.exports = [
     over_crediting: {
       percent: [0.06527827773269981, 0.08203101409102098, 0.10083563642981049],
       arbocs: [14274.20515697627, 17937.475758241286, 22049.42611119737],
+      alt_slag: [49.03088240525071, 49.61099804984743, 50.262166633661884],
     },
   },
   {
     id: 'ACR280',
+    acreage: 24636.0,
     name: 'Blue Source - Marmet Improved Forest Management Project',
     owners: ['The Forestland Group'],
     developers: ['Blue Source', 'SilviaTerra', 'ecoPartners'],
     attestor: 'Kaarsten Turner-Dalby',
     shape_centroid: [
       [-81.63019693141075, 38.03095648424025],
-      [-81.25085574101371, 37.66413657832136],
+      [-81.25085582314499, 37.66413661755453],
     ],
     supersection_ids: [2],
     carbon: {
@@ -154,10 +168,12 @@ module.exports = [
     over_crediting: {
       percent: [0.2225437837736659, 0.2530351501673731, 0.2824797063317795],
       arbocs: [226850.00598968635, 257931.38032311178, 287945.68864929944],
+      alt_slag: [91.83860648068746, 92.85078613115073, 93.82821627257874],
     },
   },
   {
     id: 'ACR288',
+    acreage: 928.0,
     name: 'Camp Shelby Forest Carbon Project',
     owners: ['Compatible Land Foundation'],
     developers: ['ecoPartners'],
@@ -174,6 +190,7 @@ module.exports = [
   },
   {
     id: 'CAR1190',
+    acreage: 8378.54,
     name: 'Greenwood Creek',
     owners: ['Mendocino Redwood Company'],
     developers: ['NCRM'],
@@ -189,10 +206,12 @@ module.exports = [
     over_crediting: {
       percent: [0.2627125223798088, 0.6589761945041159, 1.0000006027436894],
       arbocs: [87172.21832597864, 218658.84495557775, 331816.2],
+      alt_slag: [185.26707956638688, 197.55510634308672, 209.33169192383986],
     },
   },
   {
     id: 'CAR1208',
+    acreage: 24497.15,
     name: 'Finite Carbon - Alma Land Company IFM',
     owners: ['Alma Land Company'],
     developers: ['Finite Carbon'],
@@ -214,10 +233,12 @@ module.exports = [
     over_crediting: {
       percent: [0.8113846798418956, 0.8440383687716252, 0.8788784019889313],
       arbocs: [407193.4015786553, 423580.6553680401, 441065.12603814516],
+      alt_slag: [88.36199667427557, 88.90384276123129, 89.48196842748689],
     },
   },
   {
     id: 'CAR1264',
+    acreage: 49996.0,
     name: 'Chugach Alaska Forest Carbon Project',
     owners: ['Chugach Alaska Corporation'],
     developers: [
@@ -244,15 +265,17 @@ module.exports = [
     over_crediting: {
       percent: [0.02535466638006278, 0.47779349248994346, 0.9553298359247936],
       arbocs: [181127.1444059097, 3413232.4840401085, 6824627.962089385],
+      alt_slag: [87.6348798592003, 139.50709231245617, 194.2567407318594],
     },
   },
   {
     id: 'ACR393',
+    acreage: 5637.0,
     name: 'Blue Source - Wilderness Lakes Improved Forest Management Project',
     owners: ['The Nature Conservancy'],
     developers: ['Blue Source'],
     attestor: 'Zsuzsanna Turanyi',
-    shape_centroid: [[-88.2081665517514, 46.63848301447841]],
+    shape_centroid: [[-88.2081665517662, 46.63848301429278]],
     supersection_ids: [39],
     carbon: {
       initial_carbon_stock: { value: 97.62, units: 'tCO2e acre-1' },
@@ -263,10 +286,12 @@ module.exports = [
     over_crediting: {
       percent: [0.23979193515852285, 0.3034457711741968, 0.36823234625510604],
       arbocs: [41386.169672879776, 52372.312538496975, 63553.95710486126],
+      alt_slag: [78.05479041604583, 79.64427838009276, 81.26205175823716],
     },
   },
   {
     id: 'ACR423',
+    acreage: 117.0,
     name: 'Forest Carbon Works Stewart Family Forest Project',
     owners: ['Janice M. Stewart'],
     developers: ['Forest Carbon Works', 'ecoPartners'],
@@ -286,10 +311,12 @@ module.exports = [
         0.017323528844166197,
       ],
       arbocs: [-1232.5757456621584, -352.5169218156152, 485.8903370211735],
+      alt_slag: [114.92772627315311, 121.14754798307058, 127.07299697461973],
     },
   },
   {
     id: 'CAR1314',
+    acreage: 95389.88,
     name: 'Finite Carbon - Spokane Tribe of Indians IFM',
     owners: ['Spokane Tribe of Indians'],
     developers: ['Finite Carbon'],
@@ -305,10 +332,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.15682967605804074, 0.074577540566493, 0.29563821220267344],
       arbocs: [-232082.35732870284, 110362.6038992973, 437496.3650313677],
+      alt_slag: [51.35431663257735, 54.22690998511248, 56.971065613065],
     },
   },
   {
     id: 'ACR425',
+    acreage: 10874.0,
     name: 'Bluesource - Goldbelt Improved Forest Management Project',
     owners: ['Goldbelt, Incorporated'],
     developers: ['Blue Source'],
@@ -324,15 +353,17 @@ module.exports = [
     over_crediting: {
       percent: [-0.5252655556898492, 0.6822996000833959, 1.1765765128746346],
       arbocs: [-235161.3892823455, 305465.5309573363, 526753.304813974],
+      alt_slag: [102.23737008535961, 141.85899810096447, 182.17700097691258],
     },
   },
   {
     id: 'ACR427',
+    acreage: 113451.0,
     name: 'The Nature Conservancy - Upper St John Forest IFM Project',
     owners: ['The Nature Conservancy'],
     developers: ['TerraCarbon', 'Climate Trust Capital', 'The Climate Trust'],
     attestor: 'Gregory S. Meade',
-    shape_centroid: [[-69.89892968027416, 46.480939007212854]],
+    shape_centroid: [[-69.89892974994567, 46.480938838070614]],
     supersection_ids: [94],
     carbon: {
       initial_carbon_stock: { value: 64.15, units: 'tCO2e acre-1' },
@@ -343,10 +374,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.715945069101376, -0.5774488440729423, -0.4397479143024058],
       arbocs: [-894012.778853063, -721070.1882242323, -549120.6963039573],
+      alt_slag: [46.68162174720463, 47.93517599057557, 49.18153187352143],
     },
   },
   {
     id: 'ACR458',
+    acreage: 8627.0,
     name: 'Bluesource - Haida Improved Forest Management Project',
     owners: ['Haida Corporation'],
     developers: ['Blue Source'],
@@ -367,15 +400,17 @@ module.exports = [
     over_crediting: {
       percent: [-0.8449206374554725, 0.09545085522876987, 1.0348888261330138],
       arbocs: [-288002.1832449847, 32535.664865844185, 352755.3099421775],
+      alt_slag: [93.12594399522307, 122.85803514431578, 152.59596916279264],
     },
   },
   {
     id: 'CAR1180',
+    acreage: 12367.0,
     name: 'Mailliard Ranch',
     owners: ['Mailliard Ranch'],
     developers: ['NCRM'],
     attestor: 'James D. Clark',
-    shape_centroid: [[-123.3544593176376, 38.920254292555946]],
+    shape_centroid: [[-123.35443820248345, 38.92015563253785]],
     supersection_ids: [55],
     carbon: {
       initial_carbon_stock: { value: 260.08, units: 'tCO2e acre-1' },
@@ -386,16 +421,18 @@ module.exports = [
     over_crediting: {
       percent: [-0.5145181434542146, -0.4148125234461049, -0.3102955978319184],
       arbocs: [-476972.21097193024, -384542.4091726723, -287652.3971713298],
+      alt_slag: [152.68595905296812, 159.67607740999648, 167.0035046933981],
     },
   },
   {
     id: 'ACR249',
+    acreage: 97322.63,
     name: 'Wyoming Improved Forest Management Project',
     owners: ['Lyme Timber', 'The Forestland Group'],
     developers: ['ecoPartners', 'Finite Carbon'],
     attestor: 'Kaarsten Turner Dalby',
     shape_centroid: [
-      [-81.67131096854918, 37.507648007227296],
+      [-81.67131098938205, 37.50764804279858],
       [-82.12965267335947, 37.76041631163111],
     ],
     supersection_ids: [2],
@@ -412,10 +449,12 @@ module.exports = [
         0.023719895812469655,
       ],
       arbocs: [-141013.41759453248, -18502.284880802035, 106175.30599442223],
+      alt_slag: [90.630966386264, 91.69223634894448, 92.77227356094565],
     },
   },
   {
     id: 'CAR1204',
+    acreage: 3631.97,
     name: 'Finite Carbon - AMC Silver Lake IFM',
     owners: ['AMC Maine Woods Initiative LLC'],
     developers: ['Finite Carbon'],
@@ -431,10 +470,12 @@ module.exports = [
     over_crediting: {
       percent: [0.12982357198699923, 0.1555430473829437, 0.1776109652058397],
       arbocs: [22369.120747647918, 26800.68923627073, 30603.079748827],
+      alt_slag: [56.71158826413796, 57.67892461278478, 58.508922064925834],
     },
   },
   {
     id: 'ACR200',
+    acreage: 1763.41,
     name: 'Brush Creek',
     owners: [
       'Steve Miller and Florence Miller Co-Trustees of the Edward Miller Trust',
@@ -456,10 +497,12 @@ module.exports = [
         0.21345396318621707,
       ],
       arbocs: [-29784.613298208486, -8666.193830642034, 14046.5515014322],
+      alt_slag: [144.6777153345796, 153.89952607876901, 163.81753340195132],
     },
   },
   {
     id: 'ACR256',
+    acreage: 5615.78,
     name: 'Finite Carbon - Tennessee River Gorge Trust IFM',
     owners: ['Tennessee River Gorge Trust'],
     developers: ['Finite Carbon'],
@@ -475,10 +518,12 @@ module.exports = [
     over_crediting: {
       percent: [0.2813343054529015, 0.31281043030408695, 0.3430467770141169],
       arbocs: [95097.74726641158, 105737.4328931087, 115958.04375341986],
+      alt_slag: [91.85236073224547, 93.40205869598127, 94.89071732689209],
     },
   },
   {
     id: 'CAR1013',
+    acreage: 17982.0,
     name: 'Buckeye Forest Project',
     owners: ['Sustainable Conservation Inc.'],
     developers: ['The Conservation Fund'],
@@ -494,17 +539,19 @@ module.exports = [
     over_crediting: {
       percent: [0.7991203526810388, 1.0000006056274906, 1.0000006056274906],
       arbocs: [263898.3087879755, 330236.2, 330236.2],
+      alt_slag: [152.8495740836014, 163.7593902573539, 174.06621000868864],
     },
   },
   {
     id: 'CAR1213',
+    acreage: 68065.46,
     name: 'Finite Carbon - MWF Adirondacks IFM',
     owners: ['Molpus'],
     developers: ['Finite Carbon', 'SilviaTerra'],
     attestor: 'Richard Kempka',
     shape_centroid: [
-      [-74.78292650935511, 44.34167903221755],
-      [-75.22321378189561, 44.130102082157954],
+      [-74.78292650763782, 44.34167908804923],
+      [-75.22321377322976, 44.13010207508906],
     ],
     supersection_ids: [1, 86],
     carbon: {
@@ -520,15 +567,17 @@ module.exports = [
         -0.03951836729569001,
       ],
       arbocs: [-252646.42384978913, -145393.3984206803, -44188.33179575629],
+      alt_slag: [78.52231288320874, 79.7728389970126, 80.9528484014781],
     },
   },
   {
     id: 'CAR1094',
+    acreage: 520.8,
     name: 'Ashford III',
     owners: ['Nisqually Land Trust'],
     developers: [],
     attestor: 'Joe Kane',
-    shape_centroid: [[-122.03017134305665, 46.76922011807875]],
+    shape_centroid: [[-122.03017271009476, 46.76922076630079]],
     supersection_ids: [58],
     carbon: {
       initial_carbon_stock: { value: 180.8, units: 'tCO2e acre-1' },
@@ -540,6 +589,7 @@ module.exports = [
   },
   {
     id: 'ACR199',
+    acreage: 141062.25,
     name: 'Finite Carbon - The Forestland Group CT Lakes',
     owners: ['The Forestland Group'],
     developers: ['Finite Carbon'],
@@ -555,10 +605,12 @@ module.exports = [
     over_crediting: {
       percent: [0.590267784087299, 0.6785676826101199, 0.7715545094046788],
       arbocs: [851506.1388975193, 978885.4533089763, 1113026.017958964],
+      alt_slag: [59.7299145814502, 60.477594277558666, 61.264960555016806],
     },
   },
   {
     id: 'ACR273',
+    acreage: 402349.0,
     name: 'Green Diamond Resource Company Klamath East IFM',
     owners: ['Green Diamond Resource Company'],
     developers: [
@@ -569,8 +621,8 @@ module.exports = [
     ],
     attestor: 'Andy Elsbree',
     shape_centroid: [
-      [-121.14246440964423, 42.56393594221556],
-      [-121.82352246283648, 43.14249077358525],
+      [-121.14249987999115, 42.563927768269785],
+      [-121.82384673614918, 43.142460214237275],
     ],
     supersection_ids: [43, 25],
     carbon: {
@@ -583,6 +635,7 @@ module.exports = [
   },
   {
     id: 'ACR274',
+    acreage: 170883.0,
     name: 'Green Diamond Resource Company Klamath West IFM',
     owners: ['Green Diamond Resource Company'],
     developers: [
@@ -604,6 +657,7 @@ module.exports = [
   },
   {
     id: 'ACR182',
+    acreage: 2393.0,
     name: 'Hanes Ranch Forest Carbon Project',
     owners: ['Hanes Ranch Incorporated'],
     developers: ['New Forests', 'BBW Associates'],
@@ -619,15 +673,17 @@ module.exports = [
     over_crediting: {
       percent: [-0.7758471916080462, -0.5150822665823134, -0.2737071385471654],
       arbocs: [-83181.68080106506, -55224.03012935615, -29345.23715219579],
+      alt_slag: [138.38152129886376, 147.89476939323498, 156.70063727052866],
     },
   },
   {
     id: 'ACR279',
+    acreage: 16908.0,
     name: 'Blue Source - Lonesome Pine Improved Forest Management Project',
     owners: ['The Nature Conservancy', 'The Forestland group'],
     developers: ['Blue Source'],
     attestor: 'Roger Williams',
-    shape_centroid: [[-82.48066386457693, 37.033256759903416]],
+    shape_centroid: [[-82.48066391071502, 37.03325670975658]],
     supersection_ids: [2],
     carbon: {
       initial_carbon_stock: { value: 113.6, units: 'tCO2e acre-1' },
@@ -638,10 +694,12 @@ module.exports = [
     over_crediting: {
       percent: [0.14137962530046222, 0.18148480802549488, 0.221001410233383],
       arbocs: [78235.38463214207, 100428.42970187613, 122295.77138225737],
+      alt_slag: [89.7269667581704, 90.80963521584536, 91.87641451612429],
     },
   },
   {
     id: 'ACR267',
+    acreage: 36275.0,
     name: 'Blue Source - Powelton Improved Forest Mangement Project',
     owners: ['The Forestland Group'],
     developers: ['Blue Source', 'ecoPartners'],
@@ -657,16 +715,18 @@ module.exports = [
     over_crediting: {
       percent: [0.3248625264722415, 0.3577842855199089, 0.3905520221700586],
       arbocs: [503279.30004848185, 554281.9196174415, 605045.92661001],
+      alt_slag: [92.3276934014459, 93.4588491524364, 94.58471286175681],
     },
   },
   {
     id: 'CAR1183',
+    acreage: 228376.0,
     name:
       'Forest Carbon Partners - Mescalero Apache Tribe Improved Forest Management Project',
     owners: ['Mescalero Apache Tribe'],
     developers: ['New Forests'],
     attestor: 'Brian Shillinglaw',
-    shape_centroid: [[-105.6387822124546, 33.17160871818167]],
+    shape_centroid: [[-105.63864406651787, 33.172004342187414]],
     supersection_ids: [18],
     carbon: {
       initial_carbon_stock: { value: 35.61, units: 'tCO2e acre-1' },
@@ -677,10 +737,12 @@ module.exports = [
     over_crediting: {
       percent: [1.0, 1.0, 1.0],
       arbocs: [4417068.0, 4417068.0, 4417068.0],
+      alt_slag: [47.81648855312346, 56.23967464785774, 65.04239429407076],
     },
   },
   {
     id: 'ACR202',
+    acreage: 28487.0,
     name: 'Blue Source - Goodman Improved Forest Management Project',
     owners: ['Goodman Forest LLC'],
     developers: ['Blue Source'],
@@ -696,10 +758,12 @@ module.exports = [
     over_crediting: {
       percent: [0.5941414935987747, 0.6505704169112961, 0.7074337757740439],
       arbocs: [506582.8616871232, 554695.8545710784, 603179.260238223],
+      alt_slag: [64.79158015822625, 66.18868951980333, 67.596554960685],
     },
   },
   {
     id: 'ACR361',
+    acreage: 18165.0,
     name:
       'Forest Carbon Partners - Port Graham Corporation Improved Forest Management Project',
     owners: ['Port Graham Corporation'],
@@ -720,17 +784,19 @@ module.exports = [
     over_crediting: {
       percent: [-0.08365109523842895, 0.13405145875526978, 0.36701743558391303],
       arbocs: [-198607.35810341136, 318269.6651778179, 871385.6411735717],
+      alt_slag: [76.12874338280221, 98.98837974282242, 123.450736370544],
     },
   },
   {
     id: 'CAR1197',
+    acreage: 82895.91,
     name: 'Finite Carbon - Upper Hudson Woodlands ATP IFM',
     owners: ['ATP'],
     developers: ['Finite Carbon'],
     attestor: 'Gary A Myers',
     shape_centroid: [
       [-73.80860937594714, 43.410157410081304],
-      [-74.1778795223979, 43.91765063705229],
+      [-74.17787952060267, 43.91765063720164],
       [-74.37886921176043, 43.1645136808617],
       [-73.42782813722664, 43.69313190518754],
     ],
@@ -744,10 +810,12 @@ module.exports = [
     over_crediting: {
       percent: [0.23275247598453977, 0.3065252905437424, 0.3820360131288044],
       arbocs: [328445.3979509195, 432548.8723967344, 539104.7714225285],
+      alt_slag: [82.93264337278242, 83.92896226259735, 84.94875200146787],
     },
   },
   {
     id: 'CAR973',
+    acreage: 219204.0,
     name: 'Blue Source - Bishop Improved Forest Management Project',
     owners: ['Hancock Natural Resources Group', 'The Forestland Group'],
     developers: ['Blue Source'],
@@ -767,10 +835,12 @@ module.exports = [
     over_crediting: {
       percent: [0.3519368764488593, 0.5774758684384912, 0.8228869829113724],
       arbocs: [761574.1557283856, 1249629.4829833414, 1780687.1095580473],
+      alt_slag: [73.03745104244726, 74.88394108921769, 76.89312440711528],
     },
   },
   {
     id: 'CAR1066',
+    acreage: 12486.94,
     name: 'Buck Mountain ARB002',
     owners: ['Sierra Pacific Industries'],
     developers: [],
@@ -786,10 +856,12 @@ module.exports = [
     over_crediting: {
       percent: [-1.7987290730706853, -0.8367367068472662, 0.09693703095402788],
       arbocs: [-543852.930159214, -252990.69026209833, 29309.299057074146],
+      alt_slag: [90.80746497680103, 109.19156951808759, 127.0344923996672],
     },
   },
   {
     id: 'CAR1041',
+    acreage: 16957.81,
     name: 'Sacramento Canyon ARB001',
     owners: ['Sierra Pacific Industries'],
     developers: [],
@@ -805,17 +877,19 @@ module.exports = [
     over_crediting: {
       percent: [0.0624185491911408, 0.4080810866799089, 0.7681501898907344],
       arbocs: [41338.806432505495, 270265.57441071677, 508733.58036159514],
+      alt_slag: [129.90727533690387, 140.67172799506676, 151.88482283415112],
     },
   },
   {
     id: 'CAR1104',
+    acreage: 3499.0,
     name:
       'Forest Carbon Partners - Gabrych Ranch Improved Forest Management Project',
     owners: ['GM Gabrych Family LP'],
     developers: ['New Forests'],
     attestor: 'Brian Shillinglaw',
     shape_centroid: [
-      [-123.60329593941748, 40.699883207566465],
+      [-123.60329575293328, 40.69988313065246],
       [-123.39226119226373, 40.46549914666838],
     ],
     supersection_ids: [79],
@@ -828,10 +902,12 @@ module.exports = [
     over_crediting: {
       percent: [0.1548651183504016, 0.4392841830771883, 0.7018029922260954],
       arbocs: [44458.21358067824, 126108.38542524999, 201471.4975992908],
+      alt_slag: [116.16995665266161, 134.75668935704917, 151.9122444539341],
     },
   },
   {
     id: 'ACR173',
+    acreage: 5550.0,
     name: 'Round Valley Indian Tribes Improved Forest Management Project',
     owners: ['Round Valley Tribes of California'],
     developers: ['New Forests'],
@@ -851,10 +927,12 @@ module.exports = [
         0.024434325651013927,
       ],
       arbocs: [-81679.73977816754, -33893.92689231614, 13214.767473186559],
+      alt_slag: [85.58520549991361, 92.37532495481007, 99.0692293332931],
     },
   },
   {
     id: 'CAR1191',
+    acreage: 20300.0,
     name: 'Hollow Tree',
     owners: ['Mendocino Redwood Company'],
     developers: [],
@@ -870,10 +948,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.8037772530477161, -0.4854367347070421, -0.17134148835570745],
       arbocs: [-657476.932556983, -397079.4820026051, -140154.596011155],
+      alt_slag: [159.70058598114886, 170.2042211499621, 180.5677837059618],
     },
   },
   {
     id: 'CAR1217',
+    acreage: 19551.99,
     name: 'Finite Carbon - Lyme Grand Lake Stream IFM',
     owners: ['Downeast Lakes Land Trust', 'Lyme Timber'],
     developers: ['Finite Carbon'],
@@ -890,6 +970,7 @@ module.exports = [
   },
   {
     id: 'ACR210',
+    acreage: 18816.3,
     name: 'Huron Mountain Club Forest Carbon Project',
     owners: ['Huron Mountain Club'],
     developers: ['CarbonVerde'],
@@ -905,15 +986,17 @@ module.exports = [
     over_crediting: {
       percent: [0.11600486951604995, 0.1582538420406398, 0.20067907529892576],
       arbocs: [155763.21844528575, 212492.1813232283, 269457.8147761266],
+      alt_slag: [73.60068731231603, 76.05547105771794, 78.52049604588095],
     },
   },
   {
     id: 'ACR276',
+    acreage: 42812.0,
     name: 'Blue Source - Allegheny Improved Forest Management Project',
     owners: ['The Forestland Group'],
     developers: ['Blue Source'],
     attestor: 'Rogers Williams',
-    shape_centroid: [[-80.97065134131935, 38.46133802319797]],
+    shape_centroid: [[-80.97065133964004, 38.461338028536545]],
     supersection_ids: [2, 76],
     carbon: {
       initial_carbon_stock: { value: 126.9, units: 'tCO2e acre-1' },
@@ -924,10 +1007,12 @@ module.exports = [
     over_crediting: {
       percent: [0.20835139613310386, 0.23211429640022457, 0.2544614481570805],
       arbocs: [441533.9033059549, 491891.7425311315, 539249.3572440736],
+      alt_slag: [94.61932389411609, 95.58829923242068, 96.49954485859976],
     },
   },
   {
     id: 'ACR189',
+    acreage: 1585.12,
     name: 'Miller Forest',
     owners: [
       'Steve Miller and Florence Miller Co-Trustees of the Edward Miller Trust',
@@ -945,10 +1030,12 @@ module.exports = [
     over_crediting: {
       percent: [0.3152599546618549, 0.5010960715179985, 0.6856748398825131],
       arbocs: [85480.84514683399, 135869.19321567618, 185916.61878510413],
+      alt_slag: [127.4301573067295, 152.34053648415488, 177.08237453935655],
     },
   },
   {
     id: 'ACR303',
+    acreage: 122335.0,
     name: 'White Mountain Apache Tribe Carbon Project II',
     owners: ['White Mountain Apache Tribe'],
     developers: ['Spatial Informatics Group'],
@@ -964,16 +1051,18 @@ module.exports = [
     over_crediting: {
       percent: [0.12845596628103786, 0.30460742065727864, 0.4881991787605202],
       arbocs: [771355.7261794995, 1829114.5593557637, 2931551.1217998196],
+      alt_slag: [54.195566948178154, 61.26637595582654, 68.63584254083531],
     },
   },
   {
     id: 'CAR1173',
+    acreage: 7114.0,
     name:
       'Forest Carbon Partners - Berea College Improved Forest Management Project',
     owners: ['Brea College'],
     developers: ['New Forests'],
     attestor: 'Brian Shillinglaw',
-    shape_centroid: [[-84.21008667247506, 37.53909531134547]],
+    shape_centroid: [[-84.21008658975308, 37.539095089648114]],
     supersection_ids: [24, 76],
     carbon: {
       initial_carbon_stock: { value: 127.86, units: 'tCO2e acre-1' },
@@ -984,10 +1073,12 @@ module.exports = [
     over_crediting: {
       percent: [0.045785572109021976, 0.0731132113330684, 0.10046812997057314],
       arbocs: [17210.109772199725, 27482.159441930417, 37764.46303398888],
+      alt_slag: [82.1986349715595, 83.37339518734782, 84.5493280902233],
     },
   },
   {
     id: 'CAR1046',
+    acreage: 11350.2,
     name:
       'Trinity Timberlands University Hill Improved Forest Management Project',
     owners: ['Timmons Advisors'],
@@ -1004,15 +1095,17 @@ module.exports = [
     over_crediting: {
       percent: [0.0594988083679889, 0.13221203452306535, 0.20175724556082364],
       arbocs: [50448.74212117594, 112101.9230119345, 171068.95972479455],
+      alt_slag: [98.4761056390758, 102.74311255032032, 106.82421184729264],
     },
   },
   {
     id: 'CAR1209',
+    acreage: 13552.0,
     name: 'Blue Source-Wolf River Improved Forest Management Project',
     owners: ['ATP'],
     developers: ['Blue Source'],
     attestor: 'Roger Williams',
-    shape_centroid: [[-88.83084352827014, 45.27142464861991]],
+    shape_centroid: [[-88.83084362535662, 45.27142432117973]],
     supersection_ids: [35, 38],
     carbon: {
       initial_carbon_stock: { value: 103.6, units: 'tCO2e acre-1' },
@@ -1023,10 +1116,12 @@ module.exports = [
     over_crediting: {
       percent: [0.2951508599342388, 0.33046294486412325, 0.36528899778530405],
       arbocs: [173763.57546736454, 194552.78860396554, 215055.86108814648],
+      alt_slag: [73.15094708615975, 74.64364459303277, 76.1157967605668],
     },
   },
   {
     id: 'CAR1257',
+    acreage: 35465.57,
     name: 'Finite Carbon - Rowland IFM',
     owners: ['Rowland Land Company'],
     developers: ['Finite Carbon'],
@@ -1046,10 +1141,12 @@ module.exports = [
     over_crediting: {
       percent: [0.49862151086201967, 0.5161669833155039, 0.5334531560584925],
       arbocs: [960140.0964792856, 993925.465235518, 1027211.5293215166],
+      alt_slag: [105.29964504854561, 106.07694774915427, 106.84276290699258],
     },
   },
   {
     id: 'ACR284',
+    acreage: 9714.52,
     name: 'Finite Carbon - Massachusetts Audubon Society IFM',
     owners: ['Massachusetts Audubon Society'],
     developers: ['Finite Carbon'],
@@ -1073,10 +1170,12 @@ module.exports = [
     over_crediting: {
       percent: [0.07740898957764751, 0.08964777849628452, 0.10283715651574937],
       arbocs: [61344.61160655663, 71043.53361606458, 81495.77277266196],
+      alt_slag: [88.53344929303768, 89.34714893991888, 90.2240487956455],
     },
   },
   {
     id: 'CAR1297',
+    acreage: 11778.0,
     name: 'Finite Carbon - Sieben Stock IFM',
     owners: ['Sieben Live Stock Company'],
     developers: ['Finite Carbon'],
@@ -1092,10 +1191,12 @@ module.exports = [
     over_crediting: {
       percent: [0.023644148249395196, 0.11552936575274879, 0.21478549053269694],
       arbocs: [7100.337719293378, 34693.46853555046, 64500.08280696889],
+      alt_slag: [37.55948966086987, 39.50501127438747, 41.606599987787874],
     },
   },
   {
     id: 'ACR360',
+    acreage: 506729.13,
     name: 'Finite Carbon - Ahtna Native Alaskan IFM',
     owners: ['Ahtna Incorporated'],
     developers: ['Finite Carbon'],
@@ -1112,6 +1213,7 @@ module.exports = [
   },
   {
     id: 'CAR1215',
+    acreage: 81408.2,
     name: 'Finite Carbon - Molpus Ataya IFM',
     owners: ['The Nature Conservancy', 'Molpus'],
     developers: ['Finite Carbon'],
@@ -1130,16 +1232,18 @@ module.exports = [
     over_crediting: {
       percent: [0.6421233859549482, 0.6577189454815379, 0.6733825253227236],
       arbocs: [2048292.0515262687, 2098039.9057800295, 2148004.736198772],
+      alt_slag: [86.1620737662794, 86.64480289789745, 87.12963746134314],
     },
   },
   {
     id: 'ACR281',
+    acreage: 13095.0,
     name:
       'Blue Source - Wisconsin Northern Highlands Improved Forest Management Project',
     owners: ['The Forestland Group'],
     developers: ['Blue Source'],
     attestor: 'Roger Williams',
-    shape_centroid: [[-91.15055086642342, 45.84960710996837]],
+    shape_centroid: [[-91.15055085137263, 45.84960710935406]],
     supersection_ids: [38],
     carbon: {
       initial_carbon_stock: { value: 73.18, units: 'tCO2e acre-1' },
@@ -1150,10 +1254,12 @@ module.exports = [
     over_crediting: {
       percent: [0.6884693424846823, 0.7391466186607915, 0.7936677079585487],
       arbocs: [258226.26169375723, 277233.939700959, 297683.32822713675],
+      alt_slag: [65.04273851166366, 66.24019573413537, 67.5284787099162],
     },
   },
   {
     id: 'CAR1175',
+    acreage: 98532.0,
     name: 'Finite Carbon - Passamaquoddy Tribe IFM',
     owners: ['Passamaquoddy Joint Tribal Council'],
     developers: ['Finite Carbon'],
@@ -1162,8 +1268,8 @@ module.exports = [
       [-68.06201572812473, 45.23956800042865],
       [-70.18652980812426, 45.84658661327689],
       [-70.5650611878085, 45.55092501184845],
+      [-67.61521616584562, 45.26749641609686],
       [-68.74692678717425, 45.52880971464735],
-      [-67.62050177796446, 45.269309901442355],
     ],
     supersection_ids: [94, 42],
     carbon: {
@@ -1175,10 +1281,12 @@ module.exports = [
     over_crediting: {
       percent: [0.10450454941183948, 0.13699245383987127, 0.17198483990623437],
       arbocs: [399652.254620073, 523894.3505443046, 657714.2279052961],
+      alt_slag: [53.070391536383326, 54.0841997514257, 55.176162101185746],
     },
   },
   {
     id: 'CAR1102',
+    acreage: 3514.0,
     name:
       'Montesol - Forest Carbon Partners Improved Forest Management Project',
     owners: ['Montesol, LLC'],
@@ -1196,6 +1304,7 @@ module.exports = [
   },
   {
     id: 'CAR993',
+    acreage: 7660.0,
     name:
       'Yurok Tribe/Forest Carbon Partners CKGG Improved Forest Management Project',
     owners: ['Yurok Tribe'],
@@ -1212,15 +1321,17 @@ module.exports = [
     over_crediting: {
       percent: [0.42175234671902023, 0.6632772691404476, 0.9161027695628576],
       arbocs: [352846.02655972, 554910.3656310121, 766428.9829689084],
+      alt_slag: [141.22836953910235, 162.17897414310005, 184.10982517103457],
     },
   },
   {
     id: 'ACR378',
+    acreage: 1933.0,
     name: 'Lord Ellis Improved Forest Management Project',
     owners: ['New Forests'],
     developers: ['BBW & Associates'],
     attestor: 'Brian Shillinglaw',
-    shape_centroid: [[-123.86150752358745, 40.969010869431656]],
+    shape_centroid: [[-123.86147655328632, 40.968995281470434]],
     supersection_ids: [79],
     carbon: {
       initial_carbon_stock: { value: 310.3, units: 'tCO2e acre-1' },
@@ -1231,15 +1342,17 @@ module.exports = [
     over_crediting: {
       percent: [0.18199710286282544, 0.42207133911996214, 0.6787765276542761],
       arbocs: [64254.44115992625, 149013.13041898087, 239643.4106413975],
+      alt_slag: [180.04028733264857, 215.85355791537617, 254.14776440874863],
     },
   },
   {
     id: 'ACR377',
+    acreage: 2199.0,
     name: 'Cappell Creek Improved Forest Management Project',
     owners: ['New Forests'],
     developers: ['BBW & Associates'],
     attestor: 'Brian Shillinglaw',
-    shape_centroid: [[-123.79482412351257, 41.30437089237339]],
+    shape_centroid: [[-123.79482327276733, 41.30436981199237]],
     supersection_ids: [79],
     carbon: {
       initial_carbon_stock: { value: 273.97, units: 'tCO2e acre-1' },
@@ -1250,10 +1363,12 @@ module.exports = [
     over_crediting: {
       percent: [0.4000093564755447, 0.63682289759352, 0.8908416739517458],
       arbocs: [146978.6379246612, 233992.93184596777, 327329.0829934816],
+      alt_slag: [177.34548885312375, 209.58385701629518, 244.16444220553117],
     },
   },
   {
     id: 'ACR260',
+    acreage: 24627.0,
     name: 'Warm Springs Phase I',
     owners: ['Confederated Tribes of the Warm Springs Reservation of Oregon'],
     developers: ['ERA Ecosystem Services', 'ecoPartners'],
@@ -1272,10 +1387,12 @@ module.exports = [
     over_crediting: {
       percent: [0.16305502026360583, 0.21465290578665394, 0.2658504593851008],
       arbocs: [351281.0070603248, 462441.9952924994, 572740.5200359391],
+      alt_slag: [84.69998780903848, 88.33204067444412, 91.93591357280029],
     },
   },
   {
     id: 'ACR371',
+    acreage: 5897.88,
     name:
       'Blue Source - Great Mountain Forest Improved Forest Management Project',
     owners: ['Great Mountain Forest Corporation'],
@@ -1292,10 +1409,12 @@ module.exports = [
     over_crediting: {
       percent: [0.19062572465303418, 0.2317705696214187, 0.2703616649532398],
       arbocs: [67998.10224098382, 82674.87988965627, 96440.70950547018],
+      alt_slag: [108.10402062014762, 110.14081558139875, 112.05119216882821],
     },
   },
   {
     id: 'CAR1174',
+    acreage: 4044.0,
     name:
       'Forest Carbon Partners -- Eddie Ranch Improved Forest Management Project',
     owners: ['Eddie Ranch\u00a0Properties'],
@@ -1315,10 +1434,12 @@ module.exports = [
     over_crediting: {
       percent: [0.11127487438445399, 0.2613015030213872, 0.41836072723883183],
       arbocs: [30597.3634843677, 71850.33558729387, 115037.06752958882],
+      alt_slag: [133.13252467100904, 141.25730738771801, 149.7629445670332],
     },
   },
   {
     id: 'ACR417',
+    acreage: 86034.0,
     name: 'Bluesource - Baskahegan Improved Forest Management Project',
     owners: ['Baskahegan Company'],
     developers: ['Blue Source'],
@@ -1334,10 +1455,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.16575252631417564, 0.11410385436053389, 0.3906574329795528],
       arbocs: [-139977.842719795, 96360.59090361651, 329909.8114937994],
+      alt_slag: [51.686999603767305, 53.86650887120496, 56.02029606051263],
     },
   },
   {
     id: 'ACR373',
+    acreage: 19872.0,
     name: 'Blue Source - Northwoods Improved Forest Management Project',
     owners: ['ATP'],
     developers: ['Blue Source'],
@@ -1357,10 +1480,12 @@ module.exports = [
     over_crediting: {
       percent: [0.7275494532297805, 0.8284109241670078, 0.9355586387716739],
       arbocs: [287283.08730012405, 327109.6511602814, 369418.42633993825],
+      alt_slag: [65.53867091241437, 67.17340909657106, 68.91003318882116],
     },
   },
   {
     id: 'ACR282',
+    acreage: 14083.0,
     name: 'Blue Creek',
     owners: ['Western River Conservancy'],
     developers: ['ecoPartners'],
@@ -1376,15 +1501,17 @@ module.exports = [
     over_crediting: {
       percent: [0.18696993507600365, 0.4022928353141989, 0.5979059713524553],
       arbocs: [101075.7599321525, 217479.10447802063, 323227.37020716595],
+      alt_slag: [144.34832186071674, 151.03169529410226, 157.1033004748475],
     },
   },
   {
     id: 'CAR1095',
+    acreage: 16412.83,
     name: 'Brushy Mountain',
     owners: ['Coastal Forestlands'],
     developers: ['NCRM'],
     attestor: 'James D. Clark',
-    shape_centroid: [[-123.24907774134456, 39.60932275154498]],
+    shape_centroid: [[-123.24907891479585, 39.609321633611906]],
     supersection_ids: [79],
     carbon: {
       initial_carbon_stock: { value: 149.26, units: 'tCO2e acre-1' },
@@ -1395,10 +1522,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.07952771800030214, -0.01977655961993928, 0.042650800323523],
       arbocs: [-108763.14099754722, -27046.680031504016, 58329.78898285426],
+      alt_slag: [78.89518224117714, 82.75960488865115, 86.7971116103085],
     },
   },
   {
     id: 'ACR255',
+    acreage: 453026.55,
     name: 'Finite Carbon - Colville IFM',
     owners: ['Confederated Tribes of the Colville Reservation'],
     developers: ['Finite Carbon'],
@@ -1414,10 +1543,12 @@ module.exports = [
     over_crediting: {
       percent: [0.02744976025765598, 0.19931322160074824, 0.3668562546732882],
       arbocs: [388602.5502500009, 2821650.370916877, 5193534.47181536],
+      alt_slag: [62.60278548694291, 66.81237308999292, 70.91613702845795],
     },
   },
   {
     id: 'CAR1103',
+    acreage: 2095.0,
     name:
       'Forest Carbon Partners \u2013 Glass Ranch Improved Forest Management Project',
     owners: ['Ronald Glass'],
@@ -1434,10 +1565,12 @@ module.exports = [
     over_crediting: {
       percent: [0.0437024399873477, 0.10083873964490066, 0.15953312734517833],
       arbocs: [11840.870197491948, 27321.55063560832, 43224.38412228465],
+      alt_slag: [101.15732791017956, 107.09642330168846, 113.19747586525038],
     },
   },
   {
     id: 'ACR292',
+    acreage: 5440.15,
     name: 'Congaree River',
     owners: ['Congaree River LLC'],
     developers: ['NCRM'],
@@ -1453,10 +1586,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.1476630104517293, 0.25417662802431584, 0.7170803545294728],
       arbocs: [-17308.4674331099, 29793.567630498204, 84053.29083652669],
+      alt_slag: [167.0020059191369, 173.85088016698995, 181.7405184906751],
     },
   },
   {
     id: 'ACR211',
+    acreage: 89396.5,
     name: 'White Mountain Apache Tribe Forest Carbon Project',
     owners: ['White Mountain Apache Tribe'],
     developers: ['EKO Asset Management Partners', 'Spatial Informatics Group'],
@@ -1472,10 +1607,12 @@ module.exports = [
     over_crediting: {
       percent: [-0.4879073775768152, 0.6035708954971207, 1.0000002021724554],
       arbocs: [-2171990.4378529415, 2686883.35908528, 4451645.9],
+      alt_slag: [38.463202615297845, 82.20334930819834, 127.94119663003391],
     },
   },
   {
     id: 'CAR1032',
+    acreage: 9753.0,
     name: 'Virginia Highlands I',
     owners: ['The Nature Conservancy', 'The Forestland Group'],
     developers: [],
@@ -1492,12 +1629,13 @@ module.exports = [
   },
   {
     id: 'ACR324',
+    acreage: 165076.59,
     name: 'Finite Carbon - Sealaska Native Alaskan IFM',
     owners: ['Sealaska Corporation'],
     developers: ['Finite Carbon'],
     attestor: 'Brian L Kleinhenz',
     shape_centroid: [
-      [-132.79225966795192, 55.32649459223028],
+      [-132.792259653096, 55.326494609928424],
       [-135.5347343240822, 58.10812566790594],
       [-133.90806053491272, 56.974598848867636],
       [-134.8717209160419, 57.52326070211602],
@@ -1512,6 +1650,7 @@ module.exports = [
     over_crediting: {
       percent: [-0.4366730278815962, 0.20616577280532017, 1.000000062923945],
       arbocs: [-4830618.079814223, 2280672.370317068, 11062323.696085002],
+      alt_slag: [101.64925200544145, 137.06508336666184, 171.0732486062242],
     },
   },
 ]

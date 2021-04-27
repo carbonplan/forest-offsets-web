@@ -3,11 +3,12 @@ import { Row, Column, Buttons } from '@carbonplan/components'
 import { format } from 'd3-format'
 import Bar from './bar'
 import Check from './check'
+import Info from '../info'
 
 const { ArrowButton } = Buttons
 
 const Metrics = ({ data, setZoomTo }) => {
-  const { id, arbocs, carbon, over_crediting, shape_centroid } = data
+  const { id, arbocs, carbon, acreage, over_crediting, shape_centroid } = data
 
   const checkIssuance = (d) => {
     return (
@@ -28,7 +29,7 @@ const Metrics = ({ data, setZoomTo }) => {
           <Box
             sx={{
               fontSize: [2, 2, 2, 3],
-              color: 'green',
+              color: color,
               fontFamily: 'mono',
               letterSpacing: 'mono',
               display: 'inline-block',
@@ -54,7 +55,7 @@ const Metrics = ({ data, setZoomTo }) => {
               sx={{
                 fontFamily: 'faux',
                 letterSpacing: 'faux',
-                fontSize: [1, 1, 1, 2],
+                fontSize: [0, 0, 0, 1],
                 color: 'secondary',
                 ml: [2],
               }}
@@ -66,6 +67,8 @@ const Metrics = ({ data, setZoomTo }) => {
       </Row>
     )
   }
+
+  const positive = over_crediting ? over_crediting.percent[1] > 0 : null
 
   return (
     <Box>
@@ -82,47 +85,112 @@ const Metrics = ({ data, setZoomTo }) => {
           mb: [1],
         }}
       >
+        <Box
+          sx={{
+            color: 'green',
+            fontFamily: 'mono',
+            letterSpacing: 'mono',
+            textTransform: 'uppercase',
+            fontSize: [1, 1, 1, 2],
+            mb: [2],
+          }}
+        >
+          Project metrics
+          <Info>
+            Primary metrics for forest offset projects include the initial
+            carbon stock ("Carbon") a coarse regional average against which that
+            carbon is compared ("Common practice"), the size of the project
+            ("Acreage"), and the total number of credits awarded to the project
+            ("Credits"). Each credit represents 1 tCO₂.
+          </Info>
+        </Box>
         <RowBar
-          label='Total credits'
-          scale={{ min: 0, max: 20000000 }}
-          value={arbocs.issuance}
-          display={format('.2s')(arbocs.issuance)}
-          units={'tCO₂'}
-        />
-        <RowBar
-          label='Initial carbon'
-          scale={{ min: 0, max: 300 }}
+          label='Carbon'
+          scale={{ min: 0, max: 200 }}
           value={carbon.initial_carbon_stock.value}
           display={format('.0f')(carbon.initial_carbon_stock.value)}
           units={'tCO₂/ac'}
         />
         <RowBar
           label='Common practice'
-          scale={{ min: 0, max: 300 }}
+          scale={{ min: 0, max: 200 }}
           value={carbon.common_practice.value}
           display={format('.0f')(carbon.common_practice.value)}
           units={'tCO₂/ac'}
         />
+        <RowBar
+          label='Acreage'
+          scale={{ min: 0, max: 300000 }}
+          value={acreage}
+          display={format('.2s')(acreage)}
+          units={'ac'}
+        />
+        <RowBar
+          label='Credits'
+          scale={{ min: 0, max: 2000000 }}
+          value={arbocs.issuance}
+          display={format('.2s')(arbocs.issuance)}
+          units={'tCO₂'}
+        />
         {over_crediting && (
-          <RowBar
-            label='Over-crediting'
-            scale={{ min: 0, max: 1 }}
-            value={over_crediting.percent[1]}
-            display={format('.0%')(over_crediting.percent[1])}
-            units={'%'}
-          />
-        )}
-        {over_crediting && (
-          <RowBar
-            label='Over-crediting'
-            scale={{ min: 0, max: 1000000 }}
-            value={over_crediting.arbocs[1]}
-            display={format('.2s')(over_crediting.arbocs[1])}
-            units={'tCO₂'}
-          />
+          <div>
+            <Box
+              sx={{
+                color: 'green',
+                fontFamily: 'mono',
+                letterSpacing: 'mono',
+                textTransform: 'uppercase',
+                fontSize: [1, 1, 1, 2],
+                mt: [4],
+                mb: [2],
+              }}
+            >
+              Crediting error
+              <Info>
+                For each project we construct an alternative definition of
+                common practice (*) that uses the actual project species
+                composition data, and thus better reflects the local ecology. We
+                then ask how many credits the project would have received
+                assuming that alternative. The result is either "Over-crediting"
+                or "Under-crediting" depending on the outcome, which we express
+                in terms of project credits and as a percentage.
+              </Info>
+            </Box>
+            <RowBar
+              label='Common practice *'
+              scale={{ min: 0, max: 200 }}
+              value={over_crediting.alt_slag[1]}
+              display={format('.0f')(over_crediting.alt_slag[1])}
+              units={'tCO₂'}
+            />
+            <RowBar
+              label={positive ? 'Over-crediting' : 'Under-crediting'}
+              scale={{ min: 0, max: 2000000 }}
+              value={Math.abs(over_crediting.arbocs[1])}
+              color={positive ? 'green' : 'secondary'}
+              display={
+                positive
+                  ? format('.2s')(over_crediting.arbocs[1])
+                  : '-' + format('.2s')(Math.abs(over_crediting.arbocs[1]))
+              }
+              units={'tCO₂'}
+            />
+            <RowBar
+              label={positive ? 'Over-crediting' : 'Under-crediting'}
+              scale={{ min: 0, max: 1 }}
+              value={Math.abs(over_crediting.percent[1])}
+              color={positive ? 'green' : 'secondary'}
+              display={
+                positive
+                  ? format('.0%')(over_crediting.percent[1])
+                  : '-' + format('.0%')(Math.abs(over_crediting.percent[1]))
+              }
+              units={'%'}
+            />
+          </div>
         )}
       </Box>
-      <Box sx={{ mt: [3], color: 'secondary', fontSize: [2, 2, 2, 3] }}>
+      <Box sx={{ mt: [3], color: 'secondary' }}>
         <ArrowButton
           onClick={onClick}
           size='xs'

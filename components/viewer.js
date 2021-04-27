@@ -11,8 +11,13 @@ const Viewer = ({ data, locations, map, bounds }) => {
 
   useEffect(() => {
     if (map && zoomTo) {
-      map.easeTo({ center: zoomTo.center, zoom: 11, duration: 0, essential: true })
-      console.log('hi')
+      const acreage = data.filter((d) => d.id === zoomTo.id)[0].acreage
+      map.easeTo({
+        center: zoomTo.center,
+        zoom: 100000 * (1 / acreage) + 7.5,
+        duration: 0,
+        essential: true,
+      })
     }
   }, [zoomTo])
 

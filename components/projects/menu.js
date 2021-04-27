@@ -38,7 +38,7 @@ function Menu({ visible }) {
         height: '100%',
         backgroundColor: 'background',
         textAlign: '-webkit-right',
-        zIndex: 1000,
+        zIndex: 2000,
         pr: [3, 5, 5, 6],
         pl: [3, 4, 5, 6],
         pt: [3],

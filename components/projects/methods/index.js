@@ -14,14 +14,14 @@ function Methods({ showMethods, toggleMethods }) {
         height: '100%',
         left: [
           0,
-          'calc(4 * 100vw / 8 + 18px)',
+          'calc(4 * 100vw / 8 + 16px)',
           'calc(4 * 100vw / 12 + 22px)',
           'min(calc(4 * 100vw / 12 + 32px), 672px)',
         ],
         backgroundColor: 'background',
         width: [
           0,
-          'calc(4 * 100vw / 8 - 8px)',
+          'calc(4 * 100vw / 8 - 14px)',
           'calc(4 * 100vw / 12 - 12px)',
           'min(calc(5 * 100vw / 12 - 20px), 780px)',
         ],

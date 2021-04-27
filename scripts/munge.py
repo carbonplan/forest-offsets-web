@@ -28,19 +28,25 @@ def get_overcrediting(condition=None, percentage=True, display=False):
     if len(keys) < 1:
         return None
     total = []
+    total_alt = []
     for i in range(1000):
         total.append(np.nansum([overcrediting[key]['delta_arbocs'][i] for key in keys]))
+        total_alt.append(np.nansum([overcrediting[key]['alt_slag'][i] for key in keys]))
     total_percentage = list(np.percentile(
         total, [5, 50, 95]) / np.sum([[x for x in data if x['id'] == key][0]['arbocs']['issuance'] for key in keys]
     ))
     total_arbocs = list(np.percentile(total, [5, 50, 95]))
+    total_alt_slag = list(np.percentile(total_alt, [5, 50, 95]))
+
     return {
         'percent': total_percentage,
-        'arbocs': total_arbocs
+        'arbocs': total_arbocs,
+        'alt_slag': total_alt_slag
     }
 
 subset = list(map(lambda x: {
     'id': x['id'],
+    'acreage': x['acreage'],
     'name': x['name'],
     'owners': x['owners'], 
     'developers': x['developers'], 
@@ -53,4 +59,4 @@ subset = list(map(lambda x: {
     }, data))
 
 with open('data/projects.js', 'w') as f:
-    f.write('module.exports=' + json.dumps(subset))
+    f.write('export const projects = ' + json.dumps(subset))

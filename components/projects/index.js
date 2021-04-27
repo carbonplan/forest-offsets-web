@@ -1,6 +1,7 @@
 import { memo, useState, useEffect } from 'react'
 import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
+import { Arrow } from '@carbonplan/components'
 import Header from './header'
 import About from './about'
 import List from './list'
@@ -35,15 +36,6 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
       borderBottomWidth: '1px',
       borderTopWidth: '0px',
       borderColor: 'muted',
-    },
-    arrow: {
-      display: 'inline-block',
-      fontSize: [4],
-      ml: [2],
-      top: '3px',
-      position: 'relative',
-      transition: 'transform 0.2s',
-      transform: showMethods ? 'scaleX(-1)' : 'scaleX(1)',
     },
   }
 
@@ -112,10 +104,39 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
                   '&:hover': {
                     color: 'secondary',
                   },
+                  '&:hover > #read-methods > #read-methods-container > #read-methods-arrow': {
+                    fill: 'secondary',
+                  },
                 }}
               >
-                <Box>
-                  READ METHODS<Text sx={sx.arrow}>→</Text>
+                <Box
+                  id='read-methods'
+                  sx={{
+                    mt: ['6px'],
+                  }}
+                >
+                  READ METHODS
+                  <Box
+                    id='read-methods-container'
+                    sx={{
+                      position: 'relative',
+                      top: '2px',
+                      ml: [2],
+                      display: 'inline-block',
+                      transition: 'transform 0.2s',
+                      transform: showMethods ? 'scaleX(-1)' : 'scaleX(1)',
+                    }}
+                  >
+                    <Arrow
+                      id='read-methods-arrow'
+                      sx={{
+                        width: 16,
+                        height: 16,
+                        transition: 'fill 0.15s',
+                        transform: 'rotate(45deg)',
+                      }}
+                    />
+                  </Box>
                 </Box>
               </Box>
             </Box>
@@ -124,6 +145,7 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
                 ...sx.group,
                 backgroundColor: 'background',
                 position: 'sticky',
+                zIndex: 1000,
                 top: '-1px',
               }}
             >

@@ -62,10 +62,7 @@ const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
       }}
     >
       <Grid id='grid' columns={['1fr 60px']}>
-        <Box
-          id='box'
-          sx={{ fontSize: [3, 4, 4, 4], lineHeight: 1.15 }}
-        >
+        <Box id='box' sx={{ fontSize: [3, 4, 4, 4], lineHeight: 1.15 }}>
           {nameStart}{' '}
           <Box id='box-2' as='span' sx={{ whiteSpace: 'nowrap' }}>
             {nameEnd}
@@ -95,24 +92,18 @@ const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
         </Box>
       </Grid>
       <Box sx={{ color: 'secondary', mt: [2], fontSize: [2, 2, 2, 3] }}>
-        {developers[0] || owners[0]} / {supersection_ids[0]}
+        {developers[0] || owners[0]} / County name, CA
       </Box>
       <AnimateHeight
         duration={200}
         height={expanded ? 'auto' : 0}
         easing={'linear'}
       >
-        <Box
-          sx={{
-            opacity: expanded ? 1 : 0,
-          }}
-        >
-          {expanded && (
-            <Box>
-              <Metrics data={data} setZoomTo={setZoomTo} />
-            </Box>
-          )}
-        </Box>
+        {expanded && (
+          <Box>
+            <Metrics data={data} setZoomTo={setZoomTo} />
+          </Box>
+        )}
       </AnimateHeight>
     </Box>
   )

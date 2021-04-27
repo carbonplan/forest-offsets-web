@@ -185,7 +185,7 @@ module.exports = [
   },
   {
     id: 'ACR303',
-    name: 'White Mountain',
+    name: 'White Mountain II',
   },
   {
     id: 'CAR1173',
@@ -285,7 +285,7 @@ module.exports = [
   },
   {
     id: 'ACR211',
-    name: 'White Mountain Apache Tribe',
+    name: 'White Mountain I',
   },
   {
     id: 'CAR1032',
