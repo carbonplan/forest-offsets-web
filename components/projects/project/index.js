@@ -4,7 +4,8 @@ import { Expander, Tag } from '@carbonplan/components'
 import { alpha } from '@theme-ui/color'
 import AnimateHeight from 'react-animate-height'
 import Metrics from './metrics'
-import displayNames from '../../../data/display-names'
+import { displayNames } from '../../../data/display-names'
+import { displayLocations } from '../../../data/display-locations'
 
 const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
   const ref = useRef(null)
@@ -103,7 +104,8 @@ const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
         </Box>
       </Grid>
       <Box sx={{ color: 'secondary', mt: [2], fontSize: [2, 2, 2, 3] }}>
-        {developers[0] || owners[0]} / County name, CA
+        {developers[0] || owners[0]} /{' '}
+        {displayLocations.filter((d) => d.id === id)[0].location}
       </Box>
       <AnimateHeight
         duration={200}

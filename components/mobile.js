@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Box, Flex, Grid } from 'theme-ui'
 import { Row, Column, FadeIn, Buttons } from '@carbonplan/components'
 import { alpha } from '@theme-ui/color'
+import { useRouter } from 'next/router'
 import Mapbox from './map/mapbox'
 import Enhancers from './map/enhancers'
 import Viewer from './viewer'
@@ -9,7 +10,7 @@ import Loading from './loading'
 import About from './projects/about'
 import Project from './projects/project'
 import MethodsContent from './projects/methods/index.md'
-import displayNames from '../data/display-names'
+import { displayNames } from '../data/display-names'
 
 const { BackButton } = Buttons
 
@@ -18,13 +19,22 @@ const Mobile = ({ data, locations }) => {
   const [zoomTo, setZoomTo] = useState(null)
   const [section, setSection] = useState('map')
 
+  const router = useRouter()
+
   useEffect(() => {
-    console.log(zoomTo)
+    const { id } = router.query
+    if (map && id) {
+      setZoomTo(id)
+    }
+  }, [map, router])
+
+  useEffect(() => {
     if (map && zoomTo) {
-      setSection('map')
-      const acreage = data.filter((d) => d.id === zoomTo.id)[0].acreage
+      const project = data.filter((d) => d.id === zoomTo)[0]
+      const { acreage, shape_centroid } = project
+      const center = shape_centroid[0]
       map.easeTo({
-        center: zoomTo.center,
+        center: center,
         zoom: 100000 * (1 / acreage) + 7.5,
         duration: 0,
       })
@@ -36,7 +46,7 @@ const Mobile = ({ data, locations }) => {
       <Box
         sx={{
           width: 'calc(100vw)',
-          height: 'calc(100vh - 56px)',
+          height: 'calc(100vh - 120px)',
           display: [section === 'map' ? 'flex' : 'none'],
           ml: [-3],
         }}
@@ -86,7 +96,7 @@ const Mobile = ({ data, locations }) => {
           bottom: 0,
           width: '100%',
           bg: 'background',
-          height: '56px',
+          height: '64px',
           borderStyle: 'solid',
           borderWidth: '0px',
           borderTopWidth: '1px',
@@ -104,7 +114,7 @@ const Mobile = ({ data, locations }) => {
             sx={{
               justifyContent: 'center',
               alignItems: 'center',
-              height: '56px',
+              height: '64px',
               cursor: 'pointer',
               bg: section === 'projects' ? alpha('muted', 0.5) : 'background',
             }}
@@ -116,7 +126,7 @@ const Mobile = ({ data, locations }) => {
             sx={{
               justifyContent: 'center',
               alignItems: 'center',
-              height: '56px',
+              height: '64px',
               borderStyle: 'solid',
               borderColor: 'muted',
               borderWidth: '0px',
@@ -133,7 +143,7 @@ const Mobile = ({ data, locations }) => {
             sx={{
               justifyContent: 'center',
               alignItems: 'center',
-              height: '56px',
+              height: '64px',
               cursor: 'pointer',
               bg: section === 'methods' ? alpha('muted', 0.5) : 'background',
             }}

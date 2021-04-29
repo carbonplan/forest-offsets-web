@@ -53,21 +53,23 @@ const Index = () => {
         </Layout>
       )}
       {index === 0 && (
-        <Layout
-          description={
-            'Data and results from analyzing improved forest management carbon offset projects.'
-          }
-          title='forest offsets / research / carbonplan'
-          card='https://images.carbonplan.org/social/forest-offsets.png'
-          header={true}
-          nav={'research'}
-          dimmer={true}
-          footer={false}
-          metadata={false}
-        >
-          <Guide color='teal' />
-          <Mobile data={projects} locations={locations} />
-        </Layout>
+        <Box sx={{ display: ['initial', 'none', 'none', 'none'] }}>
+          <Layout
+            description={
+              'Data and results from analyzing improved forest management carbon offset projects.'
+            }
+            title='forest offsets / research / carbonplan'
+            card='https://images.carbonplan.org/social/forest-offsets.png'
+            header={true}
+            nav={'research'}
+            dimmer={true}
+            footer={false}
+            metadata={false}
+          >
+            <Guide color='teal' />
+            <Mobile data={projects} locations={locations} />
+          </Layout>
+        </Box>
       )}
     </>
   )

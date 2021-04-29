@@ -123,7 +123,7 @@ const Filter = ({ filters, setFilters, count, total }) => {
             </Box>
             <Badge
               sx={{
-                color: count < total ? 'green' : 'secondary',
+                color: count < total && count > 0 ? 'green' : 'secondary',
                 transition: '0.1s',
               }}
             >

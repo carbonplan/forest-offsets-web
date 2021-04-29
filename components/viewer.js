@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Projects from './projects'
 import Enhancers from './map/enhancers'
 import Minimap from './map/minimap'
@@ -9,11 +10,27 @@ const Viewer = ({ data, locations, map, bounds }) => {
   const [scrollTo, setScrollTo] = useState(null)
   const [tick, setTick] = useState(null)
 
+  const router = useRouter()
+
+  useEffect(() => {
+    const { id } = router.query
+    if (map && id) {
+      setZoomTo(id)
+      setScrollTo(id)
+      setSelected(id)
+      setTimeout(() => {
+        setSelected(null)
+      }, 2000)
+    }
+  }, [map, router])
+
   useEffect(() => {
     if (map && zoomTo) {
-      const acreage = data.filter((d) => d.id === zoomTo.id)[0].acreage
+      const project = data.filter((d) => d.id === zoomTo)[0]
+      const { acreage, shape_centroid } = project
+      const center = shape_centroid[0]
       map.easeTo({
-        center: zoomTo.center,
+        center: center,
         zoom: 100000 * (1 / acreage) + 7.5,
         duration: 0,
       })
@@ -22,6 +39,12 @@ const Viewer = ({ data, locations, map, bounds }) => {
 
   useEffect(() => {
     if (scrollTo) {
+      const el = document.getElementById('project-' + scrollTo)
+      const container = document.getElementById('projects')
+      const y0 = container.scrollTop
+      const y1 = el.getBoundingClientRect().top
+      const y = y0 + y1 - 166
+      container.scrollTo({ top: y, behavior: 'smooth' })
       if (tick) clearTimeout(tick)
       setTick(
         setTimeout(() => {
@@ -43,12 +66,6 @@ const Viewer = ({ data, locations, map, bounds }) => {
       })
       map.on('click', 'projects-label', (e) => {
         const id = e.features[0].properties.id
-        const el = document.getElementById('project-' + id)
-        const container = document.getElementById('projects')
-        const y0 = container.scrollTop
-        const y1 = el.getBoundingClientRect().top
-        const y = y0 + y1 - 166
-        container.scrollTo({ top: y, behavior: 'smooth' })
         setScrollTo(id)
       })
     }

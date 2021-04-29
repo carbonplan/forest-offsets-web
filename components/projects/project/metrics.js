@@ -19,7 +19,7 @@ const Metrics = ({ data, setZoomTo }) => {
 
   const onClick = (e) => {
     e.stopPropagation()
-    setZoomTo({ id: id, center: shape_centroid[0] })
+    setZoomTo(id)
   }
 
   const RowBar = ({ label, value, scale, color = 'green', display, units }) => {
@@ -163,7 +163,7 @@ const Metrics = ({ data, setZoomTo }) => {
               </Info>
             </Box>
             <RowBar
-              label='Common practice *'
+              label={'Common practice\u00A0*'}
               scale={{ min: 0, max: 200 }}
               value={over_crediting.alt_slag[1]}
               display={format('.0f')(over_crediting.alt_slag[1])}

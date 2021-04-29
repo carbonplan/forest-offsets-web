@@ -1,5 +1,8 @@
 import { Box, Text } from 'theme-ui'
+import { Buttons } from '@carbonplan/components'
 import MethodsContent from './index.md'
+
+const { BackButton } = Buttons
 
 function Methods({ showMethods, toggleMethods }) {
   return (
@@ -35,48 +38,11 @@ function Methods({ showMethods, toggleMethods }) {
         sx={{
           px: [3, 5, 5, 6],
           opacity: 1,
-          pt: ['12px'],
+          pt: ['13px'],
           mb: [4],
         }}
       >
-        <Box
-          onClick={toggleMethods}
-          sx={{
-            cursor: 'pointer',
-            '&:hover > #arrow': {
-              color: 'primary',
-            },
-            '&:hover > #label': {
-              color: 'primary',
-            },
-          }}
-        >
-          <Text
-            id='arrow'
-            sx={{
-              display: 'inline-block',
-              fontSize: ['20px'],
-              color: 'secondary',
-              top: '1px',
-              mr: [2],
-              position: 'relative',
-              transition: 'color 0.15s',
-            }}
-          >
-            ←
-          </Text>
-          <Box
-            as='span'
-            id='label'
-            sx={{
-              transition: 'color 0.15s',
-              fontSize: [2, 2, 2, 3],
-              color: 'secondary',
-            }}
-          >
-            Back
-          </Box>
-        </Box>
+        <BackButton onClick={toggleMethods} sx={{ cursor: 'pointer' }} />
         <Box
           sx={{
             position: 'relative',

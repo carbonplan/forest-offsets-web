@@ -12,11 +12,9 @@ You can click (or tap) on a project to see additional information related to car
 
 For some projects, we also include the results from our analysis of crediting error. We describe that analysis in more detail in [our article](https://carbonplan.org/research/forest-offsets-explainer). Briefly, for each project, we construct an alternative definition of common practice that uses the actual project species composition data, and thus better reflects the local ecology. We then ask how many credits the project would have received assuming that alternative, which implies either over-crediting or under-crediting.
 
-The map shows the geographic boundaries of each project, each labeled by its project ID.
+The map shows the geographic boundaries of each project, each labeled by its project ID. Clicking “Show project on a map” when viewing project details in the list will zoom the map to that project.
 
-On desktop or tablet, a minimap in the lower right shows each project as a circle. You can click and pan the box in the minimap to quickly move to a different area. Also on desktop or tablet only, clicking a project ID on the main map will highlight that project in the list, and clicking “Show project on a map” when viewing project details in the list will zoom the map to that project.
-
-On mobile, you can move between the "Projects" and "Map" tabs by tapping at the bottom. If you find a project in the list tap "Show project on map" to switch to the map and see its location.
+On desktop or tablet, a minimap in the lower right shows each project as a circle. You can click and pan the box in the minimap to quickly move to a different area. Also on desktop or tablet, clicking a project ID in the main map will highlight that project in the list.
 
 ## Methods
 

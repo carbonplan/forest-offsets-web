@@ -1,4 +1,4 @@
-module.exports = [
+export const displayNames = [
   {
     id: 'CAR1205',
     name: 'Logan',
