@@ -30,6 +30,7 @@ const Mobile = ({ data, locations }) => {
 
   useEffect(() => {
     if (map && zoomTo) {
+      setSection('map')
       const project = data.filter((d) => d.id === zoomTo)[0]
       const { acreage, shape_centroid } = project
       const center = shape_centroid[0]
