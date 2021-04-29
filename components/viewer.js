@@ -14,7 +14,7 @@ const Viewer = ({ data, locations, map, bounds }) => {
 
   useEffect(() => {
     const { id } = router.query
-    if (map && id) {
+    if (map && id && data.filter((d) => d.id === id).length > 0) {
       setZoomTo(id)
       setScrollTo(id)
       setSelected(id)
