@@ -38,7 +38,7 @@ The digitization of public project records and release of a digitized dataset wa
 
 You can cite the underlying dataset as:
 
-G Badgley, J Freeman, J Hamman, B Haya, D Cullenward  (2021). California improved forest management offset project database (Version 1.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4630684
+G Badgley, J Freeman, J Hamman, B Haya, D Cullenward (2021). California improved forest management offset project database (Version 1.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4630684
 
 And cite the analysis as:
 
