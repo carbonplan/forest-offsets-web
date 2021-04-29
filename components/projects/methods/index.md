@@ -6,13 +6,17 @@ This website and associated data products present a digitization of improved for
 
 ## Usage
 
-The panel on the left lists each project by an abbreviated project name and the project’s offset project registry ID (e.g. CAR123). Below each project name, we display the name of the developer associated with the project and the county in which the project is located.
+The project panel lists each project by an abbreviated project name and the project’s offset project registry ID (e.g. CAR123). Below each project name, we display the name of the developer associated with the project and the county in which the project is located.
 
-You can click on a project to see additional information related to carbon crediting calculations, including the number of credits issued (referred to as ARBOCs each of which represents 1tCO₂), the initial carbon stock measured at the project site (tCO₂ per acre), and the regional average or “common practice” determined by ARB for comparable forest types (tCO₂ per acre). These latter two data points — initial carbon stock and common practice — are the primary determinants of the number of offset credits ARB awards in an IFM project’s initial crediting period, which generates the majority of total project credits for IFM projects.
+You can click (or tap) on a project to see additional information related to carbon crediting calculations, including the number of credits issued (referred to as ARBOCs each of which represents 1tCO₂), the initial carbon stock measured at the project site (tCO₂ per acre), and the regional average or “common practice” determined by ARB for comparable forest types (tCO₂ per acre). These latter two data points — initial carbon stock and common practice — are the primary determinants of the number of offset credits ARB awards in an IFM project’s initial crediting period, which generates the majority of total project credits for IFM projects.
 
 For some projects, we also include the results from our analysis of crediting error. We describe that analysis in more detail in [our article](https://carbonplan.org/research/forest-offsets-explainer). Briefly, for each project, we construct an alternative definition of common practice that uses the actual project species composition data, and thus better reflects the local ecology. We then ask how many credits the project would have received assuming that alternative, which implies either over-crediting or under-crediting.
 
-The map on the right shows the geographic boundaries of each project, each labeled by its project ID. Each circle in the minimap in the lower right also represents a project. You can use the toggle above the list (“Update w/ map”) to restrict the list to only show projects within the view of the map. You can also click and pan the minimap in the lower right corner to quickly move to a different area. Clicking a project ID on the map will highlight that project in the list, and clicking “Show project on a map” when viewing project details in the list will zoom the map to that project.
+The map shows the geographic boundaries of each project, each labeled by its project ID.
+
+On desktop or tablet, a minimap in the lower right shows each project as a circle. You can click and pan the box in the minimap to quickly move to a different area. Also on desktop or tablet only, clicking a project ID on the main map will highlight that project in the list, and clicking “Show project on a map” when viewing project details in the list will zoom the map to that project.
+
+On mobile, you can move between the "Projects" and "Map" tabs by tapping at the bottom. If you find a project in the list tap "Show project on map" to switch to the map and see its location.
 
 ## Methods
 

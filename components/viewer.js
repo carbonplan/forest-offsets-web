@@ -16,7 +16,6 @@ const Viewer = ({ data, locations, map, bounds }) => {
         center: zoomTo.center,
         zoom: 100000 * (1 / acreage) + 7.5,
         duration: 0,
-        essential: true,
       })
     }
   }, [zoomTo])

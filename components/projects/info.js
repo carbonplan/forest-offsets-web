@@ -36,8 +36,10 @@ const Info = ({ children }) => {
           float: 'right',
           mr: '-8px',
           mt: '-9px',
-          '&:hover > #icon': {
-            stroke: 'text',
+          '@media (hover: hover) and (pointer: fine)': {
+            '&:hover > #icon': {
+              stroke: 'text',
+            },
           },
           p: [0],
         }}

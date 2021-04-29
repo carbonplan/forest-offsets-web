@@ -45,23 +45,34 @@ const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
         borderBottomWidth: final ? '0px' : '1px',
         pl: [3, 4, 5, 6],
         pr: [3, 5, 5, 6],
-        py: [4],
+        ml: [-3, 0, 0, 0],
+        mr: [-3, 0, 0, 0],
+        pb: [3, 4, 4, 4],
+        pt: ['13px', '21px', '21px', '21px'],
         bg: scrolled ? alpha('muted', 0.1) : 'transparent',
         transition: 'background-color 0.15s',
-        '&:hover > #grid > #box > #box-2 > #expander': {
-          fill: 'primary',
-          stroke: 'primary',
+        '@media (hover: hover) and (pointer: fine)': {
+          '&:hover > #grid > #box > #box-2 > #expander': {
+            fill: 'primary',
+            stroke: 'primary',
+          },
+          '&:hover > #grid > #tag-container > #tag': {
+            color: 'primary',
+            borderColor: 'primary',
+          },
+          '&:hover': {
+            bg: alpha('muted', 0.1),
+          },
         },
-        '&:hover > #grid > #tag-container > #tag': {
-          color: 'primary',
-          borderColor: 'primary',
-        },
-        '&:hover': {
-          bg: alpha('muted', 0.1),
+        '@media (hover: none) and (pointer: coarse)': {
+          bg: expanded ? alpha('muted', 0.1) : 'transparent',
         },
       }}
     >
-      <Grid id='grid' columns={['1fr 60px']}>
+      <Grid
+        id='grid'
+        columns={['1fr 80px', '1fr 60px', '1fr 60px', '1fr 60px']}
+      >
         <Box id='box' sx={{ fontSize: [3, 4, 4, 4], lineHeight: 1.15 }}>
           {nameStart}{' '}
           <Box id='box-2' as='span' sx={{ whiteSpace: 'nowrap' }}>

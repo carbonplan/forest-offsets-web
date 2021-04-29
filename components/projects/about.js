@@ -8,14 +8,16 @@ const About = () => {
         borderColor: 'muted',
         borderWidth: '0px',
         borderBottomWidth: '1px',
+        ml: [-3, 0, 0, 0],
+        mr: [-3, 0, 0, 0],
       }}
     >
       <Box
         sx={{
           pl: [3, 4, 5, 6],
           pr: [3, 5, 5, 6],
-          pt: [3],
-          pb: [3],
+          pt: [3, 3, 3, 3],
+          pb: [3, 3, 3, 3],
           fontSize: [6, 6, 6, 7],
           width: 'fit-content',
           fontFamily: 'heading',
@@ -29,7 +31,7 @@ const About = () => {
           pl: [3, 4, 5, 6],
           pr: [3, 5, 5, 6],
           pt: [0],
-          pb: [4],
+          pb: [3, 4, 4, 4],
           mb: [1],
           fontSize: [2, 2, 2, 3],
           fontFamily: 'body',

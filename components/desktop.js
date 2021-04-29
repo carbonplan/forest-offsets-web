@@ -4,7 +4,7 @@ import Mapbox from './map/mapbox'
 import Viewer from './viewer'
 import Loading from './loading'
 
-const Main = ({ data, locations }) => {
+const Desktop = ({ data, locations }) => {
   const [map, setMap] = useState(null)
   const [bounds, setBounds] = useState(null)
 
@@ -34,4 +34,4 @@ const Main = ({ data, locations }) => {
   )
 }
 
-export default Main
+export default Desktop

@@ -24,7 +24,7 @@ const Metrics = ({ data, setZoomTo }) => {
 
   const RowBar = ({ label, value, scale, color = 'green', display, units }) => {
     return (
-      <Row columns={[4]} sx={{ mb: [1] }}>
+      <Row columns={[6, 4, 4, 4]} sx={{ mb: [1] }}>
         <Column start={[1]} width={[1]}>
           <Box
             sx={{
@@ -38,10 +38,15 @@ const Metrics = ({ data, setZoomTo }) => {
             {display}
           </Box>
         </Column>
-        <Column start={[2]} width={[1]} dl={1}>
+        <Column
+          start={[2, 2, 2, 2]}
+          width={[1]}
+          dl={1}
+          sx={{ pl: [4, 0, 0, 0] }}
+        >
           <Bar scale={scale} color={color} value={value} />
         </Column>
-        <Column start={[3]} width={[2]}>
+        <Column start={[3, 3, 3, 3]} width={[4, 2, 2, 2]}>
           <Box
             sx={{
               fontFamily: 'faux',
@@ -98,8 +103,8 @@ const Metrics = ({ data, setZoomTo }) => {
           Project metrics
           <Info>
             Primary metrics for forest offset projects include the initial
-            carbon stock ("Carbon") a coarse regional average against which that
-            carbon is compared ("Common practice"), the size of the project
+            carbon stock ("Carbon"), a coarse regional average against which
+            that carbon is compared ("Common practice"), the size of the project
             ("Acreage"), and the total number of credits awarded to the project
             ("Credits"). Each credit represents 1 tCO₂.
           </Info>
@@ -148,12 +153,13 @@ const Metrics = ({ data, setZoomTo }) => {
               Crediting error
               <Info>
                 For each project we construct an alternative definition of
-                common practice (*) that uses the actual project species
-                composition data, and thus better reflects the local ecology. We
-                then ask how many credits the project would have received
-                assuming that alternative. The result is either "Over-crediting"
-                or "Under-crediting" depending on the outcome, which we express
-                in terms of project credits and as a percentage.
+                common practice (*) that accounts for the tree species
+                composition of each project, and thus better reflects the local
+                ecology. We then ask how many credits the project would have
+                received assuming that alternative. The result is either
+                "Over-crediting" or "Under-crediting" depending on the outcome,
+                which we express in terms of total credits and as a percentage
+                of the credits originally awarded to the project.
               </Info>
             </Box>
             <RowBar
@@ -190,13 +196,13 @@ const Metrics = ({ data, setZoomTo }) => {
           </div>
         )}
       </Box>
-      <Box sx={{ mt: [3], color: 'secondary' }}>
+      <Box sx={{ mt: [3], mb: [1, 0, 0, 0], color: 'secondary' }}>
         <ArrowButton
           onClick={onClick}
           size='xs'
           color='secondary'
           fill='secondary'
-          label='Show project on a map'
+          label='Show project on map'
         />
       </Box>
     </Box>
