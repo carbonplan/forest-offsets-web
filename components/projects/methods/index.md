@@ -28,14 +28,20 @@ For the initial reporting period, we recorded onsite carbon stocks (IFM-1 and IF
 
 ## Data access
 
-The primary project data rendered on this website is available in [CSV](https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light-v1.0.csv) and [JSON](https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/retro-db-light-v1.0.json) formats. The shapefiles rendered in the map can be accessed at <span style={{overflowWrap: 'break-word'}}>https://carbonplan.blob.core.windows.net/carbonplan-retro/projects/{id}/shape.json</span> where {id} is the ID of the project. Additional details on the construction of these datasets and our analyses of them are available in our [article](https://carbonplan.org/research/forest-offsets-explainer).
+The primary project data rendered on this website is available in [CSV](https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv) and [JSON](https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json) formats. The shapefiles rendered in the map can be accessed at <span style={{overflowWrap: 'break-word', textDecoration: 'underline'}}>carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/projects/{id}/shape.json</span> where {id} is the ID of the project. Additional details on the construction of these datasets and our analyses of them are available in our [article](https://carbonplan.org/research/forest-offsets-explainer).
 
 ## Acknowledgements
 
 The digitization of public project records and release of a digitized dataset was funded through a grant to CarbonPlan from the Microsoft AI for Earth program.
 
-## Version
+## Reference
 
-v1.0.0 (released 04/29/2021)
+You can cite the underlying dataset as:
+
+G Badgley, J Freeman, J Hamman, B Haya, D Cullenward  (2021). California improved forest management offset project database (Version 1.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4630684
+
+And cite the analysis as:
+
+G Badgley, J Freeman, J Hamman, B Haya, A T Trugman, W R L Anderegg, D Cullenward (2021) “Systematic over-crediting in California’s forest carbon offsets program” [PDF](https://carbonplan-assets.s3.amazonaws.com/docs/Badgley-et-al-Over-Crediting-Forest-Offsets-2021.pdf)
 
 export default ({ children }) => <Box>{children}</Box>
