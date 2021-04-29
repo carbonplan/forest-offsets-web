@@ -34,14 +34,16 @@ The primary project data rendered on this website is available in [CSV](https://
 
 The digitization of public project records and release of a digitized dataset was funded through a grant to CarbonPlan from the Microsoft AI for Earth program.
 
-## Reference
+## How to cite
 
-You can cite the underlying dataset as:
+Please cite the underlying datasets as:
 
-G Badgley, J Freeman, J Hamman, B Haya, D Cullenward (2021). California improved forest management offset project database (Version 1.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4630684
+G Badgley, J Freeman, J Hamman, B Haya, D Cullenward (2021) California improved forest management offset project database (Version 1.0) [Data set], Zenodo, doi: [10.5281/zenodo.4630684](http://doi.org/10.5281/zenodo.4630684)
 
-And cite the analysis as:
+G Badgley, J Freeman, J Hamman, B Haya, A T Trugman, W R L Anderegg, D Cullenward (2021) Systematic over-crediting in California's forest carbon offsets program (Version 1.0) [Data set], Zenodo, doi: [](https://doi.org/10.5281/zenodo.4630712)
 
-G Badgley, J Freeman, J Hamman, B Haya, A T Trugman, W R L Anderegg, D Cullenward (2021) “Systematic over-crediting in California’s forest carbon offsets program” [PDF](https://carbonplan-assets.s3.amazonaws.com/docs/Badgley-et-al-Over-Crediting-Forest-Offsets-2021.pdf)
+Please cite the analysis as:
+
+G Badgley, J Freeman, J Hamman, B Haya, A T Trugman, W R L Anderegg, D Cullenward (2021) “Systematic over-crediting in California’s forest carbon offsets program” bioRxiv, doi: [10.1101/2021.04.28.441870](https://doi.org/10.1101/2021.04.28.441870)
 
 export default ({ children }) => <Box>{children}</Box>
