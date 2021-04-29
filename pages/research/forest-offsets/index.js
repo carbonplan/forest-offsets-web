@@ -46,6 +46,7 @@ const Index = () => {
               position: ['fixed'],
               right: [13],
               bottom: [17, 17, 15, 15],
+              zIndex: 5000,
             }}
           >
             <Dimmer />

@@ -82,7 +82,7 @@ const Filter = ({ filters, setFilters, count, total }) => {
       <Row columns={[3, 4, 4, 4]}>
         <Column start={[1]} width={[4]}>
           <Flex sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
-            <Box sx={{ mt: [2] }}>
+            <Box sx={{ mt: ['12px'] }}>
               <Box
                 onClick={() => toggle('updateWithMap')}
                 sx={{
@@ -107,7 +107,9 @@ const Filter = ({ filters, setFilters, count, total }) => {
                 sx={{ color: 'green', position: 'relative', top: '5px' }}
               />
             </Box>
-            <Box sx={{ textAlign: 'right', display: 'inline-block', mt: [2] }}>
+            <Box
+              sx={{ textAlign: 'right', display: 'inline-block', mt: ['12px'] }}
+            >
               <Box
                 sx={{
                   display: 'inline-block',

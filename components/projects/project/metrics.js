@@ -151,8 +151,9 @@ const Metrics = ({ data, setZoomTo }) => {
           >
             Crediting error not available
             <Info>
-              We were only able to perform an analysis of crediting error when
-              sufficent project data was made available.
+              We were only able to assess crediting error when sufficient
+              project data and/or underlying FIA inventory data was available to
+              implement our analysis.
             </Info>
           </Box>
         )}
@@ -185,7 +186,11 @@ const Metrics = ({ data, setZoomTo }) => {
               label={'Common practice\u00A0*'}
               scale={{ min: 0, max: 200 }}
               value={over_crediting.alt_slag[1]}
-              display={format('.0f')(over_crediting.alt_slag[1])}
+              display={
+                positive
+                  ? format('.0f')(over_crediting.alt_slag[1])
+                  : '\u00A0' + format('.0f')(over_crediting.alt_slag[1])
+              }
               units={'tCO₂'}
             />
             <RowBar

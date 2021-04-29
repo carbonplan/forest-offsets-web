@@ -22,7 +22,7 @@ const Minimap = ({ map, selected, locations }) => {
     var bounds = e.target.getBoundingClientRect()
     var x = e.clientX - bounds.left
     var y = e.clientY - bounds.top
-    setFocus(projection.invert([(x * 980) / 250, (y * 980) / 250]))
+    setFocus(projection.invert([(x * 1185) / 300 - 120, (y * 1185) / 300 - 95]))
   }
 
   useEffect(() => {
@@ -49,7 +49,9 @@ const Minimap = ({ map, selected, locations }) => {
       var bounds = e.target.getBoundingClientRect()
       var x = e.clientX - bounds.left
       var y = e.clientY - bounds.top
-      setFocus(projection.invert([(x * 980) / 250, (y * 980) / 250]))
+      setFocus(
+        projection.invert([(x * 1185) / 300 - 120, (y * 1185) / 300 - 95])
+      )
     }
   }
 
@@ -77,16 +79,16 @@ const Minimap = ({ map, selected, locations }) => {
       <Box
         sx={{
           position: 'relative',
-          top: 80,
-          left: 27,
-          width: '250px',
-          height: '250px',
+          top: 45,
+          left: 0,
+          width: '300px',
+          height: '300px',
         }}
       >
         <Box sx={{ fill: 'none', stroke: 'primary' }}>
           <Box
             as='svg'
-            viewBox='-5 0 980 610'
+            viewBox='-125 -100 1185 810'
             onMouseDown={onMouseDown}
             onMouseMove={onMouseMove}
             onMouseUp={onMouseUp}
