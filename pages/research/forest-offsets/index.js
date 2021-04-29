@@ -39,7 +39,7 @@ const Index = () => {
           footer={false}
           metadata={false}
         >
-          <Guide color='teal' />
+          <Guide />
           <Desktop data={projects} locations={locations} />
           <Box
             sx={{
@@ -67,7 +67,7 @@ const Index = () => {
             footer={false}
             metadata={false}
           >
-            <Guide color='teal' />
+            <Guide />
             <Mobile data={projects} locations={locations} />
           </Layout>
         </Box>
