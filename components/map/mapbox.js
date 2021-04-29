@@ -16,7 +16,7 @@ const Mapbox = ({ locations, map, setMap, setBounds }) => {
     const map = new mapboxgl.Map({
       container: container.current,
       style: style(locations, colors),
-      center: [-121.9, 43.11],
+      center: [-122.173216, 40.03788],
       zoom: 6.79,
       minZoom: 3,
       maxZoom: 10,
