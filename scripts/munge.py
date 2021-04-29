@@ -2,7 +2,10 @@ import json
 
 import fsspec
 import numpy as np
+
+import censusgeocode as cg
 from geopy.geocoders import Nominatim
+
 geolocator = Nominatim(user_agent="geoapiExercises")
 
 with fsspec.open(
@@ -119,14 +122,8 @@ us_state_abbrev = {
 }
 
 def get_location_name(coords):
-    location = geolocator.reverse(str(coords[1])+","+str(coords[0]))
-    address = location.raw['address']
-    if 'county' in address.keys():
-        name = address['county'] + ', ' + us_state_abbrev[address['state']]
-    elif 'hamlet' in address.keys():
-        name = address['hamlet'] + ', ' + us_state_abbrev[address['state']]
-    elif 'city_district' in address.keys():
-        name = address['city_district'] + ', ' + us_state_abbrev[address['state']]
+    results = cg.coordinates(x=coords[0], y=coords[1])
+    name = results['Counties'][0]['NAME'] + ', ' + us_state_abbrev[results['States'][0]['NAME']]
     return name
 
 display_locations = list(
