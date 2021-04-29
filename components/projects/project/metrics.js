@@ -137,6 +137,25 @@ const Metrics = ({ data, setZoomTo }) => {
           display={format('.2s')(arbocs.issuance)}
           units={'tCO₂'}
         />
+        {!over_crediting && (
+          <Box
+            sx={{
+              color: 'secondary',
+              fontFamily: 'mono',
+              letterSpacing: 'mono',
+              textTransform: 'uppercase',
+              fontSize: [1, 1, 1, 2],
+              mt: [4],
+              mb: [2],
+            }}
+          >
+            Crediting error not available
+            <Info>
+              We were only able to perform an analysis of crediting error when
+              sufficent project data was made available.
+            </Info>
+          </Box>
+        )}
         {over_crediting && (
           <div>
             <Box

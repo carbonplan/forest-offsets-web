@@ -1,18 +1,48 @@
 import { Box, Container, Link, Text } from 'theme-ui'
+import { Row, Column, Arrow } from '@carbonplan/components'
 import { default as NextLink } from 'next/link'
+
+const HoverArrow = () => {
+  return (
+    <Arrow
+      id='arrow'
+      sx={{
+        pointerEvents: 'none',
+        display: 'inline-block',
+        position: 'absolute',
+        left: ['-60px', '-68px', '-80px', '-104px'],
+        top: ['32px', '32px', '46px', '62px'],
+        opacity: 0,
+        transition: 'opacity 0.2s ease-out',
+        transform: 'rotate(45deg)',
+        width: [36, 36, 48, 56],
+        height: [36, 36, 48, 56],
+      }}
+    />
+  )
+}
 
 function Menu({ visible }) {
   const link = {
-    width: 'fit-content',
     color: 'text',
-    fontSize: [5, 6, 6, 7],
-    pb: [0],
+    fontSize: [6, 6, 6, 7],
+    fontFamily: 'heading',
+    letterSpacing: 'heading',
+    py: [3, 3, 4, 5],
+    borderStyle: 'solid',
+    borderColor: 'muted',
+    borderWidth: '0px',
+    borderBottomWidth: '1px',
     textDecoration: 'none',
+    position: 'relative',
     display: 'block',
+    '@media (hover: hover) and (pointer: fine)': {
+      '&:hover > #arrow': {
+        opacity: 1,
+      },
+    },
     '&:hover': {
-      color: 'secondary',
-      borderBottomWidth: '1px',
-      borderColor: 'secondary',
+      color: 'text',
     },
   }
 
@@ -27,7 +57,7 @@ function Menu({ visible }) {
               0,
               'calc(4 * 100vw / 8 + 28px - 1px)',
               'calc(4 * 100vw / 12 + 26px - 1px)',
-              'min(calc(4 * 100vw / 12 + 18px), 658px)',
+              'min(calc(4 * 100vw / 12 + 36px), 677px)',
             ]
           : [
               0,
@@ -37,30 +67,39 @@ function Menu({ visible }) {
             ],
         height: '100%',
         backgroundColor: 'background',
-        textAlign: '-webkit-right',
         zIndex: 2000,
         pr: [3, 5, 5, 6],
         pl: [3, 4, 5, 6],
-        pt: [3],
+        pt: [4],
         mt: '44px',
-        ml: '-36px',
+        ml: ['-36px', '-36px', '-36px', '-54px'],
         transition: '0.25s',
       }}
     >
-      <Box
-        sx={{
-          position: 'relative',
-        }}
-      >
-        <Box sx={{ position: 'absolute', right: 0 }}>
-          <Link sx={link} href='https://carbonplan.org/about'>
+      <Row columns={[4]}>
+        <Column start={[2]} width={[3]} sx={{ mt: [5] }}>
+          <Link
+            sx={{
+              ...link,
+              borderTopWidth: '1px',
+            }}
+            href='https://carbonplan.org/about'
+          >
+            <HoverArrow />
             About
           </Link>
           <Link
             sx={{ textDecoration: 'none' }}
             href='https://carbonplan.org/research'
-            sx={link}
+            sx={{
+              ...link,
+              color: 'secondary',
+              '&:hover': {
+                color: 'secondary',
+              },
+            }}
           >
+            <HoverArrow />
             Research
           </Link>
           <Link
@@ -68,6 +107,7 @@ function Menu({ visible }) {
             href='https://carbonplan.org/team'
             sx={link}
           >
+            <HoverArrow />
             Team
           </Link>
           <Link
@@ -75,10 +115,11 @@ function Menu({ visible }) {
             href='https://carbonplan.org/faq'
             sx={link}
           >
+            <HoverArrow />
             FAQ
           </Link>
-        </Box>
-      </Box>
+        </Column>
+      </Row>
     </Box>
   )
 }

@@ -20,7 +20,7 @@ const Header = () => {
         pr: [3, 5, 5, 6],
         borderStyle: 'solid',
         borderWidth: '0px',
-        borderBottomWidth: '1px',
+        borderBottomWidth: showMenu ? '0px' : '1px',
         borderColor: 'muted',
       }}
     >

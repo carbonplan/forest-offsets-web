@@ -61,7 +61,7 @@ const Filter = ({ filters, setFilters, count, total }) => {
             fontSize: [1, 1, 1, 2],
             height: '24px',
             pt: [0],
-            pb: [2],
+            pb: [0],
             pl: [0],
             pr: [0],
             ml: [3],
@@ -79,61 +79,65 @@ const Filter = ({ filters, setFilters, count, total }) => {
           value={value}
         />
       </Box>
-      <Row columns={[3, 4, 4, 4]} sx={{ mt: [1] }}>
-        <Column start={[1]} width={[2]} dr={1}>
-          <Box
-            onClick={() => toggle('updateWithMap')}
-            sx={{
-              display: 'inline-block',
-              fontFamily: 'mono',
-              letterSpacing: 'mono',
-              position: 'relative',
-              fontSize: [1, 1, 1, 2],
-              color: 'secondary',
-              pl: [0],
-              pr: [3],
-              cursor: 'pointer',
-              transition: '0.15s',
-            }}
-          >
-            UPDATE W/ MAP
-          </Box>
-          <Toggle
-            onClick={() => toggle('updateWithMap')}
-            value={filters.updateWithMap}
-            toggle={() => toggle('updateWithMap')}
-            sx={{ color: 'green', position: 'relative', top: '5px' }}
-          />
-        </Column>
-        <Column start={[3]} width={[2]}>
-          <Box sx={{ textAlign: 'right' }}>
-            <Box
-              sx={{
-                display: 'inline-block',
-                fontFamily: 'mono',
-                fontSize: [1, 1, 1, 2],
-                letterSpacing: 'mono',
-                textTransform: 'uppercase',
-                color: 'secondary',
-                mr: [3],
-                mt: ['6px'],
-              }}
-            >
-              COUNT
+      <Row columns={[3, 4, 4, 4]}>
+        <Column start={[1]} width={[4]}>
+          <Flex sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
+            <Box sx={{ mt: [2] }}>
+              <Box
+                onClick={() => toggle('updateWithMap')}
+                sx={{
+                  display: 'inline-block',
+                  fontFamily: 'mono',
+                  letterSpacing: 'mono',
+                  position: 'relative',
+                  fontSize: [1, 1, 1, 2],
+                  color: 'secondary',
+                  pl: [0],
+                  pr: [3],
+                  cursor: 'pointer',
+                  transition: '0.15s',
+                }}
+              >
+                UPDATE W/ MAP
+              </Box>
+              <Toggle
+                onClick={() => toggle('updateWithMap')}
+                value={filters.updateWithMap}
+                toggle={() => toggle('updateWithMap')}
+                sx={{ color: 'green', position: 'relative', top: '5px' }}
+              />
             </Box>
-            <Badge
-              sx={{
-                color: count < total && count > 0 ? 'green' : 'secondary',
-                transition: '0.1s',
-              }}
-            >
-              {String(count).padStart(2, '0')}
-            </Badge>
-            <Box sx={{ display: 'inline-block', mx: [2], color: 'secondary' }}>
-              /
+            <Box sx={{ textAlign: 'right', display: 'inline-block', mt: [2] }}>
+              <Box
+                sx={{
+                  display: 'inline-block',
+                  fontFamily: 'mono',
+                  fontSize: [1, 1, 1, 2],
+                  letterSpacing: 'mono',
+                  textTransform: 'uppercase',
+                  color: 'secondary',
+                  mr: [3],
+                  mt: ['6px'],
+                }}
+              >
+                COUNT
+              </Box>
+              <Badge
+                sx={{
+                  color: count < total && count > 0 ? 'green' : 'secondary',
+                  transition: '0.1s',
+                }}
+              >
+                {String(count).padStart(2, '0')}
+              </Badge>
+              <Box
+                sx={{ display: 'inline-block', mx: [2], color: 'secondary' }}
+              >
+                /
+              </Box>
+              <Badge sx={{ color: 'secondary' }}>{total}</Badge>
             </Box>
-            <Badge sx={{ color: 'secondary' }}>{total}</Badge>
-          </Box>
+          </Flex>
         </Column>
       </Row>
     </Box>
