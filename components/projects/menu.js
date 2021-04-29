@@ -11,7 +11,7 @@ const HoverArrow = () => {
         display: 'inline-block',
         position: 'absolute',
         left: ['-60px', '-68px', '-80px', '-104px'],
-        top: ['32px', '32px', '46px', '62px'],
+        top: ['32px', '32px', '35px', '50px'],
         opacity: 0,
         transition: 'opacity 0.2s ease-out',
         transform: 'rotate(45deg)',
