@@ -39,7 +39,6 @@ const Index = () => {
           footer={false}
           metadata={false}
         >
-          <Guide />
           <Desktop data={projects} locations={locations} />
           <Box
             sx={{

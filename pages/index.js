@@ -20,7 +20,7 @@ function Index() {
           textDecoration: 'none',
           mt: [-1, -2, -3, -4],
         }}
-        href='/research/forest-offsets-map'
+        href='/research/forest-offsets'
       >
         <ArrowButton size='xl' fill='green' label='Go to map' />
       </InternalLink>
