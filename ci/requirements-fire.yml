@@ -6,4 +6,5 @@ dependencies:
   - aiohttp
   - fsspec
   - geopandas
+  - requests
   - tenacity
