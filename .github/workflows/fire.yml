@@ -1,0 +1,42 @@
+name: CI Upstream
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Daily “At 00:00”
+  workflow_dispatch: # allows you to trigger the workflow run manually
+
+jobs:
+  nifs-perimeters:
+    name: nifs-perimeters
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags.
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          channels: conda-forge
+          environment-file: ${{ matrix.environment-file }}
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          use-mamba: true
+      - name: Set up conda environment
+        run: |
+          mamba env update -f ci/requirements-fire.yml
+      - name: Version info
+        run: |
+          conda info -a
+          conda list
+      - name: Run active fire script
+        run: |
+          python scripts/active_fires.py

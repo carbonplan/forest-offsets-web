@@ -1,0 +1,8 @@
+name: fire
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - fsspec
+  - geopandas
+  - tenacity
