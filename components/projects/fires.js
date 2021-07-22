@@ -3,7 +3,6 @@ import { Box, Text, Flex, Grid, Input } from 'theme-ui'
 import { Row, Column, Badge, Toggle } from '@carbonplan/components'
 
 const Fires = ({ fires, setFires, count, total }) => {
-
   return (
     <Box sx={{ pl: [3, 4, 5, 6], pr: [3, 5, 5, 6], py: [4], mb: [1] }}>
       <Row columns={[3, 4, 4, 4]}>
@@ -28,14 +27,12 @@ const Fires = ({ fires, setFires, count, total }) => {
                 SHOW FIRES
               </Box>
               <Toggle
-                onClick={() => setFires(prev => !prev)}
+                onClick={() => setFires((prev) => !prev)}
                 value={fires}
                 sx={{ color: 'red', position: 'relative', top: '5px' }}
               />
             </Box>
-            <Box
-              sx={{ textAlign: 'right', display: 'inline-block' }}
-            >
+            <Box sx={{ textAlign: 'right', display: 'inline-block' }}>
               <Box
                 sx={{
                   display: 'inline-block',
