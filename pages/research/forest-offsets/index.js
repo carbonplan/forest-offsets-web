@@ -5,6 +5,27 @@ import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
 import { projects } from '../../../data/projects'
 
+const projectsWithFires = {
+  CAR1314: ['Chuweah Creek Fire', 'Summit Trail'],
+  ACR273: [
+    'Juniper',
+    'Coyote',
+    'Tennant',
+    'Bootleg',
+    'Log',
+    'Jack',
+    'Darlene 0572 NE',
+  ],
+  ACR274: ['Lava', 'Coyote', 'Tennant', 'Bootleg'],
+  CAR1066: ['Salt', 'Lava', 'Coyote', 'Tennant'],
+  CAR1041: ['Salt', 'Lava', 'Tennant'],
+  ACR303: ['Turkey'],
+  CAR1297: ['Rocky Road', 'Divide Complex', 'Rock Creek'],
+  ACR260: ['Grandview', 'Bruler', 'Rattlesnake'],
+  ACR255: ['Chuweah Creek Fire', 'Summit Trail', 'Cedar Creek', 'Cub Creek 2'],
+  ACR211: ['Turkey'],
+}
+
 const Index = () => {
   const locations = {
     type: 'FeatureCollection',
@@ -13,6 +34,7 @@ const Index = () => {
         type: 'Feature',
         properties: {
           id: d.id,
+          fire: projectsWithFires[d.id],
         },
         geometry: {
           type: 'Point',
@@ -21,6 +43,11 @@ const Index = () => {
       }
     }),
   }
+
+  const merged = projects.map((d) => {
+    d.fire = projectsWithFires[d.id]
+    return d
+  })
 
   const index = useBreakpointIndex()
 

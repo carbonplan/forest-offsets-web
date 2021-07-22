@@ -10,6 +10,7 @@ const List = ({
   setSelected,
   setCount,
   setZoomTo,
+  fires,
 }) => {
   const [filtered, setFiltered] = useState([])
 
@@ -81,6 +82,7 @@ const List = ({
             scrollTo={scrollTo}
             setSelected={setSelected}
             setZoomTo={setZoomTo}
+            fires={fires}
           ></Project>
         ))}
     </Box>

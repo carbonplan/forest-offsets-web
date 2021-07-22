@@ -7,7 +7,7 @@ import Metrics from './metrics'
 import { displayNames } from '../../../data/display-names'
 import { displayLocations } from '../../../data/display-locations'
 
-const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
+const Project = ({ data, final, scrollTo, setSelected, setZoomTo, fires }) => {
   const ref = useRef(null)
   const [expanded, setExpanded] = useState(false)
   const { id, arbocs, developers, owners, supersection_ids } = data
@@ -96,7 +96,7 @@ const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
             variant='primary'
             sx={{
               transition: 'color 0.15s, border 0.15s',
-              color: scrolled ? 'primary' : 'green',
+              color: fires ? 'primary' : scrolled ? 'primary' : 'green',
             }}
           >
             {id}
@@ -114,7 +114,7 @@ const Project = ({ data, final, scrollTo, setSelected, setZoomTo }) => {
       >
         {expanded && (
           <Box>
-            <Metrics data={data} setZoomTo={setZoomTo} />
+            <Metrics data={data} setZoomTo={setZoomTo} fires={fires} />
           </Box>
         )}
       </AnimateHeight>

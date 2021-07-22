@@ -1,3 +1,5 @@
+import { mix } from 'polished'
+
 const style = (locations, colors) => {
   const { green, muted, background, primary } = colors
 
@@ -8,7 +10,7 @@ const style = (locations, colors) => {
       basemap: {
         type: 'vector',
         tiles: [
-          `https://carbonplan.blob.core.windows.net/carbonplan-data/tiles/processed/basemap/{z}/{x}/{y}.pbf`,
+          `https://storage.googleapis.com/carbonplan-research/articles/offset-project-fire/basemap/{z}/{x}/{y}.pbf`,
         ],
         maxzoom: 5,
       },
@@ -25,6 +27,11 @@ const style = (locations, colors) => {
           `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/projects/{z}/{x}/{y}.pbf`,
         ],
         maxzoom: 9,
+      },
+      fires: {
+        type: 'vector',
+        tiles: [`http://localhost:8080/fires/{z}/{x}/{y}.pbf`],
+        maxzoom: 5,
       },
       locations: {
         type: 'geojson',
@@ -116,6 +123,35 @@ const style = (locations, colors) => {
         },
       },
       {
+        id: 'places-points',
+        type: 'circle',
+        source: 'basemap',
+        'source-layer': 'ne_10m_populated_places',
+        minzoom: 6,
+        paint: {
+          'circle-color': 'white',
+          'circle-opacity': 0,
+          'circle-radius': 4,
+        },
+      },
+      {
+        id: 'places-text',
+        type: 'symbol',
+        source: 'basemap',
+        'source-layer': 'ne_10m_populated_places',
+        minzoom: 6,
+        paint: {
+          'text-color': 'white',
+          'text-opacity': 0,
+          'text-translate': [0, -20],
+        },
+        layout: {
+          'text-ignore-placement': false,
+          'text-font': ['relative-faux-book'],
+          'text-field': ['format', ['get', 'name_en'], { 'font-scale': 1.2 }],
+        },
+      },
+      {
         id: 'projects-fill',
         type: 'fill',
         source: 'projects',
@@ -167,13 +203,28 @@ const style = (locations, colors) => {
         },
       },
       {
+        id: 'fires',
+        type: 'fill',
+        source: 'fires',
+        'source-layer': 'fires',
+        layout: {
+          visibility: 'visible',
+        },
+        paint: {
+          'fill-antialias': false,
+          'fill-opacity': 0,
+          'fill-color': green,
+        },
+      },
+      {
         id: 'projects-center',
         type: 'circle',
         source: 'locations',
+        maxzoom: 8,
         paint: {
-          'circle-color': 'white',
+          'circle-color': mix(0.6, green, background),
           'circle-opacity': 0,
-          'circle-radius': 20,
+          'circle-radius': 5,
         },
       },
       {
@@ -189,6 +240,7 @@ const style = (locations, colors) => {
           'text-size': 20,
           'text-justify': 'left',
           'text-field': ['format', ['get', 'id']],
+          'text-allow-overlap': false,
         },
       },
     ],

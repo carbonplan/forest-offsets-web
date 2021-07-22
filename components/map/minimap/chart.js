@@ -1,10 +1,18 @@
 import { memo } from 'react'
 import { Box } from 'theme-ui'
 
-const Chart = ({ locations, path, theme, selected, projection }) => {
+const Chart = ({ locations, path, theme, selected, projection, fires }) => {
+  const { background, primary, red, green } = theme.colors
+
   return (
     <>
-      <g strokeLinejoin='round' strokeLinecap='round' strokeWidth='1'>
+      <g
+        fill={background}
+        style={{ pointerEvents: 'none' }}
+        strokeLinejoin='round'
+        strokeLinecap='round'
+        strokeWidth='1'
+      >
         <path d={path}></path>
       </g>
       {locations.map((d, i) => {
@@ -20,10 +28,13 @@ const Chart = ({ locations, path, theme, selected, projection }) => {
             >
               <Box
                 as='circle'
-                r='25'
-                fill={theme.colors.green}
+                r={selected && d.properties.id == selected ? 25 : 10}
+                fill={fires ? (d.properties.fire ? red : primary) : green}
+                fillOpacity={selected && d.properties.id == selected ? 1 : 1}
                 strokeWidth='0'
-                sx={{ transition: '0.25s' }}
+                sx={{
+                  transition: 'fill 0.15s, r 0.15s, fill-opacity 0.15s',
+                }}
               ></Box>
             </Box>
           )
@@ -43,10 +54,13 @@ const Chart = ({ locations, path, theme, selected, projection }) => {
               >
                 <Box
                   as='circle'
-                  r='25'
-                  fill={theme.colors.primary}
+                  r={selected && d.properties.id == selected ? 25 : 10}
+                  fill={fires ? (d.properties.fire ? red : primary) : primary}
+                  fillOpacity={selected && d.properties.id == selected ? 1 : 0}
                   strokeWidth='0'
-                  sx={{ transition: '0.25s' }}
+                  sx={{
+                    transition: 'r 0.15s, fill-opacity 0.15s',
+                  }}
                 ></Box>
               </Box>
             )

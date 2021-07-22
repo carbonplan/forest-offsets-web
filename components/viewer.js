@@ -9,6 +9,7 @@ const Viewer = ({ data, locations, map, bounds }) => {
   const [zoomTo, setZoomTo] = useState(null)
   const [scrollTo, setScrollTo] = useState(null)
   const [tick, setTick] = useState(null)
+  const [fires, setFires] = useState(null)
 
   const router = useRouter()
 
@@ -29,9 +30,10 @@ const Viewer = ({ data, locations, map, bounds }) => {
       const project = data.filter((d) => d.id === zoomTo)[0]
       const { acreage, shape_centroid } = project
       const center = shape_centroid[0]
+      console.log(100000 * (1 / acreage) + 7.5)
       map.easeTo({
         center: center,
-        zoom: 100000 * (1 / acreage) + 7.5,
+        zoom: Math.min(100000 * (1 / acreage) + 7.5, 9.75),
         duration: 0,
       })
     }
@@ -43,7 +45,7 @@ const Viewer = ({ data, locations, map, bounds }) => {
       const container = document.getElementById('projects')
       const y0 = container.scrollTop
       const y1 = el.getBoundingClientRect().top
-      const y = y0 + y1 - 166
+      const y = y0 + y1 - 251
       container.scrollTo({ top: y, behavior: 'smooth' })
       if (tick) clearTimeout(tick)
       setTick(
@@ -79,9 +81,16 @@ const Viewer = ({ data, locations, map, bounds }) => {
         scrollTo={scrollTo}
         setSelected={setSelected}
         setZoomTo={setZoomTo}
+        fires={fires}
+        setFires={setFires}
       />
-      {map && <Enhancers map={map} selected={selected} />}
-      <Minimap map={map} locations={locations.features} selected={selected} />
+      {map && <Enhancers map={map} selected={selected} fires={fires} />}
+      <Minimap
+        map={map}
+        locations={locations.features}
+        selected={selected}
+        fires={fires}
+      />
     </>
   )
 }

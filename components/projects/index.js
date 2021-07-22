@@ -6,6 +6,7 @@ import Header from './header'
 import About from './about'
 import List from './list'
 import Filter from './filter'
+import Fires from './fires'
 import Methods from './methods'
 
 const { getScrollbarWidth } = utils
@@ -15,10 +16,19 @@ const initialFilters = {
   car: true,
   vcs: true,
   updateWithMap: false,
+  fires: false,
   search: '',
 }
 
-const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
+const Projects = ({
+  data,
+  bounds,
+  fires,
+  setFires,
+  scrollTo,
+  setSelected,
+  setZoomTo,
+}) => {
   const [filters, setFilters] = useState(initialFilters)
   const [showMethods, setShowMethods] = useState(false)
   const [count, setCount] = useState(0)
@@ -152,21 +162,33 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
                 </Box>
               </Box>
             </Box>
-            <Box
-              sx={{
-                ...sx.group,
-                backgroundColor: 'background',
-                position: 'sticky',
-                zIndex: 1000,
-                top: '-1px',
-              }}
-            >
-              <Filter
-                filters={filters}
-                setFilters={setFilters}
-                count={count}
-                total={data.length}
-              />
+            <Box sx={{ position: 'sticky', top: '-1px', zIndex: 1000 }}>
+              <Box
+                sx={{
+                  ...sx.group,
+                  backgroundColor: 'background',
+                }}
+              >
+                <Fires
+                  fires={fires}
+                  setFires={setFires}
+                  count={data.filter((d) => d.fire).length}
+                />
+              </Box>
+              <Box
+                sx={{
+                  ...sx.group,
+                  backgroundColor: 'background',
+                }}
+              >
+                <Filter
+                  filters={filters}
+                  setFilters={setFilters}
+                  count={count}
+                  total={data.length}
+                  fires={fires}
+                />
+              </Box>
             </Box>
             <Box sx={{ ...sx.group, borderBottomWidth: '0px' }}>
               <List
@@ -177,6 +199,7 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
                 scrollTo={scrollTo}
                 setSelected={setSelected}
                 setZoomTo={setZoomTo}
+                fires={fires}
               />
             </Box>
           </Box>

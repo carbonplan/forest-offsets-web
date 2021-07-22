@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
+import { mix } from 'polished'
 
 function useTheme(map) {
   const { theme } = useThemeUI()
-  const { background, muted, primary, green } = theme.rawColors
+  const { background, secondary, muted, red, primary, green } = theme.rawColors
 
   useEffect(() => {
     map.setPaintProperty('background', 'background-color', background)
@@ -27,8 +28,16 @@ function useTheme(map) {
     map.setPaintProperty('supersections', 'line-opacity', 0.2)
     map.setPaintProperty('projects-label', 'text-color', green)
     map.setPaintProperty('projects-label', 'text-opacity', 1)
-    map.setPaintProperty('projects-center', 'circle-color', green)
-    map.setPaintProperty('projects-center', 'circle-opacity', 0)
+    map.setPaintProperty(
+      'projects-center',
+      'circle-color',
+      mix(0.6, green, background)
+    )
+    map.setPaintProperty('projects-center', 'circle-opacity', 1)
+    map.setPaintProperty('places-points', 'circle-color', primary)
+    map.setPaintProperty('places-points', 'circle-opacity', 0.3)
+    map.setPaintProperty('places-text', 'text-color', primary)
+    map.setPaintProperty('places-text', 'text-opacity', 0.3)
   }, [theme])
 }
 

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useContext } from 'react'
 import { Box, Text, Flex, Grid, Input } from 'theme-ui'
 import { Row, Column, Badge, Toggle } from '@carbonplan/components'
 
-const Filter = ({ filters, setFilters, count, total }) => {
+const Filter = ({ filters, setFilters, count, total, fires }) => {
   const [value, setValue] = useState('')
   const [hasFocus, setFocus] = useState(false)
   const inputRef = useRef(null)
@@ -104,7 +104,11 @@ const Filter = ({ filters, setFilters, count, total }) => {
                 onClick={() => toggle('updateWithMap')}
                 value={filters.updateWithMap}
                 toggle={() => toggle('updateWithMap')}
-                sx={{ color: 'green', position: 'relative', top: '5px' }}
+                sx={{
+                  color: fires ? 'primary' : 'green',
+                  position: 'relative',
+                  top: '5px',
+                }}
               />
             </Box>
             <Box
@@ -126,7 +130,12 @@ const Filter = ({ filters, setFilters, count, total }) => {
               </Box>
               <Badge
                 sx={{
-                  color: count < total && count > 0 ? 'green' : 'secondary',
+                  color:
+                    count < total && count > 0
+                      ? fires
+                        ? 'primary'
+                        : 'green'
+                      : 'secondary',
                   transition: '0.1s',
                 }}
               >
