@@ -1,7 +1,8 @@
 node_modules/
 .next/
 .DS_Store
-tiles/
+tiles/raw
+tiles/processed
 __pycache__
 out/
 .vercel/
