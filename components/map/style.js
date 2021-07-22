@@ -30,7 +30,7 @@ const style = (locations, colors) => {
       },
       fires: {
         type: 'vector',
-        tiles: [`http://localhost:8080/fires/{z}/{x}/{y}.pbf`],
+        tiles: [`https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/{z}/{x}/{y}.pbf`],
         maxzoom: 5,
       },
       locations: {
