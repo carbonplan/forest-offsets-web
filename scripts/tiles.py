@@ -126,7 +126,7 @@ def upload_tiles(kind, tempdir, upload_to):
 def main(projects, ecoregions, fires, tempdir, upload_to):
 
     if tempdir is None:
-        tempdir = tempfile.TemporaryDirectory(suffix="_data")
+        tempdir = tempfile.mkdtemp(suffix="_data")
 
     print(tempdir)
     setup_directories(tempdir)
