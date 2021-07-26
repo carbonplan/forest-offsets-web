@@ -42,7 +42,6 @@ jobs:
           conda list
       - name: Set up Cloud SDK
         if: |
-          success()
           && github.repository == 'carbonplan/forest-offsets-web'
           && github.ref == 'main'
         uses: google-github-actions/setup-gcloud@master
@@ -55,7 +54,6 @@ jobs:
           python scripts/active_fires.py  --upload-to gs://carbonplan-research/offset-fires
       - name: Make map tiles and upload
         if: |
-          success()
           && github.repository == 'carbonplan/forest-offsets-web'
           && github.ref == 'main'
         run: |
