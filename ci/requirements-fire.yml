@@ -4,8 +4,11 @@ channels:
   - nodefaults
 dependencies:
   - aiohttp
+  - beautifulsoup4
   - click
   - fsspec
+  - fuzzywuzzy
+  - gcsfs
   - geopandas
   - mbutil
   - requests
