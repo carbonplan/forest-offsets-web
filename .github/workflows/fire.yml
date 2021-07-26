@@ -1,0 +1,71 @@
+name: CI Upstream
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Daily “At 00:00”
+  workflow_dispatch: # allows you to trigger the workflow run manually
+
+jobs:
+  nifs-perimeters:
+    name: nifs-perimeters
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags.
+      - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          # Increase this value to reset cache if etc/example-environment.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('ci/requirements-fire.yml') }}
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          channels: conda-forge
+          environment-file: ${{ matrix.environment-file }}
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          use-mamba: true
+          activate-environment: fire
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+      - name: Set up conda environment
+        run: |
+          mamba env update -f ci/requirements-fire.yml
+      - name: Version info
+        run: |
+          conda info -a
+          conda list
+      - name: Run active fire script
+        run: |
+          python scripts/active_fires.py  --upload-to gs://carbonplan-research/offset-fires
+      - name: Set up Cloud SDK
+        if: |
+          success()
+          && github.repository == 'carbonplan/forest-offsets-web'
+          && github.ref == 'main'
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
+      - name: Make map tiles and upload
+        if: |
+          success()
+          && github.repository == 'carbonplan/forest-offsets-web'
+          && github.ref == 'main'
+        uses: google-github-actions/setup-gcloud@master
+        run: |
+          python scripts/tiles.py --fires --upload-to gs://carbonplan-research/offset-fires
