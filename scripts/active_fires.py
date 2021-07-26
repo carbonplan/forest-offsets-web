@@ -99,6 +99,8 @@ def find_projects_with_fires(projects, fires_gdf):
 
             projects_with_fires[pid] = obj
 
+    return projects_with_fires
+
 
 def make_fires(fire_names_and_urls, fires_gdf):
     fires = {}
