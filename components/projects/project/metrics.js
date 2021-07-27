@@ -151,7 +151,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               >
                 Overlapping fires
               </Column>
-              <Column start={[3]} width={[2]}>
+              <Column start={[3]} width={[4, 2, 2, 2]}>
                 <Box
                   sx={{
                     fontFamily: 'faux',
@@ -159,10 +159,12 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                     fontSize: [2, 2, 2, 3],
                     color: 'red',
                     textAlign: 'left',
+                    mt: ['3px'],
                   }}
                 >
-                  {fire.overlappingFires.map((d) => (
+                  {fire.overlappingFires.map((d, i) => (
                     <Link
+                      key={i}
                       onClick={(e) => e.stopPropagation()}
                       href={d.href}
                       sx={{ textDecoration: 'none' }}

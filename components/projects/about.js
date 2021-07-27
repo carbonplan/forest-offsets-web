@@ -31,7 +31,7 @@ const About = () => {
           pl: [3, 4, 5, 6],
           pr: [3, 5, 5, 6],
           pt: [0],
-          pb: [3, 4, 4, 4],
+          pb: [3, 3, 3, 3],
           mb: [1],
           fontSize: [2, 2, 2, 3],
           fontFamily: 'body',
@@ -60,8 +60,10 @@ const About = () => {
         >
           JSON
         </Link>
-        {'. '}Update for Fall 2021: an option to show where projects overlap
-        fires.
+        {'. '}
+        <Box sx={{ mt: [2], color: 'secondary' }}>
+          Fall 2021 update: see where projects overlap fires.
+        </Box>
       </Box>
     </Box>
   )
