@@ -19,7 +19,9 @@ function Index() {
         }}
         href='/research/forest-offsets'
       >
-        <Button size='xl' fill='green'>Go to map</Button>
+        <Button size='xl' fill='green'>
+          Go to map
+        </Button>
       </Link>
     </Box>
   )
