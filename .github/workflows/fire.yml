@@ -55,4 +55,4 @@ jobs:
           python scripts/active_fires.py  --upload-to gs://carbonplan-research/offset-fires
       - name: Make map tiles and upload
         run: |
-          python scripts/tiles.py --fires --upload-to gs://carbonplan-research/offset-fires
+          python scripts/tiles.py --fires --upload-to gs://carbonplan-research/offset-fires/tiles
