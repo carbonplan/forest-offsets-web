@@ -258,7 +258,7 @@ const style = (locations, colors) => {
           'text-opacity': 0,
           'text-halo-color': background,
           'text-halo-width': 4,
-          'text-halo-blur': 0.1
+          'text-halo-blur': 0.1,
         },
         layout: {
           'text-font': ['relative-faux-book'],

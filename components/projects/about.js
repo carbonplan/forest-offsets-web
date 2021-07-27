@@ -60,7 +60,8 @@ const About = () => {
         >
           JSON
         </Link>
-        {'. '}Update for Fall 2021: an option to show where projects overlap fires.
+        {'. '}Update for Fall 2021: an option to show where projects overlap
+        fires.
       </Box>
     </Box>
   )

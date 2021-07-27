@@ -122,7 +122,11 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               <Info>Names of active fires near the project location.</Info>
             </Box>
             <RowBar
-              label={<Box as='span' sx={{color: 'red'}}>Area burned</Box>}
+              label={
+                <Box as='span' sx={{ color: 'red' }}>
+                  Area burned
+                </Box>
+              }
               scale={{ min: 0, max: 0.5 }}
               value={fire.burnedFraction}
               color={'red'}
@@ -130,35 +134,44 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               units={'%'}
             />
             <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2] }}>
-            <Column start={[1]} width={[2]} sx={{color: 'red', fontFamily: 'faux',
-              letterSpacing: 'faux',
-              fontSize: [2, 2, 2, 3],}}>
-              Overlapping fires
-            </Column>
-            <Column start={[3]} width={[2]}>
-            <Box
-              sx={{
-                fontFamily: 'faux',
-                letterSpacing: 'faux',
-                fontSize: [2, 2, 2, 3],
-                color: 'red',
-                textAlign: 'left',
-              }}
-            >
-              {fire.overlappingFires.map((d) => (
-                <ArrowButton
-                  size='xs'
-                  color='red'
-                  fill='red'
-                  label={d.name}
-                  sx={{mb: [1], fontFamily: 'faux',
-                letterSpacing: 'faux',
-                color: 'red',}}
-                />
-              ))}
-            </Box>
-            </Column>
-            
+              <Column
+                start={[1]}
+                width={[2]}
+                sx={{
+                  color: 'red',
+                  fontFamily: 'faux',
+                  letterSpacing: 'faux',
+                  fontSize: [2, 2, 2, 3],
+                }}
+              >
+                Overlapping fires
+              </Column>
+              <Column start={[3]} width={[2]}>
+                <Box
+                  sx={{
+                    fontFamily: 'faux',
+                    letterSpacing: 'faux',
+                    fontSize: [2, 2, 2, 3],
+                    color: 'red',
+                    textAlign: 'left',
+                  }}
+                >
+                  {fire.overlappingFires.map((d) => (
+                    <ArrowButton
+                      size='xs'
+                      color='red'
+                      fill='red'
+                      label={d.name}
+                      sx={{
+                        mb: [1],
+                        fontFamily: 'faux',
+                        letterSpacing: 'faux',
+                        color: 'red',
+                      }}
+                    />
+                  ))}
+                </Box>
+              </Column>
             </Row>
           </>
         )}
@@ -169,7 +182,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             letterSpacing: 'mono',
             textTransform: 'uppercase',
             fontSize: [1, 1, 1, 2],
-            mt: [3], 
+            mt: [3],
             mb: [2],
           }}
         >
@@ -292,7 +305,6 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             />
           </div>
         )}
-        
       </Box>
       <Box sx={{ mt: [3], mb: [1, 0, 0, 0], color: 'secondary' }}>
         <ArrowButton

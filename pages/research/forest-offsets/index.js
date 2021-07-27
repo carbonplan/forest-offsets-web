@@ -27,7 +27,13 @@ import { projects } from '../../../data/projects'
 // }
 
 const Index = ({ fires, projectsWithFires }) => {
-  const uniqueOverlapping = [...new Set(Object.keys(projectsWithFires).map(d => projectsWithFires[d].overlapping_fires).flat())]
+  const uniqueOverlapping = [
+    ...new Set(
+      Object.keys(projectsWithFires)
+        .map((d) => projectsWithFires[d].overlapping_fires)
+        .flat()
+    ),
+  ]
 
   const projectLocations = {
     type: 'FeatureCollection',
@@ -48,28 +54,32 @@ const Index = ({ fires, projectsWithFires }) => {
 
   const fireLocations = {
     type: 'FeatureCollection',
-    features: Object.keys(fires).filter(d => uniqueOverlapping.includes(d)).map((d) => {
-      return {
-        type: 'Feature',
-        properties: {
-          id: d,
-          name: fires[d].name
-        },
-        geometry: {
-          type: 'Point',
-          coordinates: [fires[d].centroid[0] + 0.1, fires[d].centroid[1] + 0],
-        },
-      }
-    }),
+    features: Object.keys(fires)
+      .filter((d) => uniqueOverlapping.includes(d))
+      .map((d) => {
+        return {
+          type: 'Feature',
+          properties: {
+            id: d,
+            name: fires[d].name,
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [fires[d].centroid[0] + 0.1, fires[d].centroid[1] + 0],
+          },
+        }
+      }),
   }
 
-  const locations = {fires: fireLocations, projects: projectLocations}
+  const locations = { fires: fireLocations, projects: projectLocations }
 
   const merged = projects.map((d) => {
     const el = projectsWithFires[d.id]
     if (el) {
       d.fire = {
-        overlappingFires: el.overlapping_fires.map(id => {return {name: fires[id].name, url: fires[id].url}}),
+        overlappingFires: el.overlapping_fires.map((id) => {
+          return { name: fires[id].name, url: fires[id].url }
+        }),
         burnedFraction: el.burned_frac,
       }
     }
