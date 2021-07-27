@@ -1,6 +1,7 @@
 name: fires
 
-on: [push, pull_request]
+on:
+  [push, pull_request]
   # push:
   #   branches:
   #     - main
