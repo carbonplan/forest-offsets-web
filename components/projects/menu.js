@@ -1,5 +1,6 @@
 import { Box, Container, Link, Text } from 'theme-ui'
-import { Row, Column, Arrow } from '@carbonplan/components'
+import { Row, Column } from '@carbonplan/components'
+import { Arrow } from '@carbonplan/icons'
 import { default as NextLink } from 'next/link'
 
 const HoverArrow = () => {

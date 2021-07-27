@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Box, Flex, Grid } from 'theme-ui'
-import { Row, Column, FadeIn, Buttons, Toggle } from '@carbonplan/components'
+import { Row, Column, FadeIn, Button, Toggle } from '@carbonplan/components'
+import { Left } from '@carbonplan/icons'
 import { alpha } from '@theme-ui/color'
 import { useRouter } from 'next/router'
 import Mapbox from './map/mapbox'
@@ -10,8 +11,6 @@ import About from './projects/about'
 import Project from './projects/project'
 import MethodsContent from './projects/methods/index.md'
 import { displayNames } from '../data/display-names'
-
-const { BackButton } = Buttons
 
 const Mobile = ({ data, locations }) => {
   const [map, setMap] = useState(null)
@@ -80,7 +79,8 @@ const Mobile = ({ data, locations }) => {
         <Row columns={6}>
           <Column start={1} width={5}>
             <Box sx={{ fontSize: [1], color: 'secondary' }}>
-              Fall 2021 update: click to see where projects overlap fires.
+              Fire Season 2021 update: click to see where projects overlap
+              fires.
             </Box>
           </Column>
           <Column start={6} width={1}>
@@ -101,7 +101,7 @@ const Mobile = ({ data, locations }) => {
       {section === 'projects' && (
         <FadeIn>
           <Box sx={{ height: '56px' }} />
-          <About />
+          <About mobile={true} />
           {data
             .sort((a, b) => {
               const nameA = displayNames.filter((d) => d.id === a.id)[0].name
@@ -119,17 +119,22 @@ const Mobile = ({ data, locations }) => {
                 showFires={showFires}
               ></Project>
             ))}
-          <Box sx={{ height: '56px' }} />
+          <Box sx={{ height: '64px' }} />
         </FadeIn>
       )}
       {section === 'methods' && (
         <FadeIn>
           <Box sx={{ height: '56px' }} />
           <Box sx={{ mt: 3 }} />
-          <BackButton
+          <Button
+            inverted
+            size='xs'
             onClick={() => setSection('map')}
-            sx={{ cursor: 'pointer' }}
-          />
+            sx={{ cursor: 'pointer', mt: [1] }}
+            prefix={<Left />}
+          >
+            Back
+          </Button>
           <MethodsContent />
         </FadeIn>
       )}

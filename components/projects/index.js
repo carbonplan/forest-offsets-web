@@ -1,14 +1,12 @@
 import { memo, useState, useCallback } from 'react'
 import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
-import { utils, Arrow } from '@carbonplan/components'
+import { Arrow } from '@carbonplan/icons'
 import Header from './header'
 import About from './about'
 import List from './list'
 import Filter from './filter'
 import Methods from './methods'
-
-const { getScrollbarWidth } = utils
 
 const initialFilters = {
   acr: true,
@@ -49,15 +47,6 @@ const Projects = ({
     },
   }
 
-  const ref = useCallback((node) => {
-    if (node && document) {
-      const delta = getScrollbarWidth(document)
-      if (delta > 0) {
-        node.classList.add('custom-scrollbar')
-      }
-    }
-  }, [])
-
   return (
     <>
       <Methods showMethods={showMethods} toggleMethods={toggleMethods} />
@@ -90,7 +79,6 @@ const Projects = ({
         <Header />
         <Box
           id='projects'
-          ref={ref}
           sx={{
             position: 'relative',
             flex: 1,

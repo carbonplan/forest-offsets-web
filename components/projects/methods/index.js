@@ -1,8 +1,7 @@
 import { Box, Text } from 'theme-ui'
-import { Buttons } from '@carbonplan/components'
+import { Button } from '@carbonplan/components'
+import { Left } from '@carbonplan/icons'
 import MethodsContent from './index.md'
-
-const { BackButton } = Buttons
 
 function Methods({ showMethods, toggleMethods }) {
   return (
@@ -42,7 +41,15 @@ function Methods({ showMethods, toggleMethods }) {
           mb: [4],
         }}
       >
-        <BackButton onClick={toggleMethods} sx={{ cursor: 'pointer' }} />
+        <Button
+          size='xs'
+          inverted
+          prefix={<Left />}
+          onClick={toggleMethods}
+          sx={{ mt: [1], cursor: 'pointer' }}
+        >
+          Back
+        </Button>
         <Box
           sx={{
             position: 'relative',

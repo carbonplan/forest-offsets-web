@@ -1,6 +1,6 @@
 import { Box, Link } from 'theme-ui'
 
-const About = () => {
+const About = ({ mobile }) => {
   return (
     <Box
       sx={{
@@ -61,9 +61,11 @@ const About = () => {
           JSON
         </Link>
         {'. '}
-        <Box sx={{ mt: [2], color: 'secondary' }}>
-          Fall 2021 update: see where projects overlap fires.
-        </Box>
+        {!mobile && (
+          <Box sx={{ mt: [2], color: 'secondary' }}>
+            Fire Season 2021 update: see fires overlapping projects.
+          </Box>
+        )}
       </Box>
     </Box>
   )

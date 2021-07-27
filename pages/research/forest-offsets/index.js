@@ -94,7 +94,9 @@ const Index = ({ fires, projectsWithFires }) => {
               bottom: [17, 17, 15, 15],
               zIndex: 5000,
             }}
-          ></Box>
+          >
+            <Dimmer />
+          </Box>
         </Layout>
       )}
       {index === 0 && (
@@ -125,7 +127,7 @@ export async function getServerSideProps() {
     'https://storage.googleapis.com/carbonplan-research/offset-fires'
   const fires = await (await fetch(`${prefix}/fire_meta.json`)).json()
   const projectsWithFires = await (
-    await fetch(`${prefix}/projects_with_fires_cache_bust.json`)
+    await fetch(`${prefix}/projects_with_fires.json`)
   ).json()
   return { props: { fires, projectsWithFires } }
 }

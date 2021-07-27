@@ -1,6 +1,5 @@
 import { ThemeProvider } from 'theme-ui'
 import { MDXProvider } from '@mdx-js/react'
-import { Style } from '@carbonplan/components'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import '@carbonplan/components/globals.css'
 import '@carbonplan/components/fonts.css'

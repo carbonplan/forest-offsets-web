@@ -1,11 +1,10 @@
 import { Box, Text, Grid, Link } from 'theme-ui'
-import { Row, Column, Buttons } from '@carbonplan/components'
+import { Row, Column, Button } from '@carbonplan/components'
+import { RotatingArrow } from '@carbonplan/icons'
 import { format } from 'd3-format'
 import Bar from './bar'
 import Check from './check'
 import Info from '../info'
-
-const { ArrowButton } = Buttons
 
 const Metrics = ({ data, setZoomTo, showFires }) => {
   const {
@@ -169,18 +168,18 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                       href={d.href}
                       sx={{ textDecoration: 'none' }}
                     >
-                      <ArrowButton
+                      <Button
                         size='xs'
-                        color='red'
-                        fill='red'
-                        label={d.name}
                         sx={{
                           mb: [1],
                           fontFamily: 'faux',
                           letterSpacing: 'faux',
                           color: 'red',
                         }}
-                      />
+                        suffix={<RotatingArrow />}
+                      >
+                        {d.name}
+                      </Button>
                     </Link>
                   ))}
                 </Box>
@@ -320,13 +319,16 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
         )}
       </Box>
       <Box sx={{ mt: [3], mb: [1, 0, 0, 0], color: 'secondary' }}>
-        <ArrowButton
+        <Button
+          inverted
           onClick={onClick}
           size='xs'
           color='secondary'
           fill='secondary'
-          label='Show project on map'
-        />
+          suffix={<RotatingArrow />}
+        >
+          Show project on map
+        </Button>
       </Box>
     </Box>
   )
