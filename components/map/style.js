@@ -241,8 +241,8 @@ const style = (locations, colors) => {
           'text-color': red,
           'text-opacity': 0,
           'text-halo-color': background,
-          'text-halo-width': 4,
-          'text-halo-blur': 0.1,
+          'text-halo-width': 2,
+          'text-halo-blur': 0.5,
         },
         layout: {
           'text-font': ['relative-faux-book'],
@@ -259,6 +259,9 @@ const style = (locations, colors) => {
         paint: {
           'text-color': green,
           'text-opacity': 0,
+          'text-halo-color': background,
+          'text-halo-width': 2,
+          'text-halo-blur': 0.5,
         },
         layout: {
           'text-font': ['relative-faux-book'],

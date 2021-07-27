@@ -38,6 +38,8 @@ function useTheme(map) {
     map.setPaintProperty('places-points', 'circle-opacity', 0.3)
     map.setPaintProperty('places-text', 'text-color', primary)
     map.setPaintProperty('places-text', 'text-opacity', 0.3)
+    map.setPaintProperty('fires-label', 'text-halo-color', background)
+    map.setPaintProperty('projects-label', 'text-halo-color', background)
   }, [theme])
 }
 
