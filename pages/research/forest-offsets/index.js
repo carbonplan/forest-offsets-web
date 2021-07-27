@@ -65,7 +65,7 @@ const Index = ({ fires, projectsWithFires }) => {
           },
           geometry: {
             type: 'Point',
-            coordinates: [fires[d].centroid[0] + 0.1, fires[d].centroid[1] + 0],
+            coordinates: [fires[d].centroid[0], fires[d].centroid[1]],
           },
         }
       }),
