@@ -268,7 +268,6 @@ const style = (locations, colors) => {
           'text-allow-overlap': false,
         },
       },
-      
     ],
   }
 }
