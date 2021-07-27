@@ -5,29 +5,31 @@ import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
 import { projects } from '../../../data/projects'
 
-const projectsWithFires = {
-  CAR1314: ['Chuweah Creek Fire', 'Summit Trail'],
-  ACR273: [
-    'Juniper',
-    'Coyote',
-    'Tennant',
-    'Bootleg',
-    'Log',
-    'Jack',
-    'Darlene 0572 NE',
-  ],
-  ACR274: ['Lava', 'Coyote', 'Tennant', 'Bootleg'],
-  CAR1066: ['Salt', 'Lava', 'Coyote', 'Tennant'],
-  CAR1041: ['Salt', 'Lava', 'Tennant'],
-  ACR303: ['Turkey'],
-  CAR1297: ['Rocky Road', 'Divide Complex', 'Rock Creek'],
-  ACR260: ['Grandview', 'Bruler', 'Rattlesnake'],
-  ACR255: ['Chuweah Creek Fire', 'Summit Trail', 'Cedar Creek', 'Cub Creek 2'],
-  ACR211: ['Turkey'],
-}
+// const projectsWithFires = {
+//   CAR1314: ['Chuweah Creek Fire', 'Summit Trail'],
+//   ACR273: [
+//     'Juniper',
+//     'Coyote',
+//     'Tennant',
+//     'Bootleg',
+//     'Log',
+//     'Jack',
+//     'Darlene 0572 NE',
+//   ],
+//   ACR274: ['Lava', 'Coyote', 'Tennant', 'Bootleg'],
+//   CAR1066: ['Salt', 'Lava', 'Coyote', 'Tennant'],
+//   CAR1041: ['Salt', 'Lava', 'Tennant'],
+//   ACR303: ['Turkey'],
+//   CAR1297: ['Rocky Road', 'Divide Complex', 'Rock Creek'],
+//   ACR260: ['Grandview', 'Bruler', 'Rattlesnake'],
+//   ACR255: ['Chuweah Creek Fire', 'Summit Trail', 'Cedar Creek', 'Cub Creek 2'],
+//   ACR211: ['Turkey'],
+// }
 
-const Index = () => {
-  const locations = {
+const Index = ({ fires, projectsWithFires }) => {
+  const uniqueOverlapping = [...new Set(Object.keys(projectsWithFires).map(d => projectsWithFires[d].overlapping_fires).flat())]
+
+  const projectLocations = {
     type: 'FeatureCollection',
     features: projects.map((d) => {
       return {
@@ -44,8 +46,33 @@ const Index = () => {
     }),
   }
 
+  const fireLocations = {
+    type: 'FeatureCollection',
+    features: Object.keys(fires).filter(d => uniqueOverlapping.includes(d)).map((d) => {
+      return {
+        type: 'Feature',
+        properties: {
+          id: d,
+          name: fires[d].name
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: [fires[d].centroid[0] + 0.1, fires[d].centroid[1] + 0],
+        },
+      }
+    }),
+  }
+
+  const locations = {fires: fireLocations, projects: projectLocations}
+
   const merged = projects.map((d) => {
-    d.fire = projectsWithFires[d.id]
+    const el = projectsWithFires[d.id]
+    if (el) {
+      d.fire = {
+        overlappingFires: el.overlapping_fires.map(id => {return {name: fires[id].name, url: fires[id].url}}),
+        burnedFraction: el.burned_frac,
+      }
+    }
     return d
   })
 
@@ -100,6 +127,16 @@ const Index = () => {
       )}
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const prefix =
+    'https://storage.googleapis.com/carbonplan-research/offset-fires'
+  const fires = await (await fetch(`${prefix}/fire_meta.json`)).json()
+  const projectsWithFires = await (
+    await fetch(`${prefix}/projects_with_fires_cache_bust.json`)
+  ).json()
+  return { props: { fires, projectsWithFires } }
 }
 
 export default Index

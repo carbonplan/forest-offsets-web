@@ -10,9 +10,9 @@ const List = ({
   setSelected,
   setCount,
   setZoomTo,
-  fires,
+  showFires,
 }) => {
-  const [filtered, setFiltered] = useState([])
+  const [filtered, setFiltered] = useState(data.map((d) => d.id))
 
   const inBounds = (bounds, point) => {
     if (point.length == 0) return false
@@ -43,7 +43,8 @@ const List = ({
       (filters.updateWithMap &&
         bounds &&
         !inBounds(bounds, d.shape_centroid[0])) ||
-      (filters.search && !inFields(d, filters.search))
+      (filters.search && !inFields(d, filters.search)) ||
+      (showFires ? (d.fire ? false : true) : false)
     ) {
       return false
     } else {
@@ -63,7 +64,7 @@ const List = ({
 
   useEffect(() => {
     setFiltered(data.filter(filter).map((d) => d.id))
-  }, [bounds, filters])
+  }, [bounds, filters, showFires])
 
   useEffect(() => {
     setCount(data.filter((d) => filtered.includes(d.id)).length)
@@ -82,7 +83,7 @@ const List = ({
             scrollTo={scrollTo}
             setSelected={setSelected}
             setZoomTo={setZoomTo}
-            fires={fires}
+            showFires={showFires}
           ></Project>
         ))}
     </Box>

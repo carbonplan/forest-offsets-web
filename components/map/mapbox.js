@@ -13,29 +13,31 @@ const Mapbox = ({ locations, map, setMap, setBounds }) => {
   } = useThemeUI()
 
   useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: container.current,
-      style: style(locations, colors),
-      center: [-122.173216, 40.03788],
-      zoom: 6.79,
-      //minZoom: 3,
-      //maxZoom: 10,
-    })
+    if (locations) {
+      const map = new mapboxgl.Map({
+        container: container.current,
+        style: style(locations, colors),
+        center: [-122.173216, 40.03788],
+        zoom: 6.79,
+        //minZoom: 3,
+        //maxZoom: 10,
+      })
 
-    map.on('load', () => {
-      setMap(map)
-      setBounds(map.getBounds())
-    })
+      map.on('load', () => {
+        setMap(map)
+        setBounds(map.getBounds())
+      })
 
-    map.on('moveend', () => {
-      setBounds(map.getBounds())
-    })
+      map.on('moveend', () => {
+        setBounds(map.getBounds())
+      })
 
-    return function cleanup() {
-      setMap(null)
-      map.remove()
+      return function cleanup() {
+        setMap(null)
+        map.remove()
+      }
     }
-  }, [])
+  }, [locations])
 
   return (
     <Box

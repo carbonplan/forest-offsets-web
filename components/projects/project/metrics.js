@@ -7,7 +7,7 @@ import Info from '../info'
 
 const { ArrowButton } = Buttons
 
-const Metrics = ({ data, setZoomTo, fires }) => {
+const Metrics = ({ data, setZoomTo, showFires }) => {
   const {
     id,
     fire,
@@ -34,7 +34,7 @@ const Metrics = ({ data, setZoomTo, fires }) => {
     label,
     value,
     scale,
-    color = fires ? 'primary' : 'green',
+    color = showFires ? 'primary' : 'green',
     display,
     units,
   }) => {
@@ -105,13 +105,71 @@ const Metrics = ({ data, setZoomTo, fires }) => {
           mb: [1],
         }}
       >
+        {showFires && fire && (
+          <>
+            <Box
+              sx={{
+                color: 'red',
+                fontFamily: 'mono',
+                letterSpacing: 'mono',
+                textTransform: 'uppercase',
+                fontSize: [1, 1, 1, 2],
+                mt: [0],
+                mb: [2],
+              }}
+            >
+              Fire status
+              <Info>Names of active fires near the project location.</Info>
+            </Box>
+            <RowBar
+              label={<Box as='span' sx={{color: 'red'}}>Area burned</Box>}
+              scale={{ min: 0, max: 0.5 }}
+              value={fire.burnedFraction}
+              color={'red'}
+              display={format('.0%')(fire.burnedFraction)}
+              units={'%'}
+            />
+            <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2] }}>
+            <Column start={[1]} width={[2]} sx={{color: 'red', fontFamily: 'faux',
+              letterSpacing: 'faux',
+              fontSize: [2, 2, 2, 3],}}>
+              Overlapping fires
+            </Column>
+            <Column start={[3]} width={[2]}>
+            <Box
+              sx={{
+                fontFamily: 'faux',
+                letterSpacing: 'faux',
+                fontSize: [2, 2, 2, 3],
+                color: 'red',
+                textAlign: 'left',
+              }}
+            >
+              {fire.overlappingFires.map((d) => (
+                <ArrowButton
+                  size='xs'
+                  color='red'
+                  fill='red'
+                  label={d.name}
+                  sx={{mb: [1], fontFamily: 'faux',
+                letterSpacing: 'faux',
+                color: 'red',}}
+                />
+              ))}
+            </Box>
+            </Column>
+            
+            </Row>
+          </>
+        )}
         <Box
           sx={{
-            color: fires ? 'primary' : 'green',
+            color: showFires ? 'primary' : 'green',
             fontFamily: 'mono',
             letterSpacing: 'mono',
             textTransform: 'uppercase',
             fontSize: [1, 1, 1, 2],
+            mt: [3], 
             mb: [2],
           }}
         >
@@ -176,7 +234,7 @@ const Metrics = ({ data, setZoomTo, fires }) => {
           <div>
             <Box
               sx={{
-                color: fires ? 'primary' : 'green',
+                color: showFires ? 'primary' : 'green',
                 fontFamily: 'mono',
                 letterSpacing: 'mono',
                 textTransform: 'uppercase',
@@ -212,7 +270,7 @@ const Metrics = ({ data, setZoomTo, fires }) => {
               label={positive ? 'Over-crediting' : 'Under-crediting'}
               scale={{ min: 0, max: 2000000 }}
               value={Math.abs(over_crediting.arbocs[1])}
-              color={positive ? (fires ? 'primary' : 'green') : 'secondary'}
+              color={positive ? (showFires ? 'primary' : 'green') : 'secondary'}
               display={
                 positive
                   ? format('.2s')(over_crediting.arbocs[1])
@@ -224,7 +282,7 @@ const Metrics = ({ data, setZoomTo, fires }) => {
               label={positive ? 'Over-crediting' : 'Under-crediting'}
               scale={{ min: 0, max: 1 }}
               value={Math.abs(over_crediting.percent[1])}
-              color={positive ? (fires ? 'primary' : 'green') : 'secondary'}
+              color={positive ? (showFires ? 'primary' : 'green') : 'secondary'}
               display={
                 positive
                   ? format('.0%')(over_crediting.percent[1])
@@ -234,34 +292,7 @@ const Metrics = ({ data, setZoomTo, fires }) => {
             />
           </div>
         )}
-        {fires && fire && (
-          <>
-            <Box
-              sx={{
-                color: 'red',
-                fontFamily: 'mono',
-                letterSpacing: 'mono',
-                textTransform: 'uppercase',
-                fontSize: [1, 1, 1, 2],
-                mt: [4],
-                mb: [2],
-              }}
-            >
-              Active fires
-              <Info>Names of active fires near the project location.</Info>
-            </Box>
-            <Box
-              sx={{
-                fontFamily: 'faux',
-                letterSpacing: 'faux',
-                fontSize: [2, 2, 2, 3],
-                color: 'red',
-              }}
-            >
-              {fire.join(', ')}
-            </Box>
-          </>
-        )}
+        
       </Box>
       <Box sx={{ mt: [3], mb: [1, 0, 0, 0], color: 'secondary' }}>
         <ArrowButton

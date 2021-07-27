@@ -2,12 +2,12 @@ import { useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
 import { mix } from 'polished'
 
-function useSelected(map, selected, fires) {
+function useSelected(map, selected, showFires) {
   const { theme } = useThemeUI()
   const { primary, background, green } = theme.rawColors
 
   useEffect(() => {
-    if (!fires) {
+    if (!showFires) {
       if (selected) {
         map.setPaintProperty('projects-label', 'text-color', [
           'match',
@@ -27,8 +27,8 @@ function useSelected(map, selected, fires) {
           'match',
           ['string', ['get', 'id']],
           selected,
-          primary,
-          mix(0.6, green, background),
+          mix(0.5, primary, background),
+          mix(0.5, green, background),
         ])
       } else {
         map.setPaintProperty('projects-label', 'text-color', green)
@@ -40,7 +40,7 @@ function useSelected(map, selected, fires) {
         )
       }
     }
-  }, [theme, fires, selected])
+  }, [theme, showFires, selected])
 }
 
 export default useSelected

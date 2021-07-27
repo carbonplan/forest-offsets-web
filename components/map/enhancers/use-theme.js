@@ -31,7 +31,7 @@ function useTheme(map) {
     map.setPaintProperty(
       'projects-center',
       'circle-color',
-      mix(0.6, green, background)
+      mix(0.5, green, background)
     )
     map.setPaintProperty('projects-center', 'circle-opacity', 1)
     map.setPaintProperty('places-points', 'circle-color', primary)

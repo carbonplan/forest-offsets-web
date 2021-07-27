@@ -10,7 +10,7 @@ const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
 const initCenter = [-122.173216, 40.03788]
 const initZoom = 6.79
 
-const Minimap = ({ map, selected, locations, fires }) => {
+const Minimap = ({ map, selected, locations, showFires }) => {
   const { theme } = useThemeUI()
 
   const [focus, setFocus] = useState([])
@@ -116,7 +116,7 @@ const Minimap = ({ map, selected, locations, fires }) => {
               path={path}
               theme={theme}
               projection={projection}
-              fires={fires}
+              showFires={showFires}
             />
             <Rect
               map={map}

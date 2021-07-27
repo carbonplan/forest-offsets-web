@@ -6,7 +6,6 @@ import Header from './header'
 import About from './about'
 import List from './list'
 import Filter from './filter'
-import Fires from './fires'
 import Methods from './methods'
 
 const { getScrollbarWidth } = utils
@@ -16,22 +15,21 @@ const initialFilters = {
   car: true,
   vcs: true,
   updateWithMap: false,
-  fires: false,
   search: '',
 }
 
 const Projects = ({
   data,
   bounds,
-  fires,
-  setFires,
+  showFires,
+  setShowFires,
   scrollTo,
   setSelected,
   setZoomTo,
 }) => {
   const [filters, setFilters] = useState(initialFilters)
   const [showMethods, setShowMethods] = useState(false)
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(Object.keys(data).length)
 
   const toggleMethods = () => setShowMethods(!showMethods)
 
@@ -169,24 +167,14 @@ const Projects = ({
                   backgroundColor: 'background',
                 }}
               >
-                <Fires
-                  fires={fires}
-                  setFires={setFires}
-                  count={data.filter((d) => d.fire).length}
-                />
-              </Box>
-              <Box
-                sx={{
-                  ...sx.group,
-                  backgroundColor: 'background',
-                }}
-              >
                 <Filter
                   filters={filters}
                   setFilters={setFilters}
+                  showFires={showFires}
+                  setShowFires={setShowFires}
                   count={count}
                   total={data.length}
-                  fires={fires}
+                  showFires={showFires}
                 />
               </Box>
             </Box>
@@ -199,7 +187,7 @@ const Projects = ({
                 scrollTo={scrollTo}
                 setSelected={setSelected}
                 setZoomTo={setZoomTo}
-                fires={fires}
+                showFires={showFires}
               />
             </Box>
           </Box>

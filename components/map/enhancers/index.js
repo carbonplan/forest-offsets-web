@@ -4,10 +4,10 @@ import useSelected from './use-selected'
 import useFires from './use-fires'
 import useRuler from './use-ruler'
 
-export default function Enhancers({ map, selected, fires }) {
+export default function Enhancers({ map, selected, showFires }) {
   useTheme(map)
-  useFires(map, fires)
-  useSelected(map, selected, fires)
+  useFires(map, showFires)
+  useSelected(map, selected, showFires)
   useRuler(map, 1)
   return null
 }

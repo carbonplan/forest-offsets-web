@@ -1,7 +1,7 @@
 import { mix } from 'polished'
 
 const style = (locations, colors) => {
-  const { green, muted, background, primary } = colors
+  const { green, red, muted, secondary, background, primary } = colors
 
   return {
     version: 8,
@@ -35,9 +35,13 @@ const style = (locations, colors) => {
         ],
         maxzoom: 5,
       },
-      locations: {
+      projectLocations: {
         type: 'geojson',
-        data: locations,
+        data: locations.projects,
+      },
+      fireLocations: {
+        type: 'geojson',
+        data: locations.fires,
       },
     },
     layers: [
@@ -221,7 +225,7 @@ const style = (locations, colors) => {
       {
         id: 'projects-center',
         type: 'circle',
-        source: 'locations',
+        source: 'projectLocations',
         maxzoom: 8,
         paint: {
           'circle-color': mix(0.6, green, background),
@@ -232,7 +236,7 @@ const style = (locations, colors) => {
       {
         id: 'projects-label',
         type: 'symbol',
-        source: 'locations',
+        source: 'projectLocations',
         paint: {
           'text-color': green,
           'text-opacity': 0,
@@ -242,6 +246,25 @@ const style = (locations, colors) => {
           'text-size': 20,
           'text-justify': 'left',
           'text-field': ['format', ['get', 'id']],
+          'text-allow-overlap': false,
+        },
+      },
+      {
+        id: 'fires-label',
+        type: 'symbol',
+        source: 'fireLocations',
+        paint: {
+          'text-color': red,
+          'text-opacity': 0,
+          'text-halo-color': background,
+          'text-halo-width': 4,
+          'text-halo-blur': 0.1
+        },
+        layout: {
+          'text-font': ['relative-faux-book'],
+          'text-size': 20,
+          'text-justify': 'left',
+          'text-field': ['format', ['get', 'name']],
           'text-allow-overlap': false,
         },
       },

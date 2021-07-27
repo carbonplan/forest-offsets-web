@@ -2,12 +2,12 @@ import { useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
 import { mix } from 'polished'
 
-function useFires(map, fires) {
+function useFires(map, showFires) {
   const { theme } = useThemeUI()
   const { primary, background, green, red } = theme.rawColors
 
   useEffect(() => {
-    if (fires) {
+    if (showFires) {
       map.setPaintProperty('fires', 'fill-color', red)
       map.setPaintProperty('fires', 'fill-opacity', 0.7)
       map.setPaintProperty('projects-fill', 'fill-color', primary)
@@ -17,6 +17,7 @@ function useFires(map, fires) {
         mix(0.5, primary, background)
       )
       map.setPaintProperty('projects-label', 'text-color', primary)
+      map.setPaintProperty('fires-label', 'text-opacity', 1)
     } else {
       map.setPaintProperty('fires', 'fill-color', red)
       map.setPaintProperty('fires', 'fill-opacity', 0)
@@ -27,8 +28,9 @@ function useFires(map, fires) {
         'circle-color',
         mix(0.5, green, background)
       )
+      map.setPaintProperty('fires-label', 'text-opacity', 0)
     }
-  }, [map, fires, theme])
+  }, [map, showFires, theme])
 }
 
 export default useFires
