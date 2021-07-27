@@ -1,4 +1,4 @@
-import { Box, Text, Grid } from 'theme-ui'
+import { Box, Text, Grid, Link } from 'theme-ui'
 import { Row, Column, Buttons } from '@carbonplan/components'
 import { format } from 'd3-format'
 import Bar from './bar'
@@ -119,7 +119,12 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               }}
             >
               Fire status
-              <Info>Names of active fires near the project location.</Info>
+              <Info>
+                We are tracking occurances of fires overlapping offset projects.
+                Area burned refers to the fraction of fire area overlapping
+                offset project area, including all fires thus far in 2021,
+                updated nightly. We also list names with links for all fires.
+              </Info>
             </Box>
             <RowBar
               label={
@@ -157,18 +162,24 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                   }}
                 >
                   {fire.overlappingFires.map((d) => (
-                    <ArrowButton
-                      size='xs'
-                      color='red'
-                      fill='red'
-                      label={d.name}
-                      sx={{
-                        mb: [1],
-                        fontFamily: 'faux',
-                        letterSpacing: 'faux',
-                        color: 'red',
-                      }}
-                    />
+                    <Link
+                      onClick={(e) => e.stopPropagation()}
+                      href={d.href}
+                      sx={{ textDecoration: 'none' }}
+                    >
+                      <ArrowButton
+                        size='xs'
+                        color='red'
+                        fill='red'
+                        label={d.name}
+                        sx={{
+                          mb: [1],
+                          fontFamily: 'faux',
+                          letterSpacing: 'faux',
+                          color: 'red',
+                        }}
+                      />
+                    </Link>
                   ))}
                 </Box>
               </Column>

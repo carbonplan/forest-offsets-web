@@ -78,7 +78,7 @@ const Index = ({ fires, projectsWithFires }) => {
     if (el) {
       d.fire = {
         overlappingFires: el.overlapping_fires.map((id) => {
-          return { name: fires[id].name, url: fires[id].url }
+          return { name: fires[id].name, href: fires[id].url }
         }),
         burnedFraction: el.burned_frac,
       }
