@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 5001",
-    "build": "next build && next export",
-    "export": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "format": "npm run format-js && npm run format-md",
     "format-js": "prettier --write '*.js' '{data,components,pages,browser,article}/**/*.js'",
