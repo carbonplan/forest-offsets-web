@@ -1,16 +1,12 @@
 name: fires
 
 on:
-  [push, pull_request]
-  # push:
-  #   branches:
-  #     - main
-  # pull_request:
-  #   branches:
-  #     - main
-  # schedule:
-  #   - cron: '0 0 * * *' # Daily “At 00:00”
-  # workflow_dispatch: # allows you to trigger the workflow run manually
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 */4 * * *' # every 4th hour
+  workflow_dispatch: 
 
 jobs:
   perimeters:
