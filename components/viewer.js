@@ -9,6 +9,7 @@ const Viewer = ({ data, locations, map, bounds }) => {
   const [zoomTo, setZoomTo] = useState(null)
   const [scrollTo, setScrollTo] = useState(null)
   const [tick, setTick] = useState(null)
+  const [showFires, setShowFires] = useState(null)
 
   const router = useRouter()
 
@@ -29,47 +30,69 @@ const Viewer = ({ data, locations, map, bounds }) => {
       const project = data.filter((d) => d.id === zoomTo)[0]
       const { acreage, shape_centroid } = project
       const center = shape_centroid[0]
+      console.log(100000 * (1 / acreage) + 7.5)
       map.easeTo({
         center: center,
-        zoom: 100000 * (1 / acreage) + 7.5,
+        zoom: Math.min(100000 * (1 / acreage) + 7.5, 9.75),
         duration: 0,
       })
+      setZoomTo(null)
     }
   }, [zoomTo])
 
   useEffect(() => {
-    if (scrollTo) {
+    if (scrollTo && !showFires) {
       const el = document.getElementById('project-' + scrollTo)
-      const container = document.getElementById('projects')
-      const y0 = container.scrollTop
-      const y1 = el.getBoundingClientRect().top
-      const y = y0 + y1 - 166
-      container.scrollTo({ top: y, behavior: 'smooth' })
-      if (tick) clearTimeout(tick)
-      setTick(
-        setTimeout(() => {
-          setScrollTo(null)
-        }, 2000)
-      )
+      if (el) {
+        const container = document.getElementById('projects')
+        const y0 = container.scrollTop
+        const y1 = el.getBoundingClientRect().top
+        const y = y0 + y1 - 172
+        container.scrollTo({ top: y, behavior: 'smooth' })
+        if (tick) clearTimeout(tick)
+        setTick(
+          setTimeout(() => {
+            setScrollTo(null)
+          }, 2000)
+        )
+      }
     }
   }, [scrollTo])
 
+  const mouseover = (e) => {
+    map.getCanvas().style.cursor = 'pointer'
+    setSelected(e.features[0].properties.id)
+  }
+
+  const mouseleave = (e) => {
+    map.getCanvas().style.cursor = ''
+    setSelected(null)
+  }
+
+  const click = (e) => {
+    const id = e.features[0].properties.id
+    setScrollTo(id)
+  }
+
   useEffect(() => {
     if (map) {
-      map.on('mouseover', 'projects-label', (e) => {
-        map.getCanvas().style.cursor = 'pointer'
-        setSelected(e.features[0].properties.id)
-      })
-      map.on('mouseleave', 'projects-label', (e) => {
-        map.getCanvas().style.cursor = ''
-        setSelected(null)
-      })
-      map.on('click', 'projects-label', (e) => {
-        const id = e.features[0].properties.id
-        setScrollTo(id)
-      })
+      if (showFires) {
+        map.on('mouseover', 'projects-label', (e) => {
+          map.getCanvas().style.cursor = ''
+          setSelected(null)
+        })
+        map.on('mouseleave', 'projects-label', (e) => {
+          map.getCanvas().style.cursor = ''
+          setSelected(null)
+        })
+        map.off('click', 'projects-label')
+      } else {
+        map.on('mouseover', 'projects-label', mouseover)
+        map.on('mouseleave', 'projects-label', mouseleave)
+        map.on('click', 'projects-label', click)
+      }
     }
-  }, [map, scrollTo])
+  }, [map, scrollTo, showFires])
 
   return (
     <>
@@ -79,9 +102,16 @@ const Viewer = ({ data, locations, map, bounds }) => {
         scrollTo={scrollTo}
         setSelected={setSelected}
         setZoomTo={setZoomTo}
+        showFires={showFires}
+        setShowFires={setShowFires}
       />
-      {map && <Enhancers map={map} selected={selected} />}
-      <Minimap map={map} locations={locations.features} selected={selected} />
+      {map && <Enhancers map={map} selected={selected} showFires={showFires} />}
+      <Minimap
+        map={map}
+        locations={locations.projects.features}
+        selected={selected}
+        showFires={showFires}
+      />
     </>
   )
 }

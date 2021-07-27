@@ -1,18 +1,28 @@
+import { useState } from 'react'
 import { useBreakpointIndex } from '@theme-ui/match-media'
 import { Box } from 'theme-ui'
-import { Layout, Guide, Dimmer } from '@carbonplan/components'
+import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
 import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
 import { projects } from '../../../data/projects'
 
-const Index = () => {
-  const locations = {
+const Index = ({ fires, projectsWithFires }) => {
+  const uniqueOverlapping = [
+    ...new Set(
+      Object.keys(projectsWithFires)
+        .map((d) => projectsWithFires[d].overlapping_fires)
+        .flat()
+    ),
+  ]
+
+  const projectLocations = {
     type: 'FeatureCollection',
     features: projects.map((d) => {
       return {
         type: 'Feature',
         properties: {
           id: d.id,
+          fire: projectsWithFires[d.id],
         },
         geometry: {
           type: 'Point',
@@ -21,6 +31,43 @@ const Index = () => {
       }
     }),
   }
+
+  const fireLocations = {
+    type: 'FeatureCollection',
+    features: Object.keys(fires)
+      .filter((d) => uniqueOverlapping.includes(d))
+      .map((d) => {
+        return {
+          type: 'Feature',
+          properties: {
+            id: d,
+            name: fires[d].name,
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [
+              fires[d].centroid[0] - 0.05,
+              fires[d].centroid[1] - 0.05,
+            ],
+          },
+        }
+      }),
+  }
+
+  const locations = { fires: fireLocations, projects: projectLocations }
+
+  const merged = projects.map((d) => {
+    const el = projectsWithFires[d.id]
+    if (el) {
+      d.fire = {
+        overlappingFires: el.overlapping_fires.map((id) => {
+          return { name: fires[id].name, href: fires[id].url }
+        }),
+        burnedFraction: el.burned_frac,
+      }
+    }
+    return d
+  })
 
   const index = useBreakpointIndex()
 
@@ -62,7 +109,7 @@ const Index = () => {
             card='https://images.carbonplan.org/social/forest-offsets.png'
             header={true}
             nav={'research'}
-            dimmer={true}
+            dimmer={false}
             footer={false}
             metadata={false}
           >
@@ -73,6 +120,16 @@ const Index = () => {
       )}
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const prefix =
+    'https://storage.googleapis.com/carbonplan-research/offset-fires'
+  const fires = await (await fetch(`${prefix}/fire_meta.json`)).json()
+  const projectsWithFires = await (
+    await fetch(`${prefix}/projects_with_fires.json`)
+  ).json()
+  return { props: { fires, projectsWithFires } }
 }
 
 export default Index

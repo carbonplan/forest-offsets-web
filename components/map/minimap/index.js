@@ -7,15 +7,15 @@ import Rect from './rect'
 import Chart from './chart'
 
 const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
-const initCenter = [-121.9, 43.11]
+const initCenter = [-122.173216, 40.03788]
 const initZoom = 6.79
 
-const Minimap = ({ map, selected, locations }) => {
+const Minimap = ({ map, selected, locations, showFires }) => {
   const { theme } = useThemeUI()
 
   const [focus, setFocus] = useState([])
   const [dragging, setDragging] = useState(false)
-
+  const [show, setShow] = useState(true)
   const [path, setPath] = useState(null)
 
   const setPosition = (e) => {
@@ -40,6 +40,20 @@ const Minimap = ({ map, selected, locations }) => {
     })
   }, [])
 
+  useEffect(() => {
+    if (map) {
+      map.on('move', () => {
+        if (map.getZoom() < 5) {
+          setShow(false)
+        } else {
+          setShow(true)
+        }
+      })
+    } else {
+      setShow(true)
+    }
+  }, [map])
+
   const onMouseDown = () => {
     setDragging(true)
   }
@@ -63,17 +77,16 @@ const Minimap = ({ map, selected, locations }) => {
     <Box
       sx={{
         position: 'absolute',
-        right: [3],
-        bottom: [3],
+        right: [5],
+        bottom: [-4],
         height: '300px',
         width: '300px',
-        borderRadius: '200px',
-        backgroundColor: 'background',
-        borderStyle: 'solid',
-        borderColor: 'muted',
-        borderWidth: '1px',
+        backgroundColor: 'transparent',
         zIndex: 500,
         display: ['none', 'none', 'inherit'],
+        opacity: show ? 1 : 0,
+        transition: 'opacity 0.2s',
+        pointerEvents: 'none',
       }}
     >
       <Box
@@ -83,6 +96,7 @@ const Minimap = ({ map, selected, locations }) => {
           left: 0,
           width: '300px',
           height: '300px',
+          pointerEvents: show ? 'all' : 'none',
         }}
       >
         <Box sx={{ fill: 'none', stroke: 'primary' }}>
@@ -102,6 +116,7 @@ const Minimap = ({ map, selected, locations }) => {
               path={path}
               theme={theme}
               projection={projection}
+              showFires={showFires}
             />
             <Rect
               map={map}

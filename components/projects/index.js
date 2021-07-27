@@ -1,14 +1,12 @@
 import { memo, useState, useCallback } from 'react'
 import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
-import { utils, Arrow } from '@carbonplan/components'
+import { Arrow } from '@carbonplan/icons'
 import Header from './header'
 import About from './about'
 import List from './list'
 import Filter from './filter'
 import Methods from './methods'
-
-const { getScrollbarWidth } = utils
 
 const initialFilters = {
   acr: true,
@@ -18,10 +16,18 @@ const initialFilters = {
   search: '',
 }
 
-const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
+const Projects = ({
+  data,
+  bounds,
+  showFires,
+  setShowFires,
+  scrollTo,
+  setSelected,
+  setZoomTo,
+}) => {
   const [filters, setFilters] = useState(initialFilters)
   const [showMethods, setShowMethods] = useState(false)
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(Object.keys(data).length)
 
   const toggleMethods = () => setShowMethods(!showMethods)
 
@@ -40,15 +46,6 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
       borderColor: 'muted',
     },
   }
-
-  const ref = useCallback((node) => {
-    if (node && document) {
-      const delta = getScrollbarWidth(document)
-      if (delta > 0) {
-        node.classList.add('custom-scrollbar')
-      }
-    }
-  }, [])
 
   return (
     <>
@@ -82,7 +79,6 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
         <Header />
         <Box
           id='projects'
-          ref={ref}
           sx={{
             position: 'relative',
             flex: 1,
@@ -152,21 +148,23 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
                 </Box>
               </Box>
             </Box>
-            <Box
-              sx={{
-                ...sx.group,
-                backgroundColor: 'background',
-                position: 'sticky',
-                zIndex: 1000,
-                top: '-1px',
-              }}
-            >
-              <Filter
-                filters={filters}
-                setFilters={setFilters}
-                count={count}
-                total={data.length}
-              />
+            <Box sx={{ position: 'sticky', top: '-1px', zIndex: 1000 }}>
+              <Box
+                sx={{
+                  ...sx.group,
+                  backgroundColor: 'background',
+                }}
+              >
+                <Filter
+                  filters={filters}
+                  setFilters={setFilters}
+                  showFires={showFires}
+                  setShowFires={setShowFires}
+                  count={count}
+                  total={data.length}
+                  showFires={showFires}
+                />
+              </Box>
             </Box>
             <Box sx={{ ...sx.group, borderBottomWidth: '0px' }}>
               <List
@@ -177,6 +175,7 @@ const Projects = ({ data, bounds, scrollTo, setSelected, setZoomTo }) => {
                 scrollTo={scrollTo}
                 setSelected={setSelected}
                 setZoomTo={setZoomTo}
+                showFires={showFires}
               />
             </Box>
           </Box>

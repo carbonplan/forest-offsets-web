@@ -18,8 +18,8 @@ const Mapbox = ({ locations, map, setMap, setBounds }) => {
       style: style(locations, colors),
       center: [-122.173216, 40.03788],
       zoom: 6.79,
-      minZoom: 3,
-      maxZoom: 10,
+      //minZoom: 3,
+      //maxZoom: 10,
     })
 
     map.on('load', () => {

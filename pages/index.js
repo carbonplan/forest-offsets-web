@@ -1,8 +1,5 @@
 import { Box } from 'theme-ui'
-import { Buttons, Links } from '@carbonplan/components'
-
-const { InternalLink } = Links
-const { ArrowButton } = Buttons
+import { Button, Link } from '@carbonplan/components'
 
 function Index() {
   return (
@@ -14,7 +11,7 @@ function Index() {
         height: '100vh',
       }}
     >
-      <InternalLink
+      <Link
         sx={{
           display: 'block',
           textDecoration: 'none',
@@ -22,8 +19,10 @@ function Index() {
         }}
         href='/research/forest-offsets'
       >
-        <ArrowButton size='xl' fill='green' label='Go to map' />
-      </InternalLink>
+        <Button size='xl' fill='green'>
+          Go to map
+        </Button>
+      </Link>
     </Box>
   )
 }

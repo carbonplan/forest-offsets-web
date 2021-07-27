@@ -1,5 +1,7 @@
+import { mix } from 'polished'
+
 const style = (locations, colors) => {
-  const { green, muted, background, primary } = colors
+  const { green, red, muted, secondary, background, primary } = colors
 
   return {
     version: 8,
@@ -8,7 +10,7 @@ const style = (locations, colors) => {
       basemap: {
         type: 'vector',
         tiles: [
-          `https://carbonplan.blob.core.windows.net/carbonplan-data/tiles/processed/basemap/{z}/{x}/{y}.pbf`,
+          `https://storage.googleapis.com/carbonplan-research/articles/offset-project-fire/basemap/{z}/{x}/{y}.pbf`,
         ],
         maxzoom: 5,
       },
@@ -26,9 +28,20 @@ const style = (locations, colors) => {
         ],
         maxzoom: 9,
       },
-      locations: {
+      fires: {
+        type: 'vector',
+        tiles: [
+          `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/{z}/{x}/{y}.pbf`,
+        ],
+        maxzoom: 5,
+      },
+      projectLocations: {
         type: 'geojson',
-        data: locations,
+        data: locations.projects,
+      },
+      fireLocations: {
+        type: 'geojson',
+        data: locations.fires,
       },
     },
     layers: [
@@ -116,6 +129,35 @@ const style = (locations, colors) => {
         },
       },
       {
+        id: 'places-points',
+        type: 'circle',
+        source: 'basemap',
+        'source-layer': 'ne_10m_populated_places',
+        minzoom: 6,
+        paint: {
+          'circle-color': 'white',
+          'circle-opacity': 0,
+          'circle-radius': 4,
+        },
+      },
+      {
+        id: 'places-text',
+        type: 'symbol',
+        source: 'basemap',
+        'source-layer': 'ne_10m_populated_places',
+        minzoom: 6,
+        paint: {
+          'text-color': 'white',
+          'text-opacity': 0,
+          'text-translate': [0, -20],
+        },
+        layout: {
+          'text-ignore-placement': false,
+          'text-font': ['relative-faux-book'],
+          'text-field': ['format', ['get', 'name_en'], { 'font-scale': 1.2 }],
+        },
+      },
+      {
         id: 'projects-fill',
         type: 'fill',
         source: 'projects',
@@ -167,28 +209,66 @@ const style = (locations, colors) => {
         },
       },
       {
+        id: 'fires',
+        type: 'fill',
+        source: 'fires',
+        'source-layer': 'fires',
+        layout: {
+          visibility: 'visible',
+        },
+        paint: {
+          'fill-antialias': false,
+          'fill-opacity': 0,
+          'fill-color': green,
+        },
+      },
+      {
         id: 'projects-center',
         type: 'circle',
-        source: 'locations',
+        source: 'projectLocations',
+        maxzoom: 8,
         paint: {
-          'circle-color': 'white',
+          'circle-color': mix(0.6, green, background),
           'circle-opacity': 0,
-          'circle-radius': 20,
+          'circle-radius': 5,
+        },
+      },
+      {
+        id: 'fires-label',
+        type: 'symbol',
+        source: 'fireLocations',
+        paint: {
+          'text-color': red,
+          'text-opacity': 0,
+          'text-halo-color': background,
+          'text-halo-width': 2,
+          'text-halo-blur': 0.5,
+        },
+        layout: {
+          'text-font': ['relative-faux-book'],
+          'text-size': 20,
+          'text-justify': 'left',
+          'text-field': ['format', ['get', 'name']],
+          'text-allow-overlap': false,
         },
       },
       {
         id: 'projects-label',
         type: 'symbol',
-        source: 'locations',
+        source: 'projectLocations',
         paint: {
           'text-color': green,
           'text-opacity': 0,
+          'text-halo-color': background,
+          'text-halo-width': 2,
+          'text-halo-blur': 0.5,
         },
         layout: {
           'text-font': ['relative-faux-book'],
           'text-size': 20,
           'text-justify': 'left',
           'text-field': ['format', ['get', 'id']],
+          'text-allow-overlap': false,
         },
       },
     ],
