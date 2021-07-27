@@ -1,0 +1,17 @@
+name: fire
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - aiohttp
+  - beautifulsoup4
+  - click
+  - fsspec
+  - fuzzywuzzy
+  - gcsfs
+  - geopandas
+  - mbutil
+  - numpy
+  - requests
+  - tippecanoe
+  - tenacity
