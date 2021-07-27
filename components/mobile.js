@@ -35,7 +35,7 @@ const FireToggle = ({ showFires, setShowFires }) => {
       <Row columns={6}>
         <Column start={1} width={5}>
           <Box sx={{ fontSize: [1], color: 'secondary' }}>
-            Fire Season 2021 update: click to see where projects overlap fires.
+            Fire Season 2021 update: toggle to see where projects overlap fires.
           </Box>
         </Column>
         <Column start={6} width={1}>
