@@ -234,22 +234,6 @@ const style = (locations, colors) => {
         },
       },
       {
-        id: 'projects-label',
-        type: 'symbol',
-        source: 'projectLocations',
-        paint: {
-          'text-color': green,
-          'text-opacity': 0,
-        },
-        layout: {
-          'text-font': ['relative-faux-book'],
-          'text-size': 20,
-          'text-justify': 'left',
-          'text-field': ['format', ['get', 'id']],
-          'text-allow-overlap': false,
-        },
-      },
-      {
         id: 'fires-label',
         type: 'symbol',
         source: 'fireLocations',
@@ -268,6 +252,23 @@ const style = (locations, colors) => {
           'text-allow-overlap': false,
         },
       },
+      {
+        id: 'projects-label',
+        type: 'symbol',
+        source: 'projectLocations',
+        paint: {
+          'text-color': green,
+          'text-opacity': 0,
+        },
+        layout: {
+          'text-font': ['relative-faux-book'],
+          'text-size': 20,
+          'text-justify': 'left',
+          'text-field': ['format', ['get', 'id']],
+          'text-allow-overlap': false,
+        },
+      },
+      
     ],
   }
 }
