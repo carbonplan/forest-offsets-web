@@ -4,6 +4,7 @@ import json
 import click
 import fsspec
 import geopandas
+import numpy as np
 from bs4 import BeautifulSoup
 from fuzzywuzzy import process
 from tenacity import retry, stop_after_attempt
@@ -102,6 +103,14 @@ def find_projects_with_fires(projects, fires_gdf):
     return projects_with_fires
 
 
+def get_fire_label_coords(geometry):
+    g = geometry.convex_hull
+    coords = np.array(g.exterior.coords)
+    max_ind = np.argmax(coords[:, 1])
+    max_coords = coords[max_ind].tolist()
+    return max_coords
+
+
 def make_fires(fire_names_and_urls, fires_gdf):
     fires = {}
 
@@ -109,12 +118,12 @@ def make_fires(fire_names_and_urls, fires_gdf):
 
     for i, row in fires_gdf.to_crs("epsg:4326").iterrows():
         obj = fire_schema()
-        obj["name"] = row["irwin_IncidentName"]
+        obj["name"] = row["irwin_IncidentName"].title()
         match = process.extractOne(row["irwin_IncidentName"], url_keys, score_cutoff=90)
         if match is not None:
             obj["url"] = "https://inciweb.nwcg.gov" + fire_names_and_urls[match[0]]
         obj["start_date"] = row["irwin_FireDiscoveryDateTime"]
-        obj["centroid"] = [row["geometry"].centroid.x, row["geometry"].centroid.y]
+        obj["centroid"] = get_fire_label_coords(row.geometry)
 
         fires[row["irwin_UniqueFireIdentifier"]] = obj
 
@@ -136,19 +145,24 @@ def main(upload_to):
 
     print("making fire metadata")
     fire_meta = make_fires(fire_names_and_urls, fires_gdf)
-    print("writing fire metadata")
-    with fsspec.open(f"{upload_to}/fire_meta.json", mode="w") as f:
-        json.dump(fire_meta, f)
+    if upload_to:
+        print("writing fire metadata")
+        with fsspec.open(f"{upload_to}/fire_meta.json", mode="w") as f:
+            json.dump(fire_meta, f)
 
     print("making projects with fires")
     projects_with_fires = find_projects_with_fires(projects, fires_gdf)
-    print("writing projects with fires")
-    with fsspec.open(f"{upload_to}/projects_with_fires.json", mode="w") as f:
-        json.dump(projects_with_fires, f)
+    if upload_to:
+        print("writing projects with fires")
+        with fsspec.open(f"{upload_to}/projects_with_fires.json", mode="w") as f:
+            json.dump(projects_with_fires, f)
 
-    print("writing fires.json")
-    with fsspec.open(f"{upload_to}/fires.json", mode="w") as f:
-        f.write(fires_gdf[["irwin_UniqueFireIdentifier", "geometry"]].to_crs("EPSG:4326").to_json())
+    if upload_to:
+        print("writing fires.json")
+        with fsspec.open(f"{upload_to}/fires.json", mode="w") as f:
+            f.write(
+                fires_gdf[["irwin_UniqueFireIdentifier", "geometry"]].to_crs("EPSG:4326").to_json()
+            )
 
 
 if __name__ == "__main__":
