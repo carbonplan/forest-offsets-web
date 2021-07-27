@@ -18,7 +18,7 @@ const About = ({ mobile }) => {
           pr: [3, 5, 5, 6],
           pt: [3, 3, 3, 3],
           pb: [3, 3, 3, 3],
-          fontSize: [6, 6, 6, 7],
+          fontSize: [5, 6, 6, 7],
           width: 'fit-content',
           fontFamily: 'heading',
           lineHeight: 'heading',

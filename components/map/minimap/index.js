@@ -7,7 +7,7 @@ import Rect from './rect'
 import Chart from './chart'
 
 const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
-const initCenter = [-122.173216, 40.03788]
+const initCenter = [-122.99922013524304, 40.02328448336925]
 const initZoom = 6.79
 
 const Minimap = ({ map, selected, locations, showFires }) => {

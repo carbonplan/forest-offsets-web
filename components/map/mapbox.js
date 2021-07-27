@@ -16,11 +16,15 @@ const Mapbox = ({ locations, map, setMap, setBounds }) => {
     const map = new mapboxgl.Map({
       container: container.current,
       style: style(locations, colors),
-      center: [-122.173216, 40.03788],
+      center: [-122.99922013524304, 40.02328448336925],
       zoom: 6.79,
       //minZoom: 3,
       //maxZoom: 10,
     })
+
+    // map.on('move', () => {
+    //   console.log(map.getCenter())
+    // })
 
     map.on('load', () => {
       setMap(map)

@@ -12,6 +12,49 @@ import Project from './projects/project'
 import MethodsContent from './projects/methods/index.md'
 import { displayNames } from '../data/display-names'
 
+const FireToggle = ({ showFires, setShowFires }) => {
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        left: '0px',
+        top: '56px',
+        height: '56px',
+        width: 'calc(100vw)',
+        bg: 'background',
+        pl: [3],
+        pt: [2],
+        pr: [3],
+        borderStyle: 'solid',
+        borderColor: 'muted',
+        borderWidth: '0px',
+        borderBottomWidth: '1px',
+        zIndex: 1000,
+      }}
+    >
+      <Row columns={6}>
+        <Column start={1} width={5}>
+          <Box sx={{ fontSize: [1], color: 'secondary' }}>
+            Fire Season 2021 update: click to see where projects overlap fires.
+          </Box>
+        </Column>
+        <Column start={6} width={1}>
+          <Toggle
+            onClick={() => setShowFires((prev) => !prev)}
+            value={showFires}
+            sx={{
+              color: 'red',
+              float: 'right',
+              position: 'relative',
+              top: '5px',
+            }}
+          />
+        </Column>
+      </Row>
+    </Box>
+  )
+}
+
 const Mobile = ({ data, locations }) => {
   const [map, setMap] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
@@ -51,6 +94,7 @@ const Mobile = ({ data, locations }) => {
           ml: [-3],
         }}
       >
+        <FireToggle showFires={showFires} setShowFires={setShowFires} />
         <Mapbox
           locations={locations}
           map={map}
@@ -59,82 +103,36 @@ const Mobile = ({ data, locations }) => {
         />
       </Box>
 
-      <Box
-        sx={{
-          position: 'fixed',
-          left: '0px',
-          top: '56px',
-          height: '56px',
-          width: 'calc(100vw)',
-          bg: 'background',
-          pl: [3],
-          pt: [2],
-          pr: [3],
-          borderStyle: 'solid',
-          borderColor: 'muted',
-          borderWidth: '0px',
-          borderBottomWidth: '1px',
-        }}
-      >
-        <Row columns={6}>
-          <Column start={1} width={5}>
-            <Box sx={{ fontSize: [1], color: 'secondary' }}>
-              Fire Season 2021 update: click to see where projects overlap
-              fires.
-            </Box>
-          </Column>
-          <Column start={6} width={1}>
-            <Toggle
-              onClick={() => setShowFires((prev) => !prev)}
-              value={showFires}
-              sx={{
-                color: 'red',
-                float: 'right',
-                position: 'relative',
-                top: '5px',
-              }}
-            />
-          </Column>
-        </Row>
-      </Box>
       {map && <Enhancers map={map} selected={null} showFires={showFires} />}
       {section === 'projects' && (
-        <FadeIn>
-          <Box sx={{ height: '56px' }} />
-          <About mobile={true} />
-          {data
-            .sort((a, b) => {
-              const nameA = displayNames.filter((d) => d.id === a.id)[0].name
-              const nameB = displayNames.filter((d) => d.id === b.id)[0].name
-              return nameA.localeCompare(nameB)
-            })
-            .filter((d) => (showFires ? (d.fire ? true : false) : true))
-            .map((d, i) => (
-              <Project
-                key={d.id}
-                data={d}
-                final={i === data.length - 1 && data.length > 3}
-                setSelected={() => {}}
-                setZoomTo={setZoomTo}
-                showFires={showFires}
-              ></Project>
-            ))}
-          <Box sx={{ height: '64px' }} />
-        </FadeIn>
+        <>
+          <FireToggle showFires={showFires} setShowFires={setShowFires} />
+          <FadeIn>
+            <Box sx={{ height: '56px' }} />
+            <About mobile={true} />
+            {data
+              .sort((a, b) => {
+                const nameA = displayNames.filter((d) => d.id === a.id)[0].name
+                const nameB = displayNames.filter((d) => d.id === b.id)[0].name
+                return nameA.localeCompare(nameB)
+              })
+              .filter((d) => (showFires ? (d.fire ? true : false) : true))
+              .map((d, i) => (
+                <Project
+                  key={d.id}
+                  data={d}
+                  final={i === data.length - 1 && data.length > 3}
+                  setSelected={() => {}}
+                  setZoomTo={setZoomTo}
+                  showFires={showFires}
+                ></Project>
+              ))}
+            <Box sx={{ height: '64px' }} />
+          </FadeIn>
+        </>
       )}
       {section === 'methods' && (
         <FadeIn>
-          <Box sx={{ height: '56px' }} />
-          <Box sx={{ mt: 3 }} />
-          <Button
-            inverted
-            size='xs'
-            onClick={() => setSection('map')}
-            sx={{ cursor: 'pointer', mt: [1] }}
-            prefix={<Left />}
-          >
-            Back
-          </Button>
           <MethodsContent />
         </FadeIn>
       )}
