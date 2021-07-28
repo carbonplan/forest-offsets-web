@@ -2,7 +2,7 @@ import { Box } from 'theme-ui'
 
 ## Summary
 
-This website and associated data products present a digitization of improved forest management (IFM) projects that earned offset credits in California’s carbon market as of September 2020. All project materials are based on publicly available resources, primarily derived from participating carbon offset registries and the California Air Resources Board (ARB).
+This website and associated data products present a digitization of improved forest management (IFM) projects that earned offset credits in California’s carbon market as of September 2020. All project materials are based on publicly available resources, primarily derived from participating carbon offset registries and the California Air Resources Board (ARB). For the 2021 Fire Season, we have also started tracking wildfires impacting projects.
 
 ## Usage
 
@@ -25,6 +25,8 @@ Shapefiles for projects were obtained from the California Air Resources Board’
 For each project, we transcribed project details described in the “initial” and “annual” OPDRs. In the rare case where initial and/or annual OPDRs were unavailable, we sourced information from the project’s listing information (which is also hosted by the offset registries). For each project, we record the CARB supersections it occupies and total project acreage. We also transcribed information about each project’s assessment areas, including information about the assessment area site class, total acreage, and the species composition of the land assigned to each assessment area. For some projects, species information was only available on a project-wide basis (e.g., no information was available on a per-assessment-area basis), which we recorded under the special assessment area code 999.
 
 For the initial reporting period, we recorded onsite carbon stocks (IFM-1 and IFM-3) and the carbon stocks contained within wood products (IFM-7 and IFM-8), both for the baseline and project scenarios as well as for the project’s calculated secondary effects (including emissions leakage). We also created a list of all entities that have owned specific offset projects, as well as enumerated the entities that played a role in developing (e.g., financing) individual offset projects.
+
+For the 2021 Fire Season, we have started tracking the occurance of wildfires that impact projects. For this analysis, we query perimeters for all 2021 wildland fire incidents from the [Current Wildland Fire Perimeters](https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-current-wildland-fire-perimeters/about) data product provided by [Wildland Fire Interagency Geospatial Services](https://data-nifc.opendata.arcgis.com/). These perimeters are rendered in the map as red polygons after turning on the fire display toggle. In addition, we find all offset projects with perimeters that intersect fires, and calculate the burned area. In cases of overlapping fires, we combine all intersecting polygons to prevent double counting. When fire display is turned on, the project list only shows projects with overlapping fires. Selecting a project will show fire-related statistics, including the fraction of the project burned. Fire data is updated every 4 hours. For more on our fire processing pipeline, look at our [repository](https://github.com/carbonplan/forest-offsets-web) on GitHub.
 
 ## Data access
 
