@@ -1,4 +1,4 @@
-import { Box, Text, Grid, Link } from 'theme-ui'
+import { Box, Grid, Link } from 'theme-ui'
 import { Row, Column, Button } from '@carbonplan/components'
 import { RotatingArrow } from '@carbonplan/icons'
 import { format } from 'd3-format'
@@ -24,7 +24,6 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
   }
 
   const FireName = ({ i, d }) => {
-    console.log(i, d)
     if (d.href) {
       return (
         <Link
@@ -49,7 +48,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
       )
     } else {
       return (
-        <Text
+        <Box
           key={i}
           sx={{
             mb: [1],
@@ -60,7 +59,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
         >
           {' '}
           {d.name}{' '}
-        </Text>
+        </Box>
       )
     }
   }
@@ -175,7 +174,11 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               scale={{ min: 0, max: 0.5 }}
               value={fire.burnedFraction}
               color={'red'}
-              display={format('.0%')(fire.burnedFraction)}
+              display={
+                Math.round(fire.burnedFraction * 100) < 1
+                  ? '<1%'
+                  : format('.0%')(fire.burnedFraction)
+              }
               units={'%'}
             />
             <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2] }}>
