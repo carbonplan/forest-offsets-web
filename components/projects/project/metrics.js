@@ -3,7 +3,6 @@ import { Row, Column, Button } from '@carbonplan/components'
 import { RotatingArrow } from '@carbonplan/icons'
 import { format } from 'd3-format'
 import Bar from './bar'
-import Check from './check'
 import Info from '../info'
 
 const Metrics = ({ data, setZoomTo, showFires }) => {
@@ -22,6 +21,48 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
       Math.round(d.issuance) == Math.round(d.reported) &&
       Math.round(d.calculated) == Math.round(d.reported)
     )
+  }
+
+  const FireName = ({ i, d }) => {
+    console.log(i, d)
+    if (d.href) {
+      return (
+        <Link
+          key={i}
+          onClick={(e) => e.stopPropagation()}
+          href={d.href}
+          sx={{ textDecoration: 'none' }}
+        >
+          <Button
+            size='xs'
+            sx={{
+              mb: [1],
+              fontFamily: 'faux',
+              letterSpacing: 'faux',
+              color: 'red',
+            }}
+            suffix={<RotatingArrow />}
+          >
+            {d.name}
+          </Button>
+        </Link>
+      )
+    } else {
+      return (
+        <Text
+          key={i}
+          sx={{
+            mb: [1],
+            fontFamily: 'faux',
+            letterSpacing: 'faux',
+            color: 'red',
+          }}
+        >
+          {' '}
+          {d.name}{' '}
+        </Text>
+      )
+    }
   }
 
   const onClick = (e) => {
@@ -162,25 +203,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                   }}
                 >
                   {fire.overlappingFires.map((d, i) => (
-                    <Link
-                      key={i}
-                      onClick={(e) => e.stopPropagation()}
-                      href={d.href}
-                      sx={{ textDecoration: 'none' }}
-                    >
-                      <Button
-                        size='xs'
-                        sx={{
-                          mb: [1],
-                          fontFamily: 'faux',
-                          letterSpacing: 'faux',
-                          color: 'red',
-                        }}
-                        suffix={<RotatingArrow />}
-                      >
-                        {d.name}
-                      </Button>
-                    </Link>
+                    <FireName key={i} d={d} i={i} />
                   ))}
                 </Box>
               </Column>

@@ -119,7 +119,7 @@ def make_fires(fire_names_and_urls, fires_gdf):
     for i, row in fires_gdf.to_crs("epsg:4326").iterrows():
         obj = fire_schema()
         obj["name"] = row["irwin_IncidentName"].title()
-        match = process.extractOne(row["irwin_IncidentName"], url_keys, score_cutoff=90)
+        match = process.extractOne(row["irwin_IncidentName"], url_keys, score_cutoff=85)
         if match is not None:
             obj["url"] = "https://inciweb.nwcg.gov" + fire_names_and_urls[match[0]]
         obj["start_date"] = row["irwin_FireDiscoveryDateTime"]
