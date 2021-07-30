@@ -71,7 +71,7 @@ const Filter = ({
           pl: [0],
           pr: [0],
           ml: [3],
-          width: '150px',
+          width: ['130px', '130px', '150px', '150px'],
           fontFamily: 'mono',
           borderRadius: '0px',
           borderWidth: '0px',
@@ -109,12 +109,12 @@ const Filter = ({
         </Box>
         <Badge sx={{ color: 'secondary' }}>{total}</Badge>
       </Box>
-      <Row columns={[3, 4, 4, 4]} sx={{ mt: [3] }}>
+      <Row columns={[4]} sx={{ mt: [3] }}>
         <Column start={[1]} width={[2]}>
           <Box
             onClick={() => toggle('updateWithMap')}
             sx={{
-              display: 'inline-block',
+              display: ['block', 'block', 'block', 'inline-block'],
               fontFamily: 'mono',
               letterSpacing: 'mono',
               position: 'relative',
@@ -140,18 +140,18 @@ const Filter = ({
           />
         </Column>
         <Column start={[3]} width={[2]}>
-          <Box sx={{ float: 'right' }}>
+          <Box sx={{ textAlign: 'right' }}>
             <Box
               onClick={() => toggle('updateWithMap')}
               sx={{
-                display: 'inline-block',
+                display: ['block', 'block', 'block', 'inline-block'],
                 fontFamily: 'mono',
                 letterSpacing: 'mono',
                 position: 'relative',
                 fontSize: [1, 1, 1, 2],
                 color: 'secondary',
                 pl: [0],
-                pr: [3],
+                pr: [0, 0, 0, 3],
                 cursor: 'pointer',
                 transition: '0.15s',
               }}
