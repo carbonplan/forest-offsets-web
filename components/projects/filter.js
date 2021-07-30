@@ -109,12 +109,18 @@ const Filter = ({
         </Box>
         <Badge sx={{ color: 'secondary' }}>{total}</Badge>
       </Box>
-      <Row columns={[3, 4, 4, 4]} sx={{ mt: [3] }}>
-        <Column start={[1]} width={[2]}>
+      <Flex
+        sx={{
+          width: '100%',
+          alignContent: 'flex-start',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Flex sx={{ mt: [2], minWidth: '200px' }}>
           <Box
             onClick={() => toggle('updateWithMap')}
             sx={{
-              display: 'inline-block',
               fontFamily: 'mono',
               letterSpacing: 'mono',
               position: 'relative',
@@ -124,6 +130,7 @@ const Filter = ({
               pr: [3],
               cursor: 'pointer',
               transition: '0.15s',
+              mt: [2],
             }}
           >
             UPDATE W/ MAP
@@ -131,41 +138,38 @@ const Filter = ({
           <Toggle
             onClick={() => toggle('updateWithMap')}
             value={filters.updateWithMap}
-            toggle={() => toggle('updateWithMap')}
             sx={{
               color: showFires ? 'primary' : 'green',
               position: 'relative',
               top: '5px',
             }}
           />
-        </Column>
-        <Column start={[3]} width={[2]}>
-          <Box sx={{ float: 'right' }}>
-            <Box
-              onClick={() => toggle('updateWithMap')}
-              sx={{
-                display: 'inline-block',
-                fontFamily: 'mono',
-                letterSpacing: 'mono',
-                position: 'relative',
-                fontSize: [1, 1, 1, 2],
-                color: 'secondary',
-                pl: [0],
-                pr: [3],
-                cursor: 'pointer',
-                transition: '0.15s',
-              }}
-            >
-              W/ FIRES
-            </Box>
-            <Toggle
-              onClick={() => setShowFires((prev) => !prev)}
-              value={showFires}
-              sx={{ color: 'red', position: 'relative', top: '5px' }}
-            />
+        </Flex>
+        <Flex sx={{ mt: [2] }}>
+          <Box
+            onClick={() => setShowFires((prev) => !prev)}
+            sx={{
+              fontFamily: 'mono',
+              letterSpacing: 'mono',
+              position: 'relative',
+              fontSize: [1, 1, 1, 2],
+              color: 'secondary',
+              pl: [0],
+              pr: [3],
+              cursor: 'pointer',
+              transition: '0.15s',
+              mt: [2],
+            }}
+          >
+            W/ FIRES
           </Box>
-        </Column>
-      </Row>
+          <Toggle
+            onClick={() => setShowFires((prev) => !prev)}
+            value={showFires}
+            sx={{ color: 'red', position: 'relative', top: '5px' }}
+          />
+        </Flex>
+      </Flex>
     </Box>
   )
 }
