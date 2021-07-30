@@ -33,7 +33,7 @@ const style = (locations, colors) => {
         tiles: [
           `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/{z}/{x}/{y}.pbf`,
         ],
-        maxzoom: 5,
+        maxzoom: 9,
       },
       projectLocations: {
         type: 'geojson',

@@ -88,7 +88,7 @@ def build_fires(tempdir):
     cmds = []
     cmds.append(
         "tippecanoe "
-        "-z5 "
+        "-z9 "
         f"-o {tempdir}/tmp/fires.mbtiles "
         "--no-feature-limit "
         "--no-tile-size-limit "
