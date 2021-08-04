@@ -47,7 +47,7 @@ const Viewer = ({ data, locations, map, bounds }) => {
         const container = document.getElementById('projects')
         const y0 = container.scrollTop
         const y1 = el.getBoundingClientRect().top
-        const y = y0 + y1 - 172
+        const y = y0 + y1 - 167
         container.scrollTo({ top: y, behavior: 'smooth' })
         if (tick) clearTimeout(tick)
         setTick(

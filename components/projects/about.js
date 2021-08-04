@@ -62,7 +62,7 @@ const About = ({ mobile }) => {
         </Link>
         {'. '}
         {!mobile && (
-          <Box sx={{ mt: [2], color: 'secondary' }}>
+          <Box sx={{ mt: [2], mb: [1], color: 'secondary' }}>
             Fire Season 2021 update: see fires overlapping projects.
           </Box>
         )}
