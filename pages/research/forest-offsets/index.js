@@ -125,7 +125,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
 
 export async function getServerSideProps() {
   const prefix =
-    'https://storage.googleapis.com/carbonplan-scratch/offset-fires'
+    'https://storage.googleapis.com/carbonplan-research/offset-fires'
   try {
     const resFireMetadata = await fetch(`${prefix}/fire_meta.json`)
     const fireMetadata = await resFireMetadata.json()
