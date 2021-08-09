@@ -1,15 +1,29 @@
 #!/usr/bin/env python3
+import datetime
 import json
 
 import click
 import fsspec
 import geopandas
+import git
 import numpy as np
 from bs4 import BeautifulSoup
 from fuzzywuzzy import process
 from tenacity import retry, stop_after_attempt
 
 crs = "+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs +type=crs"
+
+# Current datetime
+now = datetime.datetime.utcnow().isoformat()
+
+# Git info
+repo = git.Repo(search_parent_directories=True)
+sha = repo.head.commit.hexsha
+short_sha = repo.git.rev_parse(sha, short=7)
+
+
+def base_schema(name=None):
+    return {"name": name, "created_datetime": now, "git_sha": short_sha}
 
 
 def project_fires_schema():
@@ -78,6 +92,8 @@ def calc_burned_frac(project_shape, fires):
 
 def find_projects_with_fires(projects, fires_gdf):
 
+    out = base_schema(name="Projects with fires")
+
     projects_with_fires = {}
 
     for project in projects:
@@ -100,34 +116,53 @@ def find_projects_with_fires(projects, fires_gdf):
 
             projects_with_fires[pid] = obj
 
-    return projects_with_fires
+    out["projects"] = projects_with_fires
+
+    return out
 
 
 def get_fire_label_coords(geometry):
     g = geometry.convex_hull
+
+    # centroid
+    centroid = g.centroid.x, g.centroid.y
+
+    # northern most point
     coords = np.array(g.exterior.coords)
     max_ind = np.argmax(coords[:, 1])
     max_coords = coords[max_ind].tolist()
-    return max_coords
+
+    return centroid, max_coords
 
 
-def make_fires(fire_names_and_urls, fires_gdf):
-    fires = {}
+def make_fires(fire_names_and_urls, fires_gdf, projects_with_fires):
+
+    fire_ids = []
+    for p in projects_with_fires["projects"].values():
+        fire_ids.extend(p["overlapping_fires"])
+
+    out = base_schema(name="Fire metadata")
 
     url_keys = list(fire_names_and_urls)
 
-    for i, row in fires_gdf.to_crs("epsg:4326").iterrows():
+    meta_fires = fires_gdf[fires_gdf["irwin_UniqueFireIdentifier"].isin(fire_ids)]
+
+    fires = {}
+    for i, row in meta_fires.to_crs("epsg:4326").iterrows():
         obj = fire_schema()
         obj["name"] = row["irwin_IncidentName"].title()
         match = process.extractOne(row["irwin_IncidentName"], url_keys, score_cutoff=90)
         if match is not None:
             obj["url"] = "https://inciweb.nwcg.gov" + fire_names_and_urls[match[0]]
         obj["start_date"] = row["irwin_FireDiscoveryDateTime"]
-        obj["centroid"] = get_fire_label_coords(row.geometry)
-
+        centroid, max_coord = get_fire_label_coords(row.geometry)
+        obj["centroid"] = centroid
+        obj["label_geom"] = max_coord
         fires[row["irwin_UniqueFireIdentifier"]] = obj
 
-    return fires
+    out["fires"] = fires
+
+    return out
 
 
 @click.command()
@@ -143,19 +178,19 @@ def main(upload_to):
     print("loading project db")
     projects = get_projects_db()
 
-    print("making fire metadata")
-    fire_meta = make_fires(fire_names_and_urls, fires_gdf)
-    if upload_to:
-        print("writing fire metadata")
-        with fsspec.open(f"{upload_to}/fire_meta.json", mode="w") as f:
-            json.dump(fire_meta, f)
-
     print("making projects with fires")
     projects_with_fires = find_projects_with_fires(projects, fires_gdf)
     if upload_to:
         print("writing projects with fires")
         with fsspec.open(f"{upload_to}/projects_with_fires.json", mode="w") as f:
             json.dump(projects_with_fires, f)
+
+    print("making fire metadata")
+    fire_meta = make_fires(fire_names_and_urls, fires_gdf, projects_with_fires)
+    if upload_to:
+        print("writing fire metadata")
+        with fsspec.open(f"{upload_to}/fire_meta.json", mode="w") as f:
+            json.dump(fire_meta, f)
 
     if upload_to:
         print("writing fires.json")
