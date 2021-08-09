@@ -23,6 +23,15 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
     )
   }
 
+  const formatDate = (date) => {
+    let d = new Date(date.replace('T', ' ') + ' GMT-0000')
+    let month = d.toLocaleString('default', { month: 'short' })
+    let day = String(d.getDate()).padStart(2, '0')
+    let year = d.getFullYear()
+    let time = d.toLocaleTimeString('en-US', { timeStyle: 'short' })
+    return month + ' ' + day + ' ' + time + ' PT'
+  }
+
   const FireName = ({ i, d }) => {
     if (d.href) {
       return (
@@ -48,18 +57,22 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
       )
     } else {
       return (
-        <Box
+        <Button
           key={i}
+          size='xs'
           sx={{
             mb: [1],
             fontFamily: 'faux',
             letterSpacing: 'faux',
             color: 'red',
+            cursor: 'default',
+            '&:hover': {
+              color: 'red',
+            },
           }}
         >
-          {' '}
-          {d.name}{' '}
-        </Box>
+          {d.name}
+        </Button>
       )
     }
   }
@@ -132,12 +145,14 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
   return (
     <Box>
       <Box
+        onClick={(e) => e.stopPropagation()}
         sx={{
           borderStyle: 'solid',
           borderWidth: '0px',
           borderBottomWidth: '1px',
           borderTopWidth: '1px',
           borderColor: 'muted',
+          cursor: 'default',
           pt: [4],
           pb: [4],
           mt: [4],
@@ -161,8 +176,9 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               <Info>
                 We are tracking occurances of fires overlapping offset projects.
                 Area burned refers to the fraction of fire area overlapping
-                offset project area, including all fires thus far in 2021,
-                updated nightly. We also list names with links for all fires.
+                offset project area, for all fires thus far in 2021, updated
+                every few hours. We list names for all overlapping fires, with
+                links if available.
               </Info>
             </Box>
             <RowBar
@@ -181,7 +197,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               }
               units={'%'}
             />
-            <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2] }}>
+            <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2], pt: [1] }}>
               <Column
                 start={[1]}
                 width={[2]}
@@ -208,6 +224,34 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                   {fire.overlappingFires.map((d, i) => (
                     <FireName key={i} d={d} i={i} />
                   ))}
+                </Box>
+              </Column>
+            </Row>
+            <Row columns={[6, 4, 4, 4]} sx={{ mb: [3], mt: [2], pb: [1] }}>
+              <Column
+                start={[1]}
+                width={[2]}
+                sx={{
+                  color: 'red',
+                  fontFamily: 'faux',
+                  letterSpacing: 'faux',
+                  fontSize: [2, 2, 2, 3],
+                }}
+              >
+                Last updated
+              </Column>
+              <Column start={[3]} width={[4, 2, 2, 2]}>
+                <Box
+                  sx={{
+                    fontFamily: 'faux',
+                    letterSpacing: 'faux',
+                    fontSize: [2, 2, 2, 3],
+                    color: 'red',
+                    textAlign: 'left',
+                    mt: ['3px'],
+                  }}
+                >
+                  {formatDate(fire.lastUpdated)}
                 </Box>
               </Column>
             </Row>
