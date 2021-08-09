@@ -24,7 +24,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
   }
 
   const formatDate = (date) => {
-    let d = new Date(date.replace('T', ' ') + ' GMT-0000')
+    let d = new Date(date + '-0000')
     let month = d.toLocaleString('default', { month: 'short' })
     let day = String(d.getDate()).padStart(2, '0')
     let year = d.getFullYear()
