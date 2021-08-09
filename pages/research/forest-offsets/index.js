@@ -6,7 +6,10 @@ import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
 import { projects } from '../../../data/projects'
 
-const Index = ({ fires, projectsWithFires }) => {
+const Index = ({ fireMetadata, fireProjects }) => {
+  const { fires } = fireMetadata
+  const { projects: projectsWithFires } = fireProjects
+
   const uniqueOverlapping = [
     ...new Set(
       Object.keys(projectsWithFires)
@@ -45,10 +48,7 @@ const Index = ({ fires, projectsWithFires }) => {
           },
           geometry: {
             type: 'Point',
-            coordinates: [
-              fires[d].centroid[0] - 0.05,
-              fires[d].centroid[1] - 0.05,
-            ],
+            coordinates: [fires[d].centroid[0], fires[d].centroid[1]],
           },
         }
       }),
@@ -64,6 +64,7 @@ const Index = ({ fires, projectsWithFires }) => {
           return { name: fires[id].name, href: fires[id].url }
         }),
         burnedFraction: el.burned_frac,
+        lastUpdated: fireMetadata.created_datetime,
       }
     }
     return d
@@ -124,12 +125,19 @@ const Index = ({ fires, projectsWithFires }) => {
 
 export async function getServerSideProps() {
   const prefix =
-    'https://storage.googleapis.com/carbonplan-research/offset-fires'
-  const fires = await (await fetch(`${prefix}/fire_meta.json`)).json()
-  const projectsWithFires = await (
-    await fetch(`${prefix}/projects_with_fires.json`)
-  ).json()
-  return { props: { fires, projectsWithFires } }
+    'https://storage.googleapis.com/carbonplan-scratch/offset-fires'
+  try {
+    const resFireMetadata = await fetch(`${prefix}/fire_meta.json`)
+    const fireMetadata = await resFireMetadata.json()
+    const resFireProjects = await fetch(`${prefix}/projects_with_fires.json`)
+    const fireProjects = await resFireProjects.json()
+
+    return { props: { fireMetadata, fireProjects } }
+  } catch {
+    return {
+      props: { fireMetadata: { fires: {} }, fireProjects: { projects: {} } },
+    }
+  }
 }
 
 export default Index
