@@ -44,7 +44,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
           type: 'Feature',
           properties: {
             id: d,
-            name: fires[d].name,
+            name: fires[d] ? fires[d].name : null,
           },
           geometry: {
             type: 'Point',
@@ -58,7 +58,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
 
   const merged = projects.map((d) => {
     const el = projectsWithFires[d.id]
-    if (el) {
+    if (el && Object.keys(fires).length > 0) {
       d.fire = {
         overlappingFires: el.overlapping_fires.map((id) => {
           return { name: fires[id].name, href: fires[id].url }
