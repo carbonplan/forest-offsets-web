@@ -50,9 +50,10 @@ def get_fire_urls():
 
 @retry(stop=stop_after_attempt(5))
 def get_nifs_fires():
+    # source: https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-2021-wildland-fire-perimeters-to-date/about
     fires = (
         geopandas.read_file(
-            "https://opendata.arcgis.com/api/v3/datasets/2191f997056547bd9dc530ab9866ab61_0/downloads/data?format=geojson&spatialRefId=4326"
+            "https://opendata.arcgis.com/datasets/6bd5dd4e93154f6fae0de1f2c82d95bf_0.geojson"
         )
         .to_crs(crs)
         .reset_index()
