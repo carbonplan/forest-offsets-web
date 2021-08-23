@@ -127,10 +127,10 @@ export async function getServerSideProps() {
   const prefix =
     'https://storage.googleapis.com/carbonplan-research/offset-fires'
   try {
-    const resFireMetadata = await fetch(`${prefix}/fire_meta.json`)
-    const fireMetadata = await resFireMetadata.json()
-    const resFireProjects = await fetch(`${prefix}/projects_with_fires.json`)
-    const fireProjects = await resFireProjects.json()
+    const res = await fetch(`${prefix}/fire_meta_combined.json`)
+    const data = await res.json()
+    const fireMetadata = data.fire_meta
+    const fireProjects = data.projects_with_fires
 
     return { props: { fireMetadata, fireProjects } }
   } catch {
