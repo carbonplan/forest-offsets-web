@@ -61,7 +61,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
     if (el && Object.keys(fires).length > 0) {
       d.fire = {
         overlappingFires: el.overlapping_fires.map((id) => {
-          return { name: fires[id].name, href: fires[id].url }
+          if (fires[id]) return { name: fires[id].name, href: fires[id].url }
         }),
         burnedFraction: el.burned_frac,
         lastUpdated: fireMetadata.created_datetime,

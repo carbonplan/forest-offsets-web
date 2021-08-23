@@ -33,6 +33,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
   }
 
   const FireName = ({ i, d }) => {
+    if (d) {
     if (d.href) {
       return (
         <Link
@@ -73,7 +74,11 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
         >
           {d.name}
         </Button>
+        
       )
+    }
+    } else {
+      return null
     }
   }
 
