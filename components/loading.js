@@ -22,13 +22,13 @@ const Loading = ({ map }) => {
             '0',
             'calc(4 * 100vw / 8 + 16px)',
             'calc(4 * 100vw / 12 + 22px)',
-            'min(calc(4 * 100vw / 12 + 32px), 672px)',
+            'calc(3 * 100vw / 12 + 32px)',
           ],
           width: [
             'calc(100vw)',
             'calc(100vw - (4 * 100vw / 8 + 16px))',
             'calc(100vw - (4 * 100vw / 12 + 22px))',
-            'calc(min(1920px, 100vw) - (min(calc(4 * 100vw / 12 + 32px), 672px)))',
+            'calc(100vw - (3 * 100vw / 12 + 32px))',
           ],
         }}
       >
