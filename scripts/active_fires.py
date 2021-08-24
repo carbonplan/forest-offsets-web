@@ -200,6 +200,12 @@ def main(upload_to):
                 fires_gdf[["irwin_UniqueFireIdentifier", "geometry"]].to_crs("EPSG:4326").to_json()
             )
 
+    if upload_to:
+        combined = {"fire_meta": fire_meta, "projects_with_fires": projects_with_fires}
+        print("writing combined fire metadata")
+        with fsspec.open(f"{upload_to}/fire_meta_combined.json", mode="w") as f:
+            json.dump(combined, f)
+
 
 if __name__ == "__main__":
     main()
