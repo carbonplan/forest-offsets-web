@@ -58,13 +58,13 @@ function Menu({ visible }) {
               0,
               'calc(4 * 100vw / 8 + 28px - 1px)',
               'calc(4 * 100vw / 12 + 26px - 1px)',
-              'min(calc(4 * 100vw / 12 + 36px), 677px)',
+              'calc(3 * 100vw / 12 + 36px)',
             ]
           : [
               0,
               'calc(2 * 100vw / 8 + 18px)',
               'calc(2 * 100vw / 12 + 24px)',
-              'min(calc(2 * 100vw / 12 + 36px), 516px)',
+              'calc(2 * 100vw / 12 + 36px)',
             ],
         height: '100%',
         backgroundColor: 'background',

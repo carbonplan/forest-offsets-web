@@ -18,7 +18,6 @@ const Desktop = ({ data, locations }) => {
         bottom: 0,
         flexDirection: ['column', 'row', 'row'],
         overflow: 'hidden',
-        maxWidth: '1920px',
         margin: 'auto',
       }}
     >

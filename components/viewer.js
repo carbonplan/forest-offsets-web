@@ -30,7 +30,6 @@ const Viewer = ({ data, locations, map, bounds }) => {
       const project = data.filter((d) => d.id === zoomTo)[0]
       const { acreage, shape_centroid } = project
       const center = shape_centroid[0]
-      console.log(100000 * (1 / acreage) + 7.5)
       map.easeTo({
         center: center,
         zoom: Math.min(100000 * (1 / acreage) + 7.5, 9.75),
