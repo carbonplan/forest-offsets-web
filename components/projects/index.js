@@ -3,6 +3,7 @@ import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { getScrollbarWidth } from '@carbonplan/components'
 import { alpha } from '@theme-ui/color'
 import { Arrow } from '@carbonplan/icons'
+import { format } from 'd3-format'
 import Header from './header'
 import About from './about'
 import List from './list'
@@ -56,6 +57,12 @@ const Projects = ({
       }
     }
   }, [])
+
+  console.log(
+    data
+      .filter((d) => d.fire)
+      .reduce((a, b) => a + b.acreage * b.fire.burnedFraction, 0)
+  )
 
   return (
     <>
@@ -177,6 +184,35 @@ const Projects = ({
                 />
               </Box>
             </Box>
+            {showFires && (
+              <Box
+                sx={{
+                  pl: [3, 4, 5, 6],
+                  pr: [3, 5, 5, 6],
+                  py: [4],
+                  borderBottom: ({ colors }) => `solid 1px ${colors.muted}`,
+                  fontFamily: 'faux',
+                  letterSpacing: 'faux',
+                  color: 'red',
+                }}
+              >
+                Total project area burned:{' '}
+                <Box
+                  as='span'
+                  sx={{ letterSpacing: 'mono', fontFamily: 'mono' }}
+                >
+                  {format('.3s')(
+                    data
+                      .filter((d) => d.fire)
+                      .reduce(
+                        (a, b) => a + b.acreage * b.fire.burnedFraction,
+                        0
+                      )
+                  )}
+                </Box>{' '}
+                acres
+              </Box>
+            )}
             <Box sx={{ ...sx.group, borderBottomWidth: '0px' }}>
               <List
                 data={data}

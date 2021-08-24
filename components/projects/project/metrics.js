@@ -32,51 +32,60 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
     return month + ' ' + day + ' ' + time + ' PT'
   }
 
+  const formatAcreage = (value) => {
+    if (value < 1) {
+      return '<1'
+    } else if (value < 1000) {
+      return Math.round(value)
+    } else {
+      return format('.2s')(value)
+    }
+  }
+
   const FireName = ({ i, d }) => {
     if (d) {
-    if (d.href) {
-      return (
-        <Link
-          key={i}
-          onClick={(e) => e.stopPropagation()}
-          href={d.href}
-          sx={{ textDecoration: 'none' }}
-        >
+      if (d.href) {
+        return (
+          <Link
+            key={i}
+            onClick={(e) => e.stopPropagation()}
+            href={d.href}
+            sx={{ textDecoration: 'none' }}
+          >
+            <Button
+              size='xs'
+              sx={{
+                mb: [1],
+                fontFamily: 'faux',
+                letterSpacing: 'faux',
+                color: 'red',
+              }}
+              suffix={<RotatingArrow />}
+            >
+              {d.name}
+            </Button>
+          </Link>
+        )
+      } else {
+        return (
           <Button
+            key={i}
             size='xs'
             sx={{
               mb: [1],
               fontFamily: 'faux',
               letterSpacing: 'faux',
               color: 'red',
+              cursor: 'default',
+              '&:hover': {
+                color: 'red',
+              },
             }}
-            suffix={<RotatingArrow />}
           >
             {d.name}
           </Button>
-        </Link>
-      )
-    } else {
-      return (
-        <Button
-          key={i}
-          size='xs'
-          sx={{
-            mb: [1],
-            fontFamily: 'faux',
-            letterSpacing: 'faux',
-            color: 'red',
-            cursor: 'default',
-            '&:hover': {
-              color: 'red',
-            },
-          }}
-        >
-          {d.name}
-        </Button>
-        
-      )
-    }
+        )
+      }
     } else {
       return null
     }
@@ -189,7 +198,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             <RowBar
               label={
                 <Box as='span' sx={{ color: 'red' }}>
-                  Area burned
+                  Fraction burned
                 </Box>
               }
               scale={{ min: 0, max: 0.5 }}
@@ -201,6 +210,18 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                   : format('.0%')(fire.burnedFraction)
               }
               units={'%'}
+            />
+            <RowBar
+              label={
+                <Box as='span' sx={{ color: 'red' }}>
+                  Area burned
+                </Box>
+              }
+              scale={{ min: 0, max: 300000 }}
+              value={fire.burnedFraction * acreage}
+              color={'red'}
+              display={formatAcreage(fire.burnedFraction * acreage)}
+              units={'ac'}
             />
             <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2], pt: [1] }}>
               <Column
@@ -300,7 +321,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
           label='Acreage'
           scale={{ min: 0, max: 300000 }}
           value={acreage}
-          display={format('.2s')(acreage)}
+          display={formatAcreage(acreage)}
           units={'ac'}
         />
         <RowBar
