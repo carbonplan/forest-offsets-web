@@ -6,3 +6,4 @@ tiles/processed
 __pycache__
 out/
 .vercel/
+.env*.local
