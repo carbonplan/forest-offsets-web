@@ -234,7 +234,7 @@ def main(upload_to):
 
         print("writing raw NIFC perimeter data")
         with fsspec.open(
-            f"{upload_to}/fire_perimeter_cache/{now}_raw_nifc_perimeters.parquet", mode="w"
+            f"{upload_to}/fire_perimeter_cache/{now}_raw_nifc_perimeters.parquet", mode="wb"
         ) as f:
             fires_gdf.to_parquet(f, compression="gzip")
 
