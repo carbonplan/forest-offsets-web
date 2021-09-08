@@ -14,6 +14,7 @@ dependencies:
   - mbutil
   - numpy
   - pandas
+  - pyarrow
   - requests
   - tippecanoe
   - tenacity
