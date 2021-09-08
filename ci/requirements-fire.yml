@@ -13,6 +13,7 @@ dependencies:
   - GitPython
   - mbutil
   - numpy
+  - pandas
   - requests
   - tippecanoe
   - tenacity
