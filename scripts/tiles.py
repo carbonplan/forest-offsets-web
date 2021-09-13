@@ -114,7 +114,7 @@ def upload_tiles(kind, tempdir, upload_to):
     print(f"uploading {kind} to {upload_to}")
     fs = fsspec.get_filesystem_class(upload_to.split(":")[0])()
     lpath = f"{tempdir}/processed/{kind}/"
-    rpath = f"{upload_to}/{kind}/"
+    rpath = f"{upload_to}/"
     fs.put(lpath, rpath, recursive=True)
 
 
