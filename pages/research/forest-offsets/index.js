@@ -79,7 +79,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
           description={
             'Data and results from analyzing improved forest management carbon offset projects.'
           }
-          title='forest offsets / research / carbonplan'
+          title='Forest offsets – CarbonPlan'
           card='https://images.carbonplan.org/social/forest-offsets.png'
           nav={'research'}
           header={false}
@@ -106,7 +106,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
             description={
               'Data and results from analyzing improved forest management carbon offset projects.'
             }
-            title='forest offsets / research / carbonplan'
+            title='Forest offsets – CarbonPlan'
             card='https://images.carbonplan.org/social/forest-offsets.png'
             header={true}
             nav={'research'}

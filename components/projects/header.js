@@ -30,7 +30,7 @@ const Header = () => {
           aria-label='CarbonPlan Homepage'
           sx={{ display: 'block' }}
         >
-          <Logo sx={{ cursor: 'pointer' }} />
+          <Logo sx={{ cursor: 'pointer', color: 'primary' }} />
         </Link>
       </Box>
       <Box>

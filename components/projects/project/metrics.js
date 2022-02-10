@@ -290,7 +290,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             letterSpacing: 'mono',
             textTransform: 'uppercase',
             fontSize: [1, 1, 1, 2],
-            mt: [3],
+            mt: [1],
             mb: [2],
           }}
         >
