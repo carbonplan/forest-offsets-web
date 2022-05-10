@@ -331,7 +331,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
           display={format('.2s')(arbocs.issuance)}
           units={'tCO₂'}
         />
-        {!over_crediting && (
+        {!showFires && !over_crediting && (
           <Box
             sx={{
               color: 'secondary',
@@ -351,7 +351,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             </Info>
           </Box>
         )}
-        {over_crediting && (
+        {!showFires && over_crediting && (
           <div>
             <Box
               sx={{

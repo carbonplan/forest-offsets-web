@@ -4,7 +4,7 @@ import Mapbox from './map/mapbox'
 import Viewer from './viewer'
 import Loading from './loading'
 
-const Desktop = ({ data, locations }) => {
+const Desktop = ({ data, locations, tiles, showFires }) => {
   const [map, setMap] = useState(null)
   const [bounds, setBounds] = useState(null)
 
@@ -21,9 +21,16 @@ const Desktop = ({ data, locations }) => {
         margin: 'auto',
       }}
     >
-      <Viewer locations={locations} data={data} map={map} bounds={bounds} />
+      <Viewer
+        locations={locations}
+        data={data}
+        map={map}
+        bounds={bounds}
+        showFires={showFires}
+      />
       <Mapbox
         locations={locations}
+        tiles={tiles}
         map={map}
         setMap={setMap}
         setBounds={setBounds}

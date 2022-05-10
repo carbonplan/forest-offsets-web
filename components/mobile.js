@@ -12,54 +12,10 @@ import Project from './projects/project'
 import MethodsContent from './projects/methods/index.md'
 import { displayNames } from '../data/display-names'
 
-const FireToggle = ({ showFires, setShowFires }) => {
-  return (
-    <Box
-      sx={{
-        position: 'absolute',
-        left: '0px',
-        top: '56px',
-        height: '56px',
-        width: 'calc(100vw)',
-        bg: 'background',
-        pl: [3],
-        pt: [2],
-        pr: [3],
-        borderStyle: 'solid',
-        borderColor: 'muted',
-        borderWidth: '0px',
-        borderBottomWidth: '1px',
-        zIndex: 1000,
-      }}
-    >
-      <Row columns={6}>
-        <Column start={1} width={5}>
-          <Box sx={{ fontSize: [1], color: 'secondary' }}>
-            Fire Season 2021 update: toggle to see where projects overlap fires.
-          </Box>
-        </Column>
-        <Column start={6} width={1}>
-          <Toggle
-            onClick={() => setShowFires((prev) => !prev)}
-            value={showFires}
-            sx={{
-              color: 'red',
-              float: 'right',
-              position: 'relative',
-              top: '5px',
-            }}
-          />
-        </Column>
-      </Row>
-    </Box>
-  )
-}
-
-const Mobile = ({ data, locations }) => {
+const Mobile = ({ data, locations, tiles, showFires }) => {
   const [map, setMap] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
   const [section, setSection] = useState('map')
-  const [showFires, setShowFires] = useState(null)
 
   const router = useRouter()
 
@@ -94,9 +50,9 @@ const Mobile = ({ data, locations }) => {
           ml: [-3],
         }}
       >
-        <FireToggle showFires={showFires} setShowFires={setShowFires} />
         <Mapbox
           locations={locations}
+          tiles={tiles}
           map={map}
           setMap={setMap}
           setBounds={() => {}}
@@ -106,7 +62,6 @@ const Mobile = ({ data, locations }) => {
       {map && <Enhancers map={map} selected={null} showFires={showFires} />}
       {section === 'projects' && (
         <>
-          <FireToggle showFires={showFires} setShowFires={setShowFires} />
           <FadeIn>
             <Box sx={{ height: '56px' }} />
             <About mobile={true} />

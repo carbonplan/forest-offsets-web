@@ -1,6 +1,6 @@
 import { Box, Link } from 'theme-ui'
 
-const About = ({ mobile }) => {
+const Wrapper = ({ title, children }) => {
   return (
     <Box
       sx={{
@@ -24,7 +24,7 @@ const About = ({ mobile }) => {
           lineHeight: 'heading',
         }}
       >
-        Forest offsets
+        {title}
       </Box>
       <Box
         sx={{
@@ -32,21 +32,32 @@ const About = ({ mobile }) => {
           pr: [3, 5, 5, 6],
           pt: [0],
           pb: [3, 3, 3, 3],
-          mb: [1],
+          mb: [2],
           fontSize: [2, 2, 2, 3],
           fontFamily: 'body',
           lineHeight: 'body',
         }}
       >
+        {children}
+      </Box>
+    </Box>
+  )
+}
+
+const About = ({ mobile, showFires }) => {
+  if (!showFires)
+    return (
+      <Wrapper title='Forest offsets'>
         This is a public database of improved forest management carbon offset
-        projects in California’s cap-and-trade program. Read our{' '}
+        projects in California’s cap-and-trade program from our analysis of
+        over-crediting. Read our{' '}
         <Link
           target='_blank'
           href='https://carbonplan.org/research/forest-offsets-explainer'
         >
           article
         </Link>{' '}
-        for more about our analysis. Download the data as{' '}
+        or download the data as{' '}
         <Link
           target='_blank'
           href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv'
@@ -61,14 +72,16 @@ const About = ({ mobile }) => {
           JSON
         </Link>
         {'. '}
-        {!mobile && (
-          <Box sx={{ mt: [2], mb: [1], color: 'secondary' }}>
-            Fire Season 2021 update: see fires overlapping projects.
-          </Box>
-        )}
-      </Box>
-    </Box>
-  )
+      </Wrapper>
+    )
+
+  if (showFires)
+    return (
+      <Wrapper title='Forest offsets fires'>
+        This is a public monitor of forest fires that intersect forest carbon
+        offset projects. Live updating for 2022.
+      </Wrapper>
+    )
 }
 
 export default About

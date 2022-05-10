@@ -4,12 +4,11 @@ import Projects from './projects'
 import Enhancers from './map/enhancers'
 import Minimap from './map/minimap'
 
-const Viewer = ({ data, locations, map, bounds }) => {
+const Viewer = ({ data, locations, map, bounds, showFires }) => {
   const [selected, setSelected] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
   const [scrollTo, setScrollTo] = useState(null)
   const [tick, setTick] = useState(null)
-  const [showFires, setShowFires] = useState(null)
 
   const router = useRouter()
 
@@ -102,7 +101,6 @@ const Viewer = ({ data, locations, map, bounds }) => {
         setSelected={setSelected}
         setZoomTo={setZoomTo}
         showFires={showFires}
-        setShowFires={setShowFires}
       />
       {map && <Enhancers map={map} selected={selected} showFires={showFires} />}
       <Minimap

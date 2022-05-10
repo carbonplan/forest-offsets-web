@@ -58,12 +58,6 @@ const Projects = ({
     }
   }, [])
 
-  console.log(
-    data
-      .filter((d) => d.fire)
-      .reduce((a, b) => a + b.acreage * b.fire.burnedFraction, 0)
-  )
-
   return (
     <>
       <Methods showMethods={showMethods} toggleMethods={toggleMethods} />
@@ -110,7 +104,7 @@ const Projects = ({
             }}
           >
             <Box>
-              <About />
+              <About showFires={showFires} />
             </Box>
             <Box sx={sx.groupTop}>
               <Box

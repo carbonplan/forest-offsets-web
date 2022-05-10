@@ -1,6 +1,6 @@
 import { mix } from 'polished'
 
-const style = (locations, colors) => {
+const style = (locations, tiles, colors) => {
   const { green, red, muted, secondary, background, primary } = colors
 
   return {
@@ -23,16 +23,12 @@ const style = (locations, colors) => {
       },
       projects: {
         type: 'vector',
-        tiles: [
-          `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/projects/{z}/{x}/{y}.pbf`,
-        ],
+        tiles: [tiles.projects],
         maxzoom: 9,
       },
       fires: {
         type: 'vector',
-        tiles: [
-          `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/fires/{z}/{x}/{y}.pbf`,
-        ],
+        tiles: [tiles.fires],
         maxzoom: 9,
       },
       projectLocations: {
