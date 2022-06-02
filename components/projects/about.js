@@ -48,39 +48,35 @@ const Wrapper = ({ title, children }) => {
 const About = ({ showFires }) => {
   if (!showFires)
     return (
-      <Wrapper title='Forest offsets over-crediting'>
-        This is a public database of improved forest management carbon offset
-        projects in California’s cap-and-trade program from our analysis of
-        over-crediting. Read our{' '}
-        <Link
-          target='_blank'
-          href='https://carbonplan.org/research/forest-offsets-explainer'
-        >
+      <Wrapper title='Over-crediting of forest offsets'>
+        This map summarizes our analysis of over-crediting of improved forest
+        management carbon offset projects in California’s cap-and-trade program.
+        Read our{' '}
+        <Link href='https://carbonplan.org/research/forest-offsets-explainer'>
           article
         </Link>{' '}
         or download the data as{' '}
-        <Link
-          target='_blank'
-          href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv'
-        >
+        <Link href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv'>
           CSV
         </Link>{' '}
         or{' '}
-        <Link
-          target='_blank'
-          href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json'
-        >
+        <Link href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json'>
           JSON
         </Link>
-        {'. '}
+        {'. '} Also see our separate live monitoring of{' '}
+        <Link href='/research/forest-offsets-fires'>
+          fires and forest offsets
+        </Link>
+        .
       </Wrapper>
     )
 
   if (showFires)
     return (
-      <Wrapper title='Forest offsets burning'>
-        This is a public monitor of forest fires affecting forest carbon offset
-        projects. <Colors.Red>Live updating for 2022.</Colors.Red>
+      <Wrapper title='Fires and forest offsets'>
+        This is a public monitor of forest fires affecting improved forest
+        management carbon offset projects in California's cap-and-trade program.{' '}
+        <Colors.Red>Live updating for 2022.</Colors.Red>
       </Wrapper>
     )
 }

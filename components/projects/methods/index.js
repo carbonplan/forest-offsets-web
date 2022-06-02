@@ -1,7 +1,7 @@
 import { Box, Text } from 'theme-ui'
 import { Button } from '@carbonplan/components'
 import { Left } from '@carbonplan/icons'
-import BaselinesMethodsContent from './baselines.md'
+import CreditingMethodsContent from './crediting.md'
 import FireMethodsContent from './fires.md'
 
 function Methods({ showMethods, toggleMethods, showFires }) {
@@ -58,7 +58,7 @@ function Methods({ showMethods, toggleMethods, showFires }) {
           }}
         >
           {showFires && <FireMethodsContent />}
-          {!showFires && <BaselinesMethodsContent />}
+          {!showFires && <CreditingMethodsContent />}
         </Box>
       </Box>
     </Box>

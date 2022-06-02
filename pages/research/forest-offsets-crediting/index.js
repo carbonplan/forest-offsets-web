@@ -4,7 +4,7 @@ import { Box } from 'theme-ui'
 import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
 import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
-import projects from '../../../data/projects-baselines'
+import projects from '../../../data/projects-crediting'
 
 const Index = () => {
   const projectLocations = {

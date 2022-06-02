@@ -9,7 +9,7 @@ import Enhancers from './map/enhancers'
 import Loading from './loading'
 import About from './projects/about'
 import Project from './projects/project'
-import BaselinesMethodsContent from './projects/methods/baselines.md'
+import CreditingMethodsContent from './projects/methods/crediting.md'
 import FireMethodsContent from './projects/methods/fires.md'
 
 const Mobile = ({ data, locations, tiles, showFires }) => {
@@ -88,7 +88,7 @@ const Mobile = ({ data, locations, tiles, showFires }) => {
       {section === 'methods' && (
         <FadeIn>
           {showFires && <FireMethodsContent />}
-          {!showFires && <BaselinesMethodsContent />}
+          {!showFires && <CreditingMethodsContent />}
         </FadeIn>
       )}
       <Box
