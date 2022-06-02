@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
 import { mix } from 'polished'
 
-function useTheme(map) {
+function useTheme(map, showFires) {
   const { theme } = useThemeUI()
   const { background, secondary, muted, red, primary, green } = theme.rawColors
 
@@ -38,9 +38,10 @@ function useTheme(map) {
     map.setPaintProperty('places-points', 'circle-opacity', 0.3)
     map.setPaintProperty('places-text', 'text-color', primary)
     map.setPaintProperty('places-text', 'text-opacity', 0.3)
-    map.setPaintProperty('fires-label', 'text-halo-color', background)
+    if (showFires)
+      map.setPaintProperty('fires-label', 'text-halo-color', background)
     map.setPaintProperty('projects-label', 'text-halo-color', background)
-  }, [theme])
+  }, [theme, showFires])
 }
 
 export default useTheme

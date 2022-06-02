@@ -20,12 +20,16 @@
   "bugs": {
     "url": "https://github.com/carbonplan/article-template/issues"
   },
+  "prettier": "@carbonplan/prettier",
   "homepage": "https://github.com/carbonplan/article-template#readme",
   "dependencies": {
     "@carbonplan/components": "^11.2.3",
     "@carbonplan/icons": "^1.0.0",
     "@carbonplan/theme": "^7.0.0",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^11.1.2",
     "@theme-ui/color": "^0.13.1",
     "@theme-ui/css": "^0.13.1",
@@ -50,6 +54,7 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
+    "@carbonplan/prettier": "^1.2.0",
     "prettier": "^2.2.1"
   }
 }

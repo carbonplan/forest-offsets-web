@@ -27,11 +27,11 @@ const Viewer = ({ data, locations, map, bounds, showFires }) => {
   useEffect(() => {
     if (map && zoomTo) {
       const project = data.filter((d) => d.id === zoomTo)[0]
-      const { acreage, shape_centroid } = project
-      const center = shape_centroid[0]
+      const { area, shape_centroid } = project
+      const center = shape_centroid
       map.easeTo({
         center: center,
-        zoom: Math.min(100000 * (1 / acreage) + 7.5, 9.75),
+        zoom: Math.min(100000 * (1 / area) + 7.5, 9.75),
         duration: 0,
       })
       setZoomTo(null)

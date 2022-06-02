@@ -1,3 +1,4 @@
+import { Colors } from '@carbonplan/components'
 import { Box, Link } from 'theme-ui'
 
 const Wrapper = ({ title, children }) => {
@@ -44,10 +45,10 @@ const Wrapper = ({ title, children }) => {
   )
 }
 
-const About = ({ mobile, showFires }) => {
+const About = ({ showFires }) => {
   if (!showFires)
     return (
-      <Wrapper title='Forest offsets'>
+      <Wrapper title='Forest offsets over-crediting'>
         This is a public database of improved forest management carbon offset
         projects in California’s cap-and-trade program from our analysis of
         over-crediting. Read our{' '}
@@ -77,9 +78,9 @@ const About = ({ mobile, showFires }) => {
 
   if (showFires)
     return (
-      <Wrapper title='Forest offsets fires'>
-        This is a public monitor of forest fires that intersect forest carbon
-        offset projects. Live updating for 2022.
+      <Wrapper title='Forest offsets burning'>
+        This is a public monitor of forest fires affecting forest carbon offset
+        projects. <Colors.Red>Live updating for 2022.</Colors.Red>
       </Wrapper>
     )
 }

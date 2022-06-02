@@ -28,11 +28,12 @@ const List = ({
     target = target.toLowerCase()
     return (
       d.id.toLowerCase().includes(target) ||
-      (d.developers.length > 0 &&
+      (d.developers?.length > 0 &&
         d.developers[0].toLowerCase().includes(target)) ||
-      (d.owners.length > 0 && d.owners[0].toLowerCase().includes(target)) ||
-      d.attestor.toLowerCase().includes(target) ||
-      d.name.toLowerCase().includes(target)
+      (d.owners?.length > 0 && d.owners[0].toLowerCase().includes(target)) ||
+      d.attestor?.toLowerCase().includes(target) ||
+      d.name.toLowerCase().includes(target) ||
+      d.opr_name?.toLowerCase().includes(target)
     )
   }
 
@@ -42,7 +43,7 @@ const List = ({
       (!filters.car && d.id.includes('CAR')) ||
       (filters.updateWithMap &&
         bounds &&
-        !inBounds(bounds, d.shape_centroid[0])) ||
+        !inBounds(bounds, d.shape_centroid)) ||
       (filters.search && !inFields(d, filters.search)) ||
       (showFires ? (d.fire ? false : true) : false)
     ) {
@@ -53,10 +54,10 @@ const List = ({
   }
 
   const compare = (a, b) => {
-    if (a.shape_centroid[0][1] > b.shape_centroid[0][1]) {
+    if (a.shape_centroid[1] > b.shape_centroid[1]) {
       return -1
     }
-    if (a.shape_centroid[0][1] < b.shape_centroid[0][1]) {
+    if (a.shape_centroid[1] < b.shape_centroid[1]) {
       return 1
     }
     return 0

@@ -9,8 +9,8 @@ import Enhancers from './map/enhancers'
 import Loading from './loading'
 import About from './projects/about'
 import Project from './projects/project'
-import MethodsContent from './projects/methods/index.md'
-import { displayNames } from '../data/display-names'
+import BaselinesMethodsContent from './projects/methods/baselines.md'
+import FireMethodsContent from './projects/methods/fires.md'
 
 const Mobile = ({ data, locations, tiles, showFires }) => {
   const [map, setMap] = useState(null)
@@ -30,11 +30,11 @@ const Mobile = ({ data, locations, tiles, showFires }) => {
     if (map && zoomTo) {
       setSection('map')
       const project = data.filter((d) => d.id === zoomTo)[0]
-      const { acreage, shape_centroid } = project
-      const center = shape_centroid[0]
+      const { area, shape_centroid } = project
+      const center = shape_centroid
       map.easeTo({
         center: center,
-        zoom: 100000 * (1 / acreage) + 7.5,
+        zoom: 100000 * (1 / area) + 7.5,
         duration: 0,
       })
     }
@@ -63,12 +63,11 @@ const Mobile = ({ data, locations, tiles, showFires }) => {
       {section === 'projects' && (
         <>
           <FadeIn>
-            <Box sx={{ height: '56px' }} />
-            <About mobile={true} />
+            <About showFires={showFires} />
             {data
               .sort((a, b) => {
-                const nameA = displayNames.filter((d) => d.id === a.id)[0].name
-                const nameB = displayNames.filter((d) => d.id === b.id)[0].name
+                const nameA = a.name
+                const nameB = b.name
                 return nameA.localeCompare(nameB)
               })
               .filter((d) => (showFires ? (d.fire ? true : false) : true))
@@ -88,7 +87,8 @@ const Mobile = ({ data, locations, tiles, showFires }) => {
       )}
       {section === 'methods' && (
         <FadeIn>
-          <MethodsContent />
+          {showFires && <FireMethodsContent />}
+          {!showFires && <BaselinesMethodsContent />}
         </FadeIn>
       )}
       <Box

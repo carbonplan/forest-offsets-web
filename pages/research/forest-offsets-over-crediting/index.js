@@ -4,7 +4,7 @@ import { Box } from 'theme-ui'
 import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
 import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
-import { projects } from '../../../data/projects'
+import projects from '../../../data/projects-baselines'
 
 const Index = () => {
   const projectLocations = {
@@ -17,7 +17,7 @@ const Index = () => {
         },
         geometry: {
           type: 'Point',
-          coordinates: d.shape_centroid[0],
+          coordinates: d.shape_centroid,
         },
       }
     }),
@@ -27,7 +27,6 @@ const Index = () => {
 
   const tiles = {
     projects: `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/projects/{z}/{x}/{y}.pbf`,
-    fires: `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/fires/{z}/{x}/{y}.pbf`,
   }
 
   const index = useBreakpointIndex()

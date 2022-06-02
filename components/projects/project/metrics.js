@@ -6,15 +6,8 @@ import Bar from './bar'
 import Info from '../info'
 
 const Metrics = ({ data, setZoomTo, showFires }) => {
-  const {
-    id,
-    fire,
-    arbocs,
-    carbon,
-    acreage,
-    over_crediting,
-    shape_centroid,
-  } = data
+  const { id, fire, arbocs, carbon, area, over_crediting, shape_centroid } =
+    data
 
   const checkIssuance = (d) => {
     return (
@@ -218,9 +211,9 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                 </Box>
               }
               scale={{ min: 0, max: 300000 }}
-              value={fire.burnedFraction * acreage}
+              value={fire.burnedFraction * area}
               color={'red'}
-              display={formatAcreage(fire.burnedFraction * acreage)}
+              display={formatAcreage(fire.burnedFraction * area)}
               units={'ac'}
             />
             <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2], pt: [1] }}>
@@ -303,32 +296,36 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             ("Credits"). Each credit represents 1 tCO₂.
           </Info>
         </Box>
-        <RowBar
-          label='Carbon'
-          scale={{ min: 0, max: 200 }}
-          value={carbon.initial_carbon_stock.value}
-          display={format('.0f')(carbon.initial_carbon_stock.value)}
-          units={'tCO₂/ac'}
-        />
-        <RowBar
-          label='Common practice'
-          scale={{ min: 0, max: 200 }}
-          value={carbon.common_practice.value}
-          display={format('.0f')(carbon.common_practice.value)}
-          units={'tCO₂/ac'}
-        />
+        {carbon && (
+          <>
+            <RowBar
+              label='Carbon'
+              scale={{ min: 0, max: 200 }}
+              value={carbon.initial_carbon_stock.value}
+              display={format('.0f')(carbon.initial_carbon_stock.value)}
+              units={'tCO₂/ac'}
+            />
+            <RowBar
+              label='Common practice'
+              scale={{ min: 0, max: 200 }}
+              value={carbon.common_practice.value}
+              display={format('.0f')(carbon.common_practice.value)}
+              units={'tCO₂/ac'}
+            />
+          </>
+        )}
         <RowBar
           label='Acreage'
           scale={{ min: 0, max: 300000 }}
-          value={acreage}
-          display={formatAcreage(acreage)}
+          value={area}
+          display={formatAcreage(area)}
           units={'ac'}
         />
         <RowBar
           label='Credits'
           scale={{ min: 0, max: 2000000 }}
-          value={arbocs.issuance}
-          display={format('.2s')(arbocs.issuance)}
+          value={arbocs}
+          display={format('.2s')(arbocs)}
           units={'tCO₂'}
         />
         {!showFires && !over_crediting && (

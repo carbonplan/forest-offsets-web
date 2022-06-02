@@ -1,0 +1,1186 @@
+[
+  {
+    "id": "CAR661",
+    "name": "Willits Woods",
+    "arbocs": 1464582,
+    "area": 17695,
+    "shape_centroid": [-123.43692457023333, 39.332408707497436],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR657",
+    "name": "Farm Cove Community",
+    "arbocs": 284043,
+    "area": 18500,
+    "shape_centroid": [-67.90696352151178, 45.19973734016465],
+    "location": "Washington County, ME"
+  },
+  {
+    "id": "CAR659",
+    "name": "Pungo River",
+    "arbocs": 109583,
+    "area": 704,
+    "shape_centroid": [-76.61866171432851, 35.79629376931454],
+    "location": "Washington County, NC"
+  },
+  {
+    "id": "CAR802",
+    "name": "Noles South",
+    "arbocs": 34856,
+    "area": 326,
+    "shape_centroid": [-76.5475671384925, 35.85642194495678],
+    "location": "Washington County, NC"
+  },
+  {
+    "id": "CAR688",
+    "name": "Noles North",
+    "arbocs": 36597,
+    "area": 282,
+    "shape_centroid": [-76.54822027860766, 35.866711531536986],
+    "location": "Washington County, NC"
+  },
+  {
+    "id": "CAR497",
+    "name": "Alligator River",
+    "arbocs": 604218,
+    "area": 2387,
+    "shape_centroid": [-76.09808890034746, 35.635569020100554],
+    "location": "Hyde County, NC"
+  },
+  {
+    "id": "CAR683",
+    "name": "Francis Beidler",
+    "arbocs": 570049,
+    "area": 5466,
+    "shape_centroid": [-80.33897810135025, 33.221716327857685],
+    "location": "Dorchester County, SC"
+  },
+  {
+    "id": "CAR676",
+    "name": "Pocosin Lakes",
+    "arbocs": 234992,
+    "area": 1349,
+    "shape_centroid": [-76.2447940437902, 35.67452099486325],
+    "location": "Tyrrell County, NC"
+  },
+  {
+    "id": "CAR102",
+    "name": "Garcia River",
+    "arbocs": 315573,
+    "area": 23798,
+    "shape_centroid": [-123.5193036697647, 38.90611592920151],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR408",
+    "name": "Big River / Salmon Creek",
+    "arbocs": 976671,
+    "area": 15923,
+    "shape_centroid": [-123.64731759405468, 39.27829434970564],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR660",
+    "name": "Gualala River",
+    "arbocs": 414346,
+    "area": 13550,
+    "shape_centroid": [-123.41304240044923, 38.82651901688628],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR648",
+    "name": "Potlatch Moro Big Pine CE",
+    "arbocs": 279456,
+    "area": 15892,
+    "shape_centroid": [-92.46160672042515, 33.394100887057604],
+    "location": "Calhoun County, AR"
+  },
+  {
+    "id": "CAR101",
+    "name": "Van Eck",
+    "arbocs": 384954,
+    "area": 2166,
+    "shape_centroid": [-124.05069709616146, 40.98481364584505],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR696",
+    "name": "Rich Mountain",
+    "arbocs": 93160,
+    "area": 5534,
+    "shape_centroid": [-81.90365340756603, 36.89734098397594],
+    "location": "Russell County, VA"
+  },
+  {
+    "id": "CAR686",
+    "name": "Clifton Farm",
+    "arbocs": 63135,
+    "area": 4004,
+    "shape_centroid": [-81.85500705566542, 37.02367760584086],
+    "location": "Russell County, VA"
+  },
+  {
+    "id": "CAR749",
+    "name": "Middleton",
+    "arbocs": 285687,
+    "area": 3734,
+    "shape_centroid": [-80.18361876027515, 32.88496222436694],
+    "location": "Dorchester County, SC"
+  },
+  {
+    "id": "CAR777",
+    "name": "Yurok Tribe Sustainable Forest",
+    "arbocs": 1330141,
+    "area": 20797,
+    "shape_centroid": [-123.77782763215, 41.301394199886914],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR1004",
+    "name": "Berry Summit",
+    "arbocs": 239205,
+    "area": 2198,
+    "shape_centroid": [-123.75372548265061, 40.89904430395865],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR429",
+    "name": "McCloud River",
+    "arbocs": 265791,
+    "area": 9182,
+    "shape_centroid": [-121.82250001365205, 41.19047628704839],
+    "location": "Siskiyou County, CA"
+  },
+  {
+    "id": "CAR645",
+    "name": "Champion Property",
+    "arbocs": 166918,
+    "area": 102986,
+    "shape_centroid": [-74.47602407794311, 44.58304246942492],
+    "location": "Franklin County, NY"
+  },
+  {
+    "id": "CAR658",
+    "name": "Brosnan Forest",
+    "arbocs": 325897,
+    "area": 10217,
+    "shape_centroid": [-80.4557424987523, 33.15019944410631],
+    "location": "Dorchester County, SC"
+  },
+  {
+    "id": "CAR780",
+    "name": "Shannondale Tree Farm",
+    "arbocs": 170586,
+    "area": 3984,
+    "shape_centroid": [-91.44489001797386, 37.36014583273866],
+    "location": "Shannon County, MO"
+  },
+  {
+    "id": "CAR1015",
+    "name": "Rips Redwoods",
+    "arbocs": 122277,
+    "area": 1424,
+    "shape_centroid": [-123.37496465483632, 38.672421806305124],
+    "location": "Sonoma County, CA"
+  },
+  {
+    "id": "CAR697",
+    "name": "Tazewell - Elk Garden",
+    "arbocs": 177984,
+    "area": 11646,
+    "shape_centroid": [-81.78877488639145, 36.977834988564524],
+    "location": "Russell County, VA"
+  },
+  {
+    "id": "CAR582",
+    "name": "Brimstone I",
+    "arbocs": 252512,
+    "area": 4960,
+    "shape_centroid": [-84.45485810007628, 36.27186760007607],
+    "location": "Scott County, TN"
+  },
+  {
+    "id": "CAR655",
+    "name": "Alder Stream Preserve",
+    "arbocs": 36596,
+    "area": 1622,
+    "shape_centroid": [-69.06403775706752, 45.18576049978221],
+    "location": "Piscataquis County, ME"
+  },
+  {
+    "id": "CAR681",
+    "name": "Howland Research Forest",
+    "arbocs": 48852,
+    "area": 547,
+    "shape_centroid": [-68.74382415407693, 45.20567924647533],
+    "location": "Penobscot County, ME"
+  },
+  {
+    "id": "CAR672",
+    "name": "NEFF",
+    "arbocs": 69051,
+    "area": 2157,
+    "shape_centroid": [-71.6626010075838, 43.55914470498595],
+    "location": "Belknap County, NH"
+  },
+  {
+    "id": "CAR730",
+    "name": "Usal Redwood",
+    "arbocs": 3918782,
+    "area": 48014,
+    "shape_centroid": [-123.8027247065183, 39.89002712378289],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR973",
+    "name": "Bishop",
+    "arbocs": 3112123,
+    "area": 229414,
+    "shape_centroid": [-85.9633014764787, 46.50951076892828],
+    "location": "Alger County, MI"
+  },
+  {
+    "id": "CAR993",
+    "name": "Yurok Tribe CKGG",
+    "arbocs": 983651,
+    "area": 7666,
+    "shape_centroid": [-123.7807791469204, 41.244143856172585],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR182",
+    "name": "Hanes Ranch",
+    "arbocs": 161558,
+    "area": 2394,
+    "shape_centroid": [-123.44211084798374, 38.954533526002116],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR189",
+    "name": "Miller Forest",
+    "arbocs": 329552,
+    "area": 1586,
+    "shape_centroid": [-123.7270366036877, 40.93716517410765],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR173",
+    "name": "Round Valley",
+    "arbocs": 597657,
+    "area": 5555,
+    "shape_centroid": [-123.27528568416464, 39.86546371998186],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR192",
+    "name": "Brookgreen Gardens",
+    "arbocs": 249376,
+    "area": 4444,
+    "shape_centroid": [-79.08628893396785, 33.52724197671149],
+    "location": "Georgetown County, SC"
+  },
+  {
+    "id": "ACR199",
+    "name": "CT Lakes",
+    "arbocs": 1865335,
+    "area": 146000,
+    "shape_centroid": [-71.25181357098842, 45.130612925864156],
+    "location": "Coos County, NH"
+  },
+  {
+    "id": "CAR1032",
+    "name": "Virginia Highlands I",
+    "arbocs": 348490,
+    "area": 9770,
+    "shape_centroid": [-82.17005529863543, 36.99888890969305],
+    "location": "Russell County, VA"
+  },
+  {
+    "id": "CAR1041",
+    "name": "Sacramento Canyon",
+    "arbocs": 662284,
+    "area": 16971,
+    "shape_centroid": [-122.30503028854588, 41.08217327053001],
+    "location": "Shasta County, CA"
+  },
+  {
+    "id": "ACR202",
+    "name": "Goodman",
+    "arbocs": 1042277,
+    "area": 27942,
+    "shape_centroid": [-88.35982311108516, 45.75757923380483],
+    "location": "Florence County, WI"
+  },
+  {
+    "id": "CAR1013",
+    "name": "Buckeye",
+    "arbocs": 994816,
+    "area": 18750,
+    "shape_centroid": [-123.32019825125191, 38.73391698316996],
+    "location": "Sonoma County, CA"
+  },
+  {
+    "id": "CAR1062",
+    "name": "Shannondale Tree Farm",
+    "arbocs": 0,
+    "area": 3984,
+    "shape_centroid": [-91.44489001797386, 37.36014583273866],
+    "location": "Shannon County, MO"
+  },
+  {
+    "id": "CAR1066",
+    "name": "Buck Mountain",
+    "arbocs": 302354,
+    "area": 12494,
+    "shape_centroid": [-121.84535471340993, 41.379033765958376],
+    "location": "Siskiyou County, CA"
+  },
+  {
+    "id": "CAR1067",
+    "name": "Berry Summit",
+    "arbocs": 4343,
+    "area": 2198,
+    "shape_centroid": [-123.75372548265061, 40.89904430395865],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR211",
+    "name": "White Mountain",
+    "arbocs": 4912398,
+    "area": 117972,
+    "shape_centroid": [-109.69527402732255, 33.888400552842214],
+    "location": "Apache County, AZ"
+  },
+  {
+    "id": "CAR1046",
+    "name": "University Hill",
+    "arbocs": 847895,
+    "area": 11350,
+    "shape_centroid": [-123.4892564918542, 40.56175078838972],
+    "location": "Trinity County, CA"
+  },
+  {
+    "id": "CAR1086",
+    "name": "Moro Big Pine",
+    "arbocs": 164579,
+    "area": 15892,
+    "shape_centroid": [-92.46160672042515, 33.394100887057604],
+    "location": "Calhoun County, AR"
+  },
+  {
+    "id": "CAR1088",
+    "name": "Champion",
+    "arbocs": 1138123,
+    "area": 102986,
+    "shape_centroid": [-74.47602407794311, 44.58304246942492],
+    "location": "Franklin County, NY"
+  },
+  {
+    "id": "CAR1094",
+    "name": "Ashford III",
+    "arbocs": 61138,
+    "area": 537,
+    "shape_centroid": [-122.03000320766445, 46.769100877887276],
+    "location": "Pierce County, WA"
+  },
+  {
+    "id": "CAR1095",
+    "name": "Brushy Mountain",
+    "arbocs": 2098896,
+    "area": 16426,
+    "shape_centroid": [-123.24915806851278, 39.6095132916258],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1109",
+    "name": "Middleton",
+    "arbocs": 244727,
+    "area": 3734,
+    "shape_centroid": [-80.18361876027515, 32.88496222436694],
+    "location": "Dorchester County, SC"
+  },
+  {
+    "id": "CAR1100",
+    "name": "Big River / Salmon Creek",
+    "arbocs": 402424,
+    "area": 15923,
+    "shape_centroid": [-123.64731759405468, 39.27829434970564],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1130",
+    "name": "Brimstone",
+    "arbocs": 142237,
+    "area": 4960,
+    "shape_centroid": [-84.45485810007628, 36.27186760007607],
+    "location": "Scott County, TN"
+  },
+  {
+    "id": "CAR1099",
+    "name": "Gualala River",
+    "arbocs": 406413,
+    "area": 13550,
+    "shape_centroid": [-123.41304240044923, 38.82651901688628],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1098",
+    "name": "Garcia River",
+    "arbocs": 569636,
+    "area": 23798,
+    "shape_centroid": [-123.5193036697647, 38.90611592920151],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1147",
+    "name": "Tazewell - Elk Garden",
+    "arbocs": 249891,
+    "area": 11646,
+    "shape_centroid": [-81.78877488639145, 36.977834988564524],
+    "location": "Russell County, VA"
+  },
+  {
+    "id": "CAR1102",
+    "name": "Montesol",
+    "arbocs": 231150,
+    "area": 3514,
+    "shape_centroid": [-122.57319582631614, 38.67908038090786],
+    "location": "Napa County, CA"
+  },
+  {
+    "id": "CAR1103",
+    "name": "Glass Ranch",
+    "arbocs": 290964,
+    "area": 2095,
+    "shape_centroid": [-123.63807555660368, 40.32730400945255],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR1104",
+    "name": "Gabrych Ranch",
+    "arbocs": 315394,
+    "area": 3499,
+    "shape_centroid": [-123.6031740739356, 40.70001785897262],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR1159",
+    "name": "Rich Mountain",
+    "arbocs": 145774,
+    "area": 5534,
+    "shape_centroid": [-81.90365340756603, 36.89734098397594],
+    "location": "Russell County, VA"
+  },
+  {
+    "id": "CAR1160",
+    "name": "Clifton Farm",
+    "arbocs": 85135,
+    "area": 4004,
+    "shape_centroid": [-81.85500705566542, 37.02367760584086],
+    "location": "Russell County, VA"
+  },
+  {
+    "id": "CAR1140",
+    "name": "Willits Woods",
+    "arbocs": 406051,
+    "area": 17695,
+    "shape_centroid": [-123.43692457023333, 39.332408707497436],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1134",
+    "name": "Brosnan Forest",
+    "arbocs": 28408,
+    "area": 10217,
+    "shape_centroid": [-80.4557424987523, 33.15019944410631],
+    "location": "Dorchester County, SC"
+  },
+  {
+    "id": "CAR1175",
+    "name": "Passamaquoddy Tribe",
+    "arbocs": 4513042,
+    "area": 105297,
+    "shape_centroid": [-68.06133998114201, 45.2405427157807],
+    "location": "Hancock County, ME"
+  },
+  {
+    "id": "ACR248",
+    "name": "Highlands",
+    "arbocs": 3390253,
+    "area": 119838,
+    "shape_centroid": [-82.3262920158949, 37.104065430241704],
+    "location": "Dickenson County, VA"
+  },
+  {
+    "id": "ACR249",
+    "name": "Wyoming",
+    "arbocs": 5248622,
+    "area": 97918,
+    "shape_centroid": [-81.6712678402692, 37.50770444732274],
+    "location": "McDowell County, WV"
+  },
+  {
+    "id": "ACR200",
+    "name": "Brush Creek",
+    "arbocs": 137902,
+    "area": 1996,
+    "shape_centroid": [-123.58478607786117, 38.96500629656637],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR256",
+    "name": "Tennessee River Gorge Trust",
+    "arbocs": 416413,
+    "area": 5690,
+    "shape_centroid": [-85.44048145886427, 35.07090268831297],
+    "location": "Marion County, TN"
+  },
+  {
+    "id": "ACR265",
+    "name": "Lukens",
+    "arbocs": 298810,
+    "area": 4136,
+    "shape_centroid": [-76.5357494230574, 34.96076924131714],
+    "location": "Carteret County, NC"
+  },
+  {
+    "id": "ACR266",
+    "name": "Milbury",
+    "arbocs": 1113081,
+    "area": 8400,
+    "shape_centroid": [-81.4537298370977, 32.92599158097349],
+    "location": "Allendale County, SC"
+  },
+  {
+    "id": "ACR267",
+    "name": "Powellton",
+    "arbocs": 2024853,
+    "area": 36303,
+    "shape_centroid": [-81.34497302467828, 38.09045764555208],
+    "location": "Fayette County, WV"
+  },
+  {
+    "id": "ACR268",
+    "name": "HMWCF-I",
+    "arbocs": 4182603,
+    "area": 78235,
+    "shape_centroid": [-84.99046413264828, 33.13124163828426],
+    "location": "Troup County, GA"
+  },
+  {
+    "id": "ACR262",
+    "name": "Bewley Ranches",
+    "arbocs": 886667,
+    "area": 13175,
+    "shape_centroid": [-123.5354148656522, 39.923978123410485],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR260",
+    "name": "Warm Springs",
+    "arbocs": 2676483,
+    "area": 24640,
+    "shape_centroid": [-121.67538009736042, 44.73561479338555],
+    "location": "Jefferson County, OR"
+  },
+  {
+    "id": "CAR1190",
+    "name": "Greenwood Creek",
+    "arbocs": 331816,
+    "area": 8658,
+    "shape_centroid": [-123.61176118769144, 39.09387706215506],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1174",
+    "name": "Eddie Ranch",
+    "arbocs": 280890,
+    "area": 4047,
+    "shape_centroid": [-123.17241971678831, 39.45277157202519],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR255",
+    "name": "Colville",
+    "arbocs": 14357787,
+    "area": 453220,
+    "shape_centroid": [-118.72701064941792, 48.252655228390495],
+    "location": "Ferry County, WA"
+  },
+  {
+    "id": "ACR276",
+    "name": "Allegheny",
+    "arbocs": 2216613,
+    "area": 42864,
+    "shape_centroid": [-80.9699063704214, 38.459788203896416],
+    "location": "Clay County, WV"
+  },
+  {
+    "id": "ACR279",
+    "name": "Lonesome Pine",
+    "arbocs": 758189,
+    "area": 16915,
+    "shape_centroid": [-82.481857604655, 37.033528967472705],
+    "location": "Wise County, VA"
+  },
+  {
+    "id": "ACR280",
+    "name": "Marmet",
+    "arbocs": 1178385,
+    "area": 24654,
+    "shape_centroid": [-81.63481236775611, 38.03621532360553],
+    "location": "Boone County, WV"
+  },
+  {
+    "id": "ACR281",
+    "name": "Northern Highlands",
+    "arbocs": 407974,
+    "area": 13102,
+    "shape_centroid": [-91.14962272922283, 45.84989586231435],
+    "location": "Sawyer County, WI"
+  },
+  {
+    "id": "ACR282",
+    "name": "Blue Creek",
+    "arbocs": 1103300,
+    "area": 14996,
+    "shape_centroid": [-123.87431154478021, 41.429622529679555],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR273",
+    "name": "Klamath East",
+    "arbocs": 1145363,
+    "area": 402400,
+    "shape_centroid": [-121.14554183399665, 42.56213939548274],
+    "location": "Klamath County, OR"
+  },
+  {
+    "id": "ACR274",
+    "name": "Klamath West",
+    "arbocs": 482150,
+    "area": 170867,
+    "shape_centroid": [-122.10733054162952, 42.16050128498348],
+    "location": "Klamath County, OR"
+  },
+  {
+    "id": "ACR284",
+    "name": "Massachusetts Audubon Society",
+    "arbocs": 853781,
+    "area": 10468,
+    "shape_centroid": [-72.27464671550217, 42.51110717513235],
+    "location": "Franklin County, MA"
+  },
+  {
+    "id": "ACR287",
+    "name": "BJT",
+    "arbocs": 504290,
+    "area": 7337,
+    "shape_centroid": [-81.87953605837802, 31.245288374482804],
+    "location": "Brantley County, GA"
+  },
+  {
+    "id": "ACR288",
+    "name": "Camp Shelby",
+    "arbocs": 29411,
+    "area": 927,
+    "shape_centroid": [-89.14299271001563, 31.085818067935676],
+    "location": "Perry County, MS"
+  },
+  {
+    "id": "ACR292",
+    "name": "Congaree River",
+    "arbocs": 153689,
+    "area": 5444,
+    "shape_centroid": [-123.53087627097499, 38.99720585142131],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR303",
+    "name": "White Mountain II",
+    "arbocs": 6522969,
+    "area": 122391,
+    "shape_centroid": [-109.76477533957076, 33.873601544933685],
+    "location": "Apache County, AZ"
+  },
+  {
+    "id": "CAR1180",
+    "name": "Mailliard Ranch",
+    "arbocs": 1182019,
+    "area": 12376,
+    "shape_centroid": [-123.35410225336196, 38.92001292746146],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1139",
+    "name": "Usal",
+    "arbocs": 1741512,
+    "area": 48014,
+    "shape_centroid": [-123.8027247065183, 39.89002712378289],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "CAR1183",
+    "name": "Mescalero Apache Tribe",
+    "arbocs": 4569074,
+    "area": 228536,
+    "shape_centroid": [-105.63838107510907, 33.17200761095491],
+    "location": "Otero County, NM"
+  },
+  {
+    "id": "CAR1191",
+    "name": "Hollow Tree",
+    "arbocs": 985152,
+    "area": 20300,
+    "shape_centroid": [-123.71761007103677, 39.76141963119298],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR324",
+    "name": "Sealaska",
+    "arbocs": 12193704,
+    "area": 165093,
+    "shape_centroid": [-132.7904606120238, 55.32414308063374],
+    "location": "Prince of Wales-Hyder Census Area, AK"
+  },
+  {
+    "id": "CAR1197",
+    "name": "Upper Hudson Woodlands",
+    "arbocs": 1708983,
+    "area": 88208,
+    "shape_centroid": [-73.8080793153341, 43.411134602115894],
+    "location": "Warren County, NY"
+  },
+  {
+    "id": "CAR1204",
+    "name": "Silver Lake",
+    "arbocs": 172304,
+    "area": 4300,
+    "shape_centroid": [-69.15348270652473, 45.43218850471231],
+    "location": "Piscataquis County, ME"
+  },
+  {
+    "id": "CAR1209",
+    "name": "Wolf River",
+    "arbocs": 642771,
+    "area": 13556,
+    "shape_centroid": [-88.83178411180874, 45.271880219124405],
+    "location": "Langlade County, WI"
+  },
+  {
+    "id": "CAR1213",
+    "name": "Adirondacks",
+    "arbocs": 1206679,
+    "area": 68119,
+    "shape_centroid": [-74.78311281537955, 44.3411428398874],
+    "location": "St. Lawrence County, NY"
+  },
+  {
+    "id": "CAR1217",
+    "name": "West Grand Lake Stream",
+    "arbocs": 671801,
+    "area": 21830,
+    "shape_centroid": [-67.77587208702879, 45.236791828217726],
+    "location": "Washington County, ME"
+  },
+  {
+    "id": "ACR360",
+    "name": "Ahtna",
+    "arbocs": 15769238,
+    "area": 506727,
+    "shape_centroid": [-144.9525700797497, 62.09290785971073],
+    "location": "Copper River Census Area, AK"
+  },
+  {
+    "id": "ACR373",
+    "name": "Northwoods",
+    "arbocs": 499009,
+    "area": 55000,
+    "shape_centroid": [-90.70042457581842, 45.69242345557165],
+    "location": "Sawyer County, WI"
+  },
+  {
+    "id": "ACR377",
+    "name": "Cappell Creek",
+    "arbocs": 397743,
+    "area": 2201,
+    "shape_centroid": [-123.79485050261538, 41.304189226729434],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR378",
+    "name": "Lord Ellis",
+    "arbocs": 364622,
+    "area": 1934,
+    "shape_centroid": [-123.86101093498225, 40.96841777188857],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR269",
+    "name": "HMWCF-II",
+    "arbocs": 1790079,
+    "area": 56196,
+    "shape_centroid": [-84.8405168943106, 30.487529885085745],
+    "location": "Liberty County, FL"
+  },
+  {
+    "id": "ACR371",
+    "name": "Great Mountain",
+    "arbocs": 391249,
+    "area": 5898,
+    "shape_centroid": [-73.24430147302226, 41.94979329752209],
+    "location": "Litchfield County, CT"
+  },
+  {
+    "id": "CAR1215",
+    "name": "Ataya",
+    "arbocs": 3586399,
+    "area": 81346,
+    "shape_centroid": [-83.8683118745526, 36.60793707897929],
+    "location": "Bell County, KY"
+  },
+  {
+    "id": "CAR1141",
+    "name": "Van Eck",
+    "arbocs": 46080,
+    "area": 2169,
+    "shape_centroid": [-124.0507158130196, 40.985069389199694],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR210",
+    "name": "Huron Mountain Club",
+    "arbocs": 1342730,
+    "area": 18831,
+    "shape_centroid": [-87.88106992269302, 46.85673453597786],
+    "location": "Marquette County, MI"
+  },
+  {
+    "id": "CAR1173",
+    "name": "Berea College",
+    "arbocs": 432291,
+    "area": 7106,
+    "shape_centroid": [-84.21073284383506, 37.53987131770152],
+    "location": "Madison County, KY"
+  },
+  {
+    "id": "CAR1070",
+    "name": "Yurok Phase I",
+    "arbocs": 710434,
+    "area": 20065,
+    "shape_centroid": [-123.77782805853154, 41.30139482136888],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR1257",
+    "name": "Rowland",
+    "arbocs": 2151863,
+    "area": 35768,
+    "shape_centroid": [-81.4249101550941, 37.870403749765025],
+    "location": "Raleigh County, WV"
+  },
+  {
+    "id": "ACR417",
+    "name": "Baskahegan",
+    "arbocs": 1106117,
+    "area": 86084,
+    "shape_centroid": [-67.79225948071388, 45.56003056442613],
+    "location": "Washington County, ME"
+  },
+  {
+    "id": "CAR1161",
+    "name": "Howland Research Forest",
+    "arbocs": 7762,
+    "area": 547,
+    "shape_centroid": [-68.743778098683, 45.205477004491186],
+    "location": "Penobscot County, ME"
+  },
+  {
+    "id": "CAR1297",
+    "name": "Sieben Live Stock",
+    "arbocs": 300300,
+    "area": 11792,
+    "shape_centroid": [-111.66574963756919, 46.969017611144665],
+    "location": "Cascade County, MT"
+  },
+  {
+    "id": "ACR361",
+    "name": "Port Graham",
+    "arbocs": 2469092,
+    "area": 18174,
+    "shape_centroid": [-151.62020680347013, 59.27325065605597],
+    "location": "Kenai Peninsula Borough, AK"
+  },
+  {
+    "id": "VCSOPR10",
+    "name": "Alford",
+    "arbocs": 97193,
+    "area": 3243,
+    "shape_centroid": [-92.36648212993072, 36.76290660958765],
+    "location": "Ozark County, MO"
+  },
+  {
+    "id": "ACR423",
+    "name": "Stewart Family",
+    "arbocs": 28048,
+    "area": 117,
+    "shape_centroid": [-122.20131721783078, 45.441525464848624],
+    "location": "Clackamas County, OR"
+  },
+  {
+    "id": "CAR1162",
+    "name": "Alder Stream Preserve",
+    "arbocs": 777,
+    "area": 1622,
+    "shape_centroid": [-69.06403775706752, 45.18576049978221],
+    "location": "Piscataquis County, ME"
+  },
+  {
+    "id": "ACR247",
+    "name": "Chateaugay Woodlands",
+    "arbocs": 780167,
+    "area": 62137,
+    "shape_centroid": [-73.99412259643483, 44.71126785018978],
+    "location": "Franklin County, NY"
+  },
+  {
+    "id": "ACR257",
+    "name": "Cook's Branch Conservancy",
+    "arbocs": 218667,
+    "area": 5029,
+    "shape_centroid": [-95.66905177911538, 30.28233524492154],
+    "location": "Montgomery County, TX"
+  },
+  {
+    "id": "CAR1205",
+    "name": "Lyme Logan",
+    "arbocs": 3282260,
+    "area": 47532,
+    "shape_centroid": [-82.11704784441717, 37.884900097612146],
+    "location": "Logan County, WV"
+  },
+  {
+    "id": "CAR1208",
+    "name": "Alma Land Company",
+    "arbocs": 716917,
+    "area": 23915,
+    "shape_centroid": [-82.6294427578323, 37.667552916593905],
+    "location": "Floyd County, KY"
+  },
+  {
+    "id": "ACR393",
+    "name": "Wilderness Lakes",
+    "arbocs": 172592,
+    "area": 5640,
+    "shape_centroid": [-88.20990916375975, 46.63818687940444],
+    "location": "Baraga County, MI"
+  },
+  {
+    "id": "CAR1264",
+    "name": "Chugach",
+    "arbocs": 7277766,
+    "area": 49278,
+    "shape_centroid": [-141.21537768889087, 59.943458567858904],
+    "location": "Yakutat City and Borough, AK"
+  },
+  {
+    "id": "CAR1314",
+    "name": "Spokane Tribe of Indians",
+    "arbocs": 1543995,
+    "area": 95400,
+    "shape_centroid": [-118.05374809077733, 47.932522659627004],
+    "location": "Stevens County, WA"
+  },
+  {
+    "id": "CAR1063",
+    "name": "Farm Cove",
+    "arbocs": 116491,
+    "area": 19116,
+    "shape_centroid": [-67.89886462235552, 45.20282155897849],
+    "location": "Washington County, ME"
+  },
+  {
+    "id": "ACR425",
+    "name": "Goldbelt",
+    "arbocs": 475920,
+    "area": 10876,
+    "shape_centroid": [-133.3704592224857, 57.42757624920832],
+    "location": "Petersburg Borough, AK"
+  },
+  {
+    "id": "ACR427",
+    "name": "Upper St. John Forest",
+    "arbocs": 1576265,
+    "area": 113445,
+    "shape_centroid": [-69.89598749330695, 46.47945111020142],
+    "location": "Somerset County, ME"
+  },
+  {
+    "id": "ACR458",
+    "name": "Haida",
+    "arbocs": 362722,
+    "area": 8628,
+    "shape_centroid": [-132.71853082233292, 55.16129694439105],
+    "location": "Prince of Wales-Hyder Census Area, AK"
+  },
+  {
+    "id": "ACR420",
+    "name": "Sealaska II",
+    "arbocs": 2559626,
+    "area": 11358,
+    "shape_centroid": [-133.5095563405045, 56.211245065143565],
+    "location": "Prince of Wales-Hyder Census Area, AK"
+  },
+  {
+    "id": "ACR437",
+    "name": "Cumberland Mountains",
+    "arbocs": 6245451,
+    "area": 263508,
+    "shape_centroid": [-81.6404900682697, 37.529285639052894],
+    "location": "Wyoming County, WV"
+  },
+  {
+    "id": "CAR1313",
+    "name": "Save the Redwoods League",
+    "arbocs": 440956,
+    "area": 1851,
+    "shape_centroid": [-123.82639194525595, 39.7760036791202],
+    "location": "Mendocino County, CA"
+  },
+  {
+    "id": "ACR395",
+    "name": "Ned Lake",
+    "arbocs": 994759,
+    "area": 44895,
+    "shape_centroid": [-88.31632422764112, 46.373426669560445],
+    "location": "Iron County, MI"
+  },
+  {
+    "id": "ACR428",
+    "name": "Huna Totem",
+    "arbocs": 1028121,
+    "area": 6788,
+    "shape_centroid": [-135.40301919213482, 58.08798614948444],
+    "location": "Hoonah-Angoon Census Area, AK"
+  },
+  {
+    "id": "ACR293",
+    "name": "Lakes Region Conservation Trust",
+    "arbocs": 463017,
+    "area": 9071,
+    "shape_centroid": [-71.55279497714669, 43.69506060820054],
+    "location": "Grafton County, NH"
+  },
+  {
+    "id": "CAR1368",
+    "name": "Pine Creek",
+    "arbocs": 472013,
+    "area": 8010,
+    "shape_centroid": [-123.8056247216644, 41.08616509537409],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR1329",
+    "name": "Hunter Ranch",
+    "arbocs": 540282,
+    "area": 6320,
+    "shape_centroid": [-123.70600184355544, 40.635802136750115],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "CAR1339",
+    "name": "Humboldt Mixed Forest",
+    "arbocs": 2889499,
+    "area": 33240,
+    "shape_centroid": [-123.87327014941788, 41.032497908356085],
+    "location": "Humboldt County, CA"
+  },
+  {
+    "id": "ACR416",
+    "name": "Meriwether",
+    "arbocs": 3877874,
+    "area": 167303,
+    "shape_centroid": [-93.60410951829273, 48.208084000136516],
+    "location": "Koochiching County, MN"
+  },
+  {
+    "id": "CAR1330",
+    "name": "Monte Rio",
+    "arbocs": 240479,
+    "area": 2313,
+    "shape_centroid": [-122.9806139151194, 38.466203350845035],
+    "location": "Sonoma County, CA"
+  },
+  {
+    "id": "CAR1336",
+    "name": "Birmingham",
+    "arbocs": 852064,
+    "area": 22220,
+    "shape_centroid": [-87.28654504725185, 33.468428870323116],
+    "location": "Jefferson County, AL"
+  },
+  {
+    "id": "CAR1373",
+    "name": "Stevenson AL",
+    "arbocs": 600078,
+    "area": 24241,
+    "shape_centroid": [-86.19663987189611, 34.7894000074251],
+    "location": "Jackson County, AL"
+  },
+  {
+    "id": "CAR1374",
+    "name": "Stevenson TN",
+    "arbocs": 507989,
+    "area": 19953,
+    "shape_centroid": [-85.79066215445427, 35.44971322074981],
+    "location": "Grundy County, TN"
+  },
+  {
+    "id": "ACR439",
+    "name": "Edge of Appalachia",
+    "arbocs": 684708,
+    "area": 13089,
+    "shape_centroid": [-83.40969652401503, 38.761631434782075],
+    "location": "Adams County, OH"
+  },
+  {
+    "id": "ACR549",
+    "name": "Spirit Falls",
+    "arbocs": 643506,
+    "area": 12730,
+    "shape_centroid": [-89.9825899894422, 45.30422694065161],
+    "location": "Lincoln County, WI"
+  },
+  {
+    "id": "CAR1332",
+    "name": "Lubrecht",
+    "arbocs": 774633,
+    "area": 20267,
+    "shape_centroid": [-113.42456357252911, 46.89626081645677],
+    "location": "Missoula County, MT"
+  },
+  {
+    "id": "CAR1391",
+    "name": "Lyme Wisconsin",
+    "arbocs": 998971,
+    "area": 27292,
+    "shape_centroid": [-88.4617423902856, 45.756774393851295],
+    "location": "Florence County, WI"
+  },
+  {
+    "id": "CAR1436",
+    "name": "Dingess Rum",
+    "arbocs": 1556228,
+    "area": 38863,
+    "shape_centroid": [-81.76125610421988, 37.85107750925042],
+    "location": "Boone County, WV"
+  },
+  {
+    "id": "ACR413",
+    "name": "Tyonek",
+    "arbocs": 1176746,
+    "area": 50050,
+    "shape_centroid": [-151.25719155442954, 61.094593883184906],
+    "location": "Kenai Peninsula Borough, AK"
+  }
+]

@@ -60,7 +60,11 @@ const Projects = ({
 
   return (
     <>
-      <Methods showMethods={showMethods} toggleMethods={toggleMethods} />
+      <Methods
+        showMethods={showMethods}
+        toggleMethods={toggleMethods}
+        showFires={showFires}
+      />
       <Box
         sx={{
           minWidth: [
@@ -124,9 +128,10 @@ const Projects = ({
                   '&:hover': {
                     color: 'secondary',
                   },
-                  '&:hover > #read-methods > #read-methods-container > #read-methods-arrow': {
-                    fill: 'secondary',
-                  },
+                  '&:hover > #read-methods > #read-methods-container > #read-methods-arrow':
+                    {
+                      fill: 'secondary',
+                    },
                 }}
               >
                 <Box
@@ -198,10 +203,7 @@ const Projects = ({
                   {format('.3s')(
                     data
                       .filter((d) => d.fire)
-                      .reduce(
-                        (a, b) => a + b.acreage * b.fire.burnedFraction,
-                        0
-                      )
+                      .reduce((a, b) => a + b.area * b.fire.burnedFraction, 0)
                   )}
                 </Box>{' '}
                 acres

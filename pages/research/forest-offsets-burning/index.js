@@ -4,19 +4,17 @@ import { Box } from 'theme-ui'
 import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
 import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
-import { projects } from '../../../data/projects'
+import projects from '../../../data/projects-fires'
 
-const Index = ({ fireMetadata, fireProjects }) => {
-  const { fires } = fireMetadata
-  const { projects: projectsWithFires } = fireProjects
-
-  const uniqueOverlapping = [
-    ...new Set(
-      Object.keys(projectsWithFires)
-        .map((d) => projectsWithFires[d].overlapping_fires)
-        .flat()
-    ),
-  ]
+const Index = ({ fireData }) => {
+  let uniqueOverlapping = []
+  fireData.forEach((d) => {
+    Object.keys(d.fires).forEach((f) => {
+      const obj = d.fires[f]
+      obj.id = f
+      uniqueOverlapping.push(obj)
+    })
+  })
 
   const projectLocations = {
     type: 'FeatureCollection',
@@ -25,11 +23,11 @@ const Index = ({ fireMetadata, fireProjects }) => {
         type: 'Feature',
         properties: {
           id: d.id,
-          fire: projectsWithFires[d.id],
+          fire: Object.keys(fireData).includes(d.id),
         },
         geometry: {
           type: 'Point',
-          coordinates: d.shape_centroid[0],
+          coordinates: d.shape_centroid,
         },
       }
     }),
@@ -37,34 +35,34 @@ const Index = ({ fireMetadata, fireProjects }) => {
 
   const fireLocations = {
     type: 'FeatureCollection',
-    features: Object.keys(fires)
-      .filter((d) => uniqueOverlapping.includes(d))
-      .map((d) => {
-        return {
-          type: 'Feature',
-          properties: {
-            id: d,
-            name: fires[d] ? fires[d].name : null,
-          },
-          geometry: {
-            type: 'Point',
-            coordinates: [fires[d].centroid[0], fires[d].centroid[1]],
-          },
-        }
-      }),
+    features: uniqueOverlapping.map((d) => {
+      return {
+        type: 'Feature',
+        properties: {
+          id: d.id,
+          name: d.name,
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: [d.centroid[0], d.centroid[1]],
+        },
+      }
+    }),
   }
 
   const locations = { fires: fireLocations, projects: projectLocations }
 
   const merged = projects.map((d) => {
-    const el = projectsWithFires[d.id]
-    if (el && Object.keys(fires).length > 0) {
+    const subset = fireData.filter((e) => d.id === e.opr_id)
+    const el = subset.length > 0 ? subset[0] : null
+    if (el) {
       d.fire = {
-        overlappingFires: el.overlapping_fires.map((id) => {
-          if (fires[id]) return { name: fires[id].name, href: fires[id].url }
-        }),
-        burnedFraction: el.burned_frac,
-        lastUpdated: fireMetadata.created_datetime,
+        overlappingFires: Object.entries(el.fires).map(
+          ([id, { name, url: href }]) => {
+            return { name, href }
+          }
+        ),
+        burnedFraction: el.burned_fraction,
       }
     }
     return d
@@ -73,8 +71,8 @@ const Index = ({ fireMetadata, fireProjects }) => {
   const index = useBreakpointIndex()
 
   const tiles = {
-    projects: `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/projects/{z}/{x}/{y}.pbf`,
-    fires: `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/fires/{z}/{x}/{y}.pbf`,
+    projects: `https://storage.googleapis.com/carbonplan-forest-offsets/web/tiles/projects/projects/{z}/{x}/{y}.pbf`,
+    fires: `https://storage.googleapis.com/carbonplan-forest-offsets/web/tiles/current-nifc-perimeters/current-nifc-perimeters/{z}/{x}/{y}.pbf`,
   }
 
   return (
@@ -140,17 +138,15 @@ const Index = ({ fireMetadata, fireProjects }) => {
 
 export async function getServerSideProps() {
   const prefix =
-    'https://storage.googleapis.com/carbonplan-research/offset-fires'
+    'https://storage.googleapis.com/carbonplan-forest-offsets/fires/project_fires'
   try {
-    const res = await fetch(`${prefix}/fire_meta_combined.json`)
+    const res = await fetch(`${prefix}/state_2021-10-15.json`)
     const data = await res.json()
-    const fireMetadata = data.fire_meta
-    const fireProjects = data.projects_with_fires
 
-    return { props: { fireMetadata, fireProjects } }
+    return { props: { fireData: data } }
   } catch {
     return {
-      props: { fireMetadata: { fires: {} }, fireProjects: { projects: {} } },
+      props: { fireData: [] },
     }
   }
 }
