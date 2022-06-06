@@ -183,7 +183,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               <Info>
                 We are tracking occurances of fires overlapping offset projects.
                 Area burned refers to the fraction of fire area overlapping
-                offset project area, for all fires thus far in 2021, updated
+                offset project area, for all fires thus far in 2022, updated
                 every few hours. We list names for all overlapping fires, with
                 links if available.
               </Info>
@@ -288,13 +288,22 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
           }}
         >
           Project metrics
-          <Info>
-            Primary metrics for forest offset projects include the initial
-            carbon stock ("Carbon"), a coarse regional average against which
-            that carbon is compared ("Common practice"), the size of the project
-            ("Acreage"), and the total number of credits awarded to the project
-            ("Credits"). Each credit represents 1 tCO₂.
-          </Info>
+          {!showFires && (
+            <Info>
+              Primary metrics for forest offset projects include the initial
+              carbon stock ("Carbon"), a coarse regional average against which
+              that carbon is compared ("Common practice"), the size of the
+              project ("Acreage"), and the total number of credits awarded to
+              the project ("Credits"). Each credit represents 1 tCO₂.
+            </Info>
+          )}
+          {showFires && (
+            <Info>
+              Key metrics for forest offset projects include the size of the
+              project ("Acreage") and the total number of credits awarded to the
+              project ("Credits"). Each credit represents 1 tCO₂.
+            </Info>
+          )}
         </Box>
         {carbon && (
           <>
