@@ -6,7 +6,7 @@ import Desktop from '../../../components/desktop'
 import Mobile from '../../../components/mobile'
 import projects from '../../../data/projects-fires'
 
-const Index = ({ fireData }) => {
+const Index = ({ fireData, createdAt }) => {
   let uniqueOverlapping = []
   fireData.forEach((d) => {
     Object.keys(d.fires).forEach((f) => {
@@ -63,6 +63,7 @@ const Index = ({ fireData }) => {
           }
         ),
         burnedFraction: el.burned_fraction,
+        lastUpdated: createdAt,
       }
     }
     return d
@@ -140,10 +141,15 @@ export async function getServerSideProps() {
   const prefix =
     'https://storage.googleapis.com/carbonplan-forest-offsets/fires/project_fires'
   try {
-    const res = await fetch(`${prefix}/state_2021-10-15.json`)
+    const res = await fetch(`${prefix}/state_now.json?ignoreCache=1`)
     const data = await res.json()
 
-    return { props: { fireData: data } }
+    return {
+      props: {
+        fireData: data['overlapping_fires'],
+        createdAt: data['created_at'],
+      },
+    }
   } catch {
     return {
       props: { fireData: [] },
