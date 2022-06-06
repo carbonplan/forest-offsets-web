@@ -22,7 +22,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
     let day = String(d.getDate()).padStart(2, '0')
     let year = d.getFullYear()
     let time = d.toLocaleTimeString('en-US', { timeStyle: 'short' })
-    return month + ' ' + day + ' ' + time + ' PT'
+    return month + ' ' + day + ' ' + time + ' UTC'
   }
 
   const formatAcreage = (value) => {
