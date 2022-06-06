@@ -73,7 +73,7 @@ const Index = ({ fireData, createdAt }) => {
 
   const tiles = {
     projects: `https://storage.googleapis.com/carbonplan-forest-offsets/web/tiles/projects/projects/{z}/{x}/{y}.pbf`,
-    fires: `https://storage.googleapis.com/carbonplan-forest-offsets/web/tiles/current-nifc-perimeters/current-nifc-perimeters/{z}/{x}/{y}.pbf`,
+    fires: `https://storage.googleapis.com/carbonplan-forest-offsets/web/tiles/current-nifc-perimeters/current-nifc-perimeters/{z}/{x}/{y}.pbf?ignoreCache=1`,
   }
 
   return (
