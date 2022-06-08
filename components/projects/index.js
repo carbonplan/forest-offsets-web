@@ -39,9 +39,9 @@ const Projects = ({
 
   useEffect(() => {
     if (showMethods) {
-      router.push(router.pathname + '?methods=true')
+      router.replace(router.pathname + '?methods=true')
     } else {
-      router.push(router.pathname)
+      router.replace(router.pathname)
     }
   }, [router.query.methods, showMethods])
 
