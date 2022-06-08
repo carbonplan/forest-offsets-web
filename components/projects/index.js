@@ -1,4 +1,5 @@
-import { memo, useState, useCallback } from 'react'
+import { memo, useEffect, useState, useCallback } from 'react'
+import { useRouter } from 'next/router'
 import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { getScrollbarWidth } from '@carbonplan/components'
 import { alpha } from '@theme-ui/color'
@@ -30,6 +31,19 @@ const Projects = ({
   const [filters, setFilters] = useState(initialFilters)
   const [showMethods, setShowMethods] = useState(false)
   const [count, setCount] = useState(Object.keys(data).length)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.query.methods === 'true') setShowMethods(true)
+  }, [router.query.methods])
+
+  useEffect(() => {
+    if (showMethods) {
+      router.push(router.pathname + '?methods=true')
+    } else {
+      router.push(router.pathname)
+    }
+  }, [router.query.methods, showMethods])
 
   const toggleMethods = () => setShowMethods(!showMethods)
 

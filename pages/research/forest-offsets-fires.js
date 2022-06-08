@@ -84,7 +84,7 @@ const Index = ({ fireData, createdAt }) => {
             'Monitor of forest fires affecting improved forest management carbon offset projects.'
           }
           title='Fires and forest offsets – CarbonPlan'
-          card='https://images.carbonplan.org/social/forest-offsets.png'
+          card='https://images.carbonplan.org/social/forest-offsets-fires.png'
           nav={'research'}
           header={false}
           dimmer={false}
@@ -116,7 +116,7 @@ const Index = ({ fireData, createdAt }) => {
               'Monitor of forest fires affecting improved forest management carbon offset projects.'
             }
             title='Fires and forest offsets – CarbonPlan'
-            card='https://images.carbonplan.org/social/forest-offsets.png'
+            card='https://images.carbonplan.org/social/forest-offsets-fires.png'
             header={true}
             nav={'research'}
             dimmer={false}
