@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { useBreakpointIndex } from '@theme-ui/match-media'
 import { Box } from 'theme-ui'
 import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
-import Desktop from '../../../components/desktop'
-import Mobile from '../../../components/mobile'
-import projects from '../../../data/projects-fires'
+import Desktop from '../../components/desktop'
+import Mobile from '../../components/mobile'
+import projects from '../../data/projects-fires'
 
 const Index = ({ fireData, createdAt }) => {
   let uniqueOverlapping = []
@@ -81,9 +81,9 @@ const Index = ({ fireData, createdAt }) => {
       {index > 0 && (
         <Layout
           description={
-            'Data and results from analyzing improved forest management carbon offset projects.'
+            'Monitor of forest fires affecting improved forest management carbon offset projects.'
           }
-          title='Forest offsets – CarbonPlan'
+          title='Fires and forest offsets – CarbonPlan'
           card='https://images.carbonplan.org/social/forest-offsets.png'
           nav={'research'}
           header={false}
@@ -113,9 +113,9 @@ const Index = ({ fireData, createdAt }) => {
         <Box sx={{ display: ['initial', 'none', 'none', 'none'] }}>
           <Layout
             description={
-              'Data and results from analyzing improved forest management carbon offset projects.'
+              'Monitor of forest fires affecting improved forest management carbon offset projects.'
             }
-            title='Forest offsets – CarbonPlan'
+            title='Fires and forest offsets – CarbonPlan'
             card='https://images.carbonplan.org/social/forest-offsets.png'
             header={true}
             nav={'research'}
