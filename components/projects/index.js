@@ -38,10 +38,14 @@ const Projects = ({
   }, [router.query.methods])
 
   useEffect(() => {
+    const { pathname, query } = router
+    let suffix
     if (showMethods) {
-      router.replace(router.pathname + '?methods=true')
+      suffix = query.id ? `&id=${query.id}` : ''
+      router.replace(pathname + '?methods=true' + suffix)
     } else {
-      router.replace(router.pathname)
+      suffix = query.id ? `?id=${query.id}` : ''
+      router.replace(pathname + suffix)
     }
   }, [router.query.methods, showMethods])
 
