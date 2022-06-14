@@ -55,6 +55,7 @@ function Methods({ showMethods, toggleMethods, showFires }) {
           sx={{
             position: 'relative',
             top: '-3px',
+            pb: [3, 3, 3, 4],
           }}
         >
           {showFires && <FireMethodsContent />}
