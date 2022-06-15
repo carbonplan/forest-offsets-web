@@ -1,10 +1,10 @@
 import { Box } from 'theme-ui'
 
-# Summary
+## Summary
 
 This website is a monitoring tool for tracking wildfires burning within forest carbon offsets projects enrolled under California’s cap-and-trade program. Of the 119 projects in the program that we are monitoring, the list on the left shows all projects that intersect wildfire perimeters during the 2022 fire season. For each project that intersects a wildfire perimeter, we report the total burned acreage, and at the top we report total acres burned across all offset projects. The map shows projects and fires, and labels those fires with project intersections.
 
-# Methods
+## Methods
 
 This site relies primarily on two datasets: the perimeters of projects enrolled in California’s forest carbon offsets program and the perimeters of wildfires. By intersecting these two datasets, we identify projects affected by fire and calculate the area burned.
 

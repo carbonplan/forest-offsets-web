@@ -24,30 +24,19 @@ const Projects = ({
   bounds,
   showFires,
   setShowFires,
+  showMethods,
+  setShowMethods,
   scrollTo,
   setSelected,
   setZoomTo,
 }) => {
   const [filters, setFilters] = useState(initialFilters)
-  const [showMethods, setShowMethods] = useState(false)
   const [count, setCount] = useState(Object.keys(data).length)
   const router = useRouter()
 
   useEffect(() => {
     if (router.query.methods === 'true') setShowMethods(true)
   }, [router.query.methods])
-
-  useEffect(() => {
-    const { pathname, query } = router
-    let suffix
-    if (showMethods) {
-      suffix = query.id ? `&id=${query.id}` : ''
-      router.replace(pathname + '?methods=true' + suffix)
-    } else {
-      suffix = query.id ? `?id=${query.id}` : ''
-      router.replace(pathname + suffix)
-    }
-  }, [router.query.methods, showMethods])
 
   const toggleMethods = () => setShowMethods(!showMethods)
 

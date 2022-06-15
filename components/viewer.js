@@ -7,13 +7,17 @@ import Minimap from './map/minimap'
 const Viewer = ({ data, locations, map, bounds, showFires }) => {
   const [selected, setSelected] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
+  const [zoomToBox, setZoomToBox] = useState(null)
+  const [zoomInitialized, setZoomInitialized] = useState(false)
   const [scrollTo, setScrollTo] = useState(null)
   const [tick, setTick] = useState(null)
+  const [showMethods, setShowMethods] = useState(false)
 
   const router = useRouter()
 
   useEffect(() => {
-    const { id } = router.query
+    const { id, center, zoom } = router.query
+
     if (map && id && data.filter((d) => d.id === id).length > 0) {
       setZoomTo(id)
       setScrollTo(id)
@@ -22,7 +26,27 @@ const Viewer = ({ data, locations, map, bounds, showFires }) => {
         setSelected(null)
       }, 2000)
     }
+
+    if (map && center && zoom && !zoomInitialized) {
+      setZoomToBox({
+        center: center.split(',').map((d) => parseFloat(d)),
+        zoom: parseFloat(zoom),
+      })
+    }
   }, [map, router])
+
+  useEffect(() => {
+    if (map && zoomToBox) {
+      const { center, zoom } = zoomToBox
+      map.easeTo({
+        center: center,
+        zoom: zoom,
+        duration: 0,
+      })
+      setZoomInitialized(true)
+      setZoomToBox(null)
+    }
+  }, [zoomToBox])
 
   useEffect(() => {
     if (map && zoomTo) {
@@ -89,6 +113,13 @@ const Viewer = ({ data, locations, map, bounds, showFires }) => {
         map.on('mouseleave', 'projects-label', mouseleave)
         map.on('click', 'projects-label', click)
       }
+      map.on('moveend', (e) => {
+        const { pathname, asPath } = router
+        const center = map.getCenter()
+        const zoom = map.getZoom()
+        let suffix = `?center=${center.lng},${center.lat}&zoom=${zoom}`
+        router.replace(pathname + suffix)
+      })
     }
   }, [map, scrollTo, showFires])
 
@@ -101,6 +132,8 @@ const Viewer = ({ data, locations, map, bounds, showFires }) => {
         setSelected={setSelected}
         setZoomTo={setZoomTo}
         showFires={showFires}
+        showMethods={showMethods}
+        setShowMethods={setShowMethods}
       />
       {map && <Enhancers map={map} selected={selected} showFires={showFires} />}
       <Minimap
