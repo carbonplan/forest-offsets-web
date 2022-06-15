@@ -65,6 +65,10 @@ const Projects = ({
     }
   }, [])
 
+  const totalBurnedArea = data
+    .filter((d) => d.fire)
+    .reduce((a, b) => a + b.area * b.fire.burnedFraction, 0)
+
   return (
     <>
       <Methods
@@ -205,15 +209,12 @@ const Projects = ({
                 Total project area burned:{' '}
                 <Box
                   as='span'
-                  sx={{ letterSpacing: 'mono', fontFamily: 'mono' }}
+                  sx={{ ml: [2], letterSpacing: 'mono', fontFamily: 'mono' }}
                 >
-                  {format('.3s')(
-                    data
-                      .filter((d) => d.fire)
-                      .reduce((a, b) => a + b.area * b.fire.burnedFraction, 0)
-                  )}
-                </Box>{' '}
-                acres
+                  {totalBurnedArea > 1 &&
+                    format('.3~s')(totalBurnedArea) + ' acres'}
+                  {totalBurnedArea < 1 && '<1 acre'}
+                </Box>
               </Box>
             )}
             <Box sx={{ ...sx.group, borderBottomWidth: '0px' }}>
