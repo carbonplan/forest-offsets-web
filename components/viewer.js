@@ -118,7 +118,6 @@ const Viewer = ({ data, locations, map, bounds, showFires }) => {
         const center = map.getCenter()
         const zoom = map.getZoom()
         let suffix = `?center=${center.lng},${center.lat}&zoom=${zoom}`
-        console.log(pathname)
         router.replace(pathname + suffix, null, {
           scroll: false,
           shallow: true,
