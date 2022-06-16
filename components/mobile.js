@@ -15,16 +15,39 @@ import FireMethodsContent from './projects/methods/fires.md'
 const Mobile = ({ data, locations, tiles, showFires }) => {
   const [map, setMap] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
+  const [zoomToBox, setZoomToBox] = useState(null)
+  const [zoomInitialized, setZoomInitialized] = useState(false)
   const [section, setSection] = useState('map')
 
   const router = useRouter()
 
   useEffect(() => {
-    const { id } = router.query
+    const { id, zoom, center } = router.query
+
     if (map && id) {
       setZoomTo(id)
     }
+
+    if (map && center && zoom && !zoomInitialized) {
+      setZoomToBox({
+        center: center.split(',').map((d) => parseFloat(d)),
+        zoom: parseFloat(zoom),
+      })
+    }
   }, [map, router])
+
+  useEffect(() => {
+    if (map && zoomToBox) {
+      const { center, zoom } = zoomToBox
+      map.easeTo({
+        center: center,
+        zoom: zoom,
+        duration: 0,
+      })
+      setZoomInitialized(true)
+      setZoomToBox(null)
+    }
+  }, [zoomToBox])
 
   useEffect(() => {
     if (map && zoomTo) {
@@ -39,6 +62,18 @@ const Mobile = ({ data, locations, tiles, showFires }) => {
       })
     }
   }, [zoomTo])
+
+  useEffect(() => {
+    if (map) {
+      map.on('moveend', (e) => {
+        const { pathname, asPath } = router
+        const center = map.getCenter()
+        const zoom = map.getZoom()
+        let suffix = `?center=${center.lng},${center.lat}&zoom=${zoom}`
+        router.replace(pathname + suffix)
+      })
+    }
+  }, [map])
 
   return (
     <>
