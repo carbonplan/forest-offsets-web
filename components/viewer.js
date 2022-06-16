@@ -114,11 +114,12 @@ const Viewer = ({ data, locations, map, bounds, showFires }) => {
         map.on('click', 'projects-label', click)
       }
       map.on('moveend', (e) => {
-        const { pathname, asPath } = router
+        const { pathname } = router
         const center = map.getCenter()
         const zoom = map.getZoom()
         let suffix = `?center=${center.lng},${center.lat}&zoom=${zoom}`
-        //router.replace(pathname + suffix)
+        console.log(pathname)
+        router.replace(pathname + suffix)
       })
     }
   }, [map, scrollTo, showFires])
