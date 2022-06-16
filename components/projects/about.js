@@ -1,6 +1,7 @@
+import { Colors } from '@carbonplan/components'
 import { Box, Link } from 'theme-ui'
 
-const About = ({ mobile }) => {
+const Wrapper = ({ title, children }) => {
   return (
     <Box
       sx={{
@@ -24,7 +25,7 @@ const About = ({ mobile }) => {
           lineHeight: 'heading',
         }}
       >
-        Forest offsets
+        {title}
       </Box>
       <Box
         sx={{
@@ -32,43 +33,52 @@ const About = ({ mobile }) => {
           pr: [3, 5, 5, 6],
           pt: [0],
           pb: [3, 3, 3, 3],
-          mb: [1],
+          mb: [2],
           fontSize: [2, 2, 2, 3],
           fontFamily: 'body',
           lineHeight: 'body',
         }}
       >
-        This is a public database of improved forest management carbon offset
-        projects in California’s cap-and-trade program. Read our{' '}
-        <Link
-          target='_blank'
-          href='https://carbonplan.org/research/forest-offsets-explainer'
-        >
-          article
-        </Link>{' '}
-        for more about our analysis. Download the data as{' '}
-        <Link
-          target='_blank'
-          href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv'
-        >
-          CSV
-        </Link>{' '}
-        or{' '}
-        <Link
-          target='_blank'
-          href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json'
-        >
-          JSON
-        </Link>
-        {'. '}
-        {!mobile && (
-          <Box sx={{ mt: [2], mb: [1], color: 'secondary' }}>
-            Fire Season 2021 update: see fires overlapping projects.
-          </Box>
-        )}
+        {children}
       </Box>
     </Box>
   )
+}
+
+const About = ({ showFires }) => {
+  if (!showFires)
+    return (
+      <Wrapper title='Over-crediting of forest offsets'>
+        This map summarizes our analysis of over-crediting of improved forest
+        management carbon offset projects in California’s cap-and-trade program.
+        Read our{' '}
+        <Link href='https://carbonplan.org/research/forest-offsets-explainer'>
+          article
+        </Link>{' '}
+        or download the data as{' '}
+        <Link href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv'>
+          CSV
+        </Link>{' '}
+        or{' '}
+        <Link href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json'>
+          JSON
+        </Link>
+        {'. '} Also see our separate live monitoring of{' '}
+        <Link href='/research/forest-offsets-fires'>
+          fires and forest offsets
+        </Link>
+        .
+      </Wrapper>
+    )
+
+  if (showFires)
+    return (
+      <Wrapper title='Fires and forest offsets'>
+        This is a public monitor of forest fires affecting improved forest
+        management carbon offset projects in California's cap-and-trade program.{' '}
+        <Colors.Red>Live updating for 2022.</Colors.Red>
+      </Wrapper>
+    )
 }
 
 export default About

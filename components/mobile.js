@@ -9,80 +9,71 @@ import Enhancers from './map/enhancers'
 import Loading from './loading'
 import About from './projects/about'
 import Project from './projects/project'
-import MethodsContent from './projects/methods/index.md'
-import { displayNames } from '../data/display-names'
+import CreditingMethodsContent from './projects/methods/crediting.md'
+import FireMethodsContent from './projects/methods/fires.md'
 
-const FireToggle = ({ showFires, setShowFires }) => {
-  return (
-    <Box
-      sx={{
-        position: 'absolute',
-        left: '0px',
-        top: '56px',
-        height: '56px',
-        width: 'calc(100vw)',
-        bg: 'background',
-        pl: [3],
-        pt: [2],
-        pr: [3],
-        borderStyle: 'solid',
-        borderColor: 'muted',
-        borderWidth: '0px',
-        borderBottomWidth: '1px',
-        zIndex: 1000,
-      }}
-    >
-      <Row columns={6}>
-        <Column start={1} width={5}>
-          <Box sx={{ fontSize: [1], color: 'secondary' }}>
-            Fire Season 2021 update: toggle to see where projects overlap fires.
-          </Box>
-        </Column>
-        <Column start={6} width={1}>
-          <Toggle
-            onClick={() => setShowFires((prev) => !prev)}
-            value={showFires}
-            sx={{
-              color: 'red',
-              float: 'right',
-              position: 'relative',
-              top: '5px',
-            }}
-          />
-        </Column>
-      </Row>
-    </Box>
-  )
-}
-
-const Mobile = ({ data, locations }) => {
+const Mobile = ({ data, locations, tiles, showFires }) => {
   const [map, setMap] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
+  const [zoomToBox, setZoomToBox] = useState(null)
+  const [zoomInitialized, setZoomInitialized] = useState(false)
   const [section, setSection] = useState('map')
-  const [showFires, setShowFires] = useState(null)
 
   const router = useRouter()
 
   useEffect(() => {
-    const { id } = router.query
+    const { id, zoom, center } = router.query
+
     if (map && id) {
       setZoomTo(id)
     }
+
+    if (map && center && zoom && !zoomInitialized) {
+      setZoomToBox({
+        center: center.split(',').map((d) => parseFloat(d)),
+        zoom: parseFloat(zoom),
+      })
+    }
   }, [map, router])
+
+  useEffect(() => {
+    if (map && zoomToBox) {
+      const { center, zoom } = zoomToBox
+      map.easeTo({
+        center: center,
+        zoom: zoom,
+        duration: 0,
+      })
+      setZoomInitialized(true)
+      setZoomToBox(null)
+    }
+  }, [zoomToBox])
 
   useEffect(() => {
     if (map && zoomTo) {
       setSection('map')
       const project = data.filter((d) => d.id === zoomTo)[0]
-      const { acreage, shape_centroid } = project
-      const center = shape_centroid[0]
+      const { area, shape_centroid } = project
+      const center = shape_centroid
       map.easeTo({
         center: center,
-        zoom: 100000 * (1 / acreage) + 7.5,
+        zoom: 100000 * (1 / area) + 7.5,
         duration: 0,
       })
     }
   }, [zoomTo])
+
+  useEffect(() => {
+    if (map) {
+      map.on('moveend', (e) => {
+        const { pathname, asPath } = router
+        const center = map.getCenter()
+        const zoom = map.getZoom()
+        let suffix = `?center=${center.lng},${center.lat}&zoom=${zoom}`
+        router.replace(pathname + suffix)
+      })
+    }
+  }, [map])
 
   return (
     <>
@@ -94,9 +85,9 @@ const Mobile = ({ data, locations }) => {
           ml: [-3],
         }}
       >
-        <FireToggle showFires={showFires} setShowFires={setShowFires} />
         <Mapbox
           locations={locations}
+          tiles={tiles}
           map={map}
           setMap={setMap}
           setBounds={() => {}}
@@ -106,14 +97,12 @@ const Mobile = ({ data, locations }) => {
       {map && <Enhancers map={map} selected={null} showFires={showFires} />}
       {section === 'projects' && (
         <>
-          <FireToggle showFires={showFires} setShowFires={setShowFires} />
           <FadeIn>
-            <Box sx={{ height: '56px' }} />
-            <About mobile={true} />
+            <About showFires={showFires} />
             {data
               .sort((a, b) => {
-                const nameA = displayNames.filter((d) => d.id === a.id)[0].name
-                const nameB = displayNames.filter((d) => d.id === b.id)[0].name
+                const nameA = a.name
+                const nameB = b.name
                 return nameA.localeCompare(nameB)
               })
               .filter((d) => (showFires ? (d.fire ? true : false) : true))
@@ -133,7 +122,8 @@ const Mobile = ({ data, locations }) => {
       )}
       {section === 'methods' && (
         <FadeIn>
-          <MethodsContent />
+          {showFires && <FireMethodsContent />}
+          {!showFires && <CreditingMethodsContent />}
         </FadeIn>
       )}
       <Box

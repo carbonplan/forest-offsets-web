@@ -4,8 +4,6 @@ import { Expander, Tag } from '@carbonplan/components'
 import { alpha } from '@theme-ui/color'
 import AnimateHeight from 'react-animate-height'
 import Metrics from './metrics'
-import { displayNames } from '../../../data/display-names'
-import { displayLocations } from '../../../data/display-locations'
 
 const Project = ({
   data,
@@ -17,7 +15,8 @@ const Project = ({
 }) => {
   const ref = useRef(null)
   const [expanded, setExpanded] = useState(false)
-  const { id, arbocs, developers, owners, supersection_ids } = data
+  const { id, name, location, arbocs, developers, owners, supersection_ids } =
+    data
 
   const scrolled = scrollTo && scrollTo === id && !showFires
 
@@ -33,8 +32,7 @@ const Project = ({
     setSelected(null)
   }
 
-  const displayName = displayNames.filter((d) => d.id === id)[0].name
-  const parts = displayName.split(' ')
+  const parts = name.split(' ')
   const nameStart = parts.slice(0, parts.length - 1).join(' ')
   const nameEnd = parts.slice(parts.length - 1, parts.length)
 
@@ -111,8 +109,9 @@ const Project = ({
         </Box>
       </Grid>
       <Box sx={{ color: 'secondary', mt: [2], fontSize: [2, 2, 2, 3] }}>
-        {developers[0] || owners[0]} /{' '}
-        {displayLocations.filter((d) => d.id === id)[0].location}
+        {(developers || owners) && (developers[0] || owners[0])}
+        {(developers || owners) && ' / '}
+        {location}
       </Box>
       <AnimateHeight
         duration={200}

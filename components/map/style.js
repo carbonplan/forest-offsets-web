@@ -1,9 +1,9 @@
 import { mix } from 'polished'
 
-const style = (locations, colors) => {
+const style = (locations, tiles, colors) => {
   const { green, red, muted, secondary, background, primary } = colors
 
-  return {
+  const obj = {
     version: 8,
     glyphs: `https://storage.googleapis.com/carbonplan-data/tiles/glyphs/{fontstack}/{range}.pbf`,
     sources: {
@@ -23,25 +23,12 @@ const style = (locations, colors) => {
       },
       projects: {
         type: 'vector',
-        tiles: [
-          `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/projects/{z}/{x}/{y}.pbf`,
-        ],
-        maxzoom: 9,
-      },
-      fires: {
-        type: 'vector',
-        tiles: [
-          `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/fires/{z}/{x}/{y}.pbf`,
-        ],
+        tiles: [tiles.projects],
         maxzoom: 9,
       },
       projectLocations: {
         type: 'geojson',
         data: locations.projects,
-      },
-      fireLocations: {
-        type: 'geojson',
-        data: locations.fires,
       },
     },
     layers: [
@@ -209,20 +196,6 @@ const style = (locations, colors) => {
         },
       },
       {
-        id: 'fires',
-        type: 'fill',
-        source: 'fires',
-        'source-layer': 'fires',
-        layout: {
-          visibility: 'visible',
-        },
-        paint: {
-          'fill-antialias': false,
-          'fill-opacity': 0,
-          'fill-color': green,
-        },
-      },
-      {
         id: 'projects-center',
         type: 'circle',
         source: 'projectLocations',
@@ -233,46 +206,80 @@ const style = (locations, colors) => {
           'circle-radius': 5,
         },
       },
-      {
-        id: 'fires-label',
-        type: 'symbol',
-        source: 'fireLocations',
-        paint: {
-          'text-color': red,
-          'text-opacity': 0,
-          'text-halo-color': background,
-          'text-halo-width': 2,
-          'text-halo-blur': 0.5,
-        },
-        layout: {
-          'text-font': ['relative-faux-book'],
-          'text-size': 20,
-          'text-justify': 'left',
-          'text-field': ['format', ['get', 'name']],
-          'text-allow-overlap': false,
-        },
-      },
-      {
-        id: 'projects-label',
-        type: 'symbol',
-        source: 'projectLocations',
-        paint: {
-          'text-color': green,
-          'text-opacity': 0,
-          'text-halo-color': background,
-          'text-halo-width': 2,
-          'text-halo-blur': 0.5,
-        },
-        layout: {
-          'text-font': ['relative-faux-book'],
-          'text-size': 20,
-          'text-justify': 'left',
-          'text-field': ['format', ['get', 'id']],
-          'text-allow-overlap': false,
-        },
-      },
     ],
   }
+
+  if (tiles.fires) {
+    obj.sources.fires = {
+      type: 'vector',
+      tiles: [tiles.fires],
+      maxzoom: 9,
+    }
+
+    obj.layers.push({
+      id: 'fires',
+      type: 'fill',
+      source: 'fires',
+      'source-layer': 'fires',
+      layout: {
+        visibility: 'visible',
+      },
+      paint: {
+        'fill-antialias': false,
+        'fill-opacity': 0,
+        'fill-color': green,
+      },
+    })
+  }
+
+  if (locations.fires) {
+    obj.sources.fireLocations = {
+      type: 'geojson',
+      data: locations.fires,
+    }
+
+    obj.layers.push({
+      id: 'fires-label',
+      type: 'symbol',
+      source: 'fireLocations',
+      paint: {
+        'text-color': red,
+        'text-opacity': 0,
+        'text-halo-color': background,
+        'text-halo-width': 2,
+        'text-halo-blur': 0.5,
+      },
+      layout: {
+        'text-font': ['relative-faux-book'],
+        'text-size': 20,
+        'text-justify': 'left',
+        'text-field': ['format', ['get', 'name']],
+        'text-allow-overlap': false,
+      },
+    })
+  }
+
+  obj.layers.push({
+    id: 'projects-label',
+    type: 'symbol',
+    source: 'projectLocations',
+    paint: {
+      'text-color': green,
+      'text-opacity': 0,
+      'text-halo-color': background,
+      'text-halo-width': 2,
+      'text-halo-blur': 0.5,
+    },
+    layout: {
+      'text-font': ['relative-faux-book'],
+      'text-size': 20,
+      'text-justify': 'left',
+      'text-field': ['format', ['get', 'id']],
+      'text-allow-overlap': false,
+    },
+  })
+
+  return obj
 }
 
 export default style

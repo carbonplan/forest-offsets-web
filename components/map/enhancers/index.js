@@ -5,7 +5,7 @@ import useFires from './use-fires'
 import useRuler from './use-ruler'
 
 export default function Enhancers({ map, selected, showFires }) {
-  useTheme(map)
+  useTheme(map, showFires)
   useFires(map, showFires)
   useSelected(map, selected, showFires)
   useRuler(map, 1)

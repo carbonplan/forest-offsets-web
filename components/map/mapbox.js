@@ -5,7 +5,7 @@ import style from './style'
 
 mapboxgl.accessToken = ''
 
-const Mapbox = ({ locations, map, setMap, setBounds }) => {
+const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
   const container = useRef(null)
 
   const {
@@ -15,16 +15,12 @@ const Mapbox = ({ locations, map, setMap, setBounds }) => {
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: container.current,
-      style: style(locations, colors),
+      style: style(locations, tiles, colors),
       center: [-122.99922013524304, 40.02328448336925],
       zoom: 6.79,
-      //minZoom: 3,
-      //maxZoom: 10,
+      minZoom: 3,
+      maxZoom: 13,
     })
-
-    // map.on('move', () => {
-    //   console.log(map.getCenter())
-    // })
 
     map.on('load', () => {
       setMap(map)

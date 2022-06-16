@@ -84,31 +84,7 @@ const Filter = ({
         }}
         value={value}
       />
-      <Box
-        sx={{
-          textAlign: 'right',
-          float: 'right',
-          display: 'inline-block',
-          mt: ['1px'],
-        }}
-      >
-        <Badge
-          sx={{
-            color: showFires
-              ? 'red'
-              : filters.updateWithMap || filters.search !== ''
-              ? 'green'
-              : 'secondary',
-            transition: '0.1s',
-          }}
-        >
-          {String(count).padStart(2, '0')}
-        </Badge>
-        <Box sx={{ display: 'inline-block', mx: [2], color: 'secondary' }}>
-          /
-        </Box>
-        <Badge sx={{ color: 'secondary' }}>{total}</Badge>
-      </Box>
+
       <Flex
         sx={{
           width: '100%',
@@ -147,27 +123,30 @@ const Filter = ({
         </Flex>
         <Flex sx={{ mt: [2] }}>
           <Box
-            onClick={() => setShowFires((prev) => !prev)}
             sx={{
-              fontFamily: 'mono',
-              letterSpacing: 'mono',
-              position: 'relative',
-              fontSize: [1, 1, 1, 2],
-              color: 'secondary',
-              pl: [0],
-              pr: [3],
-              cursor: 'pointer',
-              transition: '0.15s',
-              mt: [2],
+              textAlign: 'right',
+              float: 'right',
+              display: 'inline-block',
+              mt: ['1px'],
             }}
           >
-            W/ FIRES
+            <Badge
+              sx={{
+                color: showFires
+                  ? 'red'
+                  : filters.updateWithMap || filters.search !== ''
+                  ? 'green'
+                  : 'secondary',
+                transition: '0.1s',
+              }}
+            >
+              {String(count).padStart(2, '0')}
+            </Badge>
+            <Box sx={{ display: 'inline-block', mx: [2], color: 'secondary' }}>
+              /
+            </Box>
+            <Badge sx={{ color: 'secondary' }}>{total}</Badge>
           </Box>
-          <Toggle
-            onClick={() => setShowFires((prev) => !prev)}
-            value={showFires}
-            sx={{ color: 'red', position: 'relative', top: '5px' }}
-          />
         </Flex>
       </Flex>
     </Box>

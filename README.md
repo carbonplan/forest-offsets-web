@@ -29,7 +29,7 @@ To start a development version of the site, simply run:
 npm run dev
 ```
 
-and then visit `http://localhost:5001/research/forest-offsets` in your browser.
+and then visit `http://localhost:5001/research/forest-offsets-crediting` or `http://localhost:5001/research/forest-offsets-fires` in your browser.
 
 ## license
 

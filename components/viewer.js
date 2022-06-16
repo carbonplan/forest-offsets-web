@@ -4,17 +4,20 @@ import Projects from './projects'
 import Enhancers from './map/enhancers'
 import Minimap from './map/minimap'
 
-const Viewer = ({ data, locations, map, bounds }) => {
+const Viewer = ({ data, locations, map, bounds, showFires }) => {
   const [selected, setSelected] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
+  const [zoomToBox, setZoomToBox] = useState(null)
+  const [zoomInitialized, setZoomInitialized] = useState(false)
   const [scrollTo, setScrollTo] = useState(null)
   const [tick, setTick] = useState(null)
-  const [showFires, setShowFires] = useState(null)
+  const [showMethods, setShowMethods] = useState(false)
 
   const router = useRouter()
 
   useEffect(() => {
-    const { id } = router.query
+    const { id, center, zoom } = router.query
+
     if (map && id && data.filter((d) => d.id === id).length > 0) {
       setZoomTo(id)
       setScrollTo(id)
@@ -23,16 +26,36 @@ const Viewer = ({ data, locations, map, bounds }) => {
         setSelected(null)
       }, 2000)
     }
+
+    if (map && center && zoom && !zoomInitialized) {
+      setZoomToBox({
+        center: center.split(',').map((d) => parseFloat(d)),
+        zoom: parseFloat(zoom),
+      })
+    }
   }, [map, router])
+
+  useEffect(() => {
+    if (map && zoomToBox) {
+      const { center, zoom } = zoomToBox
+      map.easeTo({
+        center: center,
+        zoom: zoom,
+        duration: 0,
+      })
+      setZoomInitialized(true)
+      setZoomToBox(null)
+    }
+  }, [zoomToBox])
 
   useEffect(() => {
     if (map && zoomTo) {
       const project = data.filter((d) => d.id === zoomTo)[0]
-      const { acreage, shape_centroid } = project
-      const center = shape_centroid[0]
+      const { area, shape_centroid } = project
+      const center = shape_centroid
       map.easeTo({
         center: center,
-        zoom: Math.min(100000 * (1 / acreage) + 7.5, 9.75),
+        zoom: Math.min(100000 * (1 / area) + 7.5, 9.75),
         duration: 0,
       })
       setZoomTo(null)
@@ -90,6 +113,13 @@ const Viewer = ({ data, locations, map, bounds }) => {
         map.on('mouseleave', 'projects-label', mouseleave)
         map.on('click', 'projects-label', click)
       }
+      map.on('moveend', (e) => {
+        const { pathname, asPath } = router
+        const center = map.getCenter()
+        const zoom = map.getZoom()
+        let suffix = `?center=${center.lng},${center.lat}&zoom=${zoom}`
+        router.replace(pathname + suffix)
+      })
     }
   }, [map, scrollTo, showFires])
 
@@ -102,7 +132,8 @@ const Viewer = ({ data, locations, map, bounds }) => {
         setSelected={setSelected}
         setZoomTo={setZoomTo}
         showFires={showFires}
-        setShowFires={setShowFires}
+        showMethods={showMethods}
+        setShowMethods={setShowMethods}
       />
       {map && <Enhancers map={map} selected={selected} showFires={showFires} />}
       <Minimap

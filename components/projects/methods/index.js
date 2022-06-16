@@ -1,9 +1,10 @@
 import { Box, Text } from 'theme-ui'
 import { Button } from '@carbonplan/components'
 import { Left } from '@carbonplan/icons'
-import MethodsContent from './index.md'
+import CreditingMethodsContent from './crediting.md'
+import FireMethodsContent from './fires.md'
 
-function Methods({ showMethods, toggleMethods }) {
+function Methods({ showMethods, toggleMethods, showFires }) {
   return (
     <Box
       sx={{
@@ -54,9 +55,11 @@ function Methods({ showMethods, toggleMethods }) {
           sx={{
             position: 'relative',
             top: '-3px',
+            pb: [3, 3, 3, 4],
           }}
         >
-          <MethodsContent />
+          {showFires && <FireMethodsContent />}
+          {!showFires && <CreditingMethodsContent />}
         </Box>
       </Box>
     </Box>

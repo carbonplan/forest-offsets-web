@@ -1,4 +1,5 @@
-import { memo, useState, useCallback } from 'react'
+import { memo, useEffect, useState, useCallback } from 'react'
+import { useRouter } from 'next/router'
 import { Box, Badge, Text, Flex, Slider } from 'theme-ui'
 import { getScrollbarWidth } from '@carbonplan/components'
 import { alpha } from '@theme-ui/color'
@@ -23,13 +24,19 @@ const Projects = ({
   bounds,
   showFires,
   setShowFires,
+  showMethods,
+  setShowMethods,
   scrollTo,
   setSelected,
   setZoomTo,
 }) => {
   const [filters, setFilters] = useState(initialFilters)
-  const [showMethods, setShowMethods] = useState(false)
   const [count, setCount] = useState(Object.keys(data).length)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.query.methods === 'true') setShowMethods(true)
+  }, [router.query.methods])
 
   const toggleMethods = () => setShowMethods(!showMethods)
 
@@ -58,15 +65,17 @@ const Projects = ({
     }
   }, [])
 
-  console.log(
-    data
-      .filter((d) => d.fire)
-      .reduce((a, b) => a + b.acreage * b.fire.burnedFraction, 0)
-  )
+  const totalBurnedArea = data
+    .filter((d) => d.fire)
+    .reduce((a, b) => a + b.area * b.fire.burnedFraction, 0)
 
   return (
     <>
-      <Methods showMethods={showMethods} toggleMethods={toggleMethods} />
+      <Methods
+        showMethods={showMethods}
+        toggleMethods={toggleMethods}
+        showFires={showFires}
+      />
       <Box
         sx={{
           minWidth: [
@@ -110,7 +119,7 @@ const Projects = ({
             }}
           >
             <Box>
-              <About />
+              <About showFires={showFires} />
             </Box>
             <Box sx={sx.groupTop}>
               <Box
@@ -130,9 +139,10 @@ const Projects = ({
                   '&:hover': {
                     color: 'secondary',
                   },
-                  '&:hover > #read-methods > #read-methods-container > #read-methods-arrow': {
-                    fill: 'secondary',
-                  },
+                  '&:hover > #read-methods > #read-methods-container > #read-methods-arrow':
+                    {
+                      fill: 'secondary',
+                    },
                 }}
               >
                 <Box
@@ -199,18 +209,12 @@ const Projects = ({
                 Total project area burned:{' '}
                 <Box
                   as='span'
-                  sx={{ letterSpacing: 'mono', fontFamily: 'mono' }}
+                  sx={{ ml: [2], letterSpacing: 'mono', fontFamily: 'mono' }}
                 >
-                  {format('.3s')(
-                    data
-                      .filter((d) => d.fire)
-                      .reduce(
-                        (a, b) => a + b.acreage * b.fire.burnedFraction,
-                        0
-                      )
-                  )}
-                </Box>{' '}
-                acres
+                  {totalBurnedArea > 1 &&
+                    format('.3~s')(totalBurnedArea) + ' acres'}
+                  {totalBurnedArea < 1 && '<1 acre'}
+                </Box>
               </Box>
             )}
             <Box sx={{ ...sx.group, borderBottomWidth: '0px' }}>

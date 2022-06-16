@@ -6,15 +6,8 @@ import Bar from './bar'
 import Info from '../info'
 
 const Metrics = ({ data, setZoomTo, showFires }) => {
-  const {
-    id,
-    fire,
-    arbocs,
-    carbon,
-    acreage,
-    over_crediting,
-    shape_centroid,
-  } = data
+  const { id, fire, arbocs, carbon, area, over_crediting, shape_centroid } =
+    data
 
   const checkIssuance = (d) => {
     return (
@@ -29,7 +22,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
     let day = String(d.getDate()).padStart(2, '0')
     let year = d.getFullYear()
     let time = d.toLocaleTimeString('en-US', { timeStyle: 'short' })
-    return month + ' ' + day + ' ' + time + ' PT'
+    return month + ' ' + day + ' ' + time + ' UTC'
   }
 
   const formatAcreage = (value) => {
@@ -190,7 +183,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
               <Info>
                 We are tracking occurances of fires overlapping offset projects.
                 Area burned refers to the fraction of fire area overlapping
-                offset project area, for all fires thus far in 2021, updated
+                offset project area, for all fires thus far in 2022, updated
                 every few hours. We list names for all overlapping fires, with
                 links if available.
               </Info>
@@ -218,9 +211,9 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
                 </Box>
               }
               scale={{ min: 0, max: 300000 }}
-              value={fire.burnedFraction * acreage}
+              value={fire.burnedFraction * area}
               color={'red'}
-              display={formatAcreage(fire.burnedFraction * acreage)}
+              display={formatAcreage(fire.burnedFraction * area)}
               units={'ac'}
             />
             <Row columns={[6, 4, 4, 4]} sx={{ mb: [1], mt: [2], pt: [1] }}>
@@ -295,43 +288,56 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
           }}
         >
           Project metrics
-          <Info>
-            Primary metrics for forest offset projects include the initial
-            carbon stock ("Carbon"), a coarse regional average against which
-            that carbon is compared ("Common practice"), the size of the project
-            ("Acreage"), and the total number of credits awarded to the project
-            ("Credits"). Each credit represents 1 tCO₂.
-          </Info>
+          {!showFires && (
+            <Info>
+              Primary metrics for forest offset projects include the initial
+              carbon stock ("Carbon"), a coarse regional average against which
+              that carbon is compared ("Common practice"), the size of the
+              project ("Acreage"), and the total number of credits awarded to
+              the project ("Credits"). Each credit represents 1 tCO₂.
+            </Info>
+          )}
+          {showFires && (
+            <Info>
+              Key metrics for forest offset projects include the size of the
+              project ("Acreage") and the total number of credits awarded to the
+              project ("Credits"). Each credit represents 1 tCO₂.
+            </Info>
+          )}
         </Box>
-        <RowBar
-          label='Carbon'
-          scale={{ min: 0, max: 200 }}
-          value={carbon.initial_carbon_stock.value}
-          display={format('.0f')(carbon.initial_carbon_stock.value)}
-          units={'tCO₂/ac'}
-        />
-        <RowBar
-          label='Common practice'
-          scale={{ min: 0, max: 200 }}
-          value={carbon.common_practice.value}
-          display={format('.0f')(carbon.common_practice.value)}
-          units={'tCO₂/ac'}
-        />
+        {carbon && (
+          <>
+            <RowBar
+              label='Carbon'
+              scale={{ min: 0, max: 200 }}
+              value={carbon.initial_carbon_stock.value}
+              display={format('.0f')(carbon.initial_carbon_stock.value)}
+              units={'tCO₂/ac'}
+            />
+            <RowBar
+              label='Common practice'
+              scale={{ min: 0, max: 200 }}
+              value={carbon.common_practice.value}
+              display={format('.0f')(carbon.common_practice.value)}
+              units={'tCO₂/ac'}
+            />
+          </>
+        )}
         <RowBar
           label='Acreage'
           scale={{ min: 0, max: 300000 }}
-          value={acreage}
-          display={formatAcreage(acreage)}
+          value={area}
+          display={formatAcreage(area)}
           units={'ac'}
         />
         <RowBar
           label='Credits'
           scale={{ min: 0, max: 2000000 }}
-          value={arbocs.issuance}
-          display={format('.2s')(arbocs.issuance)}
+          value={arbocs}
+          display={format('.2s')(arbocs)}
           units={'tCO₂'}
         />
-        {!over_crediting && (
+        {!showFires && !over_crediting && (
           <Box
             sx={{
               color: 'secondary',
@@ -351,7 +357,7 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             </Info>
           </Box>
         )}
-        {over_crediting && (
+        {!showFires && over_crediting && (
           <div>
             <Box
               sx={{
