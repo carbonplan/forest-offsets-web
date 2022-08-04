@@ -12,7 +12,7 @@ import Project from './projects/project'
 import CreditingMethodsContent from './projects/methods/crediting.md'
 import FireMethodsContent from './projects/methods/fires.md'
 
-const Mobile = ({ data, locations, tiles, showFires }) => {
+const Mobile = ({ data, locations, tiles, showFires, archive }) => {
   const [map, setMap] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
   const [zoomToBox, setZoomToBox] = useState(null)
@@ -101,7 +101,7 @@ const Mobile = ({ data, locations, tiles, showFires }) => {
       {section === 'projects' && (
         <>
           <FadeIn>
-            <About showFires={showFires} />
+            <About showFires={showFires} archive={archive} />
             {data
               .sort((a, b) => {
                 const nameA = a.name

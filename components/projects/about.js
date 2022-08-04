@@ -45,7 +45,7 @@ const Wrapper = ({ title, children }) => {
   )
 }
 
-const About = ({ showFires }) => {
+const About = ({ showFires, archive }) => {
   if (!showFires)
     return (
       <Wrapper title='Over-crediting of forest offsets'>
@@ -71,12 +71,21 @@ const About = ({ showFires }) => {
       </Wrapper>
     )
 
-  if (showFires)
+  if (showFires && !archive)
     return (
       <Wrapper title='Fires and forest offsets'>
         This is a public monitor of forest fires affecting improved forest
         management carbon offset projects in California's cap-and-trade program.{' '}
         <Colors.Red>Live updating for 2022.</Colors.Red>
+      </Wrapper>
+    )
+
+  if (showFires && archive)
+    return (
+      <Wrapper title='Fires and forest offsets'>
+        This is a public monitor of forest fires affecting improved forest
+        management carbon offset projects in California's cap-and-trade program.{' '}
+        <Colors.Red>Archival version for 2021.</Colors.Red>
       </Wrapper>
     )
 }
