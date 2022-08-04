@@ -76,6 +76,7 @@ const Projects = ({
         showMethods={showMethods}
         toggleMethods={toggleMethods}
         showFires={showFires}
+        archive={archive}
       />
       <Box
         sx={{

@@ -11,6 +11,7 @@ import About from './projects/about'
 import Project from './projects/project'
 import CreditingMethodsContent from './projects/methods/crediting.md'
 import FireMethodsContent from './projects/methods/fires.md'
+import ArchiveMethodsContent from './projects/methods/archive.md'
 
 const Mobile = ({ data, locations, tiles, showFires, archive }) => {
   const [map, setMap] = useState(null)
@@ -125,7 +126,8 @@ const Mobile = ({ data, locations, tiles, showFires, archive }) => {
       )}
       {section === 'methods' && (
         <FadeIn>
-          {showFires && <FireMethodsContent />}
+          {showFires && archive && <ArchiveMethodsContent />}
+          {showFires && !archive && <FireMethodsContent />}
           {!showFires && <CreditingMethodsContent />}
         </FadeIn>
       )}
