@@ -3,8 +3,9 @@ import { Button } from '@carbonplan/components'
 import { Left } from '@carbonplan/icons'
 import CreditingMethodsContent from './crediting.md'
 import FireMethodsContent from './fires.md'
+import ArchiveMethodsContent from './archive.md'
 
-function Methods({ showMethods, toggleMethods, showFires }) {
+function Methods({ showMethods, toggleMethods, showFires, archive }) {
   return (
     <Box
       sx={{
@@ -58,7 +59,8 @@ function Methods({ showMethods, toggleMethods, showFires }) {
             pb: [3, 3, 3, 4],
           }}
         >
-          {showFires && <FireMethodsContent />}
+          {showFires && archive && <ArchiveMethodsContent />}
+          {showFires && !archive && <FireMethodsContent />}
           {!showFires && <CreditingMethodsContent />}
         </Box>
       </Box>

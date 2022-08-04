@@ -4,7 +4,14 @@ import Projects from './projects'
 import Enhancers from './map/enhancers'
 import Minimap from './map/minimap'
 
-const Viewer = ({ data, locations, map, bounds, showFires }) => {
+const Viewer = ({
+  data,
+  locations,
+  map,
+  bounds,
+  showFires,
+  archive = false,
+}) => {
   const [selected, setSelected] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
   const [zoomToBox, setZoomToBox] = useState(null)
@@ -137,6 +144,7 @@ const Viewer = ({ data, locations, map, bounds, showFires }) => {
         showFires={showFires}
         showMethods={showMethods}
         setShowMethods={setShowMethods}
+        archive={archive}
       />
       {map && <Enhancers map={map} selected={selected} showFires={showFires} />}
       <Minimap

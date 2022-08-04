@@ -29,6 +29,7 @@ const Projects = ({
   scrollTo,
   setSelected,
   setZoomTo,
+  archive,
 }) => {
   const [filters, setFilters] = useState(initialFilters)
   const [count, setCount] = useState(Object.keys(data).length)
@@ -75,6 +76,7 @@ const Projects = ({
         showMethods={showMethods}
         toggleMethods={toggleMethods}
         showFires={showFires}
+        archive={archive}
       />
       <Box
         sx={{
@@ -119,7 +121,7 @@ const Projects = ({
             }}
           >
             <Box>
-              <About showFires={showFires} />
+              <About showFires={showFires} archive={archive} />
             </Box>
             <Box sx={sx.groupTop}>
               <Box

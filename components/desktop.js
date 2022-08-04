@@ -4,7 +4,7 @@ import Mapbox from './map/mapbox'
 import Viewer from './viewer'
 import Loading from './loading'
 
-const Desktop = ({ data, locations, tiles, showFires }) => {
+const Desktop = ({ data, locations, tiles, showFires, archive }) => {
   const [map, setMap] = useState(null)
   const [bounds, setBounds] = useState(null)
 
@@ -27,6 +27,7 @@ const Desktop = ({ data, locations, tiles, showFires }) => {
         map={map}
         bounds={bounds}
         showFires={showFires}
+        archive={archive}
       />
       <Mapbox
         locations={locations}
