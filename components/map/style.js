@@ -17,7 +17,7 @@ const style = (locations, tiles, colors) => {
       ecoregions: {
         type: 'vector',
         tiles: [
-          `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/ecoregions/{z}/{x}/{y}.pbf`,
+          `https://storage.googleapis.com/carbonplan-data/tiles/processed/ecoregions/{z}/{x}/{y}.pbf`,
         ],
         maxzoom: 5,
       },
