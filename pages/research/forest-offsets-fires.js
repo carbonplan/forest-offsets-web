@@ -72,8 +72,8 @@ const Index = ({ fireData, createdAt }) => {
   const index = useBreakpointIndex()
 
   const tiles = {
-    projects: `https://storage.googleapis.com/carbonplan-forest-offsets/web/tiles/projects/projects/{z}/{x}/{y}.pbf`,
-    fires: `https://storage.googleapis.com/carbonplan-forest-offsets/web/tiles/current-nifc-perimeters/current-nifc-perimeters/{z}/{x}/{y}.pbf?ignoreCache=1`,
+    projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/projects/{z}/{x}/{y}.pbf`,
+    fires: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-nifc-perimeters/{z}/{x}/{y}.pbf`,
   }
 
   return (
