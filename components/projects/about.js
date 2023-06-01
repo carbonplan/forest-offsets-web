@@ -76,7 +76,7 @@ const About = ({ showFires, archive }) => {
       <Wrapper title='Fires and forest offsets'>
         This is a public monitor of forest fires affecting improved forest
         management carbon offset projects in California's cap-and-trade program.{' '}
-        <Colors.Red>Live updating for 2022.</Colors.Red>
+        <Colors.Red>Live updating for 2023.</Colors.Red>
       </Wrapper>
     )
 

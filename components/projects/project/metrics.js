@@ -181,11 +181,11 @@ const Metrics = ({ data, setZoomTo, showFires }) => {
             >
               Fire status
               <Info>
-                We are tracking occurances of fires overlapping offset projects.
-                Area burned refers to the fraction of fire area overlapping
-                offset project area, for all fires thus far in 2022, updated
-                every few hours. We list names for all overlapping fires, with
-                links if available.
+                We are tracking occurrences of fires overlapping offset
+                projects. Area burned refers to the fraction of fire area
+                overlapping offset project area, for all fires thus far in 2023,
+                updated every few hours. We list names for all overlapping
+                fires, with links if available.
               </Info>
             </Box>
             <RowBar
