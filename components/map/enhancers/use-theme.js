@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
 import { mix } from 'polished'
 
 function useTheme(map, showFires) {
   const { theme } = useThemeUI()
-  const { background, secondary, muted, red, primary, green } = theme.rawColors
+  const { background, muted, red, primary, green } = theme.rawColors
 
   useEffect(() => {
     map.setPaintProperty('background', 'background-color', background)
@@ -20,26 +20,38 @@ function useTheme(map, showFires) {
     map.setPaintProperty('states', 'line-opacity', 0.7)
     map.setPaintProperty('roads', 'line-color', primary)
     map.setPaintProperty('roads', 'line-opacity', 0)
-    map.setPaintProperty('projects-fill', 'fill-color', green)
     map.setPaintProperty('projects-fill', 'fill-opacity', 0.5)
     map.setPaintProperty('projects-line', 'line-color', background)
     map.setPaintProperty('projects-line', 'line-opacity', 1)
     map.setPaintProperty('supersections', 'line-color', primary)
     map.setPaintProperty('supersections', 'line-opacity', 0.2)
-    map.setPaintProperty('projects-label', 'text-color', green)
     map.setPaintProperty('projects-label', 'text-opacity', 1)
-    map.setPaintProperty(
-      'projects-center',
-      'circle-color',
-      mix(0.5, green, background)
-    )
     map.setPaintProperty('projects-center', 'circle-opacity', 1)
     map.setPaintProperty('places-points', 'circle-color', primary)
     map.setPaintProperty('places-points', 'circle-opacity', 0.3)
     map.setPaintProperty('places-text', 'text-color', primary)
     map.setPaintProperty('places-text', 'text-opacity', 0.3)
-    if (showFires)
+    if (showFires) {
       map.setPaintProperty('fires-label', 'text-halo-color', background)
+      map.setPaintProperty('fires', 'fill-color', red)
+      map.setPaintProperty('fires', 'fill-opacity', 0.7)
+      map.setPaintProperty('projects-fill', 'fill-color', primary)
+      map.setPaintProperty(
+        'projects-center',
+        'circle-color',
+        mix(0.5, primary, background)
+      )
+      map.setPaintProperty('projects-label', 'text-color', primary)
+      map.setPaintProperty('fires-label', 'text-opacity', 1)
+    } else {
+      map.setPaintProperty('projects-fill', 'fill-color', green)
+      map.setPaintProperty(
+        'projects-center',
+        'circle-color',
+        mix(0.5, green, background)
+      )
+      map.setPaintProperty('projects-label', 'text-color', green)
+    }
     map.setPaintProperty('projects-label', 'text-halo-color', background)
   }, [theme, showFires])
 }
