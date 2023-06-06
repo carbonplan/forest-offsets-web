@@ -99,23 +99,6 @@ const style = (locations, tiles, colors) => {
         },
       },
       {
-        id: 'roads',
-        type: 'line',
-        source: 'basemap',
-        'source-layer': 'ne_10m_roads',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round',
-          visibility: 'visible',
-        },
-        paint: {
-          'line-blur': 0.4,
-          'line-color': primary,
-          'line-opacity': 0,
-          'line-width': 0.8,
-        },
-      },
-      {
         id: 'places-points',
         type: 'circle',
         source: 'basemap',
