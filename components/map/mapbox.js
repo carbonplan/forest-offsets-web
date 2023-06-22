@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useThemeUI } from 'theme-ui'
-import { Map, useMapbox } from '@carbonplan/maps'
+import { Map, Raster, useMapbox } from '@carbonplan/maps'
+import { useThemedColormap } from '@carbonplan/colormaps'
 import style from './style'
 
 const MapListener = ({ locations, tiles, setMap, setBounds }) => {
@@ -25,6 +26,8 @@ const MapListener = ({ locations, tiles, setMap, setBounds }) => {
 }
 
 const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
+  const colormap = useThemedColormap('oranges')
+
   return (
     <Map
       zoom={6.79}
@@ -37,6 +40,14 @@ const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
         tiles={tiles}
         setMap={setMap}
         setBounds={setBounds}
+      />
+      <Raster
+        colormap={colormap}
+        clim={[-20, 30]}
+        source={
+          'https://storage.googleapis.com/carbonplan-maps/v2/demo/2d/tavg'
+        }
+        variable={'tavg'}
       />
     </Map>
   )
