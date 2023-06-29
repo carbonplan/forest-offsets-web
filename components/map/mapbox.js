@@ -43,11 +43,11 @@ const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
       />
       <Raster
         colormap={colormap}
-        clim={[-20, 30]}
+        clim={[0, 1]}
         source={
-          'https://storage.googleapis.com/carbonplan-maps/v2/demo/2d/tavg'
+          'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/fires/firms_nrt/current-firms-hotspots.zarr'
         }
-        variable={'tavg'}
+        variable={'active'}
       />
     </Map>
   )
