@@ -7,12 +7,21 @@ const Filter = ({
   setFilters,
   count,
   total,
-  setShowFires,
+  archive,
+  showActiveFires,
+  setShowActiveFires,
   showFires,
 }) => {
   const [value, setValue] = useState('')
   const [hasFocus, setFocus] = useState(false)
   const inputRef = useRef(null)
+  const activeFiresToggle = showFires && !archive
+  let toggleColor = 'green'
+  if (activeFiresToggle) {
+    toggleColor = 'orange'
+  } else if (showFires) {
+    toggleColor = 'primary'
+  }
 
   useEffect(() => {
     function handler(event) {
@@ -109,13 +118,17 @@ const Filter = ({
               mt: [2],
             }}
           >
-            UPDATE W/ MAP
+            {activeFiresToggle ? 'SHOW ACTIVE FIRES' : 'UPDATE W/ MAP'}
           </Box>
           <Toggle
-            onClick={() => toggle('updateWithMap')}
-            value={filters.updateWithMap}
+            onClick={() =>
+              activeFiresToggle
+                ? setShowActiveFires(!showActiveFires)
+                : toggle('updateWithMap')
+            }
+            value={activeFiresToggle ? showActiveFires : filters.updateWithMap}
             sx={{
-              color: showFires ? 'primary' : 'green',
+              color: toggleColor,
               position: 'relative',
               top: '5px',
             }}

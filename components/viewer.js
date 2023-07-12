@@ -10,6 +10,8 @@ const Viewer = ({
   map,
   bounds,
   showFires,
+  showActiveFires,
+  setShowActiveFires,
   archive = false,
 }) => {
   const [selected, setSelected] = useState(null)
@@ -144,6 +146,8 @@ const Viewer = ({
         showFires={showFires}
         showMethods={showMethods}
         setShowMethods={setShowMethods}
+        showActiveFires={showActiveFires}
+        setShowActiveFires={setShowActiveFires}
         archive={archive}
       />
       {map && <Enhancers map={map} selected={selected} showFires={showFires} />}

@@ -31,6 +31,7 @@ const Mapbox = ({
   setMap,
   setBounds,
   showFires,
+  showActiveFires,
   archive,
 }) => {
   const colormap = useThemedColormap('oranges')
@@ -51,7 +52,8 @@ const Mapbox = ({
       {showFires && !archive && (
         <Raster
           colormap={colormap}
-          clim={[0, 1]}
+          display={showActiveFires}
+          clim={[0, 1.7]}
           source={
             'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-hotspots'
           }

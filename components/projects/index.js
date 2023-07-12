@@ -26,6 +26,8 @@ const Projects = ({
   setShowFires,
   showMethods,
   setShowMethods,
+  showActiveFires,
+  setShowActiveFires,
   scrollTo,
   setSelected,
   setZoomTo,
@@ -189,10 +191,12 @@ const Projects = ({
                   filters={filters}
                   setFilters={setFilters}
                   showFires={showFires}
+                  archive={archive}
                   setShowFires={setShowFires}
+                  showActiveFires={showActiveFires}
+                  setShowActiveFires={setShowActiveFires}
                   count={count}
                   total={data.length}
-                  showFires={showFires}
                 />
               </Box>
             </Box>
