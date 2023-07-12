@@ -95,6 +95,8 @@ const Mobile = ({ data, locations, tiles, showFires, archive }) => {
           map={map}
           setMap={setMap}
           setBounds={() => {}}
+          showFires={showFires}
+          archive={archive}
         />
       </Box>
 

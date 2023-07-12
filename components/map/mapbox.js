@@ -25,7 +25,14 @@ const MapListener = ({ locations, tiles, setMap, setBounds }) => {
   }, [])
 }
 
-const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
+const Mapbox = ({
+  locations,
+  tiles,
+  setMap,
+  setBounds,
+  showFires,
+  archive,
+}) => {
   const colormap = useThemedColormap('oranges')
 
   return (
@@ -41,15 +48,17 @@ const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
         setMap={setMap}
         setBounds={setBounds}
       />
-      <Raster
-        colormap={colormap}
-        clim={[0, 1]}
-        source={
-          'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-hotspots'
-        }
-        variable={'active'}
-        fillValue={9.969209968386869e36}
-      />
+      {showFires && !archive && (
+        <Raster
+          colormap={colormap}
+          clim={[0, 1]}
+          source={
+            'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-hotspots'
+          }
+          variable={'active'}
+          fillValue={9.969209968386869e36}
+        />
+      )}
     </Map>
   )
 }

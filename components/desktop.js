@@ -35,6 +35,8 @@ const Desktop = ({ data, locations, tiles, showFires, archive }) => {
         map={map}
         setMap={setMap}
         setBounds={setBounds}
+        showFires={showFires}
+        archive={archive}
       />
       <Loading map={map} />
     </Flex>
