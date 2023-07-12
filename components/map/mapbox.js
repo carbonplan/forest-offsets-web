@@ -45,7 +45,7 @@ const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
         colormap={colormap}
         clim={[0, 1]}
         source={
-          'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/fires/firms_nrt/current-firms-hotspots.zarr'
+          'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-hotspots'
         }
         variable={'active'}
         fillValue={9.969209968386869e36}
