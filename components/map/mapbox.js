@@ -4,7 +4,7 @@ import { Map, Raster, useMapbox } from '@carbonplan/maps'
 import { useThemedColormap } from '@carbonplan/colormaps'
 import style from './style'
 
-const MapListener = ({ locations, tiles, setMap, setBounds }) => {
+const MapListener = ({ locations, tiles, setMap, setBounds, showFires }) => {
   const { map } = useMapbox()
   const {
     theme: { rawColors: colors },
@@ -23,6 +23,12 @@ const MapListener = ({ locations, tiles, setMap, setBounds }) => {
       setMap(null)
     }
   }, [])
+
+  useEffect(() => {
+    if (map.isStyleLoaded()) {
+      map.setPaintProperty('fires', 'fill-opacity', showFires ? 0.7 : 0)
+    }
+  }, [showFires])
 }
 
 const Mapbox = ({
@@ -34,7 +40,7 @@ const Mapbox = ({
   showActiveFires,
   archive,
 }) => {
-  const colormap = useThemedColormap('oranges')
+  const reds = useThemedColormap('reds')
 
   return (
     <Map
@@ -48,18 +54,31 @@ const Mapbox = ({
         tiles={tiles}
         setMap={setMap}
         setBounds={setBounds}
+        showFires={!showActiveFires}
       />
       {showFires && !archive && (
-        <Raster
-          colormap={colormap}
-          display={showActiveFires}
-          clim={[0, 1.7]}
-          source={
-            'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-hotspots'
-          }
-          variable={'active'}
-          fillValue={9.969209968386869e36}
-        />
+        <>
+          <Raster
+            colormap={reds}
+            display={showActiveFires}
+            clim={[0, 1.7]}
+            source={
+              'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/past-firms-hotspots'
+            }
+            variable={'active'}
+            fillValue={9.969209968386869e36}
+          />
+          <Raster
+            colormap={reds}
+            display={showActiveFires}
+            clim={[0, 1]}
+            source={
+              'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-hotspots'
+            }
+            variable={'active'}
+            fillValue={9.969209968386869e36}
+          />
+        </>
       )}
     </Map>
   )

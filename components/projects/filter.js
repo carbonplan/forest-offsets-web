@@ -18,7 +18,7 @@ const Filter = ({
   const activeFiresToggle = showFires && !archive
   let toggleColor = 'green'
   if (activeFiresToggle) {
-    toggleColor = 'orange'
+    toggleColor = 'red'
   } else if (showFires) {
     toggleColor = 'primary'
   }
@@ -118,7 +118,7 @@ const Filter = ({
               mt: [2],
             }}
           >
-            {activeFiresToggle ? 'SHOW ACTIVE FIRES' : 'UPDATE W/ MAP'}
+            {activeFiresToggle ? 'SHOW FIRMS DATA' : 'UPDATE W/ MAP'}
           </Box>
           <Toggle
             onClick={() =>

@@ -7,7 +7,7 @@ import Loading from './loading'
 const Desktop = ({ data, locations, tiles, showFires, archive }) => {
   const [map, setMap] = useState(null)
   const [bounds, setBounds] = useState(null)
-  const [showActiveFires, setShowActiveFires] = useState(showFires && !archive)
+  const [showActiveFires, setShowActiveFires] = useState(false)
 
   return (
     <Flex
