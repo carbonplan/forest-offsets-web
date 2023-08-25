@@ -1,31 +1,18 @@
-import { memo, useEffect, useRef } from 'react'
-import { useThemeUI, Box } from 'theme-ui'
-import mapboxgl from 'mapbox-gl'
+import { useEffect } from 'react'
+import { useThemeUI } from 'theme-ui'
+import { Map, useMapbox } from '@carbonplan/maps'
 import style from './style'
 
-mapboxgl.accessToken = ''
-
-const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
-  const container = useRef(null)
-
+const MapListener = ({ locations, tiles, setMap, setBounds }) => {
+  const { map } = useMapbox()
   const {
     theme: { rawColors: colors },
   } = useThemeUI()
 
   useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: container.current,
-      style: style(locations, tiles, colors),
-      center: [-122.99922013524304, 40.02328448336925],
-      zoom: 6.79,
-      minZoom: 3,
-      maxZoom: 13,
-    })
-
-    map.on('load', () => {
-      setMap(map)
-      setBounds(map.getBounds())
-    })
+    setMap(map)
+    setBounds(map.getBounds())
+    map.setStyle(style(locations, tiles, colors))
 
     map.on('moveend', () => {
       setBounds(map.getBounds())
@@ -33,21 +20,26 @@ const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
 
     return function cleanup() {
       setMap(null)
-      map.remove()
     }
   }, [])
+}
 
+const Mapbox = ({ locations, tiles, map, setMap, setBounds }) => {
   return (
-    <Box
-      ref={container}
-      sx={{
-        flexBasis: '100%',
-        'canvas.mapboxgl-canvas:focus': {
-          outline: 'none',
-        },
-      }}
-    />
+    <Map
+      zoom={6.79}
+      minZoom={3}
+      maxZoom={13}
+      center={[-122.99922013524304, 40.02328448336925]}
+    >
+      <MapListener
+        locations={locations}
+        tiles={tiles}
+        setMap={setMap}
+        setBounds={setBounds}
+      />
+    </Map>
   )
 }
 
-export default memo(Mapbox)
+export default Mapbox

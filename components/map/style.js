@@ -36,7 +36,7 @@ const style = (locations, tiles, colors) => {
         id: 'background',
         type: 'background',
         paint: {
-          'background-color': 'black',
+          'background-color': muted,
           'background-opacity': 0,
         },
       },
@@ -48,8 +48,8 @@ const style = (locations, tiles, colors) => {
         layout: { visibility: 'visible' },
         paint: {
           'fill-antialias': false,
-          'fill-opacity': 0,
-          'fill-color': 'black',
+          'fill-opacity': 0.2,
+          'fill-color': background,
         },
       },
       {
@@ -60,7 +60,7 @@ const style = (locations, tiles, colors) => {
         layout: { visibility: 'visible' },
         paint: {
           'fill-antialias': false,
-          'fill-opacity': 0,
+          'fill-opacity': 0.2,
           'fill-color': muted,
         },
       },
@@ -77,7 +77,7 @@ const style = (locations, tiles, colors) => {
         paint: {
           'line-blur': 0.4,
           'line-color': primary,
-          'line-opacity': 0,
+          'line-opacity': 1,
           'line-width': 0.8,
         },
       },
@@ -94,24 +94,7 @@ const style = (locations, tiles, colors) => {
         paint: {
           'line-blur': 0.4,
           'line-color': primary,
-          'line-opacity': 0,
-          'line-width': 0.8,
-        },
-      },
-      {
-        id: 'roads',
-        type: 'line',
-        source: 'basemap',
-        'source-layer': 'ne_10m_roads',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round',
-          visibility: 'visible',
-        },
-        paint: {
-          'line-blur': 0.4,
-          'line-color': primary,
-          'line-opacity': 0,
+          'line-opacity': 0.7,
           'line-width': 0.8,
         },
       },
@@ -122,8 +105,8 @@ const style = (locations, tiles, colors) => {
         'source-layer': 'ne_10m_populated_places',
         minzoom: 6,
         paint: {
-          'circle-color': 'white',
-          'circle-opacity': 0,
+          'circle-color': primary,
+          'circle-opacity': 0.3,
           'circle-radius': 4,
         },
       },
@@ -134,8 +117,8 @@ const style = (locations, tiles, colors) => {
         'source-layer': 'ne_10m_populated_places',
         minzoom: 6,
         paint: {
-          'text-color': 'white',
-          'text-opacity': 0,
+          'text-color': primary,
+          'text-opacity': 0.3,
           'text-translate': [0, -20],
         },
         layout: {
@@ -154,8 +137,8 @@ const style = (locations, tiles, colors) => {
         },
         paint: {
           'fill-antialias': false,
-          'fill-opacity': 0,
-          'fill-color': green,
+          'fill-opacity': 0.5,
+          'fill-color': tiles.fires ? primary : green,
         },
       },
       {
@@ -171,7 +154,7 @@ const style = (locations, tiles, colors) => {
         paint: {
           'line-blur': 0.4,
           'line-color': background,
-          'line-opacity': 0,
+          'line-opacity': 1,
           'line-width': 1,
         },
       },
@@ -191,7 +174,7 @@ const style = (locations, tiles, colors) => {
         paint: {
           'line-blur': 0.4,
           'line-color': primary,
-          'line-opacity': 0,
+          'line-opacity': 0.2,
           'line-width': 0.8,
         },
       },
@@ -201,8 +184,8 @@ const style = (locations, tiles, colors) => {
         source: 'projectLocations',
         maxzoom: 8,
         paint: {
-          'circle-color': mix(0.6, green, background),
-          'circle-opacity': 0,
+          'circle-color': mix(0.5, tiles.fires ? primary : green, background),
+          'circle-opacity': 1,
           'circle-radius': 5,
         },
       },
@@ -226,8 +209,8 @@ const style = (locations, tiles, colors) => {
       },
       paint: {
         'fill-antialias': false,
-        'fill-opacity': 0,
-        'fill-color': green,
+        'fill-opacity': 0.7,
+        'fill-color': red,
       },
     })
   }
@@ -285,7 +268,7 @@ const style = (locations, tiles, colors) => {
       source: 'fireLocations',
       paint: {
         'text-color': red,
-        'text-opacity': 0,
+        'text-opacity': 1,
         'text-halo-color': background,
         'text-halo-width': 2,
         'text-halo-blur': 0.5,
@@ -305,8 +288,8 @@ const style = (locations, tiles, colors) => {
     type: 'symbol',
     source: 'projectLocations',
     paint: {
-      'text-color': green,
-      'text-opacity': 0,
+      'text-color': tiles.fires ? primary : green,
+      'text-opacity': 1,
       'text-halo-color': background,
       'text-halo-width': 2,
       'text-halo-blur': 0.5,
