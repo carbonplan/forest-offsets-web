@@ -74,6 +74,7 @@ const Index = ({ fireData, createdAt }) => {
   const tiles = {
     projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/projects/{z}/{x}/{y}.pbf`,
     fires: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-nifc-perimeters/{z}/{x}/{y}.pbf`,
+    hotspots: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-pixels/{z}/{x}/{y}.pbf`,
   }
 
   return (
