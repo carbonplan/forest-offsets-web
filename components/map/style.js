@@ -262,9 +262,9 @@ const style = (locations, tiles, colors) => {
           20,
         ],
         'circle-opacity': [
-          '/',
-          ['number', ['min', ['max', ['get', 'frp'], 0], 150]],
-          150,
+          'max',
+          ['min', ['/', ['+', ['get', 'frp'], 25], 175], 1],
+          0,
         ],
       },
     })
