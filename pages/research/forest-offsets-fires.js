@@ -58,23 +58,6 @@ const Index = ({ fireData, createdAt }) => {
 
   const locations = { fires: fireLocations, projects: projectLocations }
 
-  const merged = projects.map((d) => {
-    const subset = fireData.filter((e) => d.id === e.opr_id)
-    const el = subset.length > 0 ? subset[0] : null
-    if (el) {
-      d.fire = {
-        overlappingFires: Object.entries(el.fires).map(
-          ([id, { name, url: href }]) => {
-            return { name, href }
-          }
-        ),
-        burnedFraction: el.burned_fraction,
-        lastUpdated: createdAt,
-      }
-    }
-    return d
-  })
-
   const index = useBreakpointIndex()
 
   return (
