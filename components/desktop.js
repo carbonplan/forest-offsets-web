@@ -7,6 +7,7 @@ import Loading from './loading'
 const Desktop = ({ data, locations, tiles, showFires, archive }) => {
   const [map, setMap] = useState(null)
   const [bounds, setBounds] = useState(null)
+  const [showHotspots, setShowHotspots] = useState(showFires && !archive)
 
   return (
     <Flex
@@ -28,6 +29,8 @@ const Desktop = ({ data, locations, tiles, showFires, archive }) => {
         bounds={bounds}
         showFires={showFires}
         archive={archive}
+        showHotspots={showHotspots}
+        setShowHotspots={setShowHotspots}
       />
       <Mapbox
         locations={locations}
@@ -35,6 +38,9 @@ const Desktop = ({ data, locations, tiles, showFires, archive }) => {
         map={map}
         setMap={setMap}
         setBounds={setBounds}
+        showFires={showFires}
+        archive={archive}
+        showHotspots={showHotspots}
       />
       <Loading map={map} />
     </Flex>

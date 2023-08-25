@@ -11,6 +11,8 @@ const Viewer = ({
   bounds,
   showFires,
   archive = false,
+  showHotspots,
+  setShowHotspots,
 }) => {
   const [selected, setSelected] = useState(null)
   const [zoomTo, setZoomTo] = useState(null)
@@ -144,9 +146,18 @@ const Viewer = ({
         showFires={showFires}
         showMethods={showMethods}
         setShowMethods={setShowMethods}
+        showHotspots={showHotspots}
+        setShowHotspots={setShowHotspots}
         archive={archive}
       />
-      {map && <Enhancers map={map} selected={selected} showFires={showFires} />}
+      {map && (
+        <Enhancers
+          map={map}
+          selected={selected}
+          showFires={showFires}
+          showHotspots={showHotspots}
+        />
+      )}
       <Minimap
         map={map}
         locations={locations.projects.features}

@@ -7,12 +7,22 @@ const Filter = ({
   setFilters,
   count,
   total,
-  setShowFires,
   showFires,
+  archive,
+  showHotspots,
+  setShowHotspots,
 }) => {
   const [value, setValue] = useState('')
   const [hasFocus, setFocus] = useState(false)
   const inputRef = useRef(null)
+
+  const hotspotsToggle = showFires && !archive
+  let toggleColor = 'green'
+  if (hotspotsToggle) {
+    toggleColor = 'orange'
+  } else if (showFires) {
+    toggleColor = 'primary'
+  }
 
   useEffect(() => {
     function handler(event) {
@@ -109,13 +119,17 @@ const Filter = ({
               mt: [2],
             }}
           >
-            UPDATE W/ MAP
+            {hotspotsToggle ? 'SHOW THERMAL HOTSPOTS' : 'UPDATE W/ MAP'}
           </Box>
           <Toggle
-            onClick={() => toggle('updateWithMap')}
-            value={filters.updateWithMap}
+            onClick={() =>
+              hotspotsToggle
+                ? setShowHotspots(!showHotspots)
+                : toggle('updateWithMap')
+            }
+            value={hotspotsToggle ? showHotspots : filters.updateWithMap}
             sx={{
-              color: showFires ? 'primary' : 'green',
+              color: toggleColor,
               position: 'relative',
               top: '5px',
             }}
