@@ -250,6 +250,17 @@ const style = (locations, tiles, colors) => {
       },
       paint: {
         'circle-color': orange,
+        'circle-radius': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          // zoom is 9 (or less) -> circle radius will be 5px
+          9,
+          5,
+          // // zoom is 13 (or greater) -> circle radius will be 20px
+          13,
+          20,
+        ],
         'circle-opacity': [
           '/',
           ['number', ['min', ['max', ['get', 'frp'], 0], 150]],
