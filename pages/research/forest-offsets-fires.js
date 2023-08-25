@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useState } from 'react'
 import { useBreakpointIndex } from '@theme-ui/match-media'
 import { Box } from 'theme-ui'
 import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
@@ -13,51 +13,67 @@ const tiles = {
 }
 
 const Index = ({ fireData, createdAt }) => {
-  const locations = useMemo(() => {
-    let uniqueOverlapping = []
-    fireData.forEach((d) => {
-      Object.keys(d.fires).forEach((f) => {
-        const obj = d.fires[f]
-        obj.id = f
-        uniqueOverlapping.push(obj)
-      })
+  let uniqueOverlapping = []
+  fireData.forEach((d) => {
+    Object.keys(d.fires).forEach((f) => {
+      const obj = d.fires[f]
+      obj.id = f
+      uniqueOverlapping.push(obj)
     })
+  })
 
-    const projectLocations = {
-      type: 'FeatureCollection',
-      features: projects.map((d) => {
-        return {
-          type: 'Feature',
-          properties: {
-            id: d.id,
-            fire: Object.keys(fireData).includes(d.id),
-          },
-          geometry: {
-            type: 'Point',
-            coordinates: d.shape_centroid,
-          },
-        }
-      }),
-    }
+  const projectLocations = {
+    type: 'FeatureCollection',
+    features: projects.map((d) => {
+      return {
+        type: 'Feature',
+        properties: {
+          id: d.id,
+          fire: Object.keys(fireData).includes(d.id),
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: d.shape_centroid,
+        },
+      }
+    }),
+  }
 
-    const fireLocations = {
-      type: 'FeatureCollection',
-      features: uniqueOverlapping.map((d) => {
-        return {
-          type: 'Feature',
-          properties: {
-            id: d.id,
-            name: d.name,
-          },
-          geometry: {
-            type: 'Point',
-            coordinates: [d.centroid[0], d.centroid[1]],
-          },
-        }
-      }),
+  const fireLocations = {
+    type: 'FeatureCollection',
+    features: uniqueOverlapping.map((d) => {
+      return {
+        type: 'Feature',
+        properties: {
+          id: d.id,
+          name: d.name,
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: [d.centroid[0], d.centroid[1]],
+        },
+      }
+    }),
+  }
+
+  const locations = { fires: fireLocations, projects: projectLocations }
+
+  const merged = projects.map((d) => {
+    const subset = fireData.filter((e) => d.id === e.opr_id)
+    const el = subset.length > 0 ? subset[0] : null
+    if (el) {
+      d.fire = {
+        overlappingFires: Object.entries(el.fires).map(
+          ([id, { name, url: href }]) => {
+            return { name, href }
+          }
+        ),
+        burnedFraction: el.burned_fraction,
+        lastUpdated: createdAt,
+      }
     }
-    return { fires: fireLocations, projects: projectLocations }
-  }, [fireData])
+    return d
+  })
 
   const index = useBreakpointIndex()
 
