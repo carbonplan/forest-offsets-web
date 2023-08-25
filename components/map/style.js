@@ -254,6 +254,9 @@ const style = (locations, tiles, colors) => {
           'interpolate',
           ['linear'],
           ['zoom'],
+          // zoom is 3 (or less) -> circle radius will be 0.5px
+          3,
+          0.5,
           // zoom is 9 (or less) -> circle radius will be 5px
           9,
           5,
