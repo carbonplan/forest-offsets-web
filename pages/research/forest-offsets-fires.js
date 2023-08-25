@@ -6,6 +6,12 @@ import Desktop from '../../components/desktop'
 import Mobile from '../../components/mobile'
 import projects from '../../data/projects-fires'
 
+const tiles = {
+  projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/projects/{z}/{x}/{y}.pbf`,
+  fires: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-nifc-perimeters/{z}/{x}/{y}.pbf`,
+  hotspots: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-pixels/{z}/{x}/{y}.pbf`,
+}
+
 const Index = ({ fireData, createdAt }) => {
   let uniqueOverlapping = []
   fireData.forEach((d) => {
@@ -52,30 +58,7 @@ const Index = ({ fireData, createdAt }) => {
 
   const locations = { fires: fireLocations, projects: projectLocations }
 
-  const merged = projects.map((d) => {
-    const subset = fireData.filter((e) => d.id === e.opr_id)
-    const el = subset.length > 0 ? subset[0] : null
-    if (el) {
-      d.fire = {
-        overlappingFires: Object.entries(el.fires).map(
-          ([id, { name, url: href }]) => {
-            return { name, href }
-          }
-        ),
-        burnedFraction: el.burned_fraction,
-        lastUpdated: createdAt,
-      }
-    }
-    return d
-  })
-
   const index = useBreakpointIndex()
-
-  const tiles = {
-    projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/projects/{z}/{x}/{y}.pbf`,
-    fires: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-nifc-perimeters/{z}/{x}/{y}.pbf`,
-    hotspots: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-pixels/{z}/{x}/{y}.pbf`,
-  }
 
   return (
     <>
