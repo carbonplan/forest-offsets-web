@@ -10,10 +10,12 @@ This site relies primarily on two datasets: the perimeters of projects enrolled 
 
 Project perimeters come directly from the California Air Resources Board (CARB), which implements California’s cap-and-trade program. Specifically, CARB maintains an [ArcGIS dataset](https://webmaps.arb.ca.gov/ARBOCIssuanceMap/) of all currently enrolled offset projects. For each project, we calculate project area directly from the raw geometry. We also report information about the total number of offset credits awarded to each project, which we take from [CARB’s official issuance table](https://ww2.arb.ca.gov/our-work/programs/compliance-offset-program/arb-offset-credit-issuance). For display purposes in the web map, we apply minor buffering and simplification steps to the raw geometries before rendering. Finally, we exclude all Early Action projects from our monitoring.
 
-Fire perimeters come from the National Interagency Fire Center (NIFC), an umbrella organization responsible for coordinating federal wildfire management. NIFC maintains several geographic datasets, including an authoritative version of [all wildland fire perimeters](https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-current-wildland-fire-perimeters/about) from the 2023 fire season.
+Fire perimeters come from the National Interagency Fire Center (NIFC), an umbrella organization responsible for coordinating federal wildfire management. NIFC maintains several geographic datasets, including an authoritative version of [all wildland fire perimeters](https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-current-interagency-fire-perimeters/about) from the 2023 fire season.
 
-We calculate burned area by intersecting these two datasets, using the raw geometries provided by CARB, rather than the simplified versions, for these calculations
+We calculate burned area by intersecting these two datasets, using the raw geometries provided by CARB, rather than the simplified versions, for these calculations.
 
-We run our analysis pipeline every four hours to ensure we display the most up-to-date information.
+Thermal anomalies come from the [Fire Information for Resource Management System](https://firms.modaps.eosdis.nasa.gov/) (FIRMS), which distributes Near Real-Time active fire data from multiple satellites. We show data from the Visible Infrared Imaging Radiometer Suite (VIIRS) aboard Suomi-NPP and NOAA-20 along with MODIS for the prior 3 days, filtered to exclude low confidence fire values ('l' or \<35).
+
+We run our analysis pipeline every six hours to ensure we display the most up-to-date information.
 
 export default ({ children }) => <Box>{children}</Box>

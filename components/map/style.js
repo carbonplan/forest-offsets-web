@@ -1,7 +1,7 @@
 import { mix } from 'polished'
 
 const style = (locations, tiles, colors) => {
-  const { green, red, muted, secondary, background, primary } = colors
+  const { green, red, muted, orange, background, primary } = colors
 
   const obj = {
     version: 8,
@@ -211,6 +211,47 @@ const style = (locations, tiles, colors) => {
         'fill-antialias': false,
         'fill-opacity': 0.7,
         'fill-color': red,
+      },
+    })
+  }
+
+  if (tiles.hotspots) {
+    obj.sources.hotspots = {
+      type: 'vector',
+      tiles: [tiles.hotspots],
+      maxzoom: 9,
+    }
+
+    obj.layers.push({
+      id: 'hotspots',
+      type: 'circle',
+      source: 'hotspots',
+      'source-layer': 'firms',
+      layout: {
+        visibility: 'visible',
+        'circle-sort-key': ['get', 'population'],
+      },
+      paint: {
+        'circle-color': orange,
+        'circle-radius': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          // zoom is 3 (or less) -> circle radius will be 0.5px
+          3,
+          0.5,
+          // zoom is 9 (or less) -> circle radius will be 5px
+          9,
+          5,
+          // // zoom is 13 (or greater) -> circle radius will be 20px
+          13,
+          20,
+        ],
+        'circle-opacity': [
+          'max',
+          ['min', ['/', ['+', ['get', 'frp'], 25], 175], 1],
+          0,
+        ],
       },
     })
   }

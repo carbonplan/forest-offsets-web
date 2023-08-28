@@ -19,6 +19,7 @@ const Mobile = ({ data, locations, tiles, showFires, archive }) => {
   const [zoomToBox, setZoomToBox] = useState(null)
   const [zoomInitialized, setZoomInitialized] = useState(false)
   const [section, setSection] = useState('map')
+  const [showHotspots, setShowHotspots] = useState(showFires && !archive)
 
   const router = useRouter()
 
@@ -95,10 +96,19 @@ const Mobile = ({ data, locations, tiles, showFires, archive }) => {
           map={map}
           setMap={setMap}
           setBounds={() => {}}
+          showFires={showFires}
+          archive={archive}
         />
       </Box>
 
-      {map && <Enhancers map={map} selected={null} showFires={showFires} />}
+      {map && (
+        <Enhancers
+          map={map}
+          selected={null}
+          showFires={showFires}
+          showHotspots={showHotspots}
+        />
+      )}
       {section === 'projects' && (
         <>
           <FadeIn>
