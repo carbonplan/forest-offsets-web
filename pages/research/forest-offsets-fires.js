@@ -9,7 +9,7 @@ import projects from '../../data/projects-fires'
 const tiles = {
   projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/projects/{z}/{x}/{y}.pbf`,
   fires: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-nifc-perimeters/{z}/{x}/{y}.pbf`,
-  hotspots: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-pixels/{z}/{x}/{y}.pbf`,
+  hotspots: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/current-firms-pixels-viirs-modis-1day/{z}/{x}/{y}.pbf`,
 }
 
 const Index = ({ fireData, createdAt }) => {

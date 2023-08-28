@@ -14,7 +14,7 @@ Fire perimeters come from the National Interagency Fire Center (NIFC), an umbrel
 
 We calculate burned area by intersecting these two datasets, using the raw geometries provided by CARB, rather than the simplified versions, for these calculations.
 
-Thermal anomalies come from the [Fire Information for Resource Management System](https://firms.modaps.eosdis.nasa.gov/) (FIRMS), which distributes Near Real-Time active fire data from multiple satellites. We show data from the Visible Infrared Imaging Radiometer Suite (VIIRS) aboard S-NNP, filtered to exclude low confidence fire values.
+Thermal anomalies come from the [Fire Information for Resource Management System](https://firms.modaps.eosdis.nasa.gov/) (FIRMS), which distributes Near Real-Time active fire data from multiple satellites. We show data from the Visible Infrared Imaging Radiometer Suite (VIIRS) aboard Suomi-NPP and NOAA-20 along with MODIS, filtered to exclude low confidence fire values ('l' or \<35).
 
 We run our analysis pipeline every six hours to ensure we display the most up-to-date information.
 
