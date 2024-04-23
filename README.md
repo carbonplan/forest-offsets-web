@@ -7,7 +7,6 @@
 </a>
 </p>
 
-
 # carbonplan / forest-offsets-web
 
 **dashboard for retrospective analysis of offset projects**
