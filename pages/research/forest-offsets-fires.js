@@ -123,7 +123,7 @@ const Index = ({ fireData, createdAt }) => {
 
 export async function getServerSideProps() {
   const prefix =
-    'https://storage.googleapis.com/carbonplan-forest-offsets/fires/project_fires'
+    'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/fires/project_fires'
   try {
     const res = await fetch(`${prefix}/state_now.json?ignoreCache=1`)
     const data = await res.json()
