@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { useBreakpointIndex } from '@theme-ui/match-media'
 import { Box } from 'theme-ui'
-import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
+import { Layout, Guide, Dimmer } from '@carbonplan/components'
 import Desktop from '../../components/desktop'
 import Mobile from '../../components/mobile'
 import projects from '../../data/projects-fires'
@@ -29,7 +28,7 @@ const Index = ({ fireData, createdAt }) => {
         type: 'Feature',
         properties: {
           id: d.id,
-          fire: Object.keys(fireData).includes(d.id),
+          fire: fireData.find((f) => f.opr_id === d.id),
         },
         geometry: {
           type: 'Point',
@@ -58,6 +57,22 @@ const Index = ({ fireData, createdAt }) => {
 
   const locations = { fires: fireLocations, projects: projectLocations }
 
+  const merged = projects.map((project) => {
+    let fire
+    const el = fireData.find((f) => f.opr_id === project.id)
+    if (el && Object.keys(el.fires).length > 0) {
+      fire = {
+        overlappingFires: Object.keys(el.fires).map((id) => {
+          if (el.fires[id])
+            return { name: el.fires[id].name, href: el.fires[id].url }
+        }),
+        burnedFraction: el.burned_fraction,
+        lastUpdated: createdAt,
+      }
+    }
+    return { ...project, fire }
+  })
+
   const index = useBreakpointIndex()
 
   return (
@@ -76,7 +91,7 @@ const Index = ({ fireData, createdAt }) => {
           metadata={false}
         >
           <Desktop
-            data={projects}
+            data={merged}
             locations={locations}
             tiles={tiles}
             showFires={true}
@@ -109,7 +124,7 @@ const Index = ({ fireData, createdAt }) => {
           >
             <Guide />
             <Mobile
-              data={projects}
+              data={merged}
               locations={locations}
               tiles={tiles}
               showFires={true}
@@ -123,7 +138,7 @@ const Index = ({ fireData, createdAt }) => {
 
 export async function getServerSideProps() {
   const prefix =
-    'https://storage.googleapis.com/carbonplan-forest-offsets/fires/project_fires'
+    'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/fires/project_fires'
   try {
     const res = await fetch(`${prefix}/state_now.json?ignoreCache=1`)
     const data = await res.json()
