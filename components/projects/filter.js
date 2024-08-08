@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, useContext } from 'react'
-import { Box, Text, Flex, Grid, Input } from 'theme-ui'
-import { Row, Column, Badge, Toggle } from '@carbonplan/components'
+import { useState, useRef, useEffect, useCallback } from 'react'
+import { Box, Flex, Input } from 'theme-ui'
+import { Badge, Toggle } from '@carbonplan/components'
 
 const Filter = ({
   filters,
@@ -48,6 +48,10 @@ const Filter = ({
       return { ...filters, search: value }
     })
   }
+
+  const handleToggle = useCallback(() => {
+    hotspotsToggle ? setShowHotspots(!showHotspots) : toggle('updateWithMap')
+  }, [hotspotsToggle, toggle, setShowHotspots, showHotspots])
 
   return (
     <Box sx={{ pl: [3, 4, 5, 6], pr: [3, 5, 5, 6], py: [4], mb: [1] }}>
@@ -105,7 +109,7 @@ const Filter = ({
       >
         <Flex sx={{ mt: [2], minWidth: '200px' }}>
           <Box
-            onClick={() => toggle('updateWithMap')}
+            onClick={handleToggle}
             sx={{
               fontFamily: 'mono',
               letterSpacing: 'mono',
@@ -122,11 +126,7 @@ const Filter = ({
             {hotspotsToggle ? 'SHOW THERMAL HOTSPOTS' : 'UPDATE W/ MAP'}
           </Box>
           <Toggle
-            onClick={() =>
-              hotspotsToggle
-                ? setShowHotspots(!showHotspots)
-                : toggle('updateWithMap')
-            }
+            onClick={handleToggle}
             value={hotspotsToggle ? showHotspots : filters.updateWithMap}
             sx={{
               color: toggleColor,
