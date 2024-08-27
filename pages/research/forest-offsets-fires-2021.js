@@ -73,7 +73,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
   const index = useBreakpointIndex()
 
   const tiles = {
-    projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/projects/{z}/{x}/{y}.pbf`,
+    projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/archive/2021/projects/{z}/{x}/{y}.pbf`,
     fires: `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/fires/{z}/{x}/{y}.pbf`,
   }
 
