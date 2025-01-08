@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { useBreakpointIndex } from '@theme-ui/match-media'
 import { Box } from 'theme-ui'
-import { Layout, Guide, Dimmer, Tray } from '@carbonplan/components'
+import { Layout, Guide, Dimmer } from '@carbonplan/components'
 import Desktop from '../../components/desktop'
 import Mobile from '../../components/mobile'
 import projects from '../../data/projects-crediting'
@@ -97,7 +96,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
             locations={locations}
             tiles={tiles}
             showFires={true}
-            archive={2021}
+            archive={2024}
           />
           <Box
             sx={{
@@ -131,7 +130,7 @@ const Index = ({ fireMetadata, fireProjects }) => {
               locations={locations}
               tiles={tiles}
               showFires={true}
-              archive={2021}
+              archive={2024}
             />
           </Layout>
         </Box>
