@@ -136,7 +136,7 @@ const Mobile = ({ data, locations, tiles, showFires, archive }) => {
       )}
       {section === 'methods' && (
         <FadeIn>
-          {showFires && archive && <ArchiveMethodsContent />}
+          {showFires && archive && <ArchiveMethodsContent archive={archive} />}
           {showFires && !archive && <FireMethodsContent />}
           {!showFires && <CreditingMethodsContent />}
         </FadeIn>

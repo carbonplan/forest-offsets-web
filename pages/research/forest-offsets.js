@@ -32,7 +32,7 @@ const Index = () => {
           <Box sx={{ mt: [1, 2, 3, 4], mb: [5, 6, 7, 8] }}>
             A public monitor of forest fires affecting improved forest
             management carbon offset projects in California's cap-and-trade
-            program, live updating for the 2024 fire season.
+            program, live updating for the 2025 fire season.
           </Box>
         </Column>
         <Column start={[1, 1, 7, 7]} width={[6, 8, 4, 4]}>

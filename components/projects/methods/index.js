@@ -59,7 +59,7 @@ function Methods({ showMethods, toggleMethods, showFires, archive }) {
             pb: [3, 3, 3, 4],
           }}
         >
-          {showFires && archive && <ArchiveMethodsContent />}
+          {showFires && archive && <ArchiveMethodsContent archive={archive} />}
           {showFires && !archive && <FireMethodsContent />}
           {!showFires && <CreditingMethodsContent />}
         </Box>
