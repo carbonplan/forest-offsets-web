@@ -28,7 +28,7 @@ For the initial reporting period, we recorded onsite carbon stocks (IFM-1 and IF
 
 ## Data access
 
-The primary project data rendered on this website is available in [CSV](https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv) and [JSON](https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json) formats. The shapefiles rendered in the map can be accessed at <span style={{overflowWrap: 'break-word', textDecoration: 'underline'}}>carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/projects/\{id\}/shape.json</span> where \{id\} is the ID of the project. Additional details on the construction of these datasets and our analyses of them are available in our [article](https://carbonplan.org/research/forest-offsets-explainer).
+The primary project data rendered on this website is available in [CSV](https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/forest-offsets-database-v1.0.csv) and [JSON](https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/forest-offsets-database-v1.0.json) formats. The shapefiles rendered in the map can be accessed at <span style={{overflowWrap: 'break-word', textDecoration: 'underline'}}>carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/projects/\{id\}/shape.json</span> where \{id\} is the ID of the project. Additional details on the construction of these datasets and our analyses of them are available in our [article](https://carbonplan.org/research/forest-offsets-explainer).
 
 ## Acknowledgements
 
