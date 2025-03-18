@@ -26,7 +26,7 @@ const Index = () => {
   const locations = { projects: projectLocations }
 
   const tiles = {
-    projects: `https://carbonplan.blob.core.windows.net/carbonplan-retro/tiles/projects/{z}/{x}/{y}.pbf`,
+    projects: `https://carbonplan-retro.s3.us-west-2.amazonaws.com/tiles/projects/{z}/{x}/{y}.pbf`,
   }
 
   const index = useBreakpointIndex()
