@@ -9,7 +9,7 @@ import fsspec
 
 def get_projects(tempdir):
     with fsspec.open(
-        "https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json"
+        "https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/forest-offsets-database-v1.0.json"
     ) as f:
         projects = json.load(f)
 
@@ -21,10 +21,9 @@ def get_projects(tempdir):
         path = os.path.join(tempdir, f"raw/{slug}")
         print(path, "path")
         fs.download(
-            f"https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/{slug}",
+            f"https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/{slug}",
             path,
         )
-
 
 def get_ecoregions(tempdir):
     fs = fsspec.get_filesystem_class("http")()
