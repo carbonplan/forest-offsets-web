@@ -56,11 +56,11 @@ const About = ({ showFires, archive }) => {
           article
         </Link>{' '}
         or download the data as{' '}
-        <Link href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.csv'>
+        <Link href='https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/forest-offsets-database-v1.0.csv'>
           CSV
         </Link>{' '}
         or{' '}
-        <Link href='https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json'>
+        <Link href='https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/forest-offsets-database-v1.0.json'>
           JSON
         </Link>
         {'. '} Also see our separate live monitoring of{' '}
