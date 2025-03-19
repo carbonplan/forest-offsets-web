@@ -106,7 +106,7 @@ def get_nifs_fires():
 @retry(stop=stop_after_attempt(5))
 def get_projects_db():
     with fsspec.open(
-        "https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json"
+        "https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/forest-offsets-database-v1.0.json"
     ) as f:
         projects = json.load(f)
     return projects
@@ -115,11 +115,11 @@ def get_projects_db():
 @retry(stop=stop_after_attempt(5))
 def get_project_shape(pid):
     project_shape = geopandas.read_file(
-        f"https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/projects/{pid}/shape.json"
+        f"https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/projects/{pid}/shape.json"
     ).to_crs(CRS)
     return project_shape
 
-
+forest-offsets-database-v1.0.json
 def calc_burned_frac(project_shape, fires):
 
     project_area = project_shape.area.sum()
