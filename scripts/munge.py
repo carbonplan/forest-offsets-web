@@ -8,13 +8,13 @@ from geopy.geocoders import Nominatim
 geolocator = Nominatim(user_agent="geoapiExercises")
 
 with fsspec.open(
-    "https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/database/forest-offsets-database-v1.0.json",
+    "https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/database/forest-offsets-database-v1.0.json",
     "r",
 ) as f:
     data = json.load(f)
 
 with fsspec.open(
-    "https://carbonplan.blob.core.windows.net/carbonplan-forests/offsets/archive/results/reclassification-crediting-error.json",
+    "https://carbonplan-forests.s3.us-west-2.amazonaws.com/offsets/archive/results/reclassification-crediting-error.json",
     "r",
 ) as f:
     overcrediting = json.load(f)
