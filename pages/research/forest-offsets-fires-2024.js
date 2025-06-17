@@ -72,8 +72,8 @@ const Index = ({ fireMetadata, fireProjects }) => {
   const index = useBreakpointIndex()
 
   const tiles = {
-    projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/tiles/archive/2021/projects/{z}/{x}/{y}.pbf`,
-    fires: `https://storage.googleapis.com/carbonplan-research/offset-fires/tiles/fires/fires/{z}/{x}/{y}.pbf`,
+    projects: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/archive/2024/tiles/projects/{z}/{x}/{y}.pbf`,
+    fires: `https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/archive/2024/tiles/fires/{z}/{x}/{y}.pbf`,
   }
 
   return (
@@ -141,9 +141,9 @@ const Index = ({ fireMetadata, fireProjects }) => {
 
 export async function getServerSideProps() {
   const prefix =
-    'https://storage.googleapis.com/carbonplan-research/offset-fires'
+    'https://carbonplan-forest-offsets.s3.us-west-1.amazonaws.com/web/archive/2024'
   try {
-    const res = await fetch(`${prefix}/fire_meta_combined.json`)
+    const res = await fetch(`${prefix}/project_fire_metadata.json`)
     const data = await res.json()
     const fireMetadata = data.fire_meta
     const fireProjects = data.projects_with_fires
