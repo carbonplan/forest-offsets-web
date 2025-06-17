@@ -3,7 +3,7 @@ import { Box } from 'theme-ui'
 import { Layout, Guide, Dimmer } from '@carbonplan/components'
 import Desktop from '../../components/desktop'
 import Mobile from '../../components/mobile'
-import projects from '../../data/projects-crediting'
+import projects from '../../data/projects-fires-2024'
 
 const Index = ({ fireMetadata, fireProjects }) => {
   const { fires } = fireMetadata
